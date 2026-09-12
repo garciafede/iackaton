@@ -1,0 +1,548 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2643]:
+    - group "Sección fila" [ref=e2644]:
+      - link [ref=e2648] [cursor=pointer]:
+        - /url: /62822?map=productClusterIds
+        - img "Precios sin Letra Chica" [ref=e2649]
+    - group "Sección fila"
+    - group "Sección fila" [ref=e2650]:
+      - group "Sección fila" [ref=e2654]:
+        - generic [ref=e2655]:
+          - paragraph [ref=e2659]: ¡Envío en el día!
+          - paragraph [ref=e2663]: Comprá
+          - paragraph [ref=e2667]:
+            - text: Retirá o recibí tu pedido en el día!
+            - generic: (*Sujeto a disponibilidad)
+    - generic [ref=e2671]:
+      - group "Sección fila" [ref=e2672]:
+        - group "Sección fila" [ref=e2676]:
+          - generic [ref=e2677]:
+            - link [ref=e2678] [cursor=pointer]:
+              - /url: /
+              - img "Vea" [ref=e2680]
+            - group "Sección fila" [ref=e2682]:
+              - generic [ref=e2683]:
+                - generic:
+                  - button "Modal abierto"
+                - button "Modal abierto" [ref=e2685]:
+                  - link "Seleccioná el método de entrega" [ref=e2686] [cursor=pointer]:
+                    - /url: "#"
+            - paragraph [ref=e2687]:
+              - link "Código de ética" [ref=e2688] [cursor=pointer]:
+              - /url: [enlace público con parámetros omitido]
+            - paragraph [ref=e2692]:
+              - link "0810-999-9832" [ref=e2693] [cursor=pointer]:
+                - /url: tel:08109999832
+      - group "Sección fila" [ref=e2694]:
+        - generic [ref=e2696]:
+          - listitem [ref=e2698]:
+            - navigation [ref=e2699]:
+              - list [ref=e2700]:
+                - listitem [ref=e2701]:
+                  - generic [ref=e2702]: Categorías
+          - combobox [ref=e2707]:
+            - generic [ref=e2712]:
+              - textbox "¡Hola! ¿Qué estás buscando? Buscar Productos" [ref=e2713]:
+                - /placeholder: ¡Hola! ¿Qué estás buscando?
+                - text: coca zero
+              - button "Buscar Productos" [ref=e2716]
+          - paragraph [ref=e2723]:
+            - generic [ref=e2724] [cursor=pointer]: Buscar por Lista
+          - button "Mi Cuenta" [ref=e2728]
+          - complementary [ref=e2739]:
+            - button [ref=e2742]:
+              - generic [ref=e2743]:
+                - generic [ref=e2744]: "0"
+                - text: Mi Carrito
+    - button "Modal abierto"
+    - button "Modal abierto"
+    - generic [ref=e2747]:
+      - generic [ref=e2751]:
+        - group "Sección fila" [ref=e2752]:
+          - generic [ref=e2755]:
+            - link "Link a la página de inicio" [ref=e2756] [cursor=pointer]:
+              - /url: /
+              - text: Home
+            - link "coca zero" [ref=e2760] [cursor=pointer]:
+              - /url: /coca zero?map=ft
+        - group "Sección fila"
+        - text: Mis Filtros
+        - group "Sección fila" [ref=e2762]:
+          - generic [ref=e2764]:
+            - group "Sección fila" [ref=e2768]:
+              - generic [ref=e2769]:
+                - heading "coca zero" [level=1] [ref=e2773]
+                - generic [ref=e2774]: 8 productos
+            - group "Sección fila" [ref=e2782]:
+              - generic [ref=e2783]:
+                - group "Sección fila" [ref=e2787]:
+                  - 'button "Ordenar por: Relevancia" [ref=e2795]':
+                    - generic [ref=e2796]:
+                      - generic [ref=e2797]: "Ordenar por:"
+                      - text: Relevancia
+                - radiogroup "Search result layout" [ref=e2802]:
+                  - text: "Ver en:"
+                  - radio "Switch to list layout" [ref=e2803]
+                  - radio "Switch to grid layout" [checked] [ref=e2805]
+        - group "Sección fila" [ref=e2807]:
+          - group "Sección fila" [ref=e2811]:
+            - generic [ref=e2812]:
+              - generic [ref=e2817]:
+                - generic [ref=e2818]: Mis Filtros
+                - generic [ref=e2819]:
+                  - button "Departamento" [ref=e2821]
+                  - generic "Bebidas" [ref=e2830]:
+                    - generic [ref=e2831]:
+                      - checkbox [ref=e2836]
+                      - generic [ref=e2837]: Bebidas
+                - generic [ref=e2838]:
+                  - button "Categoría" [ref=e2840]
+                  - generic "Gaseosas" [ref=e2849]:
+                    - generic [ref=e2850]:
+                      - checkbox [ref=e2855]
+                      - generic [ref=e2856]: Gaseosas
+                - generic [ref=e2857]:
+                  - button "Marca" [ref=e2859]
+                  - generic [ref=e2867]:
+                    - generic "COCA COLA" [ref=e2868]:
+                      - generic [ref=e2869]:
+                        - checkbox [ref=e2874]
+                        - generic [ref=e2875]: COCA COLA
+                    - generic "COMBO" [ref=e2876]:
+                      - generic [ref=e2877]:
+                        - checkbox [ref=e2882]
+                        - generic [ref=e2883]: COMBO
+                - button "Sub-Categoría" [ref=e2886]
+                - button "Contenido" [ref=e2897]
+                - button "Envase" [ref=e2908]
+                - button "Pack-Unitario" [ref=e2919]
+                - button "Sabor" [ref=e2930]
+                - button "Tipo de Producto" [ref=e2941]
+                - generic [ref=e2950]:
+                  - button "Gama de Precios" [disabled] [ref=e2952]
+                  - generic [ref=e2964]:
+                    - generic [ref=e2965]: $ 1.190,00
+                    - generic [ref=e2966]: –$ 7.690,00
+              - generic [ref=e2968]:
+                - generic [ref=e2969]:
+                  - group "Sección fila"
+                - group "Sección fila" [ref=e2972]:
+                  - generic [ref=e2975]:
+                    - region "ProductoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e2977]:
+                      - link "Gaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e2978] [cursor=pointer]:
+                        - /url: /coca-cola-zero-2-25-lt/p
+                        - article [ref=e2979]:
+                          - group "Sección fila" [ref=e2980]:
+                            - button [ref=e2983]
+                          - group "Sección flotante" [ref=e2984]:
+                            - group "Imagen del productoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e2986]:
+                              - img "Gaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e2988]
+                            - group "Sección fila" [ref=e2990]
+                            - group "Sección fila" [ref=e2996]:
+                              - generic [ref=e2997]:
+                                - generic [ref=e2998]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3000]
+                          - generic [ref=e3004]: COCA COLA
+                          - group "Nombre del productoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e3005]:
+                            - heading "Gaseosa Cola Zero 2,25 Lts Coca Cola" [level=2] [ref=e3006]
+                          - group "Sección fila" [ref=e3008]:
+                            - generic [ref=e3013]:
+                              - generic [ref=e3014]: Llevando 2
+                              - generic [ref=e3015]:
+                                - generic [ref=e3016]:
+                                  - generic [ref=e3017]: $4.417,5
+                                  - generic [ref=e3018]: c/u
+                                - generic "2do al 50% Almacen | Ecommerce" [ref=e3019]: 2do al 50%
+                              - generic [ref=e3021]: $5.890
+                              - generic [ref=e3023]:
+                                - text: "Precio regular x lt.: $2.617,78"
+                                - paragraph [ref=e3025]: "PRECIO SIN IMPUESTOS NACIONALES: $4.867,77"
+                          - button "Agregar" [ref=e3027]
+                    - region "ProductoGaseosa Zero Sabor Cola 600 Ml Coca Cola" [ref=e3029]:
+                      - link "Gaseosa Zero Sabor Cola 600 Ml Coca Cola" [ref=e3030] [cursor=pointer]:
+                        - /url: /gaseosa-zero-x-600-ml-coca-cola/p
+                        - article [ref=e3031]:
+                          - group "Sección fila" [ref=e3032]:
+                            - button [ref=e3035]
+                          - group "Sección flotante" [ref=e3036]:
+                            - group "Imagen del productoGaseosa Zero Sabor Cola 600 Ml Coca Cola" [ref=e3038]:
+                              - img "Gaseosa Zero Sabor Cola 600 Ml Coca Cola" [ref=e3040]
+                            - group "Sección fila" [ref=e3042]
+                            - group "Sección fila" [ref=e3048]:
+                              - generic [ref=e3049]:
+                                - generic [ref=e3050]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3052]
+                          - generic [ref=e3056]: COCA COLA
+                          - group "Nombre del productoGaseosa Zero Sabor Cola 600 Ml Coca Cola" [ref=e3057]:
+                            - heading "Gaseosa Zero Sabor Cola 600 Ml Coca Cola" [level=2] [ref=e3058]
+                          - group "Sección fila" [ref=e3060]:
+                            - generic [ref=e3065]:
+                              - generic [ref=e3066]: Llevando 6
+                              - generic [ref=e3067]:
+                                - generic [ref=e3068]:
+                                  - generic [ref=e3069]: $1.726,67
+                                  - generic [ref=e3070]: c/u
+                                - generic "6x4 Almacen | Ecommerce" [ref=e3071]: 6x4
+                              - generic [ref=e3073]: $2.590
+                              - generic [ref=e3075]:
+                                - text: "Precio regular x lt.: $4.316,67"
+                                - paragraph [ref=e3077]: "PRECIO SIN IMPUESTOS NACIONALES: $2.140,50"
+                          - button "Agregar" [ref=e3079]
+                    - region "ProductoGaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [ref=e3081]:
+                      - link "Gaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [ref=e3082] [cursor=pointer]:
+                        - /url: /gaseosa-coca-cola-zero-1-75lt/p
+                        - article [ref=e3083]:
+                          - group "Sección fila" [ref=e3084]:
+                            - button [ref=e3087]
+                          - group "Sección flotante" [ref=e3088]:
+                            - group "Imagen del productoGaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [ref=e3090]:
+                              - img "Gaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [ref=e3092]
+                            - group "Sección fila" [ref=e3094]
+                            - group "Sección fila" [ref=e3100]:
+                              - generic [ref=e3101]:
+                                - generic [ref=e3102]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3104]
+                          - generic [ref=e3108]: COCA COLA
+                          - group "Nombre del productoGaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [ref=e3109]:
+                            - heading "Gaseosa Cola Sin Azúcar 1.75 Lts Coca Cola" [level=2] [ref=e3110]
+                          - group "Sección fila" [ref=e3112]:
+                            - generic [ref=e3117]:
+                              - generic [ref=e3118]: $5.190
+                              - generic [ref=e3122]:
+                                - text: "Precio regular x lt.: $2.965,71"
+                                - paragraph [ref=e3124]: "PRECIO SIN IMPUESTOS NACIONALES: $4.289,26"
+                          - button "Agregar" [ref=e3126]
+                    - region "ProductoGaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [ref=e3128]:
+                      - link "Gaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [ref=e3129] [cursor=pointer]:
+                        - /url: /coca-cola-zero-354-ml/p
+                        - article [ref=e3130]:
+                          - group "Sección fila" [ref=e3131]:
+                            - button [ref=e3134]
+                          - group "Sección flotante" [ref=e3135]:
+                            - group "Imagen del productoGaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [ref=e3137]:
+                              - img "Gaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [ref=e3139]
+                            - group "Sección fila" [ref=e3141]
+                            - group "Sección fila" [ref=e3147]:
+                              - generic [ref=e3148]:
+                                - generic [ref=e3149]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3151]
+                          - generic [ref=e3155]: COCA COLA
+                          - group "Nombre del productoGaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [ref=e3156]:
+                            - heading "Gaseosa Sin Azúcar Sabor Cola 354 Ml Coca Cola" [level=2] [ref=e3157]
+                          - group "Sección fila" [ref=e3159]:
+                            - generic [ref=e3164]:
+                              - generic [ref=e3165]: Llevando 6
+                              - generic [ref=e3166]:
+                                - generic [ref=e3167]:
+                                  - generic [ref=e3168]: $1.726,67
+                                  - generic [ref=e3169]: c/u
+                                - generic "6x4 COCA COLA | Ofertas Internas" [ref=e3170]: 6x4
+                              - generic [ref=e3172]: $2.590
+                              - generic [ref=e3174]:
+                                - text: "Precio regular x lt.: $7.316,38"
+                                - paragraph [ref=e3176]: "PRECIO SIN IMPUESTOS NACIONALES: $2.140,50"
+                          - button "Agregar" [ref=e3178]
+                    - region "ProductoGaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [ref=e3180]:
+                      - link "Gaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [ref=e3181] [cursor=pointer]:
+                        - /url: /gaseosa-coca-cola-sin-azucar-1-25lt/p
+                        - article [ref=e3182]:
+                          - group "Sección fila" [ref=e3183]:
+                            - button [ref=e3186]
+                          - group "Sección flotante" [ref=e3187]:
+                            - group "Imagen del productoGaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [ref=e3189]:
+                              - img "Gaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [ref=e3191]
+                            - group "Sección fila" [ref=e3193]
+                            - group "Sección fila" [ref=e3199]:
+                              - generic [ref=e3200]:
+                                - generic [ref=e3201]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3203]
+                          - generic [ref=e3207]: COCA COLA
+                          - group "Nombre del productoGaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [ref=e3208]:
+                            - heading "Gaseosa Sin Azúcar Cola 1.25 Lts Coca Cola" [level=2] [ref=e3209]
+                          - group "Sección fila" [ref=e3211]:
+                            - generic [ref=e3216]:
+                              - generic [ref=e3217]: $3.290
+                              - generic [ref=e3221]:
+                                - text: "Precio regular x lt.: $2.632"
+                                - paragraph [ref=e3223]: "PRECIO SIN IMPUESTOS NACIONALES: $2.719,01"
+                          - button "Agregar" [ref=e3225]
+                    - region "ProductoGaseosa Zero Sabor Cola 220 Cc Coca Cola" [ref=e3227]:
+                      - link "Gaseosa Zero Sabor Cola 220 Cc Coca Cola" [ref=e3228] [cursor=pointer]:
+                        - /url: /gaseosa-coca-cola-zero-220cc/p
+                        - article [ref=e3229]:
+                          - group "Sección fila" [ref=e3230]:
+                            - button [ref=e3233]
+                          - group "Sección flotante" [ref=e3234]:
+                            - group "Imagen del productoGaseosa Zero Sabor Cola 220 Cc Coca Cola" [ref=e3236]:
+                              - img "Gaseosa Zero Sabor Cola 220 Cc Coca Cola" [ref=e3238]
+                            - group "Sección fila" [ref=e3240]
+                            - group "Sección fila" [ref=e3246]:
+                              - generic [ref=e3247]:
+                                - generic [ref=e3248]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3250]
+                          - generic [ref=e3254]: COCA COLA
+                          - group "Nombre del productoGaseosa Zero Sabor Cola 220 Cc Coca Cola" [ref=e3255]:
+                            - heading "Gaseosa Zero Sabor Cola 220 Cc Coca Cola" [level=2] [ref=e3256]
+                          - group "Sección fila" [ref=e3258]:
+                            - generic [ref=e3263]:
+                              - generic [ref=e3264]: $1.190
+                              - generic [ref=e3268]:
+                                - text: "Precio regular x lt.: $5.409,09"
+                                - paragraph [ref=e3270]: "PRECIO SIN IMPUESTOS NACIONALES: $983,47"
+                          - button "Agregar" [ref=e3272]
+                    - region "ProductoGaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [ref=e3274]:
+                      - link "Gaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [ref=e3275] [cursor=pointer]:
+                        - /url: /coca-cola-sabor-liviano-1-75-lt/p
+                        - article [ref=e3276]:
+                          - group "Sección fila" [ref=e3277]:
+                            - button [ref=e3280]
+                          - group "Sección flotante" [ref=e3281]:
+                            - group "Imagen del productoGaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [ref=e3283]:
+                              - img "Gaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [ref=e3285]
+                            - group "Sección fila" [ref=e3287]
+                            - group "Sección fila" [ref=e3293]:
+                              - generic [ref=e3294]:
+                                - generic [ref=e3295]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3297]
+                          - generic [ref=e3301]: COCA COLA
+                          - group "Nombre del productoGaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [ref=e3302]:
+                            - heading "Gaseosa Cola Sin Azúcar 1,75 Lts Coca Cola" [level=2] [ref=e3303]
+                          - group "Sección fila" [ref=e3305]:
+                            - generic [ref=e3310]:
+                              - generic [ref=e3311]: $5.190
+                              - generic [ref=e3315]:
+                                - text: "Precio regular x lt.: $2.965,71"
+                                - paragraph [ref=e3317]: "PRECIO SIN IMPUESTOS NACIONALES: $4.289,26"
+                          - button "Agregar" [ref=e3319]
+                    - region "ProductoCombo Dúo Coca Cola Zero Sprite Zero 1.75lt" [ref=e3321]:
+                      - link "Combo Dúo Coca Cola Zero Sprite Zero 1.75lt" [ref=e3322] [cursor=pointer]:
+                        - /url: /combo-duo-coca-cola-zero-sprite-zero-1-75lt/p
+                        - article [ref=e3323]:
+                          - group "Sección fila" [ref=e3324]:
+                            - button [ref=e3327]
+                          - group "Sección flotante" [ref=e3328]:
+                            - group "Imagen del productoCombo Dúo Coca Cola Zero Sprite Zero 1.75lt" [ref=e3330]:
+                              - img "Combo Dúo Coca Cola Zero Sprite Zero 1.75lt" [ref=e3332]
+                            - group "Sección fila" [ref=e3334]
+                            - group "Sección fila" [ref=e3340]:
+                              - generic [ref=e3341]:
+                                - generic [ref=e3342]:
+                                  - button "Modal abierto"
+                                - button "Ver Producto" [ref=e3344]
+                          - generic [ref=e3348]: COMBO
+                          - group "Nombre del productoCombo Dúo Coca Cola Zero Sprite Zero 1.75lt" [ref=e3349]:
+                            - heading "Combo Dúo Coca Cola Zero Sprite Zero 1.75lt" [level=2] [ref=e3350]
+                          - group "Sección fila" [ref=e3352]:
+                            - generic [ref=e3357]:
+                              - generic [ref=e3358]: $7.690
+                              - generic [ref=e3362]:
+                                - text: "Precio regular x lt.: $4.394,29"
+                                - paragraph [ref=e3364]: "PRECIO SIN IMPUESTOS NACIONALES: $6.355,37"
+                          - button "Agregar" [ref=e3366]
+                - group "Sección fila" [ref=e3368]:
+                  - generic [ref=e3371]:
+                    - link "1" [ref=e3377] [cursor=pointer]:
+                      - /url: https://www.vea.com.ar/coca%20zero?_q=coca+zero&map=ft
+                    - button "Página 1 de 1" [ref=e3382]
+                - group "Sección fila" [ref=e3390]:
+                  - generic [ref=e3394]:
+                    - generic [ref=e3395]:
+                      - heading [level=2]
+                      - link:
+                        - /url: ""
+                    - group "Sección fila" [ref=e3396]:
+                      - region "slider" [ref=e3401]:
+                        - generic [ref=e3403]:
+                          - group "La diapositiva actual es1 de99" [ref=e3408]:
+                            - region "ProductoDetergente para Lavavajillas Bioactive Lima 450 Ml Cif" [ref=e3410]:
+                              - link "Detergente para Lavavajillas Bioactive Lima 450 Ml Cif" [ref=e3411] [cursor=pointer]:
+                                - /url: /detergente-bioactive-cif-lima-doypack-450-ml/p
+                                - article [ref=e3412]:
+                                  - group "Sección fila" [ref=e3413]:
+                                    - generic [ref=e3414]:
+                                      - group "Sección flotante" [ref=e3418]:
+                                        - group "Imagen del productoDetergente para Lavavajillas Bioactive Lima 450 Ml Cif" [ref=e3420]:
+                                          - img "Detergente para Lavavajillas Bioactive Lima 450 Ml Cif" [ref=e3422]
+                                        - button [ref=e3423]
+                                        - group "Sección fila" [ref=e3425]
+                                      - generic [ref=e3428]:
+                                        - generic [ref=e3429]: CIF
+                                        - group "Nombre del productoDetergente para Lavavajillas Bioactive Lima 450 Ml Cif" [ref=e3432]:
+                                          - heading "Detergente para Lavavajillas Bioactive Lima 450 Ml Cif" [level=2] [ref=e3433]
+                                        - group "Sección fila" [ref=e3436]:
+                                          - generic [ref=e3441]:
+                                            - generic [ref=e3442]: $3.690
+                                            - generic [ref=e3446]:
+                                              - text: "Precio regular x lt.: $8.200"
+                                              - paragraph [ref=e3448]: "PRECIO SIN IMPUESTOS NACIONALES: $3.049,59"
+                                        - button "Agregar" [ref=e3451]
+                          - group "La diapositiva actual es2 de99" [ref=e3452]:
+                            - region "ProductoPapel Higienico Felpita Doble Hoja 4x20" [ref=e3454]:
+                              - link "Papel Higienico Felpita Doble Hoja 4x20" [ref=e3455] [cursor=pointer]:
+                                - /url: /papel-higienico-felpita-doble-hoja-4x20/p
+                                - article [ref=e3456]:
+                                  - group "Sección fila" [ref=e3457]:
+                                    - generic [ref=e3458]:
+                                      - group "Sección flotante" [ref=e3462]:
+                                        - group "Imagen del productoPapel Higienico Felpita Doble Hoja 4x20" [ref=e3464]:
+                                          - img "Papel Higienico Felpita Doble Hoja 4x20" [ref=e3466]
+                                        - button [ref=e3467]
+                                        - group "Sección fila" [ref=e3469]
+                                      - generic [ref=e3472]:
+                                        - generic [ref=e3473]: FELPITA
+                                        - group "Nombre del productoPapel Higienico Felpita Doble Hoja 4x20" [ref=e3476]:
+                                          - heading "Papel Higienico Felpita Doble Hoja 4x20" [level=2] [ref=e3477]
+                                        - group "Sección fila" [ref=e3480]:
+                                          - generic [ref=e3485]:
+                                            - generic [ref=e3486]: $2.790
+                                            - generic [ref=e3490]:
+                                              - text: "Precio regular: $2.790"
+                                              - paragraph [ref=e3492]: "PRECIO SIN IMPUESTOS NACIONALES: $2.305,79"
+                                        - button "Agregar" [ref=e3495]
+                          - group [aria-hidden] [ref=e3496]
+                          - group [aria-hidden] [ref=e3498]
+                          - group [aria-hidden] [ref=e3500]
+                          - group [aria-hidden] [ref=e3502]
+                          - group [aria-hidden] [ref=e3504]
+                          - group [aria-hidden] [ref=e3506]
+                          - group [aria-hidden] [ref=e3508]
+                          - group [aria-hidden] [ref=e3510]
+                          - group [aria-hidden] [ref=e3512]
+                          - group [aria-hidden] [ref=e3514]
+                          - group [aria-hidden] [ref=e3516]
+                          - group [aria-hidden] [ref=e3518]
+                          - group [aria-hidden] [ref=e3520]
+                          - group [aria-hidden] [ref=e3522]
+                          - group [aria-hidden] [ref=e3524]
+                          - group [aria-hidden] [ref=e3526]
+                          - group [aria-hidden] [ref=e3528]
+                          - group [aria-hidden] [ref=e3530]
+                          - group [aria-hidden] [ref=e3532]
+                          - group [aria-hidden] [ref=e3534]
+                          - group [aria-hidden] [ref=e3536]
+                          - group [aria-hidden] [ref=e3538]
+                          - group [aria-hidden] [ref=e3540]
+                          - group [aria-hidden] [ref=e3542]
+                          - group [aria-hidden] [ref=e3544]
+                          - group [aria-hidden] [ref=e3546]
+                          - group [aria-hidden] [ref=e3548]
+                          - group [aria-hidden] [ref=e3550]
+                          - group [aria-hidden] [ref=e3552]
+                          - group [aria-hidden] [ref=e3554]
+                          - group [aria-hidden] [ref=e3556]
+                          - group [aria-hidden] [ref=e3558]
+                          - group [aria-hidden] [ref=e3560]
+                          - group [aria-hidden] [ref=e3562]
+                          - group [aria-hidden] [ref=e3564]
+                          - group [aria-hidden] [ref=e3566]
+                          - group [aria-hidden] [ref=e3568]
+                          - group [aria-hidden] [ref=e3570]
+                          - group [aria-hidden] [ref=e3572]
+                          - group [aria-hidden] [ref=e3574]
+                          - group [aria-hidden] [ref=e3576]
+                          - group [aria-hidden] [ref=e3578]
+                          - group [aria-hidden] [ref=e3580]
+                          - group [aria-hidden] [ref=e3582]
+                          - group [aria-hidden] [ref=e3584]
+                          - group [aria-hidden] [ref=e3586]
+                          - group [aria-hidden] [ref=e3588]
+                          - group [aria-hidden] [ref=e3590]
+                          - group [aria-hidden] [ref=e3592]
+                          - group [aria-hidden] [ref=e3594]
+                          - group [aria-hidden] [ref=e3596]
+                          - group [aria-hidden] [ref=e3598]
+                          - group [aria-hidden] [ref=e3600]
+                          - group [aria-hidden] [ref=e3602]
+                          - group [aria-hidden] [ref=e3604]
+                          - group [aria-hidden] [ref=e3606]
+                          - group [aria-hidden] [ref=e3608]
+                          - group [aria-hidden] [ref=e3610]
+                          - group [aria-hidden] [ref=e3612]
+                          - group [aria-hidden] [ref=e3614]
+                          - group [aria-hidden] [ref=e3616]
+                          - group [aria-hidden] [ref=e3618]
+                          - group [aria-hidden] [ref=e3620]
+                          - group [aria-hidden] [ref=e3622]
+                          - group [aria-hidden] [ref=e3624]
+                          - group [aria-hidden] [ref=e3626]
+                          - group [aria-hidden] [ref=e3628]
+                          - group [aria-hidden] [ref=e3630]
+                          - group [aria-hidden] [ref=e3632]
+                          - group [aria-hidden] [ref=e3634]
+                          - group [aria-hidden] [ref=e3636]
+                          - group [aria-hidden] [ref=e3638]
+                          - group [aria-hidden] [ref=e3640]
+                          - group [aria-hidden] [ref=e3642]
+                          - group [aria-hidden] [ref=e3644]
+                          - group [aria-hidden] [ref=e3646]
+                          - group [aria-hidden] [ref=e3648]
+                          - group [aria-hidden] [ref=e3650]
+                          - group [aria-hidden] [ref=e3652]
+                          - group [aria-hidden] [ref=e3654]
+                          - group [aria-hidden] [ref=e3656]
+                          - group [aria-hidden] [ref=e3658]
+                          - group [aria-hidden] [ref=e3660]
+                          - group [aria-hidden] [ref=e3662]
+                          - group [aria-hidden] [ref=e3664]
+                          - group [aria-hidden] [ref=e3666]
+                          - group [aria-hidden] [ref=e3668]
+                          - group [aria-hidden] [ref=e3670]
+                          - group [aria-hidden] [ref=e3672]
+                          - group [aria-hidden] [ref=e3674]
+                          - group [aria-hidden] [ref=e3676]
+                          - group [aria-hidden] [ref=e3678]
+                          - group [aria-hidden] [ref=e3680]
+                          - group [aria-hidden] [ref=e3682]
+                          - group [aria-hidden] [ref=e3684]
+                          - group [aria-hidden] [ref=e3686]
+                          - group [aria-hidden] [ref=e3688]
+                        - button "Previous Slide" [ref=e3694]
+                        - button "Next Slide" [ref=e3697]
+                - group "Sección fila" [ref=e3701]
+                - generic [ref=e3706]:
+                  - button "Modal abierto"
+      - generic:
+        - link:
+          - /url: https://www.vea.com.ar/coca%20zero?map=ft
+  - application:
+    - generic [aria-hidden] [ref=e2519]:
+      - heading [level=4] [ref=e2532]: Ahorros de la semana
+      - generic [ref=e2533]:
+        - generic [ref=e2536]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2539] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2542] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2545] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+      - button [ref=e2546] [cursor=pointer]
+      - button [ref=e2547] [cursor=pointer]
+  - status [ref=e2641]
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - button
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - article:
+                - paragraph [ref=e3709]: Sin Sugerencias

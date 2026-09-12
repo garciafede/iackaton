@@ -1,0 +1,165 @@
+- generic [ref=e1]:
+  - generic [ref=e5]:
+    - generic [ref=e11]:
+      - paragraph [ref=e14]:
+        - text: Hoy con Tarjeta de Crédito Carrefour Banco 20% de descuento en el acto ¡SIN TOPE!
+        - link "Aprovechá y hacé tu compra del Super 🛒 al mejor precio" [ref=e15] [cursor=pointer]:
+          - /url: /almacen
+      - button [expanded] [ref=e16] [cursor=pointer]
+    - generic [ref=e22]:
+      - button "ELEGÍ TU MÉTODO DE ENTREGA" [ref=e24] [cursor=pointer]
+      - group "Sección fila" [ref=e29]:
+        - generic [ref=e30]:
+          - link "App Carrefour" [ref=e34] [cursor=pointer]:
+            - /url: /app
+            - link [ref=e38]:
+              - /url: /app
+          - link "Promociones" [ref=e46] [cursor=pointer]:
+            - /url: /promociones
+            - link [ref=e50]:
+              - /url: /promociones
+          - link "Mi Carrefour" [ref=e60] [cursor=pointer]:
+            - /url: "#"
+            - link [ref=e64]:
+              - /url: "#"
+          - link "Sucursales" [ref=e72] [cursor=pointer]:
+            - /url: /sucursales
+            - link [ref=e76]:
+              - /url: /sucursales
+          - button "Disponibilidad de entrega" [ref=e82]
+    - generic [ref=e95]:
+      - link "Ir a la Home" [ref=e97] [cursor=pointer]:
+        - /url: /
+      - group "Sección fila" [ref=e102]:
+        - generic [ref=e104]:
+          - group "Sección fila" [ref=e106]:
+            - button "Categorías" [ref=e111]
+          - generic:
+            - group "Sección fila"
+      - group "Sección fila" [ref=e115]:
+        - generic [ref=e117]:
+          - combobox [ref=e120]:
+            - generic [ref=e125]:
+              - textbox "¿Qué estás buscando hoy? Buscar Productos" [ref=e126]:
+                - /placeholder: "¿Qué estás buscando hoy? "
+              - button "Buscar Productos" [ref=e130]
+          - button "Buscar por voz" [ref=e137] [cursor=pointer]
+      - group "Sección fila" [ref=e143]:
+        - generic [ref=e145]:
+          - link "Entrega inmediata" [ref=e148] [cursor=pointer]:
+            - /url: /entrega-inmediata?
+          - link "Favoritos" [ref=e158] [cursor=pointer]:
+            - /url: /account#/wishlist
+          - button [ref=e167] [cursor=pointer]:
+            - paragraph [ref=e175]: Ingresar
+          - complementary [ref=e177]:
+            - button "Tienes 0 productos en tu carrito Carrito" [ref=e182]:
+              - generic [ref=e184]:
+                - generic "Tienes 0 productos en tu carrito" [ref=e186]
+                - generic [ref=e189]: Carrito
+    - group "Sección fila" [ref=e194]:
+      - generic [ref=e195]:
+        - link "Ofertas" [ref=e198] [cursor=pointer]:
+          - /url: /exclusivos-online
+        - link "Hogar y Electro" [ref=e203] [cursor=pointer]:
+          - /url: /hogar-y-electro
+        - link "Cupones ELECTRO 10% OFF" [ref=e208] [cursor=pointer]:
+          - /url: /cupones
+        - link "Envío gratis" [ref=e213] [cursor=pointer]:
+          - /url: /20666?map=productClusterIds
+        - link "Productos Carrefour" [ref=e218] [cursor=pointer]:
+          - /url: /11564?map=productClusterIds
+        - link "Servicios Carrefour" [ref=e223] [cursor=pointer]:
+          - /url: /servicios-carrefour
+    - region "slider" [ref=e234]:
+      - generic [ref=e236]:
+        - group [aria-hidden] [ref=e373]:
+          - link [ref=e241] [cursor=pointer]:
+            - /url: /almacen
+        - group [aria-hidden] [ref=e242]:
+          - link [ref=e374] [cursor=pointer]:
+            - /url: /26347?map=productClusterIds
+        - group [aria-hidden] [ref=e244]:
+          - link [ref=e375] [cursor=pointer]:
+            - /url: /26329?map=productClusterIds
+        - group "La diapositiva actual es 4 de 9" [ref=e376]:
+          - link [ref=e377] [cursor=pointer]:
+            - /url: /26251?map=productClusterIds
+        - group [aria-hidden] [ref=e248]
+        - group [aria-hidden] [ref=e250]
+        - group [aria-hidden] [ref=e252]
+        - group [aria-hidden] [ref=e254]
+        - group [aria-hidden] [ref=e256]
+      - button "Previous Slide" [ref=e260]
+      - button "Next Slide" [ref=e263]
+      - group "Slider pagination dots" [ref=e266]:
+        - button "Dot 1 of 9" [ref=e267]
+        - button "Dot 2 of 9" [ref=e268]
+        - button "Dot 3 of 9" [ref=e269]
+        - button "Dot 4 of 9" [ref=e270]
+        - button "Dot 5 of 9" [ref=e271]
+        - button "Dot 6 of 9" [ref=e272]
+        - button "Dot 7 of 9" [ref=e273]
+        - button "Dot 8 of 9" [ref=e274]
+        - button "Dot 9 of 9" [ref=e275]
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - article:
+                  - paragraph [ref=e362]: Términos más buscados
+                  - list [ref=e363]:
+                    - listitem [ref=e364]:
+                      - link "leche" [ref=e365] [cursor=pointer]:
+                        - /url: /leche?map=ft&_q=leche
+                    - listitem [ref=e366]:
+                      - link "yerba" [ref=e367] [cursor=pointer]:
+                        - /url: /yerba?map=ft&_q=yerba
+                    - listitem [ref=e368]:
+                      - link "cerveza" [ref=e369] [cursor=pointer]:
+                        - /url: /cerveza?map=ft&_q=cerveza
+                    - listitem [ref=e370]:
+                      - link "doves" [ref=e371] [cursor=pointer]:
+                        - /url: /doves?map=ft&_q=doves
+  - generic [ref=e372]:
+    - status:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: TU OPINIÓN
+                    - generic:
+                      - generic: Compartinos tu experiencia para ayudarnos a mejorar
+                      - generic:
+                        - link "DEJAR MI COMENTARIO":
+                          - /url: https://cloud.experiencia.carrefour.com.ar/encuesta.carrefouronline
+                      - generic:
+                        - link:
+                          - /url: "#"
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - generic: Seleccioná un carrito de compra
+        - button
+  - alertdialog "Nos preocupamos por tu privacidad" [ref=e379]:
+    - generic [ref=e381]:
+      - generic [ref=e383]:
+        - heading "Nos preocupamos por tu privacidad" [level=3] [ref=e384]
+        - generic [ref=e385]: Tanto INC S.A. como sus sociedades sucesoras y/o cesionarias y/o sus accionistas y/o controlantes y/o controladas almacenan y/o acceden a la información de un dispositivo, como los identificadores únicos en las cookies para tratar los datos personales. Se pueden aceptar o gestionar las preferencias haciendo click en el enlace que aparece a continuación o en cualquier momento en https://www.carrefour.com.ar/legales. Estas preferencias serán procesadas y no afectarán a los datos de navegación.
+        - paragraph [ref=e386]: "--"
+        - generic [ref=e387]:
+          - heading "Tanto nosotros como nuestros asociados tratamos los datos para proporcionar:" [level=3] [ref=e388]
+          - paragraph [ref=e390]:
+            - text: Almacenar o acceder a información en un dispositivo. Datos de localización geográfica precisa e identificación mediante las características de dispositivos. anuncios y contenido personalizados, medición de anuncios y del contenido, información sobre el público y desarrollo de productos..
+            - button "Lista de asociados (proveedores)" [active] [ref=e391] [cursor=pointer]
+      - generic [ref=e393]:
+        - button "Aceptar todo" [ref=e394] [cursor=pointer]
+        - button "Rechazar todo" [ref=e395] [cursor=pointer]
+        - button "Gestionar preferencias" [ref=e396] [cursor=pointer]
+    - button "Cerrar" [ref=e398] [cursor=pointer]

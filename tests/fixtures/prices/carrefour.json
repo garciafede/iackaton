@@ -1,0 +1,50 @@
+﻿{
+    "data":  {
+                 "productSearch":  {
+                                       "products":  [
+                                                        {
+                                                            "brand":  "Coca Cola",
+                                                            "productName":  "Gaseosa cola Coca Cola Zero 2,25 lts",
+                                                            "link":  "/gaseosa-cola-coca-cola-zero-225-lts-393964/p",
+                                                            "items":  [
+                                                                          {
+                                                                              "sellers":  [
+                                                                                              {
+                                                                                                  "sellerDefault":  true,
+                                                                                                  "commertialOffer":  {
+                                                                                                                          "Price":  5900,
+                                                                                                                          "ListPrice":  5900,
+                                                                                                                          "AvailableQuantity":  10000
+                                                                                                                      }
+                                                                                              }
+                                                                                          ],
+                                                                              "ean":  "7790895067570",
+                                                                              "itemId":  "11324"
+                                                                          }
+                                                                      ]
+                                                        },
+                                                        {
+                                                            "brand":  "Coca Cola",
+                                                            "productName":  "Gaseosa cola Coca Cola Zero 1,25 lts",
+                                                            "link":  "/gaseosa-cola-coca-cola-zero-125-lts-649300/p",
+                                                            "items":  [
+                                                                          {
+                                                                              "sellers":  [
+                                                                                              {
+                                                                                                  "sellerDefault":  true,
+                                                                                                  "commertialOffer":  {
+                                                                                                                          "Price":  3290,
+                                                                                                                          "ListPrice":  3290,
+                                                                                                                          "AvailableQuantity":  10000
+                                                                                                                      }
+                                                                                              }
+                                                                                          ],
+                                                                              "ean":  "7790895012273",
+                                                                              "itemId":  "26876"
+                                                                          }
+                                                                      ]
+                                                        }
+                                                    ]
+                                   }
+             }
+}

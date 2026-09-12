@@ -1,0 +1,18 @@
+{
+  "provider": "VEA",
+  "productsSearched": [
+    "oreo-118"
+  ],
+  "productsFound": [],
+  "productsNotFound": [
+    "oreo-118"
+  ],
+  "offersUpdated": 0,
+  "unmapped": 0,
+  "unmatched": 0,
+  "errors": [
+    "Navegador/buscador no disponible o timeout; se conserva SEPA."
+  ],
+  "durationMs": 29009,
+  "observations": []
+}

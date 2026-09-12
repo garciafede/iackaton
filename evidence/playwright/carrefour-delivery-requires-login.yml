@@ -1,0 +1,1039 @@
+- generic [ref=e1]:
+  - generic [ref=e476]:
+    - generic [ref=e482]:
+      - paragraph [ref=e485]:
+        - text: Hoy con Tarjeta de Crédito Carrefour Banco 20% de descuento en el acto ¡SIN TOPE!
+        - link "Aprovechá y hacé tu compra del Super 🛒 al mejor precio" [ref=e486] [cursor=pointer]:
+          - /url: /almacen
+      - button [expanded] [ref=e487] [cursor=pointer]
+    - generic [ref=e493]:
+      - button "ELEGÍ TU MÉTODO DE ENTREGA" [active] [ref=e495] [cursor=pointer]
+      - group "Sección fila" [ref=e500]:
+        - generic [ref=e501]:
+          - link "App Carrefour" [ref=e505] [cursor=pointer]:
+            - /url: /app
+            - link [ref=e509]:
+              - /url: /app
+          - link "Promociones" [ref=e517] [cursor=pointer]:
+            - /url: /promociones
+            - link [ref=e521]:
+              - /url: /promociones
+          - link "Mi Carrefour" [ref=e531] [cursor=pointer]:
+            - /url: "#"
+            - link [ref=e535]:
+              - /url: "#"
+          - link "Sucursales" [ref=e543] [cursor=pointer]:
+            - /url: /sucursales
+            - link [ref=e547]:
+              - /url: /sucursales
+          - button "Disponibilidad de entrega" [ref=e553]
+    - generic [ref=e566]:
+      - link "Ir a la Home" [ref=e568] [cursor=pointer]:
+        - /url: /
+      - group "Sección fila" [ref=e573]:
+        - generic [ref=e575]:
+          - group "Sección fila" [ref=e577]:
+            - button "Categorías" [ref=e582]
+          - generic:
+            - group "Sección fila"
+      - group "Sección fila" [ref=e586]:
+        - combobox [ref=e591]:
+          - generic [ref=e596]:
+            - textbox "¿Qué estás buscando hoy? Borrar campo de búsqueda Buscar Productos" [ref=e597]:
+              - /placeholder: "¿Qué estás buscando hoy? "
+              - text: coca zero
+            - generic [ref=e599]:
+              - button "Borrar campo de búsqueda" [ref=e600]
+              - button "Buscar Productos" [ref=e604]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - article:
+                          - paragraph [ref=e1318]: Sugerencias
+                          - list [ref=e1319]:
+                            - listitem [ref=e1320]:
+                              - link "coca cola zero" [ref=e1321] [cursor=pointer]:
+                                - /url: /coca%20cola%20zero?map=ft&_q=coca cola zero
+                              - list [ref=e1322]:
+                                - listitem [ref=e1323]:
+                                  - link "Coca Cola" [ref=e1324] [cursor=pointer]:
+                                    - /url: /coca cola zero/coca-cola
+                                - listitem [ref=e1325]:
+                                  - link "Bebidas" [ref=e1326] [cursor=pointer]:
+                                    - /url: /coca cola zero/bebidas
+                                - listitem [ref=e1327]:
+                                  - link "Gaseosas" [ref=e1328] [cursor=pointer]:
+                                    - /url: /coca cola zero/gaseosas
+                                - listitem [ref=e1329]:
+                                  - link "Gaseosa" [ref=e1330] [cursor=pointer]:
+                                    - /url: /coca cola zero/gaseosa
+                            - listitem [ref=e1331]:
+                              - link "coca zero" [ref=e1332] [cursor=pointer]:
+                                - /url: /coca%20zero?map=ft&_q=coca zero
+                              - list
+                            - listitem [ref=e1334]:
+                              - link "coca col" [ref=e1335] [cursor=pointer]:
+                                - /url: /coca%20col?map=ft&_q=coca col
+                              - list
+                            - listitem [ref=e1336]:
+                              - link "coca light" [ref=e1337] [cursor=pointer]:
+                                - /url: /coca%20light?map=ft&_q=coca light
+                              - list
+                        - generic:
+                          - paragraph [ref=e1338]: Productos para coca zero
+                          - list [ref=e1980]:
+                            - listitem [ref=e1981]:
+                              - region "ProductoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e1982]:
+                                - link "Gaseosa cola Coca Cola Zero 2,25 lts" [ref=e1983] [cursor=pointer]:
+                                  - /url: /gaseosa-cola-coca-cola-zero-225-lts-393964/p
+                                  - article [ref=e1984]:
+                                    - generic [ref=e1985]:
+                                      - group "Sección fila" [ref=e1986]:
+                                        - generic [ref=e1987]:
+                                          - generic [ref=e1989]:
+                                            - group "Imagen del productoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e1991]:
+                                              - img "Gaseosa cola Coca Cola Zero 2,25 lts" [ref=e1993]
+                                            - generic:
+                                              - group "Sección fila"
+                                          - generic [ref=e1995]:
+                                            - generic:
+                                              - group "Sección fila"
+                                            - group "Sección fila" [ref=e1997]:
+                                              - generic [ref=e1998]: 2do al 50% Iguales
+                                            - group "Sección fila" [ref=e2005]:
+                                              - generic [ref=e2008]:
+                                                - generic [ref=e2011]:
+                                                  - generic [ref=e2012]: $ 4.425,00
+                                                  - generic [ref=e2013]: c/u
+                                                - generic [ref=e2014]: $ 5.900,00
+                                            - button "Ver Precio sin impuestos nacionales" [ref=e2021]
+                                            - group "Sección fila" [ref=e2023]:
+                                              - group "Nombre del productoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e2028]:
+                                                - heading "Gaseosa cola Coca Cola Zero 2,25 lts" [level=3] [ref=e2029]
+                                            - generic [ref=e2034]:
+                                              - generic [ref=e2035]: ($ 2.622,22
+                                              - generic [ref=e2036]: x 1 L. )
+                                      - group "Sección fila" [ref=e2037]:
+                                        - generic [ref=e2038]:
+                                          - button [ref=e2041]
+                                          - button [ref=e2049]
+                            - listitem [ref=e2053]:
+                              - region "ProductoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e2054]:
+                                - link "Gaseosa cola Coca Cola Zero 1,25 lts" [ref=e2055] [cursor=pointer]:
+                                  - /url: /gaseosa-cola-coca-cola-zero-125-lts-649300/p
+                                  - article [ref=e2056]:
+                                    - generic [ref=e2057]:
+                                      - group "Sección fila" [ref=e2058]:
+                                        - generic [ref=e2059]:
+                                          - generic [ref=e2061]:
+                                            - group "Imagen del productoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e2063]:
+                                              - img "Gaseosa cola Coca Cola Zero 1,25 lts" [ref=e2065]
+                                            - generic:
+                                              - group "Sección fila"
+                                          - generic [ref=e2067]:
+                                            - generic:
+                                              - group "Sección fila"
+                                            - generic:
+                                              - group "Sección fila"
+                                            - group "Sección fila" [ref=e2069]:
+                                              - generic [ref=e2070]: $ 3.290,00
+                                            - button "Ver Precio sin impuestos nacionales" [ref=e2079]
+                                            - group "Sección fila" [ref=e2081]:
+                                              - group "Nombre del productoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e2086]:
+                                                - heading "Gaseosa cola Coca Cola Zero 1,25 lts" [level=3] [ref=e2087]
+                                            - generic [ref=e2092]:
+                                              - generic [ref=e2093]: ($ 2.632,00
+                                              - generic [ref=e2094]: x 1 L. )
+                                      - group "Sección fila" [ref=e2095]:
+                                        - generic [ref=e2096]:
+                                          - button [ref=e2099]
+                                          - button [ref=e2107]
+                            - listitem [ref=e2111]:
+                              - region "ProductoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e2112]:
+                                - link "Gaseosa cola Coca Cola Zero 1,75 lts" [ref=e2113] [cursor=pointer]:
+                                  - /url: /gaseosa-cola-coca-cola-zero-175-lts-636689/p
+                                  - article [ref=e2114]:
+                                    - generic [ref=e2115]:
+                                      - group "Sección fila" [ref=e2116]:
+                                        - generic [ref=e2117]:
+                                          - generic [ref=e2119]:
+                                            - group "Imagen del productoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e2121]:
+                                              - img "Gaseosa cola Coca Cola Zero 1,75 lts" [ref=e2123]
+                                            - generic:
+                                              - group "Sección fila"
+                                          - generic [ref=e2125]:
+                                            - generic:
+                                              - group "Sección fila"
+                                            - generic:
+                                              - group "Sección fila"
+                                            - group "Sección fila" [ref=e2127]:
+                                              - generic [ref=e2128]: $ 4.900,00
+                                            - button "Ver Precio sin impuestos nacionales" [ref=e2137]
+                                            - group "Sección fila" [ref=e2139]:
+                                              - group "Nombre del productoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e2144]:
+                                                - heading "Gaseosa cola Coca Cola Zero 1,75 lts" [level=3] [ref=e2145]
+                                            - generic [ref=e2150]:
+                                              - generic [ref=e2151]: ($ 2.800,00
+                                              - generic [ref=e2152]: x 1 L. )
+                                      - group "Sección fila" [ref=e2153]:
+                                        - generic [ref=e2154]:
+                                          - button [ref=e2157]
+                                          - button [ref=e2165]
+                            - listitem [ref=e2169]:
+                              - region "ProductoGaseosa Coca-Cola Zero 600 ml" [ref=e2170]:
+                                - link "Gaseosa Coca-Cola Zero 600 ml" [ref=e2171] [cursor=pointer]:
+                                  - /url: /gaseosa-coca-cola-zero-600-ml-763995/p
+                                  - article [ref=e2172]:
+                                    - generic [ref=e2173]:
+                                      - group "Sección fila" [ref=e2174]:
+                                        - generic [ref=e2175]:
+                                          - generic [ref=e2177]:
+                                            - group "Imagen del productoGaseosa Coca-Cola Zero 600 ml" [ref=e2179]:
+                                              - img "Gaseosa Coca-Cola Zero 600 ml" [ref=e2181]
+                                            - generic:
+                                              - group "Sección fila"
+                                          - generic [ref=e2183]:
+                                            - generic:
+                                              - group "Sección fila"
+                                            - generic:
+                                              - group "Sección fila"
+                                            - group "Sección fila" [ref=e2185]:
+                                              - generic [ref=e2186]: $ 2.500,00
+                                            - button "Ver Precio sin impuestos nacionales" [ref=e2195]
+                                            - group "Sección fila" [ref=e2197]:
+                                              - group "Nombre del productoGaseosa Coca-Cola Zero 600 ml" [ref=e2202]:
+                                                - heading "Gaseosa Coca-Cola Zero 600 ml" [level=3] [ref=e2203]
+                                            - generic [ref=e2208]:
+                                              - generic [ref=e2209]: ($ 4.166,67
+                                              - generic [ref=e2210]: x 1 L. )
+                                      - group "Sección fila" [ref=e2211]:
+                                        - generic [ref=e2212]:
+                                          - button [ref=e2215]
+                                          - button [ref=e2223]
+                          - link "Ver todos los 43 productos" [ref=e2228] [cursor=pointer]:
+                            - /url: /coca%2520zero?map=ft&_q=coca%20zero
+      - group "Sección fila" [ref=e608]:
+        - generic [ref=e610]:
+          - link "Entrega inmediata" [ref=e613] [cursor=pointer]:
+            - /url: /entrega-inmediata?
+          - link "Favoritos" [ref=e623] [cursor=pointer]:
+            - /url: /account#/wishlist
+          - button [ref=e1342] [cursor=pointer]:
+            - paragraph [ref=e1350]: Ingresar
+          - complementary [ref=e642]:
+            - button "Tienes 0 productos en tu carrito Carrito" [ref=e647]:
+              - generic [ref=e649]:
+                - generic "Tienes 0 productos en tu carrito" [ref=e651]
+                - generic [ref=e654]: Carrito
+    - generic [ref=e1353]:
+      - generic:
+        - group "Sección fila":
+          - generic:
+            - generic:
+              - region "slider"
+      - group "Sección fila" [ref=e1354]:
+        - generic [ref=e1357]:
+          - link "Link a la página de inicio" [ref=e1358] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "coca zero" [ref=e1362] [cursor=pointer]:
+            - /url: /coca zero?map=ft
+      - group "Sección fila":
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - group "Sección fila"
+              - generic:
+                - generic:
+                  - group "Sección fila"
+      - group "Sección fila" [ref=e1363]:
+        - generic [ref=e1364]:
+          - generic [ref=e1366]:
+            - generic [ref=e1370]:
+              - generic [ref=e1371]:
+                - paragraph [ref=e1373]: Filtros
+                - generic [ref=e1374]:
+                  - button "Departamento" [ref=e1376]
+                  - generic [ref=e1383]:
+                    - checkbox [ref=e1388]
+                    - generic [ref=e1389]:
+                      - text: Bebidas
+                      - generic [ref=e1390]: (18)
+                - generic [ref=e1391]:
+                  - button "Sub-Categoría" [ref=e1393]
+                  - generic [ref=e1398]:
+                    - generic [ref=e1400]:
+                      - checkbox [ref=e1405]
+                      - generic [ref=e1406]:
+                        - text: Gaseosas cola
+                        - generic [ref=e1407]: (5)
+                    - generic [ref=e1409]:
+                      - checkbox [ref=e1414]
+                      - generic [ref=e1415]:
+                        - text: Gaseosas pomelo
+                        - generic [ref=e1416]: (1)
+                    - generic [ref=e1418]:
+                      - checkbox [ref=e1423]
+                      - generic [ref=e1424]:
+                        - text: Gaseosas tónicas y otras
+                        - generic [ref=e1425]: (2)
+                - generic [ref=e1426]:
+                  - button "Tipo de producto" [ref=e1428]
+                  - generic [ref=e1433]:
+                    - generic [ref=e1435]:
+                      - checkbox [ref=e1440]
+                      - generic [ref=e1441]:
+                        - text: Bebida Isotónica
+                        - generic [ref=e1442]: (10)
+                    - generic [ref=e1444]:
+                      - checkbox [ref=e1449]
+                      - generic [ref=e1450]:
+                        - text: Gaseosa
+                        - generic [ref=e1451]: (8)
+                - generic [ref=e1452]:
+                  - button "Envase Tipo" [ref=e1454]
+                  - generic [ref=e1459]:
+                    - generic [ref=e1461]:
+                      - checkbox [ref=e1466]
+                      - generic [ref=e1467]:
+                        - text: PET
+                        - generic [ref=e1468]: (14)
+                    - generic [ref=e1470]:
+                      - checkbox [ref=e1475]
+                      - generic [ref=e1476]:
+                        - text: LATA
+                        - generic [ref=e1477]: (3)
+                    - generic [ref=e1479]:
+                      - checkbox [ref=e1484]
+                      - generic [ref=e1485]:
+                        - text: BOTELLA
+                        - generic [ref=e1486]: (1)
+                - generic [ref=e1487]:
+                  - button "Marca" [ref=e1489]
+                  - generic [ref=e1494]:
+                    - generic [ref=e1496]:
+                      - checkbox [ref=e1501]
+                      - generic [ref=e1502]:
+                        - text: Coca Cola
+                        - generic [ref=e1503]: (5)
+                    - generic [ref=e1505]:
+                      - checkbox [ref=e1510]
+                      - generic [ref=e1511]:
+                        - text: Powerade
+                        - generic [ref=e1512]: (10)
+                    - generic [ref=e1514]:
+                      - checkbox [ref=e1519]
+                      - generic [ref=e1520]:
+                        - text: Schweppes
+                        - generic [ref=e1521]: (3)
+                - generic [ref=e1522]:
+                  - button "Gama de Precios" [disabled] [ref=e1524]
+                  - generic [ref=e1535]:
+                    - generic [ref=e1536]: $ 2.050,00
+                    - generic [ref=e1537]: $ 5.900,00
+              - button "Aplicar" [disabled] [ref=e1540]
+            - paragraph [ref=e1545]: Los precios de oferta expresados en la web, son precios por unidad
+            - group "Sección fila" [ref=e1547]
+          - generic [ref=e1553]:
+            - group "Sección fila" [ref=e1555]
+            - group "Sección fila" [ref=e1557]:
+              - generic [ref=e1558]:
+                - generic [ref=e1559]: 18 Productos
+                - generic [ref=e1567]:
+                  - text: Ordenar por
+                  - generic [ref=e1568]:
+                    - button "Relevancia" [ref=e1569]
+                    - text: Más recientes Con descuento Precio más alto Precio más bajo A - Z Z - A
+            - group "Sección fila" [ref=e1575]:
+              - generic [ref=e1578]:
+                - region "ProductoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e1580]:
+                  - link "Gaseosa cola Coca Cola Zero 2,25 lts" [ref=e1581] [cursor=pointer]:
+                    - /url: /gaseosa-cola-coca-cola-zero-225-lts-393964/p
+                    - article [ref=e1582]:
+                      - generic [ref=e1583]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2229]:
+                          - group "Imagen del productoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e2234]:
+                            - img "Gaseosa cola Coca Cola Zero 2,25 lts" [ref=e2236]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2237]:
+                          - generic [ref=e2238]: 2do al 50% Iguales
+                        - group "Sección fila" [ref=e2244]:
+                          - link [ref=e2249]:
+                            - /url: "#reviews"
+                            - generic [ref=e2250]: ()
+                        - group "Sección fila" [ref=e2284]:
+                          - generic [ref=e2287]:
+                            - generic [ref=e2290]:
+                              - generic [ref=e2291]: $ 4.425,00
+                              - generic [ref=e2292]: c/u
+                            - generic [ref=e2293]: $ 5.900,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2299]
+                        - group "Sección fila" [ref=e2300]:
+                          - group "Nombre del productoGaseosa cola Coca Cola Zero 2,25 lts" [ref=e2305]:
+                            - heading "Gaseosa cola Coca Cola Zero 2,25 lts" [level=3] [ref=e2306]
+                        - generic [ref=e2310]:
+                          - generic [ref=e2311]: ($ 2.622,22
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2312]:
+                            - button [ref=e2315]
+                            - button [ref=e2323]
+                - region "ProductoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e1587]:
+                  - link "Gaseosa cola Coca Cola Zero 1,25 lts" [ref=e1588] [cursor=pointer]:
+                    - /url: /gaseosa-cola-coca-cola-zero-125-lts-649300/p
+                    - article [ref=e1589]:
+                      - generic [ref=e1590]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2327]:
+                          - group "Imagen del productoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e2332]:
+                            - img "Gaseosa cola Coca Cola Zero 1,25 lts" [ref=e2334]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2335]:
+                          - link [ref=e2340]:
+                            - /url: "#reviews"
+                            - generic [ref=e2341]: ()
+                        - group "Sección fila" [ref=e2375]:
+                          - generic [ref=e2376]: $ 3.290,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2384]
+                        - group "Sección fila" [ref=e2385]:
+                          - group "Nombre del productoGaseosa cola Coca Cola Zero 1,25 lts" [ref=e2390]:
+                            - heading "Gaseosa cola Coca Cola Zero 1,25 lts" [level=3] [ref=e2391]
+                        - generic [ref=e2395]:
+                          - generic [ref=e2396]: ($ 2.632,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2397]:
+                            - button [ref=e2400]
+                            - button [ref=e2408]
+                - region "ProductoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e1594]:
+                  - link "Gaseosa cola Coca Cola Zero 1,75 lts" [ref=e1595] [cursor=pointer]:
+                    - /url: /gaseosa-cola-coca-cola-zero-175-lts-636689/p
+                    - article [ref=e1596]:
+                      - generic [ref=e1597]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2412]:
+                          - group "Imagen del productoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e2417]:
+                            - img "Gaseosa cola Coca Cola Zero 1,75 lts" [ref=e2419]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2420]:
+                          - link [ref=e2425]:
+                            - /url: "#reviews"
+                            - generic [ref=e2426]: ()
+                        - group "Sección fila" [ref=e2460]:
+                          - generic [ref=e2461]: $ 4.900,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2469]
+                        - group "Sección fila" [ref=e2470]:
+                          - group "Nombre del productoGaseosa cola Coca Cola Zero 1,75 lts" [ref=e2475]:
+                            - heading "Gaseosa cola Coca Cola Zero 1,75 lts" [level=3] [ref=e2476]
+                        - generic [ref=e2480]:
+                          - generic [ref=e2481]: ($ 2.800,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2482]:
+                            - button [ref=e2485]
+                            - button [ref=e2493]
+                - region "ProductoGaseosa Coca-Cola Zero 600 ml" [ref=e1601]:
+                  - link "Gaseosa Coca-Cola Zero 600 ml" [ref=e1602] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-zero-600-ml-763995/p
+                    - article [ref=e1603]:
+                      - generic [ref=e1604]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2497]:
+                          - group "Imagen del productoGaseosa Coca-Cola Zero 600 ml" [ref=e2502]:
+                            - img "Gaseosa Coca-Cola Zero 600 ml" [ref=e2504]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila":
+                          - generic: ()
+                        - group "Sección fila" [ref=e2505]:
+                          - generic [ref=e2506]: $ 2.500,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2514]
+                        - group "Sección fila" [ref=e2515]:
+                          - group "Nombre del productoGaseosa Coca-Cola Zero 600 ml" [ref=e2520]:
+                            - heading "Gaseosa Coca-Cola Zero 600 ml" [level=3] [ref=e2521]
+                        - generic [ref=e2525]:
+                          - generic [ref=e2526]: ($ 4.166,67
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2527]:
+                            - button [ref=e2530]
+                            - button [ref=e2538]
+                - region "ProductoGaseosa cola Coca Cola Zero en lata 354 ml" [ref=e2543]:
+                  - link "Gaseosa cola Coca Cola Zero en lata 354 ml" [ref=e2544] [cursor=pointer]:
+                    - /url: /gaseosa-cola-coca-cola-zero-en-lata-354-ml-530217/p
+                    - article [ref=e2545]:
+                      - generic [ref=e2546]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2547]:
+                          - group "Imagen del productoGaseosa cola Coca Cola Zero en lata 354 ml" [ref=e2552]:
+                            - img "Gaseosa cola Coca Cola Zero en lata 354 ml" [ref=e2554]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2555]:
+                          - link [ref=e2560]:
+                            - /url: "#reviews"
+                            - generic [ref=e2561]: ()
+                        - group "Sección fila" [ref=e2598]:
+                          - generic [ref=e2599]: $ 2.500,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2607]
+                        - group "Sección fila" [ref=e2608]:
+                          - group "Nombre del productoGaseosa cola Coca Cola Zero en lata 354 ml" [ref=e2613]:
+                            - heading "Gaseosa cola Coca Cola Zero en lata 354 ml" [level=3] [ref=e2614]
+                        - generic [ref=e2618]:
+                          - generic [ref=e2619]: ($ 7.062,15
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2620]:
+                            - button [ref=e2623]
+                            - button [ref=e2631]
+                - region "ProductoBebida Isotónica Powerade Mountain Blast 500 ml" [ref=e1615]:
+                  - link "Bebida Isotónica Powerade Mountain Blast 500 ml" [ref=e1616] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-mountain-blast-500-ml-424488/p
+                    - article [ref=e1617]:
+                      - generic [ref=e1618]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2635]:
+                          - group "Imagen del productoBebida Isotónica Powerade Mountain Blast 500 ml" [ref=e2640]:
+                            - img "Bebida Isotónica Powerade Mountain Blast 500 ml" [ref=e2642]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2643]:
+                          - generic [ref=e2644]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila" [ref=e2650]:
+                          - link [ref=e2655]:
+                            - /url: "#reviews"
+                            - generic [ref=e2656]: ()
+                        - group "Sección fila" [ref=e2693]:
+                          - generic [ref=e2696]:
+                            - generic [ref=e2699]:
+                              - generic [ref=e2700]: $ 1.332,50
+                              - generic [ref=e2701]: c/u
+                            - generic [ref=e2702]: $ 2.050,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2708]
+                        - group "Sección fila" [ref=e2709]:
+                          - group "Nombre del productoBebida Isotónica Powerade Mountain Blast 500 ml" [ref=e2714]:
+                            - heading "Bebida Isotónica Powerade Mountain Blast 500 ml" [level=3] [ref=e2715]
+                        - generic [ref=e2719]:
+                          - generic [ref=e2720]: ($ 4.100,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2721]:
+                            - button [ref=e2724]
+                            - button [ref=e2732]
+                - region "ProductoBebida Isotónica Powerade Frutas Tropicales 500 ml" [ref=e1622]:
+                  - link "Bebida Isotónica Powerade Frutas Tropicales 500 ml" [ref=e1623] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-frutos-tropicales-500-ml-471396/p
+                    - article [ref=e1624]:
+                      - generic [ref=e1625]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2736]:
+                          - group "Imagen del productoBebida Isotónica Powerade Frutas Tropicales 500 ml" [ref=e2741]:
+                            - img "Bebida Isotónica Powerade Frutas Tropicales 500 ml" [ref=e2743]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2744]:
+                          - generic [ref=e2745]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila" [ref=e2751]:
+                          - link [ref=e2756]:
+                            - /url: "#reviews"
+                            - generic [ref=e2757]: ()
+                        - group "Sección fila" [ref=e2794]:
+                          - generic [ref=e2797]:
+                            - generic [ref=e2800]:
+                              - generic [ref=e2801]: $ 1.332,50
+                              - generic [ref=e2802]: c/u
+                            - generic [ref=e2803]: $ 2.050,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2809]
+                        - group "Sección fila" [ref=e2810]:
+                          - group "Nombre del productoBebida Isotónica Powerade Frutas Tropicales 500 ml" [ref=e2815]:
+                            - heading "Bebida Isotónica Powerade Frutas Tropicales 500 ml" [level=3] [ref=e2816]
+                        - generic [ref=e2820]:
+                          - generic [ref=e2821]: ($ 4.100,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2822]:
+                            - button [ref=e2825]
+                            - button [ref=e2833]
+                - region "ProductoBebida Isotónica Powerade Uva 500 ml" [ref=e1629]:
+                  - link "Bebida Isotónica Powerade Uva 500 ml" [ref=e1630] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-uva-500-ml-725064/p
+                    - article [ref=e1631]:
+                      - generic [ref=e1632]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2837]:
+                          - group "Imagen del productoBebida Isotónica Powerade Uva 500 ml" [ref=e2842]:
+                            - img "Bebida Isotónica Powerade Uva 500 ml" [ref=e2844]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2845]:
+                          - generic [ref=e2846]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila":
+                          - generic: ()
+                        - group "Sección fila" [ref=e2852]:
+                          - generic [ref=e2855]:
+                            - generic [ref=e2858]:
+                              - generic [ref=e2859]: $ 1.332,50
+                              - generic [ref=e2860]: c/u
+                            - generic [ref=e2861]: $ 2.050,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2867]
+                        - group "Sección fila" [ref=e2868]:
+                          - group "Nombre del productoBebida Isotónica Powerade Uva 500 ml" [ref=e2873]:
+                            - heading "Bebida Isotónica Powerade Uva 500 ml" [level=3] [ref=e2874]
+                        - generic [ref=e2878]:
+                          - generic [ref=e2879]: ($ 4.100,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2880]:
+                            - button [ref=e2883]
+                            - button [ref=e2891]
+                - region "ProductoGaseosa Schweppes Zero Agua Tónica 1,5 lts" [ref=e2896]:
+                  - link "Gaseosa Schweppes Zero Agua Tónica 1,5 lts" [ref=e2897] [cursor=pointer]:
+                    - /url: /gaseosa-schweppes-zero-agua-tonica-1-5-lts-751724/p
+                    - article [ref=e2898]:
+                      - generic [ref=e2899]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2900]:
+                          - group "Imagen del productoGaseosa Schweppes Zero Agua Tónica 1,5 lts" [ref=e2905]:
+                            - img "Gaseosa Schweppes Zero Agua Tónica 1,5 lts" [ref=e2907]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2908]:
+                          - link [ref=e2913]:
+                            - /url: "#reviews"
+                            - generic [ref=e2914]: ()
+                        - group "Sección fila" [ref=e2951]:
+                          - generic [ref=e2954]:
+                            - generic [ref=e2957]:
+                              - generic [ref=e2958]: $ 3.600,00
+                              - generic [ref=e2959]: "- 20%"
+                            - generic [ref=e2960]: $ 4.500,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e2966]
+                        - group "Sección fila" [ref=e2967]:
+                          - group "Nombre del productoGaseosa Schweppes Zero Agua Tónica 1,5 lts" [ref=e2972]:
+                            - heading "Gaseosa Schweppes Zero Agua Tónica 1,5 lts" [level=3] [ref=e2973]
+                        - generic [ref=e2977]:
+                          - generic [ref=e2978]: ($ 2.400,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e2979]:
+                            - button [ref=e2982]
+                            - button [ref=e2990]
+                - region "ProductoBebida Isotónica Powerade Mountain Blast 1,5 lts" [ref=e2995]:
+                  - link "Bebida Isotónica Powerade Mountain Blast 1,5 lts" [ref=e2996] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-mountain-blast-1-5-lts-608742/p
+                    - article [ref=e2997]:
+                      - generic [ref=e2998]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e2999]:
+                          - group "Imagen del productoBebida Isotónica Powerade Mountain Blast 1,5 lts" [ref=e3004]:
+                            - img "Bebida Isotónica Powerade Mountain Blast 1,5 lts" [ref=e3006]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e3007]:
+                          - generic [ref=e3008]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila" [ref=e3014]:
+                          - link [ref=e3019]:
+                            - /url: "#reviews"
+                            - generic [ref=e3020]: ()
+                        - group "Sección fila" [ref=e3057]:
+                          - generic [ref=e3060]:
+                            - generic [ref=e3063]:
+                              - generic [ref=e3064]: $ 2.210,00
+                              - generic [ref=e3065]: c/u
+                            - generic [ref=e3066]: $ 3.400,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e3072]
+                        - group "Sección fila" [ref=e3073]:
+                          - group "Nombre del productoBebida Isotónica Powerade Mountain Blast 1,5 lts" [ref=e3078]:
+                            - heading "Bebida Isotónica Powerade Mountain Blast 1,5 lts" [level=3] [ref=e3079]
+                        - generic [ref=e3083]:
+                          - generic [ref=e3084]: ($ 2.266,67
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e3085]:
+                            - button [ref=e3088]
+                            - button [ref=e3096]
+                - region "ProductoBebida Isotónica Powerade Manzana 500 ml" [ref=e3101]:
+                  - link "Bebida Isotónica Powerade Manzana 500 ml" [ref=e3102] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-manzana-500-ml-424487/p
+                    - article [ref=e3103]:
+                      - generic [ref=e3104]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e3105]:
+                          - group "Imagen del productoBebida Isotónica Powerade Manzana 500 ml" [ref=e3110]:
+                            - img "Bebida Isotónica Powerade Manzana 500 ml" [ref=e3112]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e3113]:
+                          - generic [ref=e3114]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila" [ref=e3120]:
+                          - link [ref=e3125]:
+                            - /url: "#reviews"
+                            - generic [ref=e3126]: ()
+                        - group "Sección fila" [ref=e3160]:
+                          - generic [ref=e3163]:
+                            - generic [ref=e3166]:
+                              - generic [ref=e3167]: $ 1.332,50
+                              - generic [ref=e3168]: c/u
+                            - generic [ref=e3169]: $ 2.050,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e3175]
+                        - group "Sección fila" [ref=e3176]:
+                          - group "Nombre del productoBebida Isotónica Powerade Manzana 500 ml" [ref=e3181]:
+                            - heading "Bebida Isotónica Powerade Manzana 500 ml" [level=3] [ref=e3182]
+                        - generic [ref=e3186]:
+                          - generic [ref=e3187]: ($ 4.100,00
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e3188]:
+                            - button [ref=e3191]
+                            - button [ref=e3199]
+                - region "ProductoBebida isotónica Powerade Frutas Tropicales 1,5 lts" [ref=e3204]:
+                  - link "Bebida isotónica Powerade Frutas Tropicales 1,5 lts" [ref=e3205] [cursor=pointer]:
+                    - /url: /bebida-isotonica-powerade-frutas-tropicales-15-lts-608750/p
+                    - article [ref=e3206]:
+                      - generic [ref=e3207]:
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e3208]:
+                          - group "Imagen del productoBebida isotónica Powerade Frutas Tropicales 1,5 lts" [ref=e3213]:
+                            - img "Bebida isotónica Powerade Frutas Tropicales 1,5 lts" [ref=e3215]
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila"
+                        - group "Sección fila" [ref=e3216]:
+                          - generic [ref=e3217]: 2do al 70% Mi Crf Max 24 unidades Combinable POWERADE
+                        - group "Sección fila":
+                          - generic: ()
+                        - group "Sección fila" [ref=e3223]:
+                          - generic [ref=e3226]:
+                            - generic [ref=e3229]:
+                              - generic [ref=e3230]: $ 2.210,00
+                              - generic [ref=e3231]: c/u
+                            - generic [ref=e3232]: $ 3.400,00
+                        - button "Ver Precio sin impuestos nacionales" [ref=e3238]
+                        - group "Sección fila" [ref=e3239]:
+                          - group "Nombre del productoBebida isotónica Powerade Frutas Tropicales 1,5 lts" [ref=e3244]:
+                            - heading "Bebida isotónica Powerade Frutas Tropicales 1,5 lts" [level=3] [ref=e3245]
+                        - generic [ref=e3249]:
+                          - generic [ref=e3250]: ($ 2.266,67
+                          - text: x 1 L. )
+                        - group "Sección fila":
+                          - generic [ref=e3251]:
+                            - button [ref=e3254]
+                            - button [ref=e3262]
+            - generic [ref=e1654]:
+              - button "Anterior" [disabled] [ref=e1656]
+              - button "1" [ref=e1662]
+              - button "2" [ref=e1665]
+              - button "Siguiente" [ref=e1668]
+      - group "Sección fila" [ref=e1673]:
+        - generic [ref=e1677]:
+          - group "Sección fila"
+    - generic [ref=e1680]:
+      - generic [ref=e1682]:
+        - link [ref=e1683] [cursor=pointer]:
+          - /url: /
+          - img "isotipo" [ref=e1685]
+        - group "Sección fila" [ref=e1686]:
+          - generic [ref=e1690]:
+            - paragraph [ref=e1693]: "Seguinos en :"
+            - navigation [ref=e1694]:
+              - list [ref=e1695]:
+                - listitem [ref=e1696]:
+                  - link [ref=e1698] [cursor=pointer]:
+                    - /url: https://www.instagram.com/carrefourargentina/?hl=es
+                - listitem [ref=e1703]:
+                  - link [ref=e1705] [cursor=pointer]:
+                    - /url: https://es-la.facebook.com/CarrefourArgentina/
+                - listitem [ref=e1710]:
+                  - link [ref=e1712] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@carrefourargentina
+                - listitem [ref=e1717]:
+                  - link [ref=e1719] [cursor=pointer]:
+                    - /url: https://www.youtube.com/user/carrefourargentina
+                - listitem
+                - listitem [ref=e1724]:
+                  - link [ref=e1726] [cursor=pointer]:
+                    - /url: https://ar.linkedin.com/company/carrefour-argentina-s-a-
+            - paragraph [ref=e1733]: Estamos para ayudarte
+            - paragraph [ref=e1738]:
+              - text: ¿Tenés una consulta?
+              - link "Comunicate con nosotros acá" [ref=e1739] [cursor=pointer]:
+                - /url: /contacto
+      - group "Sección fila" [ref=e1740]:
+        - generic [ref=e1741]:
+          - group "Sección fila" [ref=e1745]:
+            - generic [ref=e1746]:
+              - generic [ref=e1750]:
+                - paragraph [ref=e1753]: Descubrí Carrefour
+                - navigation [ref=e1754]:
+                  - list [ref=e1755]:
+                    - listitem [ref=e1756]:
+                      - link "Promociones" [ref=e1758] [cursor=pointer]:
+                        - /url: /promociones
+                    - listitem [ref=e1760]:
+                      - link "Folletos" [ref=e1762] [cursor=pointer]:
+                        - /url: /folletos
+                    - listitem [ref=e1764]:
+                      - link "Sucursales" [ref=e1766] [cursor=pointer]:
+                        - /url: /sucursales
+                    - listitem [ref=e1768]:
+                      - link "Mi Carrefour" [ref=e1770] [cursor=pointer]:
+                        - /url: https://www.micarrefour.com.ar/
+                    - listitem [ref=e1772]:
+                      - link "Productos Carrefour" [ref=e1774] [cursor=pointer]:
+                        - /url: /4489?initialMap=productClusterIds&initialQuery=4489&map=brand,brand,brand,productClusterIds&page=2&query=/carrefour/carrefour-home/carrefour-selection/4489&searchState
+                    - listitem [ref=e1776]:
+                      - link "Tarjeta Mi Carrefour" [ref=e1778] [cursor=pointer]:
+                        - /url: https://www.bancodeserviciosfinancieros.com.ar/
+                    - listitem [ref=e1780]:
+                      - link "Panel Carrefour" [ref=e1782] [cursor=pointer]:
+                        - /url: https://panel.carrefour.com.ar/#_ga=2.208914578.1869984677.1618838336-2340370.1618427361
+                    - listitem [ref=e1784]:
+                      - link "Puntos Verdes" [ref=e1786] [cursor=pointer]:
+                        - /url: https://landings.carrefour.com.ar/puntosverdes/
+                    - listitem [ref=e1788]:
+                      - link "App Carrefour" [ref=e1790] [cursor=pointer]:
+                        - /url: /app
+                    - listitem [ref=e1792]:
+                      - link "Comprometidos Carrefour" [ref=e1794] [cursor=pointer]:
+                        - /url: /comprometidos
+              - generic [ref=e1797]:
+                - paragraph [ref=e1801]: Conocenos
+                - navigation [ref=e1803]:
+                  - list [ref=e1804]:
+                    - listitem [ref=e1805]:
+                      - link "Nuestros Compromisos" [ref=e1807] [cursor=pointer]:
+                        - /url: https://compromisos.carrefour.com.ar/
+                    - listitem [ref=e1809]:
+                      - link "Preguntas frecuentes" [ref=e1811] [cursor=pointer]:
+                        - /url: /preguntas-frecuentes
+                    - listitem [ref=e1813]:
+                      - link "Vendé con nosotros" [ref=e1815] [cursor=pointer]:
+                        - /url: /vende-con-nosotros-online
+                    - listitem
+                    - listitem [ref=e1817]:
+                      - link "Servicios Carrefour" [ref=e1819] [cursor=pointer]:
+                        - /url: https://www.carrefour.com.ar/
+                - generic [ref=e1822]:
+                  - paragraph [ref=e1825]: Info útil
+                  - navigation [ref=e1826]:
+                    - list [ref=e1827]:
+                      - listitem [ref=e1829]:
+                        - link "Legales" [ref=e1831] [cursor=pointer]:
+                          - /url: /legales
+                      - listitem [ref=e1834]:
+                        - link "Tasas de interés" [ref=e1836] [cursor=pointer]:
+                          - /url: /tasas-de-interes
+                      - listitem [ref=e1839]:
+                        - link "Contacto" [ref=e1841] [cursor=pointer]:
+                          - /url: https://www.carrefour.com.ar/contacto
+                      - listitem [ref=e1844]:
+                        - link "Acuerdo con Acyma" [ref=e1846] [cursor=pointer]:
+                          - /url: /acuerdo-acyma
+                      - listitem [ref=e1848]:
+                        - link "Política de Bienestar Animal" [ref=e1850] [cursor=pointer]:
+                          - /url: https://folletos.carrefour.com.ar/assets/bienestar_animal_2023
+                      - listitem [ref=e1852]:
+                        - link "Reporte de Sustentabilidad" [ref=e1854] [cursor=pointer]:
+                          - /url: https://folletos.carrefour.com.ar/assets/reporte_sustentabilidad_2021
+              - generic [ref=e1857]:
+                - paragraph [ref=e1861]: Comprá Online
+                - navigation [ref=e1863]:
+                  - list [ref=e1864]:
+                    - listitem [ref=e1866]:
+                      - link "¿Cómo comprar?" [ref=e1868] [cursor=pointer]:
+                        - /url: /como-comprar
+                    - listitem [ref=e1870]:
+                      - link "Hogar & Electro" [ref=e1872] [cursor=pointer]:
+                        - /url: /hogar-y-electro
+                    - listitem [ref=e1874]:
+                      - link "Zona de cobertura" [ref=e1876] [cursor=pointer]:
+                        - /url: /cobertura
+                    - listitem [ref=e1878]:
+                      - link "Venta mayorista online" [ref=e1880] [cursor=pointer]:
+                        - /url: https://maxi.carrefour.com.ar/online
+                    - listitem [ref=e1882]:
+                      - link "Gift cards empresariales" [ref=e1884] [cursor=pointer]:
+                        - /url: https://tarjetaregalo.carrefour.com.ar
+          - generic [ref=e1888]:
+            - paragraph [ref=e1892]: Enterate de nuestras ofertas
+            - paragraph [ref=e1896]: Dejanos tu mail para recibir todas las ofertas y promociones antes que nadie.
+            - generic [ref=e1898]:
+              - group "Sección fila" [ref=e1899]:
+                - generic [ref=e1900]:
+                  - generic [ref=e1906]:
+                    - generic [ref=e1907]: Provincia
+                    - combobox "Provincia" [ref=e1915]:
+                      - option [selected]
+                      - option "Buenos Aires"
+                      - option "Catamarca"
+                      - option "Chaco"
+                      - option "Chubut"
+                      - option "Ciudad Autonoma de Buenos Aires"
+                      - option "Córdoba"
+                      - option "Corrientes"
+                      - option "Entre Ríos"
+                      - option "Formosa"
+                      - option "Jujuy"
+                      - option "La Pampa"
+                      - option "La Rioja"
+                      - option "Mendoza"
+                      - option "Misiones"
+                      - option "Neuquén"
+                      - option "Río Negro"
+                      - option "Salta"
+                      - option "San Juan"
+                      - option "San Luis"
+                      - option "Santa Cruz"
+                      - option "Santa Fe"
+                      - option "Santiago del Estero"
+                      - option "Tierra del Fuego"
+                      - option "Tucumán"
+                  - spinbutton [ref=e1921]
+              - group "Sección fila" [ref=e1922]:
+                - generic [ref=e1923]:
+                  - textbox [ref=e1929]:
+                    - /placeholder: Tu mail
+                  - button "ENVIAR" [ref=e1935]
+      - group "Sección fila" [ref=e1937]:
+        - generic [ref=e1939]:
+          - region "slider" [ref=e1941]:
+            - generic [ref=e1943]:
+              - group "La diapositiva actual es 1 de 3" [ref=e1944]:
+                - link "CACE" [ref=e1946] [cursor=pointer]:
+                  - /url: https://www.cace.org.ar/
+              - group "La diapositiva actual es 2 de 3" [ref=e1947]:
+                - link "PDP" [ref=e1949] [cursor=pointer]:
+                  - /url: https://www.argentina.gob.ar/aaip/datospersonales
+              - group "La diapositiva actual es 3 de 3" [ref=e1950]:
+                - link [ref=e1952] [cursor=pointer]:
+                  - /url: http://qr.afip.gob.ar/?qr=_AFQKhd4uXPy7l2Q-ft85w,,
+                  - img "Data Fiscal" [ref=e1953]
+          - region "slider" [ref=e1955]:
+            - generic [ref=e1957]:
+              - group "La diapositiva actual es 1 de 3" [ref=e1958]:
+                - link "PCI DSS" [ref=e1960] [cursor=pointer]:
+                  - /url: https://www.pcisecuritystandards.org/document_library
+              - group "La diapositiva actual es 2 de 3" [ref=e1961]:
+                - link "Vtex" [ref=e1963] [cursor=pointer]:
+                  - /url: https://vtex.com/us-en/
+              - group "La diapositiva actual es 3 de 3" [ref=e1964]:
+                - link "Valtech" [ref=e1966] [cursor=pointer]:
+                  - /url: https://www.valtech.com/es-ar/
+          - group "Sección fila" [ref=e1968]:
+            - generic [ref=e1970]:
+              - button "Modal abierto":
+                - paragraph [ref=e1971] [cursor=pointer]: Solicitud de arrepentimiento
+      - group "Sección fila" [ref=e1972]:
+        - paragraph [ref=e1977]:
+          - text: Copyright 2026 ©Carrefour. Todos los derechos reservados |
+          - link "Términos y Condiciones del Servicio" [ref=e1978] [cursor=pointer]:
+            - /url: https://supermercado.carrefour.com.ar/legales
+          - text: "| Defensa de las y los Consumidores para reclamos"
+          - link "ingrese aqui" [ref=e1979] [cursor=pointer]:
+            - /url: https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario
+  - generic [ref=e372]:
+    - status:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: TU OPINIÓN
+                    - generic:
+                      - generic: Compartinos tu experiencia para ayudarnos a mejorar
+                      - generic:
+                        - link "DEJAR MI COMENTARIO":
+                          - /url: https://cloud.experiencia.carrefour.com.ar/encuesta.carrefouronline
+                      - generic:
+                        - link:
+                          - /url: "#"
+  - status [ref=e474]
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - generic: Seleccioná un carrito de compra
+        - button
+  - generic [ref=e3267]:
+    - generic [ref=e3268]:
+      - heading "Elegí un método para iniciar sesión" [level=3] [ref=e3269]
+      - button [ref=e3270] [cursor=pointer]
+    - generic [ref=e3273]:
+      - list [ref=e3279]:
+        - listitem [ref=e3280]:
+          - button "Ingresar con código de acceso" [ref=e3282]
+        - listitem [ref=e3284]:
+          - button "Ingresar con mail y contraseña" [ref=e3286]
+        - listitem [ref=e3289]:
+          - button "Ingresar con Google" [ref=e3291] [cursor=pointer]
+        - listitem [ref=e3293]:
+          - button "Ingresar con Facebook" [ref=e3295] [cursor=pointer]
+        - listitem
+      - generic [ref=e3297]:
+        - text: Al ingresar estas aceptando los
+        - link "Términos y Condiciones" [ref=e3298] [cursor=pointer]:
+          - /url: /legales
+        - text: de Carrefour.com.ar

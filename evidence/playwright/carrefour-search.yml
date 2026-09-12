@@ -1,0 +1,386 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e476]:
+    - generic [ref=e482]:
+      - paragraph [ref=e485]:
+        - text: Hoy con Tarjeta de Crédito Carrefour Banco 20% de descuento en el acto ¡SIN TOPE!
+        - link "Aprovechá y hacé tu compra del Super 🛒 al mejor precio" [ref=e486] [cursor=pointer]:
+          - /url: /almacen
+      - button [expanded] [ref=e487] [cursor=pointer]
+    - generic [ref=e493]:
+      - button "ELEGÍ TU MÉTODO DE ENTREGA" [ref=e495] [cursor=pointer]
+      - group "Sección fila" [ref=e500]:
+        - generic [ref=e501]:
+          - link "App Carrefour" [ref=e505] [cursor=pointer]:
+            - /url: /app
+            - link [ref=e509]:
+              - /url: /app
+          - link "Promociones" [ref=e517] [cursor=pointer]:
+            - /url: /promociones
+            - link [ref=e521]:
+              - /url: /promociones
+          - link "Mi Carrefour" [ref=e531] [cursor=pointer]:
+            - /url: "#"
+            - link [ref=e535]:
+              - /url: "#"
+          - link "Sucursales" [ref=e543] [cursor=pointer]:
+            - /url: /sucursales
+            - link [ref=e547]:
+              - /url: /sucursales
+          - button "Disponibilidad de entrega" [ref=e553]
+    - generic [ref=e566]:
+      - link "Ir a la Home" [ref=e568] [cursor=pointer]:
+        - /url: /
+      - group "Sección fila" [ref=e573]:
+        - generic [ref=e575]:
+          - group "Sección fila" [ref=e577]:
+            - button "Categorías" [ref=e582]
+          - generic:
+            - group "Sección fila"
+      - group "Sección fila" [ref=e586]:
+        - combobox [ref=e591]:
+          - generic [ref=e596]:
+            - textbox "¿Qué estás buscando hoy? Borrar campo de búsqueda Buscar Productos" [ref=e597]:
+              - /placeholder: "¿Qué estás buscando hoy? "
+              - text: Coca Cola Sin Azucar 1.5 L
+            - generic [ref=e599]:
+              - button "Borrar campo de búsqueda" [ref=e600]
+              - button "Buscar Productos" [ref=e604]
+      - group "Sección fila" [ref=e608]:
+        - generic [ref=e610]:
+          - link "Entrega inmediata" [ref=e613] [cursor=pointer]:
+            - /url: /entrega-inmediata?
+          - link "Favoritos" [ref=e623] [cursor=pointer]:
+            - /url: /account#/wishlist
+          - button [ref=e632] [cursor=pointer]:
+            - paragraph [ref=e640]: Ingresar
+          - complementary [ref=e642]:
+            - button "Tienes 0 productos en tu carrito Carrito" [ref=e647]:
+              - generic [ref=e649]:
+                - generic "Tienes 0 productos en tu carrito" [ref=e651]
+                - generic [ref=e654]: Carrito
+    - generic [ref=e661]:
+      - group "Sección fila" [ref=e662]:
+        - generic [ref=e665]:
+          - link "Link a la página de inicio" [ref=e666] [cursor=pointer]:
+            - /url: /
+            - text: Home
+          - link "coca cola sin azucar 1.5 l" [ref=e670] [cursor=pointer]:
+            - /url: /coca cola sin azucar 1.5 l?map=ft
+      - group "Sección fila" [ref=e671]:
+        - generic [ref=e678]:
+          - paragraph [ref=e682]: Disculpanos, no encontramos productos que coincidan con tu búsqueda
+          - list [ref=e684]:
+            - listitem [ref=e685]: Verificá la ortografía
+            - listitem [ref=e686]: Intentá utilizar una sola palabra
+            - listitem [ref=e687]: Probá escribiendo nombres de categorías
+            - listitem [ref=e688]: Escribí sinónimos
+      - generic [ref=e689]:
+        - generic [ref=e690]:
+          - heading "Términos más buscados" [level=2] [ref=e691]
+          - list [ref=e692]:
+            - listitem [ref=e693]:
+              - link "Carrefour Juguetes" [ref=e694] [cursor=pointer]:
+                - /url: /Bazar-y-textil/jugueteria-carrefour
+            - listitem [ref=e695]:
+              - link "Jabón" [ref=e696] [cursor=pointer]:
+                - /url: /jabon?_q=jabon&map=ft
+            - listitem [ref=e697]:
+              - link "Bebidas Cerveza" [ref=e698] [cursor=pointer]:
+                - /url: /Bebidas/Cervezas?order=
+            - listitem [ref=e699]:
+              - link "Papas Fritas" [ref=e700] [cursor=pointer]:
+                - /url: /papas%20fritas?_q=papas%20fritas&map=ft
+        - generic [ref=e701]:
+          - heading "Encontrá lo mejor en Electro y Tecnología" [level=2] [ref=e702]
+          - region "slider" [ref=e704]:
+            - generic [ref=e706]:
+              - group "La diapositiva actual es 1 de 10" [ref=e723]:
+                - group "Sección fila" [ref=e725]:
+                  - generic [ref=e729]:
+                    - link "Escribe tu texto aquí" [ref=e731] [cursor=pointer]:
+                      - /url: /Electro-y-tecnologia/Smart-TV-y-soportes?order=
+                    - paragraph [ref=e735]: Smart TVs
+              - group "La diapositiva actual es 2 de 10" [ref=e736]:
+                - group "Sección fila" [ref=e738]:
+                  - generic [ref=e742]:
+                    - link "Escribe tu texto aquí" [ref=e744] [cursor=pointer]:
+                      - /url: /Electro-y-tecnologia/Celulares?order=
+                    - paragraph [ref=e748]: Celulares
+              - group "La diapositiva actual es 3 de 10" [ref=e749]:
+                - group "Sección fila" [ref=e751]:
+                  - generic [ref=e755]:
+                    - link "Escribe tu texto aquí" [ref=e757] [cursor=pointer]:
+                      - /url: /Electro-y-tecnologia/Heladeras-y-freezers?order
+                    - paragraph [ref=e761]: Heladeras
+              - group "La diapositiva actual es 4 de 10" [ref=e762]:
+                - group "Sección fila" [ref=e764]:
+                  - generic [ref=e768]:
+                    - link "Escribe tu texto aquí" [ref=e770] [cursor=pointer]:
+                      - /url: /Electro-y-tecnologia/Lavado?order=
+                    - paragraph [ref=e774]: Lavado
+              - group "La diapositiva actual es 5 de 10" [ref=e775]:
+                - group "Sección fila" [ref=e777]:
+                  - generic [ref=e781]:
+                    - link "Escribe tu texto aquí" [ref=e783] [cursor=pointer]:
+                      - /url: https://www.carrefour.com.ar/Electro-y-tecnologia/Termotanques-y-calefones?order=
+                    - paragraph [ref=e787]: Termotanques
+              - group "La diapositiva actual es 6 de 10" [ref=e788]:
+                - group "Sección fila" [ref=e790]:
+                  - generic [ref=e794]:
+                    - link "Escribe tu texto aquí" [ref=e796] [cursor=pointer]:
+                      - /url: https://www.carrefour.com.ar/Electro-y-tecnologia/Cocinas-y-hornos?order=
+                    - paragraph [ref=e800]: Cocinas
+              - group "La diapositiva actual es 7 de 10" [ref=e801]:
+                - group "Sección fila" [ref=e803]:
+                  - generic [ref=e807]:
+                    - link "Escribe tu texto aquí" [ref=e809] [cursor=pointer]:
+                      - /url: https://www.carrefour.com.ar/Electro-y-tecnologia/Pequenos-electrodomesticos?order=
+                    - paragraph [ref=e813]: Pequeños electros
+              - group "La diapositiva actual es 8 de 10" [ref=e814]:
+                - group "Sección fila" [ref=e816]:
+                  - generic [ref=e820]:
+                    - link "Escribe tu texto aquí" [ref=e822] [cursor=pointer]:
+                      - /url: https://www.carrefour.com.ar/Electro-y-tecnologia/Cuidado-personal-y-salud?order=
+                    - paragraph [ref=e826]: Cuidado personal
+              - group [aria-hidden] [ref=e827]
+              - group [aria-hidden] [ref=e829]
+            - button "Previous Slide" [ref=e847]
+            - button "Next Slide" [ref=e850]
+          - generic [ref=e853]:
+            - group "Sección fila"
+            - generic [ref=e856]:
+              - heading "Mirá nuestros productos más populares" [level=2] [ref=e857]
+              - link:
+                - /url: https://www.carrefour.com.ar/jabon-en-barra-dove-original-individual-90-grs-744131/p
+              - link:
+                - /url: https://www.carrefour.com.ar/banana-seleccion-x-kg-719074/p
+              - link:
+                - /url: https://www.carrefour.com.ar/leche-ulta-parcial-descremada-carrefour-classic-sachet-1-lt-720021/p
+              - link:
+                - /url: https://www.carrefour.com.ar/pure-de-tomate-arcor-brik-520-g-739689/p
+              - link:
+                - /url: https://www.carrefour.com.ar/fideos-mostacholes-n52-lucchetti-rayado-500-g-726309/p
+              - link:
+                - /url: https://www.carrefour.com.ar/agua-mineral-sin-gas-carrefour-classic-2-lts-398986/p
+              - link:
+                - /url: https://www.carrefour.com.ar/leche-protein-la-serenisima-1l-676752/p
+              - link:
+                - /url: https://www.carrefour.com.ar/harina-de-trigo-000-caserita-x-1-kg-7757/p
+              - link:
+                - /url: https://www.carrefour.com.ar/aceite-de-girasol-alto-omega-carrefour-classic-pet-1-5-lts-680457/p
+              - link:
+                - /url: https://www.carrefour.com.ar/lomito-de-atun-al-natural-carrefour-classic-170-grs-122140/p
+              - link:
+                - /url: https://www.carrefour.com.ar/pure-de-tomate-la-campagnola-tetra-530-g-737921/p
+              - link:
+                - /url: https://www.carrefour.com.ar/cebolla-x-kg/p
+              - link:
+                - /url: https://www.carrefour.com.ar/leche-descremada-larga-vida-las-tres-ninas-1-l/p
+              - link:
+                - /url: https://www.carrefour.com.ar/fideos-tirabuzon-n28-lucchetti-500-g-726310/p
+              - link:
+                - /url: https://www.carrefour.com.ar/jugo-en-polvo-clight-naranja-dulce-7-5-grs-711439/p
+              - link:
+                - /url: https://www.carrefour.com.ar/leche-uat-entera-carrefour-classic-brik-1-lt-720022/p
+              - region "slider" [ref=e858]:
+                - generic [ref=e860]:
+                  - group "La diapositiva actual es 1 de 16" [ref=e869]:
+                    - region "ProductoBanana selección x kg." [ref=e872]:
+                      - link "Banana selección x kg." [ref=e873] [cursor=pointer]:
+                        - /url: /banana-seleccion-x-kg-719074/p
+                        - article [ref=e874]:
+                          - generic [ref=e875]:
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e876]:
+                              - group "Imagen del productoBanana selección x kg." [ref=e881]:
+                                - img "Banana selección x kg." [ref=e883]
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e884]:
+                              - link [ref=e889]:
+                                - /url: "#reviews"
+                            - group "Sección fila" [ref=e924]:
+                              - generic [ref=e925]: $ 2.999,00
+                            - button "Ver Precio sin impuestos nacionales" [ref=e933]
+                            - group "Sección fila" [ref=e934]:
+                              - group "Nombre del productoBanana selección x kg." [ref=e939]:
+                                - heading "Banana selección x kg." [level=3] [ref=e940]
+                            - generic [ref=e944]:
+                              - generic [ref=e945]: ($ 2.999,00
+                              - generic [ref=e946]: x 1 K. )
+                            - group "Sección fila":
+                              - generic [ref=e947]:
+                                - button [ref=e950]
+                                - button [ref=e958]
+                  - group "La diapositiva actual es 2 de 16" [ref=e961]:
+                    - region "ProductoLeche ulta parcial descremada Carrefour classic sachet 1 lt." [ref=e964]:
+                      - link "Leche ulta parcial descremada Carrefour classic sachet 1 lt." [ref=e965] [cursor=pointer]:
+                        - /url: /leche-ulta-parcial-descremada-carrefour-classic-sachet-1-lt-720021/p
+                        - article [ref=e966]:
+                          - generic [ref=e967]:
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e968]:
+                              - group "Imagen del productoLeche ulta parcial descremada Carrefour classic sachet 1 lt." [ref=e973]:
+                                - img "Leche ulta parcial descremada Carrefour classic sachet 1 lt." [ref=e975]
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e976]:
+                              - generic [ref=e977]: Mi CRF
+                            - group "Sección fila" [ref=e983]:
+                              - link [ref=e988]:
+                                - /url: "#reviews"
+                            - group "Sección fila" [ref=e1023]:
+                              - generic [ref=e1026]:
+                                - generic [ref=e1029]:
+                                  - generic [ref=e1030]: $ 1.738,80
+                                  - generic [ref=e1031]: c/u
+                                - generic [ref=e1032]: $ 1.890,00
+                            - button "Ver Precio sin impuestos nacionales" [ref=e1038]
+                            - group "Sección fila" [ref=e1039]:
+                              - group "Nombre del productoLeche ulta parcial descremada Carrefour classic sachet 1 lt." [ref=e1044]:
+                                - heading "Leche ulta parcial descremada Carrefour classic sachet 1 lt." [level=3] [ref=e1045]
+                            - generic [ref=e1049]:
+                              - generic [ref=e1050]: ($ 1.738,80
+                              - generic [ref=e1051]: x 1 L. )
+                            - group "Sección fila":
+                              - generic [ref=e1052]:
+                                - button [ref=e1055]
+                                - button [ref=e1063]
+                  - group "La diapositiva actual es 3 de 16" [ref=e1066]:
+                    - region "ProductoPuré de tomate Arcor brik 520 g." [ref=e1069]:
+                      - link "Puré de tomate Arcor brik 520 g." [ref=e1070] [cursor=pointer]:
+                        - /url: /pure-de-tomate-arcor-brik-520-g-739689/p
+                        - article [ref=e1071]:
+                          - generic [ref=e1072]:
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e1073]:
+                              - group "Imagen del productoPuré de tomate Arcor brik 520 g." [ref=e1078]:
+                                - img "Puré de tomate Arcor brik 520 g." [ref=e1080]
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e1081]:
+                              - link [ref=e1086]:
+                                - /url: "#reviews"
+                            - group "Sección fila" [ref=e1121]:
+                              - generic [ref=e1124]:
+                                - generic [ref=e1127]:
+                                  - generic [ref=e1128]: $ 749,00
+                                  - generic [ref=e1129]: "- 32%"
+                                - generic [ref=e1130]: $ 1.110,00
+                            - button "Ver Precio sin impuestos nacionales" [ref=e1136]
+                            - group "Sección fila" [ref=e1137]:
+                              - group "Nombre del productoPuré de tomate Arcor brik 520 g." [ref=e1142]:
+                                - heading "Puré de tomate Arcor brik 520 g." [level=3] [ref=e1143]
+                            - generic [ref=e1147]:
+                              - generic [ref=e1148]: ($ 1.440,38
+                              - generic [ref=e1149]: x 1 K. )
+                            - group "Sección fila":
+                              - generic [ref=e1150]:
+                                - button [ref=e1153]
+                                - button [ref=e1161]
+                  - group "La diapositiva actual es 4 de 16" [ref=e1164]:
+                    - region "ProductoFideos mostacholes N52 Lucchetti rayado 500 g." [ref=e1167]:
+                      - link "Fideos mostacholes N52 Lucchetti rayado 500 g." [ref=e1168] [cursor=pointer]:
+                        - /url: /fideos-mostacholes-n52-lucchetti-rayado-500-g-726309/p
+                        - article [ref=e1169]:
+                          - generic [ref=e1170]:
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e1171]:
+                              - group "Imagen del productoFideos mostacholes N52 Lucchetti rayado 500 g." [ref=e1176]:
+                                - img "Fideos mostacholes N52 Lucchetti rayado 500 g." [ref=e1178]
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila"
+                            - group "Sección fila" [ref=e1179]:
+                              - generic [ref=e1180]: 2do al 70% Max 8 unidades Combinable LUCCHETTI
+                            - group "Sección fila" [ref=e1186]:
+                              - link [ref=e1191]:
+                                - /url: "#reviews"
+                            - group "Sección fila" [ref=e1226]:
+                              - generic [ref=e1229]:
+                                - generic [ref=e1232]:
+                                  - generic [ref=e1233]: $ 1.136,85
+                                  - generic [ref=e1234]: c/u
+                                - generic [ref=e1235]: $ 1.749,00
+                            - button "Ver Precio sin impuestos nacionales" [ref=e1241]
+                            - group "Sección fila" [ref=e1242]:
+                              - group "Nombre del productoFideos mostacholes N52 Lucchetti rayado 500 g." [ref=e1247]:
+                                - heading "Fideos mostacholes N52 Lucchetti rayado 500 g." [level=3] [ref=e1248]
+                            - generic [ref=e1252]:
+                              - generic [ref=e1253]: ($ 3.498,00
+                              - generic [ref=e1254]: x 1 K. )
+                            - group "Sección fila":
+                              - generic [ref=e1255]:
+                                - button [ref=e1258]
+                                - button [ref=e1266]
+                  - group [aria-hidden] [ref=e1269]
+                  - group [aria-hidden] [ref=e1271]
+                  - group [aria-hidden] [ref=e1273]
+                  - group [aria-hidden] [ref=e1275]
+                  - group [aria-hidden] [ref=e1277]
+                  - group [aria-hidden] [ref=e1279]
+                  - group [aria-hidden] [ref=e1281]
+                  - group [aria-hidden] [ref=e1283]
+                  - group [aria-hidden] [ref=e1285]
+                  - group [aria-hidden] [ref=e1287]
+                  - group [aria-hidden] [ref=e1289]
+                  - group [aria-hidden] [ref=e1291]
+                - button "Previous Slide" [ref=e1301] [cursor=pointer]
+                - button "Next Slide" [ref=e1303] [cursor=pointer]
+  - generic [ref=e372]:
+    - status:
+      - generic [ref=e1307]:
+        - generic [ref=e1308] [cursor=pointer]: TU OPINIÓN
+        - generic [ref=e1311]:
+          - generic [ref=e1312]: Compartinos tu experiencia para ayudarnos a mejorar
+          - link "DEJAR MI COMENTARIO" [ref=e1314] [cursor=pointer]:
+            - /url: https://cloud.experiencia.carrefour.com.ar/encuesta.carrefouronline
+          - link [ref=e1316] [cursor=pointer]:
+            - /url: "#"
+  - alertdialog "Nos preocupamos por tu privacidad" [ref=e379]:
+    - generic [ref=e381]:
+      - generic [ref=e383]:
+        - heading "Nos preocupamos por tu privacidad" [level=3] [ref=e384]
+        - generic [ref=e385]: Tanto INC S.A. como sus sociedades sucesoras y/o cesionarias y/o sus accionistas y/o controlantes y/o controladas almacenan y/o acceden a la información de un dispositivo, como los identificadores únicos en las cookies para tratar los datos personales. Se pueden aceptar o gestionar las preferencias haciendo click en el enlace que aparece a continuación o en cualquier momento en https://www.carrefour.com.ar/legales. Estas preferencias serán procesadas y no afectarán a los datos de navegación.
+        - paragraph [ref=e386]: "--"
+        - generic [ref=e387]:
+          - heading "Tanto nosotros como nuestros asociados tratamos los datos para proporcionar:" [level=3] [ref=e388]
+          - paragraph [ref=e390]:
+            - text: Almacenar o acceder a información en un dispositivo. Datos de localización geográfica precisa e identificación mediante las características de dispositivos. anuncios y contenido personalizados, medición de anuncios y del contenido, información sobre el público y desarrollo de productos..
+            - button "Lista de asociados (proveedores)" [ref=e391] [cursor=pointer]
+      - generic [ref=e393]:
+        - button "Aceptar todo" [ref=e394] [cursor=pointer]
+        - button "Rechazar todo" [ref=e395] [cursor=pointer]
+        - button "Gestionar preferencias" [ref=e396] [cursor=pointer]
+    - button "Cerrar" [ref=e398] [cursor=pointer]
+  - status [ref=e474]
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - generic: Seleccioná un carrito de compra
+        - button
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - article:
+                - paragraph [ref=e1317]: Sin Sugerencias

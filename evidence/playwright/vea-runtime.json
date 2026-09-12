@@ -1,0 +1,28 @@
+{
+  "provider": "VEA",
+  "productsSearched": [
+    "pepsi-black-1500"
+  ],
+  "productsFound": [
+    "pepsi-black-1500"
+  ],
+  "productsNotFound": [],
+  "offersUpdated": 0,
+  "unmapped": 1,
+  "unmatched": 3,
+  "errors": [],
+  "durationMs": 21556,
+  "observations": [],
+  "unmappedDetails": [
+    {
+      "productKey": "pepsi-black-1500",
+      "ean": null,
+      "name": "Gaseosa Cola Black Sin Azúcar 1.5 Lts Pepsi",
+      "price": "3999.00",
+      "regularPrice": null,
+      "stock": true,
+      "url": "https://www.vea.com.ar/gaseosa-pepsi-black-1-5lt/p",
+      "checkedAt": "2026-09-08T23:11:33.315Z"
+    }
+  ]
+}

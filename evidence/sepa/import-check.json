@@ -1,0 +1,146 @@
+{
+  "updated": 344,
+  "repeatedUpdates": 0,
+  "demoBefore": 15,
+  "demoAfter": 15,
+  "products": 7,
+  "stores": 59,
+  "searchChecks": [
+    {
+      "product": "coca-zero-1500",
+      "status": 200,
+      "count": 36,
+      "realOnly": true,
+      "unknownStock": true,
+      "first": {
+        "store": {
+          "id": 8,
+          "chain": "Carrefour",
+          "name": "Carrefour Córdoba Villa Allende",
+          "address": "Av. Río de Janeiro, 1787, Villa Allende Lomas, AR-X"
+        },
+        "price": 3890,
+        "distanceKm": 506.93,
+        "stock": null,
+        "availability": "disponibilidad no confirmada",
+        "product": {
+          "id": 15,
+          "ean": "7790895067556",
+          "variant": "Sin Azúcar",
+          "size": "1.5 L"
+        },
+        "source": "REAL:SEPA",
+        "lastCheckedAt": "2026-09-07T11:30:02.000Z"
+      }
+    },
+    {
+      "product": "oreo-118",
+      "status": 200,
+      "count": 58,
+      "realOnly": true,
+      "unknownStock": true,
+      "first": {
+        "store": {
+          "id": 14,
+          "chain": "Carrefour",
+          "name": "Carrefour Río Cuarto",
+          "address": "Sobremonte, 902, Río Cuarto, AR-X"
+        },
+        "price": 2190,
+        "distanceKm": 706.58,
+        "stock": null,
+        "availability": "disponibilidad no confirmada",
+        "product": {
+          "id": 12,
+          "ean": "7622201735296",
+          "variant": "Original",
+          "size": "118 g"
+        },
+        "source": "REAL:SEPA",
+        "lastCheckedAt": "2026-09-07T11:30:02.000Z"
+      }
+    },
+    {
+      "product": "playadito-1000",
+      "status": 200,
+      "count": 54,
+      "realOnly": true,
+      "unknownStock": true,
+      "first": {
+        "store": {
+          "id": 51,
+          "chain": "Vea",
+          "name": "Vea La Plata SM 36",
+          "address": "45, 377, LA PLATA, AR-B"
+        },
+        "price": 4590,
+        "distanceKm": 1134.86,
+        "stock": null,
+        "availability": "disponibilidad no confirmada",
+        "product": {
+          "id": 11,
+          "ean": "7793704000928",
+          "variant": "Suave con palo",
+          "size": "1 kg"
+        },
+        "source": "REAL:SEPA",
+        "lastCheckedAt": "2026-09-07T08:03:03.000Z"
+      }
+    },
+    {
+      "product": "pepsi-black-1500",
+      "status": 200,
+      "count": 84,
+      "realOnly": true,
+      "unknownStock": true,
+      "first": {
+        "store": {
+          "id": 14,
+          "chain": "Carrefour",
+          "name": "Carrefour Río Cuarto",
+          "address": "Sobremonte, 902, Río Cuarto, AR-X"
+        },
+        "price": 3379,
+        "distanceKm": 706.58,
+        "stock": null,
+        "availability": "disponibilidad no confirmada",
+        "product": {
+          "id": 16,
+          "ean": "7791813828419",
+          "variant": "Black / Sin Azúcar",
+          "size": "1.5 L"
+        },
+        "source": "REAL:SEPA",
+        "lastCheckedAt": "2026-09-07T11:30:02.000Z"
+      }
+    },
+    {
+      "product": "gallo-oro-1000",
+      "status": 200,
+      "count": 112,
+      "realOnly": true,
+      "unknownStock": true,
+      "first": {
+        "store": {
+          "id": 15,
+          "chain": "Carrefour",
+          "name": "Carrefour Tucumán III",
+          "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+        },
+        "price": 2499,
+        "distanceKm": 0,
+        "stock": null,
+        "availability": "disponibilidad no confirmada",
+        "product": {
+          "id": 14,
+          "ean": "7790070431417",
+          "variant": "Parboil, bolsa",
+          "size": "1 kg"
+        },
+        "source": "REAL:SEPA",
+        "lastCheckedAt": "2026-09-07T11:30:02.000Z"
+      }
+    }
+  ],
+  "durationMs": 99030
+}

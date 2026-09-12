@@ -1,0 +1,41 @@
+{
+  "name": "iackaton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:seed-real": "tsx prisma/seed-real.ts",
+    "prices:sepa": "tsx src/prices/cli.ts sepa",
+    "prices:scrape": "tsx src/prices/cli.ts scrape",
+    "prices:scrape:carrefour": "tsx src/prices/cli.ts carrefour",
+    "prices:scrape:vea": "tsx src/prices/cli.ts vea",
+    "prices:scrape:changomas": "tsx src/prices/cli.ts changomas",
+    "prices:smoke": "tsx src/prices/cli.ts scrape --dry-run --product=oreo-118",
+    "test": "tsx --test tests/search.test.ts tests/search-quality.test.ts tests/chat.test.ts tests/whatsapp.test.ts tests/whatsapp-client.test.ts tests/seed-real.test.ts tests/prices.test.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.12.1",
+    "openai": "^7.9.0",
+    "playwright": "1.63.0-alpha-2026-08-31"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.19",
+    "@types/node": "^26.4.1",
+    "prisma": "^6.19.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

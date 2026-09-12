@@ -1,0 +1,16 @@
+{
+  "provider": "CHANGOMAS",
+  "productsSearched": [
+    "pepsi-black-1500"
+  ],
+  "productsFound": [],
+  "productsNotFound": [
+    "pepsi-black-1500"
+  ],
+  "offersUpdated": 0,
+  "unmapped": 0,
+  "unmatched": 4,
+  "errors": [],
+  "durationMs": 14084,
+  "observations": []
+}

@@ -1,0 +1,47 @@
+{
+  "provider": "CARREFOUR",
+  "productsSearched": [
+    "oreo-118"
+  ],
+  "productsFound": [
+    "oreo-118"
+  ],
+  "productsNotFound": [],
+  "offersUpdated": 0,
+  "unmapped": 1,
+  "unmatched": 13,
+  "errors": [],
+  "durationMs": 13728,
+  "observations": [
+    {
+      "product": {
+        "key": "oreo-118",
+        "ean": "7622201735296",
+        "brand": "Oreo",
+        "name": "Galletitas Oreo Original",
+        "variant": "Original",
+        "size": "118 g"
+      },
+      "store": null,
+      "price": "2469.00",
+      "stock": true,
+      "source": "REAL:PLAYWRIGHT:CARREFOUR",
+      "lastCheckedAt": "2026-09-08T23:03:46.707Z",
+      "productUrl": "https://www.carrefour.com.ar/galletitas-dulce-oreo-rellenas-con-crema-118-g-715949/p",
+      "observedName": "Galletitas dulces Oreo rellenas con crema 118 g.",
+      "regularPrice": "2469.00"
+    }
+  ],
+  "unmappedDetails": [
+    {
+      "productKey": "oreo-118",
+      "ean": "7622201735296",
+      "name": "Galletitas dulces Oreo rellenas con crema 118 g.",
+      "price": "2469.00",
+      "regularPrice": "2469.00",
+      "stock": true,
+      "url": "https://www.carrefour.com.ar/galletitas-dulce-oreo-rellenas-con-crema-118-g-715949/p",
+      "checkedAt": "2026-09-08T23:03:46.707Z"
+    }
+  ]
+}

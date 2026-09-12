@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-09",
+  "evidenceType": "user_confirmation",
+  "hito": 3,
+  "status": "confirmed",
+  "outboundTestReceived": true,
+  "userCompletedTextAndLocationFlow": true,
+  "query": "Buscame Coca Zero y quiero la más barata",
+  "responseConfirmed": {
+    "product": "Coca-Cola Sin Azúcar 1,5 L",
+    "ean": "7790895067556",
+    "sort": "price",
+    "options": 3,
+    "priceARS": 3890,
+    "stores": [
+      "Carrefour Córdoba Villa Allende",
+      "Carrefour Córdoba Recta Martinolli",
+      "Carrefour Córdoba Granaderos"
+    ],
+    "availability": "disponibilidad no confirmada",
+    "source": "SEPA",
+    "verificationTimeDisplayed": "7 de septiembre de 2026 a las 08:30 (UTC-03:00)",
+    "demoLabelPresent": false
+  },
+  "scope": "Recepción e interacción desde WhatsApp confirmadas por el usuario, quien proporcionó el texto de la respuesta. No se almacenan teléfono, coordenadas ni distancias que permitan reconstruir su ubicación.",
+  "remainingLimitations": [
+    "La búsqueda por precio no limita el radio geográfico.",
+    "Los precios ecommerce siguen sin asociarse a sucursales físicas no verificadas.",
+    "Los precios SEPA de ChangoMás permanecen excluidos por timestamps inconsistentes."
+  ]
+}

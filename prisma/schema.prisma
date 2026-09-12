@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model Product {
+  id        Int            @id @default(autoincrement())
+  ean       String?        @unique
+  brand     String
+  name      String
+  variant   String?
+  size      String?
+  category  String?
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  offers    Offer[]
+  aliases   ProductAlias[]
+
+  @@index([name])
+  @@index([brand])
+}
+
+model ProductAlias {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  alias     String  @unique
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+model Store {
+  id        Int      @id @default(autoincrement())
+  chain     String
+  name      String
+  address   String
+  latitude  Decimal  @db.Decimal(9, 6)
+  longitude Decimal  @db.Decimal(10, 6)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  offers    Offer[]
+
+  @@index([chain])
+}
+
+model Offer {
+  id            Int      @id @default(autoincrement())
+  productId     Int
+  storeId       Int
+  price         Decimal  @db.Decimal(12, 2)
+  stock         Boolean?
+  source        String?
+  lastCheckedAt DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  store         Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, storeId])
+  @@index([storeId])
+}

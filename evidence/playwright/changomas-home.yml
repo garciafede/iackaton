@@ -1,0 +1,136 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - paragraph [ref=e14]: ¡Arrancó CumpleMâs! > 1 Chango por Hora de $250.000 <
+    - generic [ref=e19]:
+      - link [ref=e20] [cursor=pointer]:
+        - /url: /
+        - img "Más Online" [ref=e22]
+      - group "Sección fila" [ref=e23]:
+        - generic [ref=e165]:
+          - button "Categorias" [ref=e167]
+          - generic:
+            - group "Sección fila"
+      - combobox [ref=e170]:
+        - generic [ref=e175]:
+          - textbox "¿Qué estás buscando? Buscar Productos" [ref=e176]:
+            - /placeholder: ¿Qué estás buscando?
+          - button "Buscar Productos" [ref=e179]
+      - button [ref=e38]:
+        - text: .
+        - img "recorder-img" [ref=e39]
+        - text: a
+      - button [ref=e41]
+      - link [ref=e45] [cursor=pointer]:
+        - /url: /wishlist
+      - group "Sección fila" [ref=e49]:
+        - generic [ref=e51]:
+          - complementary [ref=e54]:
+            - button [ref=e57]
+          - generic [ref=e62]: $ 0,00
+    - generic [ref=e69]:
+      - paragraph [ref=e187] [cursor=pointer]: Elegí un método de entrega
+      - navigation [ref=e70]:
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - link "Ofertas" [ref=e74] [cursor=pointer]:
+              - /url: /3195?map=productClusterIds
+          - listitem [ref=e76]:
+            - link "Alimentos" [ref=e78] [cursor=pointer]:
+              - /url: /3454?map=productClusterIds
+          - listitem [ref=e80]:
+            - link "Bebidas" [ref=e82] [cursor=pointer]:
+              - /url: /3433?map=productClusterIds&order=OrderByTopSaleDESC
+          - listitem [ref=e84]:
+            - link "Frescos y congelados" [ref=e86] [cursor=pointer]:
+              - /url: /3432?map=productClusterIds&order=OrderByTopSaleDESC
+          - listitem [ref=e88]:
+            - link "Limpieza y Perfumería" [ref=e90] [cursor=pointer]:
+              - /url: /1678?map=productClusterIds
+          - listitem [ref=e92]:
+            - link "Electro y Hogar" [ref=e94] [cursor=pointer]:
+              - /url: /724?map=productClusterIds
+    - generic:
+      - generic:
+        - generic:
+          - region "slider"
+    - generic [ref=e98]:
+      - group "Sección fila" [ref=e195]:
+        - region "slider" [ref=e198]:
+          - generic [ref=e200]:
+            - group [aria-hidden] [ref=e203]:
+              - link [ref=e205] [cursor=pointer]:
+                - /url: /
+            - group [aria-hidden] [ref=e206]:
+              - link [ref=e208] [cursor=pointer]:
+                - /url: /2836?map=productClusterIds
+            - group [aria-hidden] [ref=e209]:
+              - link [ref=e211] [cursor=pointer]:
+                - /url: /tv-y-video
+            - group "La diapositiva actual es4 de5" [ref=e212]:
+              - link [ref=e214] [cursor=pointer]:
+                - /url: /promociones-bancarias?dia=martes
+            - group [aria-hidden] [ref=e215]:
+              - link [ref=e217] [cursor=pointer]:
+                - /url: /1255?map=productClusterIds
+            - link [ref=e220] [cursor=pointer]:
+              - /url: /
+          - button "Previous Slide" [ref=e221]
+          - button "Next Slide" [ref=e224]
+          - group "Slider pagination dots" [ref=e227]:
+            - button "Dot 1 of 5" [ref=e228]
+            - button "Dot 2 of 5" [ref=e229]
+            - button "Dot 3 of 5" [ref=e230]
+            - button "Dot 4 of 5" [ref=e231]
+            - button "Dot 5 of 5" [ref=e232]
+      - group "Sección fila" [ref=e99]:
+        - region "slider" [ref=e103]:
+          - generic [ref=e105]:
+            - group "La diapositiva actual es1 de9" [ref=e112]:
+              - link [ref=e114] [cursor=pointer]:
+                - /url: /promociones-bancarias?banco=Mercado%20Pago
+            - group "La diapositiva actual es2 de9" [ref=e115]:
+              - link [ref=e117] [cursor=pointer]:
+                - /url: /promociones-bancarias?banco=NaranjaX
+            - group "La diapositiva actual es3 de9" [ref=e118]:
+              - link [ref=e120] [cursor=pointer]:
+                - /url: /promociones-bancarias?banco=Hipotecario_Modo
+            - group [aria-hidden] [ref=e121]
+            - group [aria-hidden] [ref=e123]
+            - group [aria-hidden] [ref=e125]
+            - group [aria-hidden] [ref=e127]
+            - group [aria-hidden] [ref=e129]
+            - group [aria-hidden] [ref=e131]
+          - button "Previous Slide" [ref=e139]
+          - button "Next Slide" [ref=e142]
+          - group "Slider pagination dots" [ref=e145]:
+            - button "Dot 1 of 3" [ref=e146]
+            - button "Dot 2 of 3" [ref=e147]
+            - button "Dot 3 of 3" [ref=e148]
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - button
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - generic:
+          - button
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - article:
+                  - paragraph [ref=e233]: Términos más buscados
+                  - list [ref=e234]:
+                    - listitem [ref=e235]:
+                      - link "leche" [ref=e236] [cursor=pointer]:
+                        - /url: /leche?map=ft&_q=leche
+                    - listitem [ref=e237]:
+                      - link "cerveza" [ref=e238] [cursor=pointer]:
+                        - /url: /cerveza?map=ft&_q=cerveza
+                    - listitem [ref=e239]:
+                      - link "cafe" [ref=e240] [cursor=pointer]:
+                        - /url: /cafe?map=ft&_q=cafe

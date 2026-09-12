@@ -1,0 +1,829 @@
+{
+  "checkedAt": "2026-09-09T04:40:41.355Z",
+  "evidence": "PostgreSQL y OpenAI reales; sin envíos a Meta",
+  "reference": {
+    "id": 15,
+    "name": "Carrefour Tucumán III",
+    "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T",
+    "origin": "Sucursal pública SEPA; no es ubicación del usuario"
+  },
+  "checks": [
+    {
+      "options": {
+        "sort": "price"
+      },
+      "httpStatus": 200,
+      "query": "coca zero",
+      "product": {
+        "id": 15,
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola Sin Azúcar",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "totalResults": 11,
+      "radiusKm": 25,
+      "evaluatedAt": "2026-09-09T04:40:08.409Z",
+      "status": "OK",
+      "outsideRadiusCount": 25,
+      "canExpandRadius": false,
+      "suggestedRadiusKm": null,
+      "results": [
+        {
+          "store": {
+            "id": 15,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán III",
+            "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 0,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 87.5,
+            "components": {
+              "distance": 45,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": 0
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 26,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán I",
+            "address": "24 de Septiembre, 653, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.8,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.4724,
+            "components": {
+              "distance": 41.9724,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.8
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 18,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán II",
+            "address": "San Martín, 344, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.9,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.329,
+            "components": {
+              "distance": 41.829,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "sort": "price",
+        "radiusKm": "5"
+      },
+      "httpStatus": 200,
+      "query": "coca zero",
+      "product": {
+        "id": 15,
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola Sin Azúcar",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "totalResults": 9,
+      "radiusKm": 5,
+      "evaluatedAt": "2026-09-09T04:40:08.927Z",
+      "status": "OK",
+      "outsideRadiusCount": 27,
+      "canExpandRadius": false,
+      "suggestedRadiusKm": null,
+      "results": [
+        {
+          "store": {
+            "id": 15,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán III",
+            "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 0,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 87.5,
+            "components": {
+              "distance": 45,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": 0
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 26,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán I",
+            "address": "24 de Septiembre, 653, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.8,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.4724,
+            "components": {
+              "distance": 41.9724,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.8
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 18,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán II",
+            "address": "San Martín, 344, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.9,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.329,
+            "components": {
+              "distance": 41.829,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "sort": "price",
+        "radiusKm": "unlimited"
+      },
+      "httpStatus": 200,
+      "query": "coca zero",
+      "product": {
+        "id": 15,
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola Sin Azúcar",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "totalResults": 36,
+      "radiusKm": null,
+      "evaluatedAt": "2026-09-09T04:40:09.158Z",
+      "status": "OK",
+      "outsideRadiusCount": 0,
+      "canExpandRadius": false,
+      "suggestedRadiusKm": null,
+      "results": [
+        {
+          "store": {
+            "id": 8,
+            "chain": "Carrefour",
+            "name": "Carrefour Córdoba Villa Allende",
+            "address": "Av. Río de Janeiro, 1787, Villa Allende Lomas, AR-X"
+          },
+          "price": 3890,
+          "distanceKm": 506.93,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 44.615,
+            "components": {
+              "distance": 2.115,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 8,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": 0
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 13,
+            "chain": "Carrefour",
+            "name": "Carrefour Córdoba Recta Martinolli",
+            "address": "Recta Martinolli, 7850, Quintas de Arguello, AR-X"
+          },
+          "price": 3890,
+          "distanceKm": 512.15,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 44.5944,
+            "components": {
+              "distance": 2.0944,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 8,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -5.22
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 12,
+            "chain": "Carrefour",
+            "name": "Carrefour Córdoba Granaderos",
+            "address": "Bvard. Granaderos, 2906, Alto Verde, AR-X"
+          },
+          "price": 3890,
+          "distanceKm": 516.18,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 44.5788,
+            "components": {
+              "distance": 2.0788,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 8,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -9.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "sort": "recommended"
+      },
+      "httpStatus": 200,
+      "query": "coca zero",
+      "product": {
+        "id": 15,
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola Sin Azúcar",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "totalResults": 11,
+      "radiusKm": 25,
+      "evaluatedAt": "2026-09-09T04:40:09.388Z",
+      "status": "OK",
+      "outsideRadiusCount": 25,
+      "canExpandRadius": false,
+      "suggestedRadiusKm": null,
+      "results": [
+        {
+          "store": {
+            "id": 15,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán III",
+            "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 0,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 87.5,
+            "components": {
+              "distance": 45,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": 0
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 26,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán I",
+            "address": "24 de Septiembre, 653, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.8,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.4724,
+            "components": {
+              "distance": 41.9724,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.8
+            }
+          }
+        },
+        {
+          "store": {
+            "id": 18,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán II",
+            "address": "San Martín, 344, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 1.9,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 84.329,
+            "components": {
+              "distance": 41.829,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": -1.9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "sort": "price",
+        "radiusKm": "0.1"
+      },
+      "httpStatus": 200,
+      "query": "coca zero",
+      "product": {
+        "id": 15,
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola Sin Azúcar",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "totalResults": 1,
+      "radiusKm": 0.1,
+      "evaluatedAt": "2026-09-09T04:40:09.617Z",
+      "status": "OK",
+      "outsideRadiusCount": 35,
+      "canExpandRadius": false,
+      "suggestedRadiusKm": null,
+      "results": [
+        {
+          "store": {
+            "id": 15,
+            "chain": "Carrefour",
+            "name": "Carrefour Tucumán III",
+            "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+          },
+          "price": 3900,
+          "distanceKm": 0,
+          "stock": null,
+          "availability": "disponibilidad no confirmada",
+          "product": {
+            "id": 15,
+            "ean": "7790895067556",
+            "variant": "Sin Azúcar",
+            "size": "1.5 L"
+          },
+          "source": "REAL:SEPA",
+          "lastCheckedAt": "2026-09-07T11:30:02.000Z",
+          "quality": {
+            "freshness": "STALE",
+            "ageHours": 41.16,
+            "freshnessLabel": "Precio verificado hace 41 horas.",
+            "confidence": "MEDIUM",
+            "confidenceReasons": [
+              "Fuente oficial SEPA",
+              "Sucursal identificada en los datos",
+              "Precio verificado hace 41 horas.",
+              "Disponibilidad no confirmada"
+            ],
+            "storeIdentified": true
+          },
+          "recommendation": {
+            "score": 87.5,
+            "components": {
+              "distance": 45,
+              "price": 35,
+              "freshness": 7.5,
+              "availability": 0
+            },
+            "comparisonToCheapest": {
+              "storeId": 15,
+              "productId": 15,
+              "priceDifference": 0,
+              "distanceSavedKm": 0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "conversations": [
+    {
+      "message": "Buscame Coca Zero cerca mío",
+      "reply": "Coca-Cola Sin Azúcar, **1,5 L**. Resultados en un radio de **25 km**, ordenados por **distancia**:\n\n1. **Carrefour Tucumán III** — Av. Catamarca 1116, San Miguel de Tucumán  \n   - **$3.900**  \n   - **0 km**  \n   - **Disponibilidad no confirmada**  \n   - Precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC−03:00)**.  \n   - Fuente: **SEPA**. Antigüedad: *Precio verificado hace 41 horas.* Confianza: **media**.\n\n2. **Vea Av. Sarmiento** — Av. Sarmiento Domingo Faustino 750, San Miguel de Tucumán  \n   - **$4.390**  \n   - **1,41 km**  \n   - **Disponibilidad no confirmada**  \n   - Precio verificado el **7 de septiembre de 2026 a las 05:03 (UTC−03:00)**.  \n   - Fuente: **SEPA**. Antigüedad: *Precio verificado hace 44 horas.* Confianza: **media**.\n\n3. **Carrefour Tucumán I** — 24 de Septiembre 653, San Miguel de Tucumán  \n   - **$3.900**  \n   - **1,8 km**  \n   - **Disponibilidad no confirmada**  \n   - Precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC−03:00)**.  \n   - Fuente: **SEPA**. Antigüedad: *Precio verificado hace 41 horas.* Confianza: **media**.",
+      "events": [
+        {
+          "type": "tool_selected",
+          "query": "Coca-Cola Zero",
+          "sort": "distance",
+          "radiusKm": 25
+        },
+        {
+          "type": "tool_completed",
+          "tool": "findProductOffers",
+          "totalResults": 11
+        }
+      ],
+      "durationMs": 8459
+    },
+    {
+      "message": "Buscame Coca Zero a menos de 5 km",
+      "reply": "Coca-Cola Sin Azúcar 1,5 L — radio aplicado: **menos de 5 km**, ordenado por **distancia**. Fuente: **SEPA**.\n\n1. **Carrefour Tucumán III** — Av. Catamarca 1116  \n   **$3.900**, a **0 km**. **Disponibilidad no confirmada**. Precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC-03:00)**. Confianza **media**.\n\n2. **Vea Av Sarmiento** — Av. Sarmiento Domiengo FAustino 750  \n   **$4.390**, a **1,41 km**. **Disponibilidad no confirmada**. Precio verificado el **7 de septiembre de 2026 a las 05:03 (UTC-03:00)**. Confianza **media**.\n\n3. **Carrefour Tucumán I** — 24 de Septiembre 653  \n   **$3.900**, a **1,8 km**. **Disponibilidad no confirmada**. Precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC-03:00)**. Confianza **media**.",
+      "events": [
+        {
+          "type": "tool_selected",
+          "query": "Coca-Cola Zero",
+          "sort": "distance",
+          "radiusKm": 5
+        },
+        {
+          "type": "tool_completed",
+          "tool": "findProductOffers",
+          "totalResults": 9
+        }
+      ],
+      "durationMs": 7418
+    },
+    {
+      "message": "Buscame Coca Zero: no importa la distancia, quiero el más barato",
+      "reply": "Busqué **Coca-Cola Sin Azúcar 1,5 L** (EAN 7790895067556), ordenado por **precio**, con **radio sin límite**. El precio más bajo encontrado es **$3.890**:\n\n1. **Carrefour Córdoba Villa Allende** — Av. Río de Janeiro 1787, Villa Allende Lomas.  \n   **506,93 km** · **disponibilidad no confirmada** · precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC-03:00)**.  \n   Fuente: **SEPA** · **Precio verificado hace 41 horas** · confianza **media**.\n\n2. **Carrefour Córdoba Recta Martinolli** — Recta Martinolli 7850, Quintas de Arguello.  \n   **512,15 km** · **disponibilidad no confirmada** · precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC-03:00)**.  \n   Fuente: **SEPA** · **Precio verificado hace 41 horas** · confianza **media**.\n\n3. **Carrefour Córdoba Granaderos** — Bvard. Granaderos 2906, Alto Verde.  \n   **516,18 km** · **disponibilidad no confirmada** · precio verificado el **7 de septiembre de 2026 a las 08:30 (UTC-03:00)**.  \n   Fuente: **SEPA** · **Precio verificado hace 41 horas** · confianza **media**.",
+      "events": [
+        {
+          "type": "tool_selected",
+          "query": "Coca-Cola Zero",
+          "sort": "price",
+          "radiusKm": null
+        },
+        {
+          "type": "tool_completed",
+          "tool": "findProductOffers",
+          "totalResults": 36
+        }
+      ],
+      "durationMs": 8959
+    },
+    {
+      "message": "Recomendame la mejor opción para comprar Coca Zero",
+      "reply": "Radio aplicado: **25 km**, ordenado por **recomendación**. Producto: **Coca-Cola Sin Azúcar, 1,5 L**.\n\n### Mejor opción\n**Carrefour Tucumán III** — Av. Catamarca 1116, San Miguel de Tucumán  \n- **$3.900**\n- **Distancia:** 0 km\n- **Disponibilidad no confirmada**\n- **Precio verificado** el **7 de septiembre de 2026 a las 08:30 (Argentina, UTC-03:00)**\n- **Fuente:** SEPA\n- Precio verificado hace 41 horas. Confianza media.\n\nLa recomiendo porque es la opción más cercana y tiene el precio más bajo relevado, igual que las otras sucursales Carrefour; su disponibilidad no está confirmada.\n\n### Alternativas\n1. **Carrefour Tucumán I** — 24 de Septiembre 653  \n   **$3.900**, 1,8 km, disponibilidad no confirmada. Precio verificado el **7/09/2026 a las 08:30**, fuente SEPA. Precio verificado hace 41 horas. Confianza media.\n\n2. **Carrefour Tucumán II** — San Martín 344  \n   **$3.900**, 1,9 km, disponibilidad no confirmada. Precio verificado el **7/09/2026 a las 08:30**, fuente SEPA. Precio verificado hace 41 horas. Confianza media.",
+      "events": [
+        {
+          "type": "tool_selected",
+          "query": "Coca-Cola Zero",
+          "sort": "recommended",
+          "radiusKm": 25
+        },
+        {
+          "type": "tool_completed",
+          "tool": "findProductOffers",
+          "totalResults": 11
+        }
+      ],
+      "durationMs": 8657
+    }
+  ],
+  "finalVerifiedAt": "2026-09-09T04:43:06.323Z"
+}

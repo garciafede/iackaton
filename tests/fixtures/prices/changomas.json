@@ -1,0 +1,82 @@
+﻿{
+    "@context":  "https://schema.org",
+    "@type":  "ItemList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "item":  {
+                                             "@context":  "https://schema.org/",
+                                             "@type":  "Product",
+                                             "@id":  "https://www.masonline.com.ar/gaseosa-coca-cola-sin-azucar-2-25-lt-2/p",
+                                             "name":  "Gaseosa Coca Cola Zero 2.25 L",
+                                             "brand":  {
+                                                           "@type":  "Brand",
+                                                           "name":  "Coca Cola"
+                                                       },
+                                             "mpn":  "2982056",
+                                             "sku":  "195",
+                                             "offers":  {
+                                                            "@type":  "AggregateOffer",
+                                                            "lowPrice":  5899,
+                                                            "highPrice":  5899,
+                                                            "priceCurrency":  "ARS",
+                                                            "offers":  [
+                                                                           {
+                                                                               "@type":  "Offer",
+                                                                               "price":  5899,
+                                                                               "priceCurrency":  "ARS",
+                                                                               "availability":  "http://schema.org/InStock",
+                                                                               "sku":  "195",
+                                                                               "itemCondition":  "http://schema.org/NewCondition",
+                                                                               "priceValidUntil":  "2050-01-01T02:59:59Z",
+                                                                               "seller":  {
+                                                                                              "@type":  "Organization",
+                                                                                              "name":  "MasOnline"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                            "offerCount":  1
+                                                        }
+                                         }
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "item":  {
+                                             "@context":  "https://schema.org/",
+                                             "@type":  "Product",
+                                             "@id":  "https://www.masonline.com.ar/gaseosa-coca-cola-sin-azucares-1-25-lt-2/p",
+                                             "name":  "Gaseosa Coca Cola Zero 1.25 L",
+                                             "brand":  {
+                                                           "@type":  "Brand",
+                                                           "name":  "Coca Cola"
+                                                       },
+                                             "mpn":  "207399122",
+                                             "sku":  "136758",
+                                             "offers":  {
+                                                            "@type":  "AggregateOffer",
+                                                            "lowPrice":  2795.65,
+                                                            "highPrice":  2795.65,
+                                                            "priceCurrency":  "ARS",
+                                                            "offers":  [
+                                                                           {
+                                                                               "@type":  "Offer",
+                                                                               "price":  2795.65,
+                                                                               "priceCurrency":  "ARS",
+                                                                               "availability":  "http://schema.org/InStock",
+                                                                               "sku":  "136758",
+                                                                               "itemCondition":  "http://schema.org/NewCondition",
+                                                                               "priceValidUntil":  "2050-01-01T02:59:59Z",
+                                                                               "seller":  {
+                                                                                              "@type":  "Organization",
+                                                                                              "name":  "MasOnline"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                            "offerCount":  1
+                                                        }
+                                         }
+                            }
+                        ]
+}

@@ -1,0 +1,82 @@
+﻿{
+    "@context":  "https://schema.org",
+    "@type":  "ItemList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "item":  {
+                                             "@context":  "https://schema.org/",
+                                             "@type":  "Product",
+                                             "@id":  "https://www.vea.com.ar/coca-cola-zero-2-25-lt/p",
+                                             "name":  "Gaseosa Cola Zero 2,25 Lts Coca Cola",
+                                             "brand":  {
+                                                           "@type":  "Brand",
+                                                           "name":  "COCA COLA"
+                                                       },
+                                             "mpn":  "12110101145",
+                                             "sku":  "18976",
+                                             "offers":  {
+                                                            "@type":  "AggregateOffer",
+                                                            "lowPrice":  5890,
+                                                            "highPrice":  5890,
+                                                            "priceCurrency":  "ARS",
+                                                            "offers":  [
+                                                                           {
+                                                                               "@type":  "Offer",
+                                                                               "price":  5890,
+                                                                               "priceCurrency":  "ARS",
+                                                                               "availability":  "http://schema.org/InStock",
+                                                                               "sku":  "18976",
+                                                                               "itemCondition":  "http://schema.org/NewCondition",
+                                                                               "priceValidUntil":  "2027-09-08T22:35:01Z",
+                                                                               "seller":  {
+                                                                                              "@type":  "Organization",
+                                                                                              "name":  "Jumbo Argentina"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                            "offerCount":  1
+                                                        }
+                                         }
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "item":  {
+                                             "@context":  "https://schema.org/",
+                                             "@type":  "Product",
+                                             "@id":  "https://www.vea.com.ar/gaseosa-zero-x-600-ml-coca-cola/p",
+                                             "name":  "Gaseosa Zero Sabor Cola 600 Ml Coca Cola",
+                                             "brand":  {
+                                                           "@type":  "Brand",
+                                                           "name":  "COCA COLA"
+                                                       },
+                                             "mpn":  "12110101263",
+                                             "sku":  "3073163",
+                                             "offers":  {
+                                                            "@type":  "AggregateOffer",
+                                                            "lowPrice":  2590,
+                                                            "highPrice":  2590,
+                                                            "priceCurrency":  "ARS",
+                                                            "offers":  [
+                                                                           {
+                                                                               "@type":  "Offer",
+                                                                               "price":  2590,
+                                                                               "priceCurrency":  "ARS",
+                                                                               "availability":  "http://schema.org/InStock",
+                                                                               "sku":  "3073163",
+                                                                               "itemCondition":  "http://schema.org/NewCondition",
+                                                                               "priceValidUntil":  "2027-09-08T22:41:25Z",
+                                                                               "seller":  {
+                                                                                              "@type":  "Organization",
+                                                                                              "name":  "Jumbo Argentina"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                            "offerCount":  1
+                                                        }
+                                         }
+                            }
+                        ]
+}

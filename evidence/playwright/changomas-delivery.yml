@@ -1,0 +1,273 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e242]:
+    - paragraph [ref=e251]: ChangoMâs El Súper Argentino que está en todo el país.
+    - generic [ref=e256]:
+      - link [ref=e257] [cursor=pointer]:
+        - /url: /
+        - img "Más Online" [ref=e259]
+      - group "Sección fila" [ref=e260]:
+        - generic [ref=e264]:
+          - button "Categorias" [ref=e266]
+          - generic:
+            - group "Sección fila"
+      - combobox [ref=e270]:
+        - generic [ref=e275]:
+          - textbox "¿Qué estás buscando? Buscar Productos" [ref=e276]:
+            - /placeholder: ¿Qué estás buscando?
+            - text: coca zero
+          - button "Buscar Productos" [ref=e279]
+      - button [ref=e283]:
+        - text: .
+        - img "recorder-img" [ref=e284]
+        - text: a
+      - button [ref=e286]
+      - link [ref=e290] [cursor=pointer]:
+        - /url: /wishlist
+      - group "Sección fila" [ref=e294]:
+        - generic [ref=e296]:
+          - complementary [ref=e299]:
+            - button [ref=e302]
+          - generic [ref=e307]: $ 0,00
+    - generic [ref=e314]:
+      - paragraph [ref=e319] [cursor=pointer]: Elegí un método de entrega
+      - navigation [ref=e323]:
+        - list [ref=e324]:
+          - listitem [ref=e325]:
+            - link "Ofertas" [ref=e327] [cursor=pointer]:
+              - /url: /3195?map=productClusterIds
+          - listitem [ref=e329]:
+            - link "Alimentos" [ref=e331] [cursor=pointer]:
+              - /url: /3454?map=productClusterIds
+          - listitem [ref=e333]:
+            - link "Bebidas" [ref=e335] [cursor=pointer]:
+              - /url: /3433?map=productClusterIds&order=OrderByTopSaleDESC
+          - listitem [ref=e337]:
+            - link "Frescos y congelados" [ref=e339] [cursor=pointer]:
+              - /url: /3432?map=productClusterIds&order=OrderByTopSaleDESC
+          - listitem [ref=e341]:
+            - link "Limpieza y Perfumería" [ref=e343] [cursor=pointer]:
+              - /url: /1678?map=productClusterIds
+          - listitem [ref=e345]:
+            - link "Electro y Hogar" [ref=e347] [cursor=pointer]:
+              - /url: /724?map=productClusterIds
+    - generic [ref=e354]:
+      - group "Sección fila" [ref=e355]:
+        - heading "coca zero" [level=1] [ref=e358]
+      - group "Sección fila"
+      - group "Sección fila"
+      - group "Sección fila" [ref=e359]:
+        - generic [ref=e362]:
+          - generic [ref=e363]:
+            - group "Sección fila"
+          - generic [ref=e365]:
+            - link "Link a la página de inicio" [ref=e366] [cursor=pointer]:
+              - /url: /
+              - text: Mas Online
+            - link "coca zero" [ref=e368] [cursor=pointer]:
+              - /url: /coca zero?map=ft
+      - group "Sección fila" [ref=e369]
+      - group "Sección fila" [ref=e370]:
+        - generic [ref=e371]:
+          - generic [ref=e376]:
+            - heading "Filtros" [level=5] [ref=e378]
+            - generic [ref=e379]:
+              - button [ref=e381]:
+                - heading "Departamento" [level=4] [ref=e383]
+              - generic "Gaseosas" [ref=e390]:
+                - generic [ref=e391]:
+                  - checkbox "Gaseosas" [ref=e396]
+                  - generic [ref=e397]: Gaseosas
+            - generic [ref=e398]:
+              - button [ref=e400]:
+                - heading "Categoría" [level=4] [ref=e402]
+              - generic "Cola" [ref=e409]:
+                - generic [ref=e410]:
+                  - checkbox "Cola" [ref=e415]
+                  - generic [ref=e416]: Cola
+            - generic [ref=e417]:
+              - button [ref=e419]:
+                - heading "Marca" [level=4] [ref=e421]
+              - generic "Coca Cola" [ref=e428]:
+                - generic [ref=e429]:
+                  - checkbox "Coca Cola" [ref=e434]
+                  - generic [ref=e435]: Coca Cola
+            - generic [ref=e436]:
+              - button [disabled] [ref=e438]:
+                - heading "Rangos de precio" [level=4] [ref=e440]
+              - generic [ref=e450]:
+                - generic [ref=e451]: $ 2.599,00
+                - generic [ref=e452]: –$ 7.729,00
+          - generic [ref=e454]:
+            - group "Sección fila" [ref=e456]:
+              - generic [ref=e457]:
+                - heading "6 productos" [level=2] [ref=e462]
+                - button "Ordenar por Relevancia" [ref=e468]:
+                  - generic [ref=e469]:
+                    - generic [ref=e470]: Ordenar por
+                    - text: Relevancia
+            - group "Sección fila" [ref=e473]:
+              - generic [ref=e476]:
+                - region "ProductoGaseosa Coca Cola Zero 2.25 L" [ref=e478]:
+                  - link "Gaseosa Coca Cola Zero 2.25 L" [ref=e479] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-sin-azucar-2-25-lt-2/p
+                    - article [ref=e480]:
+                      - generic [ref=e481]:
+                        - button "+" [ref=e488]
+                        - group "Sección flotante" [ref=e492]:
+                          - group "Imagen del productoGaseosa Coca Cola Zero 2.25 L" [ref=e494]:
+                            - img "Gaseosa Coca Cola Zero 2.25 L" [ref=e496]
+                          - group "Sección fila" [ref=e498]
+                        - group "Nombre del productoGaseosa Coca Cola Zero 2.25 L" [ref=e503]:
+                          - heading "Gaseosa Coca Cola Zero 2.25 L" [level=3] [ref=e504]
+                        - group "Sección fila"
+                        - generic [ref=e506]: $ 5.899
+                        - generic [ref=e511]:
+                          - generic [ref=e512]: $ 4.928 67
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila" [ref=e514]:
+                          - generic [ref=e519]:
+                            - text: (
+                            - generic [ref=e520]: $ 2.621
+                            - generic [ref=e521]: xlt
+                            - text: )
+                        - text: Producto Agregado
+                - region "ProductoGaseosa Coca Cola Zero 1.25 L" [ref=e523]:
+                  - link "Gaseosa Coca Cola Zero 1.25 L" [ref=e524] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-sin-azucares-1-25-lt-2/p
+                    - article [ref=e525]:
+                      - generic [ref=e526]:
+                        - button "+" [ref=e533]
+                        - group "Sección flotante" [ref=e537]:
+                          - group "Imagen del productoGaseosa Coca Cola Zero 1.25 L" [ref=e539]:
+                            - img "Gaseosa Coca Cola Zero 1.25 L" [ref=e541]
+                          - group "Sección fila" [ref=e543]
+                        - group "Nombre del productoGaseosa Coca Cola Zero 1.25 L" [ref=e548]:
+                          - heading "Gaseosa Coca Cola Zero 1.25 L" [level=3] [ref=e549]
+                        - group "Sección fila"
+                        - generic [ref=e551]:
+                          - generic [ref=e552]:
+                            - generic [ref=e553]: $ 2.795 65
+                            - generic [ref=e556]: 15%
+                          - generic [ref=e558]: $ 3.289
+                        - generic [ref=e561]:
+                          - generic [ref=e562]: $ 2.748
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila" [ref=e564]:
+                          - generic [ref=e569]:
+                            - text: (
+                            - generic [ref=e570]: $ 2.236
+                            - generic [ref=e571]: xlt
+                            - text: )
+                        - text: Producto Agregado
+                - region "ProductoGaseosa Coca Cola Zero 354ml" [ref=e573]:
+                  - link "Gaseosa Coca Cola Zero 354ml" [ref=e574] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-sin-azucar-354-ml-2/p
+                    - article [ref=e575]:
+                      - generic [ref=e576]:
+                        - button "+" [ref=e583]
+                        - group "Sección flotante" [ref=e587]:
+                          - group "Imagen del productoGaseosa Coca Cola Zero 354ml" [ref=e589]:
+                            - img "Gaseosa Coca Cola Zero 354ml" [ref=e591]
+                          - group "Sección fila" [ref=e593]
+                        - group "Nombre del productoGaseosa Coca Cola Zero 354ml" [ref=e598]:
+                          - heading "Gaseosa Coca Cola Zero 354ml" [level=3] [ref=e599]
+                        - group "Sección fila"
+                        - generic [ref=e601]: $ 2.599
+                        - generic [ref=e606]:
+                          - generic [ref=e607]: $ 2.171 48
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila" [ref=e609]:
+                          - generic [ref=e614]:
+                            - text: (
+                            - generic [ref=e615]: $ 7.341
+                            - generic [ref=e616]: xlt
+                            - text: )
+                        - text: Producto Agregado
+                - region "ProductoGaseosa Coca Cola Zero 1.75 L" [ref=e618]:
+                  - link "Gaseosa Coca Cola Zero 1.75 L" [ref=e619] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-sin-azucares-1-75-ml-2/p
+                    - article [ref=e620]:
+                      - generic [ref=e621]:
+                        - group "Sección flotante" [ref=e627]:
+                          - group "Imagen del productoGaseosa Coca Cola Zero 1.75 L" [ref=e629]:
+                            - img "Gaseosa Coca Cola Zero 1.75 L" [ref=e631]
+                          - group "Sección fila" [ref=e633]
+                        - group "Nombre del productoGaseosa Coca Cola Zero 1.75 L" [ref=e638]:
+                          - heading "Gaseosa Coca Cola Zero 1.75 L" [level=3] [ref=e639]
+                        - group "Sección fila"
+                        - generic [ref=e641]: $ 5.149
+                        - generic [ref=e646]:
+                          - generic [ref=e647]: $ 4.301 70
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila" [ref=e649]:
+                          - generic [ref=e654]:
+                            - text: (
+                            - generic [ref=e655]: $ 2.942
+                            - generic [ref=e656]: xlt
+                            - text: )
+                        - text: Producto Agregado
+                - region "ProductoGaseosa Coca Cola Zero 600 Ml" [ref=e658]:
+                  - link "Gaseosa Coca Cola Zero 600 Ml" [ref=e659] [cursor=pointer]:
+                    - /url: /gaseosa-coca-cola-zero-600-ml/p
+                    - article [ref=e660]:
+                      - generic [ref=e661]:
+                        - group "Sección flotante" [ref=e667]:
+                          - group "Imagen del productoGaseosa Coca Cola Zero 600 Ml" [ref=e669]:
+                            - img "Gaseosa Coca Cola Zero 600 Ml" [ref=e671]
+                          - group "Sección fila" [ref=e673]
+                        - group "Nombre del productoGaseosa Coca Cola Zero 600 Ml" [ref=e678]:
+                          - heading "Gaseosa Coca Cola Zero 600 Ml" [level=3] [ref=e679]
+                        - group "Sección fila"
+                        - generic [ref=e681]: $ 2.599
+                        - generic [ref=e686]:
+                          - generic [ref=e687]: $ 2.171 48
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila"
+                        - text: Producto Agregado
+                - region "ProductoCombo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [ref=e690]:
+                  - link "Combo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [ref=e691] [cursor=pointer]:
+                    - /url: /combo-duo-gaseosa-coca-cola-original-1-75-l-y-coca-cola-zero-1-75-l/p
+                    - article [ref=e692]:
+                      - generic [ref=e693]:
+                        - group "Sección flotante" [ref=e699]:
+                          - group "Imagen del productoCombo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [ref=e701]:
+                            - img "Combo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [ref=e703]
+                          - group "Sección fila" [ref=e705]
+                        - group "Nombre del productoCombo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [ref=e710]:
+                          - heading "Combo Dúo Gaseosa Coca Cola Original 1.75 L Y Coca Cola Zero 1.75 L" [level=3] [ref=e711]
+                        - group "Sección fila"
+                        - generic [ref=e713]: $ 7.729
+                        - generic [ref=e718]:
+                          - generic [ref=e719]: $ 6.387 60
+                          - text: Precio sin impuestos nacionales
+                        - group "Sección fila"
+                        - text: Producto Agregado
+            - group "Sección fila" [ref=e722]
+  - status [ref=e728]
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - button
+  - generic [ref=e732]:
+    - button [ref=e735]
+    - generic [ref=e743]:
+      - heading "¡Te damos la bienvenida! Elegí como querés ingresar" [level=3] [ref=e744]
+      - list [ref=e745]:
+        - listitem [ref=e746]:
+          - button "a Recibir código de acceso por e-mail" [ref=e748] [cursor=pointer]
+        - listitem [ref=e751]:
+          - button "a Entrar con e-mail y contraseña" [ref=e753]
+        - listitem [ref=e756]:
+          - button "Entrar con Google" [ref=e758]:
+            - generic [ref=e766]:
+              - text: Entrar con
+              - generic [ref=e767]: Google
+        - listitem
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - article:
+                - paragraph [ref=e729]: Sin Sugerencias

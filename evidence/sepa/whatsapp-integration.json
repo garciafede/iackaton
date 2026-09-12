@@ -1,0 +1,37 @@
+{
+  "inbound": "Webhooks simulados firmados; ubicación pública de sucursal SEPA",
+  "database": "Neon real",
+  "openai": "API real",
+  "outbound": "capturado sin enviar a Meta",
+  "statuses": [
+    200,
+    200
+  ],
+  "metaStatus": null,
+  "replies": [
+    "Compartime tu ubicación para buscar los comercios más cercanos.",
+    "**Resultados DEMO (no son información comercial real), ordenados por precio.**\n\nLa más barata es **Coca-Cola Sin Azúcar 1,5 L a 3890**, con disponibilidad no confirmada, en:\n\n1. Carrefour Córdoba Villa Allende — Av. Río de Janeiro, 1787 — 506,93 km  \n2. Carrefour Córdoba Recta Martinolli — Recta Martinolli, 7850 — 512,15 km  \n3. Carrefour Córdoba Granaderos — Bvard. Granaderos, 2906 — 516,18 km  \n4. Vea Juan B. Justo — Juan B. Justo, 3900 — 517,44 km  \n\nHay más resultados DEMO al mismo precio."
+  ],
+  "events": [
+    {
+      "type": "tool_started",
+      "tool": "findProductOffers"
+    },
+    {
+      "type": "tool_completed",
+      "tool": "findProductOffers",
+      "totalResults": 36
+    },
+    {
+      "type": "response_generation_started"
+    },
+    {
+      "type": "response_generated",
+      "usage": {
+        "inputTokens": 4947,
+        "outputTokens": 329,
+        "totalTokens": 5276
+      }
+    }
+  ]
+}

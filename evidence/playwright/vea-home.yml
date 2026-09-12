@@ -1,0 +1,1311 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - group "Sección fila" [ref=e6]:
+      - link [ref=e10] [cursor=pointer]:
+        - /url: /62822?map=productClusterIds
+        - img "Precios sin Letra Chica" [ref=e11]
+    - group "Sección fila"
+    - group "Sección fila" [ref=e12]:
+      - group "Sección fila" [ref=e16]:
+        - generic [ref=e17]:
+          - paragraph [ref=e21]: ¡Envío en el día!
+          - paragraph [ref=e25]: Comprá
+          - paragraph [ref=e29]:
+            - text: Retirá o recibí tu pedido en el día!
+            - generic: (*Sujeto a disponibilidad)
+    - generic [ref=e33]:
+      - group "Sección fila" [ref=e34]:
+        - group "Sección fila" [ref=e38]:
+          - generic [ref=e39]:
+            - link [ref=e40] [cursor=pointer]:
+              - /url: /
+              - img "Vea" [ref=e42]
+            - group "Sección fila" [ref=e44]:
+              - generic [ref=e45]:
+                - generic:
+                  - button "Modal abierto"
+                - button "Modal abierto" [ref=e47]:
+                  - link "Seleccioná el método de entrega" [ref=e2108] [cursor=pointer]:
+                    - /url: "#"
+            - paragraph [ref=e54]:
+              - link "Código de ética" [ref=e55] [cursor=pointer]:
+              - /url: [enlace público con parámetros omitido]
+            - paragraph [ref=e59]:
+              - link "0810-999-9832" [ref=e60] [cursor=pointer]:
+                - /url: tel:08109999832
+      - group "Sección fila" [ref=e61]:
+        - generic [ref=e63]:
+          - listitem [ref=e65]:
+            - navigation [ref=e66]:
+              - list [ref=e67]:
+                - listitem [ref=e68]:
+                  - generic [ref=e69]: Categorías
+          - combobox [ref=e2109]:
+            - generic [ref=e2114]:
+              - textbox "¡Hola! ¿Qué estás buscando? Buscar Productos" [ref=e2115]:
+                - /placeholder: ¡Hola! ¿Qué estás buscando?
+              - button "Buscar Productos" [ref=e2118]
+          - paragraph [ref=e87]:
+            - generic [ref=e88] [cursor=pointer]: Buscar por Lista
+          - button "Mi Cuenta" [ref=e92]
+          - complementary [ref=e103]:
+            - button [ref=e106]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: "0"
+                - text: Mi Carrito
+    - button "Modal abierto"
+    - button "Modal abierto"
+    - generic [ref=e111]:
+      - generic:
+        - group "Sección fila"
+      - generic [ref=e113]:
+        - generic:
+          - button "Previous" [ref=e114] [cursor=pointer]
+          - generic [ref=e116]:
+            - link [ref=e121] [cursor=pointer]:
+              - /url: /63864?map=productClusterIds
+            - link [ref=e2122] [cursor=pointer]:
+              - /url: /63860?map=productClusterIds&evento=eds
+            - link [ref=e133] [cursor=pointer]:
+              - /url: /63863?map=productClusterIds
+            - link [ref=e139] [cursor=pointer]:
+              - /url: /63872?map=productClusterIds
+            - link [ref=e145] [cursor=pointer]:
+              - /url: /62822?map=productClusterIds
+            - link [ref=e151] [cursor=pointer]:
+              - /url: /46848?map=productClusterIds
+            - link [ref=e2124] [cursor=pointer]:
+              - /url: /63818?map=productClusterIds
+              - img "Hasta 50% en ropa de cama y mas" [ref=e2125]
+            - link [ref=e163] [cursor=pointer]:
+              - /url: /63764?map=productClusterIds&evento=fdselectro
+            - link [ref=e169] [cursor=pointer]:
+              - /url: /63864?map=productClusterIds
+            - link [ref=e175] [cursor=pointer]:
+              - /url: /63860?map=productClusterIds&evento=eds
+            - link [ref=e181] [cursor=pointer]:
+              - /url: /63863?map=productClusterIds
+            - link [ref=e187] [cursor=pointer]:
+              - /url: /63872?map=productClusterIds
+            - link [ref=e193] [cursor=pointer]:
+              - /url: /62822?map=productClusterIds
+            - link [ref=e199] [cursor=pointer]:
+              - /url: /46848?map=productClusterIds
+            - link [ref=e205] [cursor=pointer]:
+              - /url: /63818?map=productClusterIds
+            - link [ref=e211] [cursor=pointer]:
+              - /url: /63764?map=productClusterIds&evento=fdselectro
+            - link [ref=e217] [cursor=pointer]:
+              - /url: /63864?map=productClusterIds
+          - button "Next" [ref=e219] [cursor=pointer]
+          - list [ref=e220]:
+            - listitem [ref=e221] [cursor=pointer]:
+              - button "1" [ref=e222]
+            - listitem [ref=e223] [cursor=pointer]:
+              - button "2" [ref=e224]
+            - listitem [ref=e225] [cursor=pointer]:
+              - button "3" [ref=e226]
+            - listitem [ref=e227] [cursor=pointer]:
+              - button "4" [ref=e228]
+            - listitem [ref=e229] [cursor=pointer]:
+              - button "5" [ref=e230]
+            - listitem [ref=e231] [cursor=pointer]:
+              - button "6" [ref=e232]
+            - listitem [ref=e233] [cursor=pointer]:
+              - button "7" [ref=e234]
+            - listitem [ref=e235] [cursor=pointer]:
+              - button "8" [ref=e236]
+      - group "Sección fila" [ref=e238]:
+        - application [ref=e2126]:
+          - list [ref=e2128]:
+            - 'generic "Story position {@_1_1} of {@_6_2}, {@_Ahorros de la semana_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2129]':
+              - listitem "Story position 1 of 6, Ahorros de la semana, Sin ver" [ref=e2130] [cursor=pointer]:
+                - generic: Ahorros de la semana
+            - 'generic "Story position {@_2_1} of {@_6_2}, {@_Rinde más con Ayudin_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2131]':
+              - listitem "Story position 2 of 6, Rinde más con Ayudin, Sin ver" [ref=e2132] [cursor=pointer]:
+                - generic: Rinde más con Ayudin
+            - 'generic "Story position {@_3_1} of {@_6_2}, {@_Promos bancarias_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2133]':
+              - listitem "Story position 3 of 6, Promos bancarias, Sin ver" [ref=e2134] [cursor=pointer]:
+                - generic: Promos bancarias
+            - 'generic "Story position {@_4_1} of {@_6_2}, {@_Electros destacados_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2135]':
+              - listitem "Story position 4 of 6, Electros destacados, Sin ver" [ref=e2136] [cursor=pointer]:
+                - generic: Electros destacados
+            - 'generic "Story position {@_5_1} of {@_6_2}, {@_Precios bajos_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2137]':
+              - listitem "Story position 5 of 6, Precios bajos, Sin ver" [ref=e2138] [cursor=pointer]:
+                - generic: Precios bajos
+            - 'generic "Story position {@_6_1} of {@_6_2}, {@_Imprecionante_3}, {@_ _4}, {@_Sin ver_5}" [ref=e2139]':
+              - listitem "Story position 6 of 6, Imprecionante, Sin ver" [ref=e2140] [cursor=pointer]:
+                - generic: Imprecionante
+      - group "Sección fila" [ref=e244]:
+        - generic [ref=e245]:
+          - generic [ref=e247]:
+            - group "Sección fila" [ref=e249]:
+              - link [ref=e252] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=por-banco
+                - img "Modo" [ref=e253]
+            - paragraph [ref=e257]: "20% Tope de reintegro: $25000. Válido solo los viernes."
+            - paragraph [ref=e261]:
+              - link "Ver legales" [ref=e262] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=por-banco
+          - generic [ref=e264]:
+            - group "Sección fila" [ref=e266]:
+              - link [ref=e269] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=por-banco&bank=Visa%20y%20Master
+                - img "Fiserv" [ref=e270]
+            - paragraph [ref=e274]: 12 Cuotas Sin Interés en Electros seleccionados.
+            - paragraph [ref=e278]:
+              - link "Ver legales" [ref=e279] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=por-banco&bank=Visa%20y%20Master
+          - generic [ref=e281]:
+            - group "Sección fila" [ref=e283]:
+              - link [ref=e286] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=cencopay
+                - img "Cencopay" [ref=e287]
+            - paragraph [ref=e291]: Realizá tu compra los días Miércoles y programá tu entrega para el día que prefieras.
+            - paragraph [ref=e295]:
+              - generic [ref=e296]: 20%
+              - link "Ver legales" [ref=e297] [cursor=pointer]:
+                - /url: /descuentos-del-dia?type=cencopay
+      - group "Sección fila" [ref=e299]:
+        - generic [ref=e301]:
+          - paragraph [ref=e309]:
+            - link "Descuentos bancarios" [ref=e310] [cursor=pointer]:
+              - /url: /descuentos-del-dia?type=por-dia&day=1
+          - paragraph [ref=e318]:
+            - link "Catálogos" [ref=e319] [cursor=pointer]:
+              - /url: /ofertas-y-catalogo
+          - paragraph [ref=e327]:
+            - link "Encontrá tu sucursal" [ref=e328] [cursor=pointer]:
+              - /url: /sucursales
+          - paragraph [ref=e336]:
+            - link "Métodos de entrega" [ref=e337] [cursor=pointer]:
+              - /url: /metodos-de-entrega
+      - group "Sección fila" [ref=e339]:
+        - generic [ref=e340]:
+          - generic:
+            - generic [ref=e341]:
+              - link [ref=e343] [cursor=pointer]:
+                - /url: /63856?map=productClusterIds
+                - button "Limpieza" [ref=e344]
+              - link [ref=e347] [cursor=pointer]:
+                - /url: /63856?map=productClusterIds
+                - img "Limpieza" [ref=e348]
+            - generic [ref=e349]:
+              - link [ref=e351] [cursor=pointer]:
+                - /url: /63857?map=productClusterIds
+                - button "Perfumería" [ref=e352]
+              - link [ref=e355] [cursor=pointer]:
+                - /url: /63857?map=productClusterIds
+                - img "Perfumería" [ref=e356]
+            - generic [ref=e357]:
+              - link [ref=e359] [cursor=pointer]:
+                - /url: /63872?map=productClusterIds
+                - button "Cocktail Week" [ref=e360]
+              - link [ref=e363] [cursor=pointer]:
+                - /url: /63872?map=productClusterIds
+                - img "Cocktail Week" [ref=e364]
+            - generic [ref=e365]:
+              - link [ref=e367] [cursor=pointer]:
+                - /url: /63858?map=productClusterIds
+                - button "Desayuno" [ref=e368]
+              - link [ref=e371] [cursor=pointer]:
+                - /url: /63858?map=productClusterIds
+                - img "Desayuno" [ref=e372]
+            - generic [ref=e373]:
+              - link [ref=e375] [cursor=pointer]:
+                - /url: /63859?map=productClusterIds
+                - button "Frescos" [ref=e376]
+              - link [ref=e379] [cursor=pointer]:
+                - /url: /63859?map=productClusterIds
+                - img "Frescos" [ref=e380]
+      - group "Sección fila" [ref=e382]:
+        - generic [ref=e383]:
+          - group "Sección fila" [ref=e387]:
+            - heading "Imperdibles de Vea para vos" [level=2] [ref=e392]
+          - group "Sección fila" [ref=e398]:
+            - generic [ref=e399]:
+              - generic [ref=e401]:
+                - region "slider" [ref=e403]:
+                  - group "La diapositiva actual es1 de1" [ref=e408]:
+                    - link [ref=e410] [cursor=pointer]:
+                      - /url: /63827?map=productClusterIds
+                - region "slider" [ref=e414]:
+                  - group "La diapositiva actual es1 de1" [ref=e419]:
+                    - link [ref=e421] [cursor=pointer]:
+                      - /url: " /52040?map=productClusterIds"
+                      - img "Cuidado Personal" [ref=e422]
+              - region "slider" [ref=e428]:
+                - group "La diapositiva actual es1 de1" [ref=e433]:
+                  - link [ref=e435] [cursor=pointer]:
+                    - /url: " /52042?map=productClusterIds"
+                    - img "Cuisine&Co" [ref=e436]
+              - generic [ref=e440]:
+                - region "slider" [ref=e442]:
+                  - group "La diapositiva actual es1 de1" [ref=e447]:
+                    - link [ref=e449] [cursor=pointer]:
+                      - /url: /63803?map=productClusterIds
+                - region "slider" [ref=e453]:
+                  - group "La diapositiva actual es1 de1" [ref=e458]:
+                    - link "Hogar" [ref=e460] [cursor=pointer]:
+                      - /url: " /50522?map=productClusterIds"
+                      - img "Hogar"
+      - paragraph [ref=e466]: ¡Probá RETIRO EXPRESS! Tu compra lista en 1 HORA
+      - group "Sección fila" [ref=e468]:
+        - generic [ref=e472]:
+          - group "Sección fila" [ref=e474]:
+            - heading "Ahorros para tu carrito" [level=2] [ref=e479]
+          - group "Sección fila" [ref=e481]:
+            - generic [ref=e482]:
+              - region "slider" [ref=e484]:
+                - group "La diapositiva actual es1 de1" [ref=e487]:
+                  - link [ref=e489] [cursor=pointer]:
+                    - /url: /63860?map=productClusterIds
+                    - img "Hasta 40% en Almacen, Bebidas y mas" [ref=e490]
+              - group "Sección fila" [ref=e492]:
+                - region "slider" [ref=e495]:
+                  - generic [ref=e497]:
+                    - group "La diapositiva actual es1 de20" [ref=e506]:
+                      - region "ProductoJabón Líquido Skip Bio-enzimas Doypack 3 L" [ref=e508]:
+                        - link "Jabón Líquido Skip Bio-enzimas Doypack 3 L" [ref=e509] [cursor=pointer]:
+                          - /url: /jabon-liquido-skip-bio-enzimas-doypack-3-l/p
+                          - article [ref=e510]:
+                            - group "Sección flotante" [ref=e511]:
+                              - group "Imagen del productoJabón Líquido Skip Bio-enzimas Doypack 3 L" [ref=e513]:
+                                - img "Jabón Líquido Skip Bio-enzimas Doypack 3 L" [ref=e2142]
+                              - group "Sección fila" [ref=e515]
+                              - group "Sección fila" [ref=e522]:
+                                - generic [ref=e523]:
+                                  - generic [ref=e524]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e526]
+                            - generic [ref=e2143]: SKIP
+                            - group "Nombre del productoJabón Líquido Skip Bio-enzimas Doypack 3 L" [ref=e532]:
+                              - heading "Jabón Líquido Skip Bio-enzimas Doypack 3 L" [level=2] [ref=e533]
+                            - group "Sección fila" [ref=e535]:
+                              - generic [ref=e2148]:
+                                - generic [ref=e2149]:
+                                  - generic [ref=e2150]: $10.913,5
+                                  - generic "35% Higiene Bucal | Ecommerce" [ref=e2152]: "-35%"
+                                - generic [ref=e2154]: $16.790
+                                - generic [ref=e2156]:
+                                  - text: "Precio regular x lt.: $5.596,67"
+                                  - paragraph [ref=e2158]: "PRECIO SIN IMPUESTOS NACIONALES: $13.876,03"
+                            - button "Agregar" [ref=e2160]
+                    - group "La diapositiva actual es2 de20" [ref=e536]:
+                      - region "ProductoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e538]:
+                        - link "Gaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e539] [cursor=pointer]:
+                          - /url: /coca-cola-zero-2-25-lt/p
+                          - article [ref=e540]:
+                            - group "Sección flotante" [ref=e541]:
+                              - group "Imagen del productoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e543]:
+                                - img "Gaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e2162]
+                              - group "Sección fila" [ref=e545]
+                              - group "Sección fila" [ref=e552]:
+                                - generic [ref=e553]:
+                                  - generic [ref=e554]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e556]
+                            - generic [ref=e2163]: COCA COLA
+                            - group "Nombre del productoGaseosa Cola Zero 2,25 Lts Coca Cola" [ref=e562]:
+                              - heading "Gaseosa Cola Zero 2,25 Lts Coca Cola" [level=2] [ref=e563]
+                            - group "Sección fila" [ref=e565]:
+                              - generic [ref=e2168]:
+                                - generic [ref=e2169]: Llevando 2
+                                - generic [ref=e2170]:
+                                  - generic [ref=e2171]:
+                                    - generic [ref=e2172]: $4.417,5
+                                    - generic [ref=e2173]: c/u
+                                  - generic "2do al 50% Almacen | Ecommerce" [ref=e2174]: 2do al 50%
+                                - generic [ref=e2176]: $5.890
+                                - generic [ref=e2178]:
+                                  - text: "Precio regular x lt.: $2.617,78"
+                                  - paragraph [ref=e2180]: "PRECIO SIN IMPUESTOS NACIONALES: $4.867,77"
+                            - button "Agregar" [ref=e2182]
+                    - group "La diapositiva actual es3 de20" [ref=e566]:
+                      - region "ProductoGalletas Secas Sabor Original 354 Grs x 3 Un Oreo" [ref=e568]:
+                        - link "Galletas Secas Sabor Original 354 Grs x 3 Un Oreo" [ref=e569] [cursor=pointer]:
+                          - /url: /galletitas-rellenas-con-crema-sabor-original-354-gr-x-3-un-oreo/p
+                          - article [ref=e570]:
+                            - group "Sección flotante" [ref=e571]:
+                              - group "Imagen del productoGalletas Secas Sabor Original 354 Grs x 3 Un Oreo" [ref=e573]:
+                                - generic:
+                                  - img "Galletas Secas Sabor Original 354 Grs x 3 Un Oreo"
+                              - group "Sección fila" [ref=e575]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e581]
+                              - group "Sección fila" [ref=e585]:
+                                - generic [ref=e586]:
+                                  - generic [ref=e587]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e589]
+                            - generic [ref=e2183]: OREO
+                            - group "Nombre del productoGalletas Secas Sabor Original 354 Grs x 3 Un Oreo" [ref=e595]:
+                              - heading "Galletas Secas Sabor Original 354 Grs x 3 Un Oreo" [level=2] [ref=e596]
+                            - group "Sección fila" [ref=e598]:
+                              - generic [ref=e2188]:
+                                - generic [ref=e2189]: Llevando 2
+                                - generic [ref=e2190]:
+                                  - generic [ref=e2191]:
+                                    - generic [ref=e2192]: $4.119,7
+                                    - generic [ref=e2193]: c/u
+                                  - generic "2do al 70% Almacen | Ecommerce" [ref=e2194]: 2do al 70%
+                                - generic [ref=e2196]: $6.338
+                                - generic [ref=e2198]:
+                                  - text: "Precio regular x kg.: $17.903,95"
+                                  - paragraph [ref=e2200]: "PRECIO SIN IMPUESTOS NACIONALES: $5.238,02"
+                            - button "Agregar" [ref=e2202]
+                    - group "La diapositiva actual es4 de20" [ref=e599]:
+                      - region "ProductoQueso Crema Blanco Fresco 500 Grs Casancrem" [ref=e601]:
+                        - link "Queso Crema Blanco Fresco 500 Grs Casancrem" [ref=e602] [cursor=pointer]:
+                          - /url: /queso-crema-clasico-500-gr-casancrem/p
+                          - article [ref=e603]:
+                            - group "Sección flotante" [ref=e604]:
+                              - group "Imagen del productoQueso Crema Blanco Fresco 500 Grs Casancrem" [ref=e606]:
+                                - generic:
+                                  - img "Queso Crema Blanco Fresco 500 Grs Casancrem"
+                              - group "Sección fila" [ref=e608]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al13sar" [ref=e614]
+                              - group "Sección fila" [ref=e618]:
+                                - generic [ref=e619]:
+                                  - generic [ref=e620]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e622]
+                            - generic [ref=e2203]: CASANCREM
+                            - group "Nombre del productoQueso Crema Blanco Fresco 500 Grs Casancrem" [ref=e628]:
+                              - heading "Queso Crema Blanco Fresco 500 Grs Casancrem" [level=2] [ref=e629]
+                            - group "Sección fila" [ref=e631]:
+                              - generic [ref=e2208]:
+                                - generic [ref=e2209]:
+                                  - generic [ref=e2210]: $5.214
+                                  - generic "40% Frescos | Ecommerce" [ref=e2212]: "-40%"
+                                - generic [ref=e2214]: $8.690
+                                - generic [ref=e2216]:
+                                  - text: "Precio regular x kg.: $17.380"
+                                  - paragraph [ref=e2218]: "PRECIO SIN IMPUESTOS NACIONALES: $7.181,82"
+                            - button "Agregar" [ref=e2220]
+                    - group [aria-hidden] [ref=e632]
+                    - group [aria-hidden] [ref=e634]
+                    - group [aria-hidden] [ref=e636]
+                    - group [aria-hidden] [ref=e638]
+                    - group [aria-hidden] [ref=e640]
+                    - group [aria-hidden] [ref=e642]
+                    - group [aria-hidden] [ref=e644]
+                    - group [aria-hidden] [ref=e646]
+                    - group [aria-hidden] [ref=e648]
+                    - group [aria-hidden] [ref=e650]
+                    - group [aria-hidden] [ref=e652]
+                    - group [aria-hidden] [ref=e654]
+                    - group [aria-hidden] [ref=e656]
+                    - group [aria-hidden] [ref=e658]
+                    - group [aria-hidden] [ref=e660]
+                    - group [aria-hidden] [ref=e662]
+                  - button "Previous Slide" [ref=e672]
+                  - button "Next Slide" [ref=e675]
+      - generic [ref=e678]:
+        - group "Sección fila" [ref=e679]:
+          - heading "Frescura y Calidad en Panadería y más" [level=3] [ref=e685]
+        - group "Sección fila" [ref=e686]:
+          - region "slider" [ref=e689]:
+            - generic [ref=e691]:
+              - group "La diapositiva actual es1 de7" [ref=e702]:
+                - link [ref=e704] [cursor=pointer]:
+                  - /url: /frutas
+                  - img "Frutas" [ref=e705]
+              - group "La diapositiva actual es2 de7" [ref=e706]:
+                - link [ref=e708] [cursor=pointer]:
+                  - /url: /verduras
+                  - img "Verduras" [ref=e709]
+              - group "La diapositiva actual es3 de7" [ref=e710]:
+                - link [ref=e712] [cursor=pointer]:
+                  - /url: /congelados
+                  - img "Congelado" [ref=e713]
+              - group "La diapositiva actual es4 de7" [ref=e714]:
+                - link [ref=e716] [cursor=pointer]:
+                  - /url: /quesos-y-fiambres/quesos
+                  - img "Quesos" [ref=e717]
+              - group "La diapositiva actual es5 de7" [ref=e718]:
+                - link [ref=e720] [cursor=pointer]:
+                  - /url: /quesos-y-fiambres/fiambres
+                  - img "Fiambres" [ref=e721]
+              - group [aria-hidden] [ref=e722]
+              - group [aria-hidden] [ref=e724]
+            - button "Previous Slide" [ref=e736]
+            - button "Next Slide" [ref=e739]
+      - group "Sección fila" [ref=e743]:
+        - generic [ref=e747]:
+          - group "Sección fila" [ref=e749]:
+            - heading "Sale juntada con 35% de ahorro" [level=2] [ref=e754]
+          - group "Sección fila" [ref=e756]:
+            - generic [ref=e757]:
+              - region "slider" [ref=e759]:
+                - group "La diapositiva actual es1 de1" [ref=e762]:
+                  - link [ref=e764] [cursor=pointer]:
+                    - /url: /63865?map=productClusterIds
+                    - img "Hasta 35% en cervezas" [ref=e765]
+              - group "Sección fila" [ref=e767]:
+                - region "slider" [ref=e770]:
+                  - generic [ref=e772]:
+                    - group "La diapositiva actual es1 de15" [ref=e781]:
+                      - region "ProductoCerveza Rubia 710 Cc Budweiser" [ref=e783]:
+                        - link "Cerveza Rubia 710 Cc Budweiser" [ref=e784] [cursor=pointer]:
+                          - /url: /cerveza-budweiser-rubia-710-ml-2/p
+                          - article [ref=e785]:
+                            - group "Sección fila" [ref=e786]:
+                              - button [ref=e791]
+                            - group "Sección flotante" [ref=e792]:
+                              - group "Imagen del productoCerveza Rubia 710 Cc Budweiser" [ref=e794]:
+                                - img "Cerveza Rubia 710 Cc Budweiser" [ref=e2222]
+                              - group "Sección fila" [ref=e796]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e802]
+                              - group "Sección fila" [ref=e806]:
+                                - generic [ref=e807]:
+                                  - generic [ref=e808]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e810]
+                            - generic [ref=e2223]: BUDWEISER
+                            - group "Nombre del productoCerveza Rubia 710 Cc Budweiser" [ref=e816]:
+                              - heading "Cerveza Rubia 710 Cc Budweiser" [level=2] [ref=e817]
+                            - group "Sección fila" [ref=e819]:
+                              - generic [ref=e2228]:
+                                - generic [ref=e2229]:
+                                  - generic [ref=e2230]: $2.724,8
+                                  - generic "35% Higiene Bucal | Ecommerce" [ref=e2232]: "-35%"
+                                - generic [ref=e2234]: $4.192
+                                - generic [ref=e2236]:
+                                  - text: "Precio regular x lt.: $5.904,23"
+                                  - paragraph [ref=e2238]: "PRECIO SIN IMPUESTOS NACIONALES: $3.464,46"
+                            - button "Agregar" [ref=e2240]
+                    - group "La diapositiva actual es2 de15" [ref=e820]:
+                      - region "ProductoCerveza Rubia 710 Cc x 4 Un Stella Artois" [ref=e822]:
+                        - link "Cerveza Rubia 710 Cc x 4 Un Stella Artois" [ref=e823] [cursor=pointer]:
+                          - /url: /cerveza-rubia-710ml-x-4u-stella-artois/p
+                          - article [ref=e824]:
+                            - group "Sección fila" [ref=e825]:
+                              - button [ref=e830]
+                            - group "Sección flotante" [ref=e831]:
+                              - group "Imagen del productoCerveza Rubia 710 Cc x 4 Un Stella Artois" [ref=e833]:
+                                - img "Cerveza Rubia 710 Cc x 4 Un Stella Artois" [ref=e2242]
+                              - group "Sección fila" [ref=e835]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e841]
+                              - group "Sección fila" [ref=e845]:
+                                - generic [ref=e846]:
+                                  - generic [ref=e847]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e849]
+                            - generic [ref=e2243]: STELLA ARTOIS
+                            - group "Nombre del productoCerveza Rubia 710 Cc x 4 Un Stella Artois" [ref=e855]:
+                              - heading "Cerveza Rubia 710 Cc x 4 Un Stella Artois" [level=2] [ref=e856]
+                            - group "Sección fila" [ref=e858]:
+                              - generic [ref=e2248]:
+                                - generic [ref=e2249]:
+                                  - generic [ref=e2250]: $15.529,8
+                                  - generic "35% Higiene Bucal | Ecommerce" [ref=e2252]: "-35%"
+                                - generic [ref=e2254]: $23.892
+                                - generic [ref=e2256]:
+                                  - text: "Precio regular x lt.: $8.412,68"
+                                  - paragraph [ref=e2258]: "PRECIO SIN IMPUESTOS NACIONALES: $19.745,45"
+                            - button "Agregar" [ref=e2260]
+                    - group "La diapositiva actual es3 de15" [ref=e859]:
+                      - region "ProductoCerveza Rubia 473 Cc x 6 Un Corona" [ref=e861]:
+                        - link "Cerveza Rubia 473 Cc x 6 Un Corona" [ref=e862] [cursor=pointer]:
+                          - /url: /cerveza-473-cc-corona-4/p
+                          - article [ref=e863]:
+                            - group "Sección fila" [ref=e864]:
+                              - button [ref=e869]
+                            - group "Sección flotante" [ref=e870]:
+                              - group "Imagen del productoCerveza Rubia 473 Cc x 6 Un Corona" [ref=e872]:
+                                - generic:
+                                  - img "Cerveza Rubia 473 Cc x 6 Un Corona"
+                              - group "Sección fila" [ref=e874]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e880]
+                              - group "Sección fila" [ref=e884]:
+                                - generic [ref=e885]:
+                                  - generic [ref=e886]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e888]
+                            - generic [ref=e2261]: CORONA
+                            - group "Nombre del productoCerveza Rubia 473 Cc x 6 Un Corona" [ref=e894]:
+                              - heading "Cerveza Rubia 473 Cc x 6 Un Corona" [level=2] [ref=e895]
+                            - group "Sección fila" [ref=e897]:
+                              - generic [ref=e2266]:
+                                - generic [ref=e2267]:
+                                  - generic [ref=e2268]: $18.132,4
+                                  - generic "35% Higiene Bucal | Ecommerce" [ref=e2270]: "-35%"
+                                - generic [ref=e2272]: $27.896
+                                - generic [ref=e2274]:
+                                  - text: "Precio regular x lt.: $58.976,74"
+                                  - paragraph [ref=e2276]: "PRECIO SIN IMPUESTOS NACIONALES: $23.054,55"
+                            - button "Agregar" [ref=e2278]
+                    - group "La diapositiva actual es4 de15" [ref=e898]:
+                      - region "ProductoCerveza Budweiser 473 Ml X 6 Un" [ref=e900]:
+                        - link "Cerveza Budweiser 473 Ml X 6 Un" [ref=e901] [cursor=pointer]:
+                          - /url: /cerveza-budweiser-473-ml-x-6-un-2/p
+                          - article [ref=e902]:
+                            - group "Sección fila" [ref=e903]:
+                              - button [ref=e908]
+                            - group "Sección flotante" [ref=e909]:
+                              - group "Imagen del productoCerveza Budweiser 473 Ml X 6 Un" [ref=e911]:
+                                - generic:
+                                  - img "Cerveza Budweiser 473 Ml X 6 Un"
+                              - group "Sección fila" [ref=e913]:
+                                - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e919]
+                              - group "Sección fila" [ref=e923]:
+                                - generic [ref=e924]:
+                                  - generic [ref=e925]:
+                                    - button "Modal abierto"
+                                  - button "Ver Producto" [ref=e927]
+                            - generic [ref=e2279]: BUDWEISER
+                            - group "Nombre del productoCerveza Budweiser 473 Ml X 6 Un" [ref=e933]:
+                              - heading "Cerveza Budweiser 473 Ml X 6 Un" [level=2] [ref=e934]
+                            - group "Sección fila" [ref=e936]:
+                              - generic [ref=e2284]:
+                                - generic [ref=e2285]:
+                                  - generic [ref=e2286]: $11.160,5
+                                  - generic "35% Higiene Bucal | Ecommerce" [ref=e2288]: "-35%"
+                                - generic [ref=e2290]: $17.170
+                                - generic [ref=e2292]:
+                                  - text: "Precio regular x un: $2.861,67"
+                                  - paragraph [ref=e2294]: "PRECIO SIN IMPUESTOS NACIONALES: $14.190,08"
+                            - button "Agregar" [ref=e2296]
+                    - group [aria-hidden] [ref=e937]
+                    - group [aria-hidden] [ref=e939]
+                    - group [aria-hidden] [ref=e941]
+                    - group [aria-hidden] [ref=e943]
+                    - group [aria-hidden] [ref=e945]
+                    - group [aria-hidden] [ref=e947]
+                    - group [aria-hidden] [ref=e949]
+                    - group [aria-hidden] [ref=e951]
+                    - group [aria-hidden] [ref=e953]
+                    - group [aria-hidden] [ref=e955]
+                    - group [aria-hidden] [ref=e957]
+                  - button "Previous Slide" [ref=e967]
+                  - button "Next Slide" [ref=e970]
+      - group "Sección fila" [ref=e974]:
+        - generic [ref=e975]:
+          - group "Sección fila" [ref=e979]:
+            - heading "Encontrá los Electros que más te convienen" [level=2] [ref=e984]
+          - group "Sección fila" [ref=e990]:
+            - generic [ref=e991]:
+              - generic [ref=e993]:
+                - region "slider" [ref=e995]:
+                  - group "La diapositiva actual es1 de1" [ref=e1000]:
+                    - link [ref=e1002] [cursor=pointer]:
+                      - /url: /63767?map=productClusterIds
+                      - img "Hasta 10% en tv y celulares" [ref=e1003]
+                - region "slider" [ref=e1007]:
+                  - group "La diapositiva actual es1 de1" [ref=e1012]:
+                    - link [ref=e1014] [cursor=pointer]:
+                      - /url: /63768?map=productClusterIds
+                      - img "Hasta 60% en Pequenos Electros" [ref=e1015]
+              - region "slider" [ref=e1021]:
+                - group "La diapositiva actual es1 de1" [ref=e1026]:
+                  - link [ref=e1028] [cursor=pointer]:
+                    - /url: /63766?map=productClusterIds
+                    - img "Hasta 20% en heladeras, lavarropas y mas" [ref=e1029]
+              - generic [ref=e1033]:
+                - region "slider" [ref=e1035]:
+                  - group "La diapositiva actual es1 de1" [ref=e1040]:
+                    - link [ref=e1042] [cursor=pointer]:
+                      - /url: /63769?map=productClusterIds
+                      - img "Hasta 25% en notebooks, impresoras y mas" [ref=e1043]
+                - region "slider" [ref=e1047]:
+                  - group "La diapositiva actual es1 de1" [ref=e1052]:
+                    - link [ref=e1054] [cursor=pointer]:
+                      - /url: /63770?map=productClusterIds
+                      - img "Hasta 30% en Calefacción y Aires" [ref=e1055]
+      - group "Sección fila" [ref=e1059]:
+        - generic [ref=e1060]:
+          - group "Sección fila" [ref=e1064]:
+            - heading "Categorías Destacadas" [level=2] [ref=e1069]
+          - group "Sección fila" [ref=e1075]:
+            - generic [ref=e1076]:
+              - generic [ref=e1078]:
+                - region "slider" [ref=e1080]:
+                  - group "La diapositiva actual es1 de1" [ref=e1085]:
+                    - link [ref=e1087] [cursor=pointer]:
+                      - /url: /almacen
+                - paragraph [ref=e1093]:
+                  - link "Almacén" [ref=e1094] [cursor=pointer]:
+                    - /url: /almacen
+              - generic [ref=e1096]:
+                - region "slider" [ref=e1098]:
+                  - group "La diapositiva actual es1 de1" [ref=e1103]:
+                    - link [ref=e1105] [cursor=pointer]:
+                      - /url: /bebidas
+                - paragraph [ref=e1111]:
+                  - link "Bebidas" [ref=e1112] [cursor=pointer]:
+                    - /url: /bebidas
+              - generic [ref=e1114]:
+                - region "slider" [ref=e1116]:
+                  - group "La diapositiva actual es1 de1" [ref=e1121]:
+                    - link [ref=e1123] [cursor=pointer]:
+                      - /url: /especial-carnes
+                - paragraph [ref=e1129]:
+                  - link "Carnes" [ref=e1130] [cursor=pointer]:
+                    - /url: /especial-carnes
+              - generic [ref=e1132]:
+                - region "slider" [ref=e1134]:
+                  - group "La diapositiva actual es1 de1" [ref=e1139]:
+                    - link [ref=e1141] [cursor=pointer]:
+                      - /url: /lacteos
+                - paragraph [ref=e1147]:
+                  - link "Lácteos" [ref=e1148] [cursor=pointer]:
+                    - /url: /lacteos
+              - generic [ref=e1150]:
+                - region "slider" [ref=e1152]:
+                  - group "La diapositiva actual es1 de1" [ref=e1157]:
+                    - link [ref=e1159] [cursor=pointer]:
+                      - /url: /limpieza
+                - paragraph [ref=e1165]:
+                  - link "Limpieza" [ref=e1166] [cursor=pointer]:
+                    - /url: /limpieza
+              - generic [ref=e1168]:
+                - region "slider" [ref=e1170]:
+                  - group "La diapositiva actual es1 de1" [ref=e1175]:
+                    - link [ref=e1177] [cursor=pointer]:
+                      - /url: /perfumeria
+                - paragraph [ref=e1183]:
+                  - link "Perfumería" [ref=e1184] [cursor=pointer]:
+                    - /url: /perfumeria
+              - generic [ref=e1186]:
+                - region "slider" [ref=e1188]:
+                  - group "La diapositiva actual es1 de1" [ref=e1193]:
+                    - link [ref=e1195] [cursor=pointer]:
+                      - /url: /electro/tv-y-video/televisores
+                - paragraph [ref=e1201]:
+                  - link "Televisores" [ref=e1202] [cursor=pointer]:
+                    - /url: /electro/tv-y-video/televisores
+      - group "Sección fila" [ref=e1204]:
+        - generic [ref=e1205]:
+          - group "Sección fila" [ref=e1209]:
+            - heading "Hasta 40% en Congelados" [level=2] [ref=e1214]
+          - region "slider" [ref=e1220]:
+            - generic [ref=e1222]:
+              - group "La diapositiva actual es1 de30" [ref=e1233]:
+                - region "ProductoEspinacas 500 Grs Granja del Sol" [ref=e1235]:
+                  - link "Espinacas 500 Grs Granja del Sol" [ref=e1236] [cursor=pointer]:
+                    - /url: /espinaca-granja-del-sol-500-gr/p
+                    - article [ref=e1237]:
+                      - group "Sección flotante" [ref=e1238]:
+                        - group "Imagen del productoEspinacas 500 Grs Granja del Sol" [ref=e1240]:
+                          - img "Espinacas 500 Grs Granja del Sol" [ref=e2298]
+                        - button [ref=e1241]
+                        - group "Sección fila" [ref=e1243]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1249]
+                        - group "Sección fila" [ref=e1253]:
+                          - generic [ref=e1254]:
+                            - generic [ref=e1255]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1257]
+                      - generic [ref=e2299]: GRANJA DEL SOL
+                      - group "Nombre del productoEspinacas 500 Grs Granja del Sol" [ref=e1263]:
+                        - heading "Espinacas 500 Grs Granja del Sol" [level=2] [ref=e1264]
+                      - group "Sección fila" [ref=e1266]:
+                        - generic [ref=e2304]:
+                          - generic [ref=e2305]:
+                            - generic [ref=e2306]: $4.267,5
+                            - generic "25% Frescos | Ecommerce" [ref=e2308]: "-25%"
+                          - generic [ref=e2310]: $5.690
+                          - generic [ref=e2312]:
+                            - text: "Precio regular x kg.: $11.380"
+                            - paragraph [ref=e2314]: "PRECIO SIN IMPUESTOS NACIONALES: $5.149,32"
+                      - button "Agregar" [ref=e2316]
+              - group "La diapositiva actual es2 de30" [ref=e1267]:
+                - region "ProductoPan Rallado Familiar 1 Kg Preferido" [ref=e1269]:
+                  - link "Pan Rallado Familiar 1 Kg Preferido" [ref=e1270] [cursor=pointer]:
+                    - /url: /pan-rallado-fortificado-preferido-1-kg/p
+                    - article [ref=e1271]:
+                      - group "Sección flotante" [ref=e1272]:
+                        - group "Imagen del productoPan Rallado Familiar 1 Kg Preferido" [ref=e1274]:
+                          - img "Pan Rallado Familiar 1 Kg Preferido" [ref=e2318]
+                        - button [ref=e1275]
+                        - group "Sección fila" [ref=e1277]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1283]
+                        - group "Sección fila" [ref=e1287]:
+                          - generic [ref=e1288]:
+                            - generic [ref=e1289]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1291]
+                      - generic [ref=e2319]: PREFERIDO
+                      - group "Nombre del productoPan Rallado Familiar 1 Kg Preferido" [ref=e1297]:
+                        - heading "Pan Rallado Familiar 1 Kg Preferido" [level=2] [ref=e1298]
+                      - group "Sección fila" [ref=e1300]:
+                        - generic [ref=e2324]:
+                          - generic [ref=e2325]: Llevando 2
+                          - generic [ref=e2326]:
+                            - generic [ref=e2327]:
+                              - generic [ref=e2328]: $2.280
+                              - generic [ref=e2329]: c/u
+                            - generic "2do al 80% Frescos | Ecommerce" [ref=e2330]: 2do al 80%
+                          - generic [ref=e2332]: $3.800
+                          - generic [ref=e2334]:
+                            - text: "Precio regular x kg.: $3.800"
+                            - paragraph [ref=e2336]: "PRECIO SIN IMPUESTOS NACIONALES: $3.140,50"
+                      - button "Agregar" [ref=e2338]
+              - group "La diapositiva actual es3 de30" [ref=e1301]:
+                - region "ProductoBrócolis 400 Grs Granja del Sol" [ref=e1303]:
+                  - link "Brócolis 400 Grs Granja del Sol" [ref=e1304] [cursor=pointer]:
+                    - /url: /brocoli-granja-del-sol-400-gr/p
+                    - article [ref=e1305]:
+                      - group "Sección flotante" [ref=e1306]:
+                        - group "Imagen del productoBrócolis 400 Grs Granja del Sol" [ref=e1308]:
+                          - generic:
+                            - img "Brócolis 400 Grs Granja del Sol"
+                        - button [ref=e1309]
+                        - group "Sección fila" [ref=e1311]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1317]
+                        - group "Sección fila" [ref=e1321]:
+                          - generic [ref=e1322]:
+                            - generic [ref=e1323]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1325]
+                      - generic [ref=e2339]: GRANJA DEL SOL
+                      - group "Nombre del productoBrócolis 400 Grs Granja del Sol" [ref=e1331]:
+                        - heading "Brócolis 400 Grs Granja del Sol" [level=2] [ref=e1332]
+                      - group "Sección fila" [ref=e1334]:
+                        - generic [ref=e2344]:
+                          - generic [ref=e2345]:
+                            - generic [ref=e2346]: $4.492,5
+                            - generic "25% Frescos | Ecommerce" [ref=e2348]: "-25%"
+                          - generic [ref=e2350]: $5.990
+                          - generic [ref=e2352]:
+                            - text: "Precio regular x kg.: $14.975"
+                            - paragraph [ref=e2354]: "PRECIO SIN IMPUESTOS NACIONALES: $5.420,81"
+                      - button "Agregar" [ref=e2356]
+              - group "La diapositiva actual es4 de30" [ref=e1335]:
+                - region "ProductoEspinaca Supercongelada 400 Grs Lucchetti" [ref=e1337]:
+                  - link "Espinaca Supercongelada 400 Grs Lucchetti" [ref=e1338] [cursor=pointer]:
+                    - /url: /espinaca-lucchetti-400-gr/p
+                    - article [ref=e1339]:
+                      - group "Sección flotante" [ref=e1340]:
+                        - group "Imagen del productoEspinaca Supercongelada 400 Grs Lucchetti" [ref=e1342]:
+                          - generic:
+                            - img "Espinaca Supercongelada 400 Grs Lucchetti"
+                        - button [ref=e1343]
+                        - group "Sección fila" [ref=e1345]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1351]
+                        - group "Sección fila" [ref=e1355]:
+                          - generic [ref=e1356]:
+                            - generic [ref=e1357]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1359]
+                      - generic [ref=e2357]: LUCCHETTI
+                      - group "Nombre del productoEspinaca Supercongelada 400 Grs Lucchetti" [ref=e1365]:
+                        - heading "Espinaca Supercongelada 400 Grs Lucchetti" [level=2] [ref=e1366]
+                      - group "Sección fila" [ref=e1368]:
+                        - generic [ref=e2362]:
+                          - generic [ref=e2363]:
+                            - generic [ref=e2364]: $2.917,5
+                            - generic "25% Frescos | Ecommerce" [ref=e2366]: "-25%"
+                          - generic [ref=e2368]: $3.890
+                          - generic [ref=e2370]:
+                            - text: "Precio regular x kg.: $9.725"
+                            - paragraph [ref=e2372]: "PRECIO SIN IMPUESTOS NACIONALES: $3.520,36"
+                      - button "Agregar" [ref=e2374]
+              - group "La diapositiva actual es5 de30" [ref=e1369]:
+                - region "ProductoEspinacas 1 Kg Granja del Sol" [ref=e1371]:
+                  - link "Espinacas 1 Kg Granja del Sol" [ref=e1372] [cursor=pointer]:
+                    - /url: /espinaca-granja-del-sol-1-kg/p
+                    - article [ref=e1373]:
+                      - group "Sección flotante" [ref=e1374]:
+                        - group "Imagen del productoEspinacas 1 Kg Granja del Sol" [ref=e1376]:
+                          - generic:
+                            - img "Espinacas 1 Kg Granja del Sol"
+                        - button [ref=e1377]
+                        - group "Sección fila" [ref=e1379]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1385]
+                        - group "Sección fila" [ref=e1389]:
+                          - generic [ref=e1390]:
+                            - generic [ref=e1391]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1393]
+                      - generic [ref=e2375]: GRANJA DEL SOL
+                      - group "Nombre del productoEspinacas 1 Kg Granja del Sol" [ref=e1399]:
+                        - heading "Espinacas 1 Kg Granja del Sol" [level=2] [ref=e1400]
+                      - group "Sección fila" [ref=e1402]:
+                        - generic [ref=e2380]:
+                          - generic [ref=e2381]:
+                            - generic [ref=e2382]: $7.717,5
+                            - generic "25% Frescos | Ecommerce" [ref=e2384]: "-25%"
+                          - generic [ref=e2386]: $10.290
+                          - generic [ref=e2388]:
+                            - text: "Precio regular x kg.: $10.290"
+                            - paragraph [ref=e2390]: "PRECIO SIN IMPUESTOS NACIONALES: $9.312,22"
+                      - button "Agregar" [ref=e2392]
+              - group [aria-hidden] [ref=e1403]
+              - group [aria-hidden] [ref=e1405]
+              - group [aria-hidden] [ref=e1407]
+              - group [aria-hidden] [ref=e1409]
+              - group [aria-hidden] [ref=e1411]
+              - group [aria-hidden] [ref=e1413]
+              - group [aria-hidden] [ref=e1415]
+              - group [aria-hidden] [ref=e1417]
+              - group [aria-hidden] [ref=e1419]
+              - group [aria-hidden] [ref=e1421]
+              - group [aria-hidden] [ref=e1423]
+              - group [aria-hidden] [ref=e1425]
+              - group [aria-hidden] [ref=e1427]
+              - group [aria-hidden] [ref=e1429]
+              - group [aria-hidden] [ref=e1431]
+              - group [aria-hidden] [ref=e1433]
+              - group [aria-hidden] [ref=e1435]
+              - group [aria-hidden] [ref=e1437]
+              - group [aria-hidden] [ref=e1439]
+              - group [aria-hidden] [ref=e1441]
+              - group [aria-hidden] [ref=e1443]
+              - group [aria-hidden] [ref=e1445]
+              - group [aria-hidden] [ref=e1447]
+              - group [aria-hidden] [ref=e1449]
+              - group [aria-hidden] [ref=e1451]
+            - button "Previous Slide" [ref=e1463]
+            - button "Next Slide" [ref=e1466]
+      - group "Sección fila" [ref=e1470]:
+        - generic [ref=e1471]:
+          - group "Sección fila" [ref=e1475]:
+            - heading "Descubrí nuestras Marcas Exclusivas" [level=2] [ref=e1480]
+          - group "Sección fila" [ref=e1486]:
+            - generic [ref=e1487]:
+              - region "slider" [ref=e1489]:
+                - group "La diapositiva actual es1 de1" [ref=e1494]:
+                  - link "Cuisine & Co" [ref=e1496] [cursor=pointer]:
+                    - /url: /17321?map=productClusterIds
+                    - img "Cuisine & Co"
+              - region "slider" [ref=e1500]:
+                - group "La diapositiva actual es1 de1" [ref=e1505]:
+                  - link "Family Care" [ref=e1507] [cursor=pointer]:
+                    - /url: /family-care
+                    - img "Family Care"
+              - region "slider" [ref=e1511]:
+                - group "La diapositiva actual es1 de1" [ref=e1516]:
+                  - link "Home Care" [ref=e1518] [cursor=pointer]:
+                    - /url: /home-care
+                    - img "Home Care"
+              - region "slider" [ref=e1522]:
+                - group "La diapositiva actual es1 de1" [ref=e1527]:
+                  - link [ref=e1529] [cursor=pointer]:
+                    - /url: /37349?map=productClusterIds
+                    - img "Urb" [ref=e1530]
+              - region "slider" [ref=e1534]:
+                - group "La diapositiva actual es1 de1" [ref=e1539]:
+                  - link "Krea" [ref=e1541] [cursor=pointer]:
+                    - /url: /37347?map=productClusterIds
+                    - img "Krea"
+              - region "slider" [ref=e1545]:
+                - group "La diapositiva actual es1 de1" [ref=e1550]:
+                  - link "Nex" [ref=e1552] [cursor=pointer]:
+                    - /url: /37348?map=productClusterIds
+                    - img "Nex"
+      - group "Sección fila" [ref=e1556]:
+        - generic [ref=e1557]:
+          - group "Sección fila" [ref=e1561]:
+            - heading "Todo para tu hogar" [level=2] [ref=e1566]
+          - group "Sección fila" [ref=e1572]:
+            - generic [ref=e1573]:
+              - region "slider" [ref=e1577]:
+                - group "La diapositiva actual es1 de1" [ref=e1582]:
+                  - link [ref=e1584] [cursor=pointer]:
+                    - /url: "/63821?map=productClusterIds  "
+                    - img "35% en jugueteria" [ref=e1585]
+              - generic [ref=e1589]:
+                - region "slider" [ref=e1591]:
+                  - group "La diapositiva actual es1 de1" [ref=e1596]:
+                    - link [ref=e1598] [cursor=pointer]:
+                      - /url: /63823?map=productClusterIds
+                      - img "Hasta 25% en Pilas y Lámparas" [ref=e1599]
+                - region "slider" [ref=e1603]:
+                  - group "La diapositiva actual es1 de1" [ref=e1608]:
+                    - link [ref=e1610] [cursor=pointer]:
+                      - /url: /63824?map=productClusterIds
+                      - img "Hasta 30% en ollas, sartenes y mas" [ref=e1611]
+              - region "slider" [ref=e1617]:
+                - group "La diapositiva actual es1 de1" [ref=e1622]:
+                  - link [ref=e1624] [cursor=pointer]:
+                    - /url: "/63822?map=productClusterIds  "
+                    - img "Hasta 70% en ropa de cama" [ref=e1625]
+      - group "Sección fila" [ref=e1629]:
+        - generic [ref=e1630]:
+          - group "Sección fila" [ref=e1634]:
+            - heading "Ahorros en Vinos y Espumantes" [level=2] [ref=e1639]
+          - region "slider" [ref=e1645]:
+            - generic [ref=e1647]:
+              - group "La diapositiva actual es1 de10" [ref=e1658]:
+                - region "ProductoVino Nieto Senetiner Chardonnay 750ml" [ref=e1660]:
+                  - link "Vino Nieto Senetiner Chardonnay 750ml" [ref=e1661] [cursor=pointer]:
+                    - /url: /vino-nieto-senetiner-chardonnay-750ml/p
+                    - article [ref=e1662]:
+                      - group "Sección flotante" [ref=e1663]:
+                        - group "Imagen del productoVino Nieto Senetiner Chardonnay 750ml" [ref=e1665]:
+                          - img "Vino Nieto Senetiner Chardonnay 750ml" [ref=e2394]
+                        - button [ref=e1666]
+                        - group "Sección fila" [ref=e1668]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1674]
+                        - group "Sección fila" [ref=e1678]:
+                          - generic [ref=e1679]:
+                            - generic [ref=e1680]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1682]
+                      - generic [ref=e2395]: NIETO & SENETINER
+                      - group "Nombre del productoVino Nieto Senetiner Chardonnay 750ml" [ref=e1688]:
+                        - heading "Vino Nieto Senetiner Chardonnay 750ml" [level=2] [ref=e1689]
+                      - group "Sección fila" [ref=e1691]:
+                        - generic [ref=e2400]:
+                          - generic [ref=e2401]:
+                            - generic [ref=e2402]: $7.973
+                            - generic "30% Almacen | Ecommerce" [ref=e2404]: "-30%"
+                          - generic [ref=e2406]: $11.390
+                          - generic [ref=e2408]:
+                            - text: "Precio regular x lt.: $15.186,67"
+                            - paragraph [ref=e2410]: "PRECIO SIN IMPUESTOS NACIONALES: $9.413,22"
+                      - button "Agregar" [ref=e2412]
+              - group "La diapositiva actual es2 de10" [ref=e1692]:
+                - region "ProductoVino Tinto Bonarda 750 Cc Nieto Senetiner" [ref=e1694]:
+                  - link "Vino Tinto Bonarda 750 Cc Nieto Senetiner" [ref=e1695] [cursor=pointer]:
+                    - /url: /vino-patrimonial-bonarda-750cc-nieto-senetiner/p
+                    - article [ref=e1696]:
+                      - group "Sección flotante" [ref=e1697]:
+                        - group "Imagen del productoVino Tinto Bonarda 750 Cc Nieto Senetiner" [ref=e1699]:
+                          - img "Vino Tinto Bonarda 750 Cc Nieto Senetiner" [ref=e2414]
+                        - button [ref=e1700]
+                        - group "Sección fila" [ref=e1702]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1708]
+                        - group "Sección fila" [ref=e1712]:
+                          - generic [ref=e1713]:
+                            - generic [ref=e1714]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1716]
+                      - generic [ref=e2415]: NIETO & SENETINER
+                      - group "Nombre del productoVino Tinto Bonarda 750 Cc Nieto Senetiner" [ref=e1722]:
+                        - heading "Vino Tinto Bonarda 750 Cc Nieto Senetiner" [level=2] [ref=e1723]
+                      - group "Sección fila" [ref=e1725]:
+                        - generic [ref=e2420]:
+                          - generic [ref=e2421]:
+                            - generic [ref=e2422]: $10.353
+                            - generic "30% Almacen | Ecommerce" [ref=e2424]: "-30%"
+                          - generic [ref=e2426]: $14.790
+                          - generic [ref=e2428]:
+                            - text: "Precio regular x lt.: $19.720"
+                            - paragraph [ref=e2430]: "PRECIO SIN IMPUESTOS NACIONALES: $12.223,14"
+                      - button "Agregar" [ref=e2432]
+              - group "La diapositiva actual es3 de10" [ref=e1726]:
+                - region "ProductoEspumante Emilia Cocktail Sangría X 750 Cc" [ref=e1728]:
+                  - link "Espumante Emilia Cocktail Sangría X 750 Cc" [ref=e1729] [cursor=pointer]:
+                    - /url: /espumante-emilia-cocktail-sangria-x-750-cc/p
+                    - article [ref=e1730]:
+                      - group "Sección flotante" [ref=e1731]:
+                        - group "Imagen del productoEspumante Emilia Cocktail Sangría X 750 Cc" [ref=e1733]:
+                          - generic:
+                            - img "Espumante Emilia Cocktail Sangría X 750 Cc"
+                        - button [ref=e1734]
+                        - group "Sección fila" [ref=e1736]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1742]
+                        - group "Sección fila" [ref=e1746]:
+                          - generic [ref=e1747]:
+                            - generic [ref=e1748]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1750]
+                      - generic [ref=e2433]: EMILIA
+                      - group "Nombre del productoEspumante Emilia Cocktail Sangría X 750 Cc" [ref=e1756]:
+                        - heading "Espumante Emilia Cocktail Sangría X 750 Cc" [level=2] [ref=e1757]
+                      - group "Sección fila" [ref=e1759]:
+                        - generic [ref=e2438]:
+                          - generic [ref=e2439]:
+                            - generic [ref=e2440]: $7.273,5
+                            - generic "35% Almacen | Ecommerce" [ref=e2442]: "-35%"
+                          - generic [ref=e2444]: $11.190
+                          - generic [ref=e2446]:
+                            - text: "Precio regular x lt.: $14.920"
+                            - paragraph [ref=e2448]: "PRECIO SIN IMPUESTOS NACIONALES: $9.247,93"
+                      - button "Agregar" [ref=e2450]
+              - group "La diapositiva actual es4 de10" [ref=e1760]:
+                - region "ProductoVino Tinto Malbec 750 Ml Nieto Senetiner" [ref=e1762]:
+                  - link "Vino Tinto Malbec 750 Ml Nieto Senetiner" [ref=e1763] [cursor=pointer]:
+                    - /url: /vino-nieto-senetiner-malbec-750ml/p
+                    - article [ref=e1764]:
+                      - group "Sección flotante" [ref=e1765]:
+                        - group "Imagen del productoVino Tinto Malbec 750 Ml Nieto Senetiner" [ref=e1767]:
+                          - generic:
+                            - img "Vino Tinto Malbec 750 Ml Nieto Senetiner"
+                        - button [ref=e1768]
+                        - group "Sección fila" [ref=e1770]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1776]
+                        - group "Sección fila" [ref=e1780]:
+                          - generic [ref=e1781]:
+                            - generic [ref=e1782]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1784]
+                      - generic [ref=e2451]: NIETO & SENETINER
+                      - group "Nombre del productoVino Tinto Malbec 750 Ml Nieto Senetiner" [ref=e1790]:
+                        - heading "Vino Tinto Malbec 750 Ml Nieto Senetiner" [level=2] [ref=e1791]
+                      - group "Sección fila" [ref=e1793]:
+                        - generic [ref=e2456]:
+                          - generic [ref=e2457]:
+                            - generic [ref=e2458]: $7.623
+                            - generic "30% Almacen | Ecommerce" [ref=e2460]: "-30%"
+                          - generic [ref=e2462]: $10.890
+                          - generic [ref=e2464]:
+                            - text: "Precio regular x lt.: $14.520"
+                            - paragraph [ref=e2466]: "PRECIO SIN IMPUESTOS NACIONALES: $9.000"
+                      - button "Agregar" [ref=e2468]
+              - group "La diapositiva actual es5 de10" [ref=e1794]:
+                - region "ProductoVino Chardonnay Ruca Malen Capítulo Dos 750 Ml" [ref=e1796]:
+                  - link "Vino Chardonnay Ruca Malen Capítulo Dos 750 Ml" [ref=e1797] [cursor=pointer]:
+                    - /url: /vino-ruca-malen-capitulo-dos-chardonnay-750/p
+                    - article [ref=e1798]:
+                      - group "Sección flotante" [ref=e1799]:
+                        - group "Imagen del productoVino Chardonnay Ruca Malen Capítulo Dos 750 Ml" [ref=e1801]:
+                          - generic:
+                            - img "Vino Chardonnay Ruca Malen Capítulo Dos 750 Ml"
+                        - button [ref=e1802]
+                        - group "Sección fila" [ref=e1804]:
+                          - img "cucarda_vea_rpainfoexclusivoonline-v07al10sar" [ref=e1810]
+                        - group "Sección fila" [ref=e1814]:
+                          - generic [ref=e1815]:
+                            - generic [ref=e1816]:
+                              - button "Modal abierto"
+                            - button "Ver Producto" [ref=e1818]
+                      - generic [ref=e2469]: RUCA MALEN
+                      - group "Nombre del productoVino Chardonnay Ruca Malen Capítulo Dos 750 Ml" [ref=e1824]:
+                        - heading "Vino Chardonnay Ruca Malen Capítulo Dos 750 Ml" [level=2] [ref=e1825]
+                      - group "Sección fila" [ref=e1827]:
+                        - generic [ref=e2474]:
+                          - generic [ref=e2475]:
+                            - generic [ref=e2476]: $14.203
+                            - generic "30% Almacen | Ecommerce" [ref=e2478]: "-30%"
+                          - generic [ref=e2480]: $20.290
+                          - generic [ref=e2482]:
+                            - text: "Precio regular x lt.: $27.053,33"
+                            - paragraph [ref=e2484]: "PRECIO SIN IMPUESTOS NACIONALES: $16.768,60"
+                      - button "Agregar" [ref=e2486]
+              - group [aria-hidden] [ref=e1828]
+              - group [aria-hidden] [ref=e1830]
+              - group [aria-hidden] [ref=e1832]
+              - group [aria-hidden] [ref=e1834]
+              - group [aria-hidden] [ref=e1836]
+            - button "Previous Slide" [ref=e1848]
+            - button "Next Slide" [ref=e1851]
+      - group "Sección fila" [ref=e1855]:
+        - generic [ref=e1856]:
+          - group "Sección fila" [ref=e1860]:
+            - heading "Mundo Vea, Clubes y Beneficios 💛" [level=2] [ref=e1865]
+          - group "Sección fila" [ref=e1871]:
+            - generic [ref=e1872]:
+              - region "slider" [ref=e1876]:
+                - group "La diapositiva actual es1 de1" [ref=e1881]:
+                  - link "Canal de WhatsApp" [ref=e1883] [cursor=pointer]:
+                    - /url: https://whatsapp.com/channel/0029VavZIU2CMY0MHyBfcS1P
+                    - img "Canal de WhatsApp"
+              - generic [ref=e1887]:
+                - region "slider" [ref=e1889]:
+                  - group "La diapositiva actual es1 de1" [ref=e1894]:
+                    - link "Pet Friendly" [ref=e1896] [cursor=pointer]:
+                      - /url: "/mascotas "
+                      - img "Pet Friendly"
+                - region "slider" [ref=e1900]:
+                  - group "La diapositiva actual es1 de1" [ref=e1905]:
+                    - link "Vea ahorro | hacete socio" [ref=e1907] [cursor=pointer]:
+                      - /url: https://supermercadosvea.com.ar/registrate/
+                      - img "Vea ahorro | hacete socio"
+              - region "slider" [ref=e1913]:
+                - group "La diapositiva actual es1 de1" [ref=e1918]:
+                  - link "Vino del mes - Septiembre" [ref=e1920] [cursor=pointer]:
+                    - /url: /Bebidas/Vinos
+                    - img "Vino del mes - Septiembre"
+      - generic [ref=e1923]:
+        - group "Sección fila":
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - group "Sección fila"
+            - generic:
+              - generic:
+                - generic:
+                  - region "slider"
+      - group "Sección fila" [ref=e1925]:
+        - generic [ref=e1926]:
+          - group "Sección fila" [ref=e1930]
+          - generic:
+            - generic:
+              - generic:
+                - region "slider"
+      - group "Sección fila" [ref=e1936]:
+        - generic [ref=e1937]:
+          - group "Sección fila" [ref=e1941]:
+            - heading "Marcas destacadas" [level=2] [ref=e1946]
+          - group "Sección fila" [ref=e1952]:
+            - generic [ref=e1953]:
+              - region "slider" [ref=e1955]:
+                - group "La diapositiva actual es1 de1" [ref=e1960]:
+                  - link "Quilmes" [ref=e1962] [cursor=pointer]:
+                    - /url: /quilmes
+                    - img "Quilmes"
+              - region "slider" [ref=e1966]:
+                - group "La diapositiva actual es1 de1" [ref=e1971]:
+                  - link "La Serenisima" [ref=e1973] [cursor=pointer]:
+                    - /url: /la-serenisima
+                    - img "La Serenisima"
+              - region "slider" [ref=e1977]:
+                - group "La diapositiva actual es1 de1" [ref=e1982]:
+                  - link "Oreo" [ref=e1984] [cursor=pointer]:
+                    - /url: /oreo
+                    - img "Oreo"
+              - region "slider" [ref=e1988]:
+                - group "La diapositiva actual es1 de1" [ref=e1993]:
+                  - link "Skip" [ref=e1995] [cursor=pointer]:
+                    - /url: /skip
+                    - img "Skip"
+              - region "slider" [ref=e1999]:
+                - group "La diapositiva actual es1 de1" [ref=e2004]:
+                  - link "Pampers" [ref=e2006] [cursor=pointer]:
+                    - /url: /pampers
+                    - img "Pampers"
+              - region "slider" [ref=e2010]:
+                - group "La diapositiva actual es1 de1" [ref=e2015]:
+                  - link "L'oréal" [ref=e2017] [cursor=pointer]:
+                    - /url: /elvive
+                    - img "L'oréal"
+      - group "Sección fila" [ref=e2021]:
+        - generic [ref=e2022]:
+          - region "slider" [ref=e2024]:
+            - group "La diapositiva actual es1 de1" [ref=e2029]:
+              - link [ref=e2031] [cursor=pointer]:
+                - /url: /63837?map=productClusterIds
+          - region "slider" [ref=e2035]:
+            - group "La diapositiva actual es1 de1" [ref=e2040]:
+              - link "Home Care" [ref=e2042] [cursor=pointer]:
+                - /url: /51037?map=productClusterIds
+                - img "Home Care"
+      - group "Sección fila" [ref=e2046]:
+        - link [ref=e2050] [cursor=pointer]:
+          - /url: /61980?map=productClusterIds&evento=pescaderia
+          - img "Pescadería" [ref=e2051]
+      - group "Sección fila" [ref=e2053]:
+        - generic [ref=e2054]:
+          - region "slider" [ref=e2056]:
+            - group "La diapositiva actual es1 de1" [ref=e2061]:
+              - link "Cencopay" [ref=e2063] [cursor=pointer]:
+                - /url: https://pedila.cencopay.ar/ords/f?p=106:1:107785644371859:::::&utm_campaign=Retails&utm_source=Vea&utm_medium=Sitio&utm_content=triada&utm_term=captacion_credito
+                - img "Cencopay"
+          - region "slider" [ref=e2067]:
+            - group "La diapositiva actual es1 de1" [ref=e2072]:
+              - link "Electro" [ref=e2074] [cursor=pointer]:
+                - /url: /Electro/Heladeras-Freezers-y-Cavas
+                - img "Electro"
+          - region "slider" [ref=e2078]:
+            - group "La diapositiva actual es1 de1" [ref=e2083]:
+              - link "3 CSI" [ref=e2085] [cursor=pointer]:
+                - /url: /almacen
+                - img "3 CSI"
+      - generic:
+        - group "Sección fila":
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - group "Sección fila"
+      - paragraph [ref=e2091]: Los plazos previstos en las garantías contractuales y legales en los términos de la Ley Nº 24.240 y sus modificatorias se tienen por suspendidos por todo el periodo en que las y los consumidores se hayan visto imposibilitados de ejercer sus derechos en virtud del Aislamiento Social, Preventivo y Obligatorio dictado por el Decreto Nº 297 de fecha 19 de marzo de 2020 y sus modificatorios.
+      - group "Sección fila" [ref=e2093]:
+        - generic [ref=e2095]:
+          - generic:
+            - link "Vea":
+              - /url: /
+              - img "Vea"
+          - generic:
+            - link "Buscá tu tienda":
+              - /url: /sucursales
+              - img "Buscá tu tienda"
+          - generic:
+            - link "Cencopay":
+              - /url: " https://pedila.cencopay.ar/ords/f?p=106:1:107785644371859:::::&utm_campaign=Retails&utm_source=Vea&utm_medium=Sitio&utm_content=logo_Banner&utm_term=captacion_credito"
+              - img "Cencopay"
+      - group "Sección fila" [ref=e2097]:
+        - link "Botón de arrepentimiento" [ref=e2101] [cursor=pointer]:
+          - /url: /boton-de-arrepentimiento
+      - generic [ref=e2103]:
+        - button "Modal abierto"
+  - generic [aria-hidden]:
+    - generic:
+      - generic:
+        - button
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - article:
+                  - paragraph [ref=e2487]: Términos más buscados
+                  - list [ref=e2488]:
+                    - listitem [ref=e2489]:
+                      - link "1. leche" [ref=e2490] [cursor=pointer]:
+                        - /url: /leche?map=ft&_q=leche
+                        - generic [ref=e2491]: "1."
+                        - text: leche
+                    - listitem [ref=e2492]:
+                      - link "2. cerveza" [ref=e2493] [cursor=pointer]:
+                        - /url: /cerveza?map=ft&_q=cerveza
+                        - generic [ref=e2494]: "2."
+                        - text: cerveza
+                    - listitem [ref=e2495]:
+                      - link "3. cafe" [ref=e2496] [cursor=pointer]:
+                        - /url: /cafe?map=ft&_q=cafe
+                        - generic [ref=e2497]: "3."
+                        - text: cafe
+                    - listitem [ref=e2498]:
+                      - link "4. galletitas" [ref=e2499] [cursor=pointer]:
+                        - /url: /galletitas?map=ft&_q=galletitas
+                        - generic [ref=e2500]: "4."
+                        - text: galletitas
+                    - listitem [ref=e2501]:
+                      - link "5. yerba" [ref=e2502] [cursor=pointer]:
+                        - /url: /yerba?map=ft&_q=yerba
+                        - generic [ref=e2503]: "5."
+                        - text: yerba
+                    - listitem [ref=e2504]:
+                      - link "6. carne" [ref=e2505] [cursor=pointer]:
+                        - /url: /carne?map=ft&_q=carne
+                        - generic [ref=e2506]: "6."
+                        - text: carne
+                    - listitem [ref=e2507]:
+                      - link "7. aceite" [ref=e2508] [cursor=pointer]:
+                        - /url: /aceite?map=ft&_q=aceite
+                        - generic [ref=e2509]: "7."
+                        - text: aceite
+                    - listitem [ref=e2510]:
+                      - link "8. fideos" [ref=e2511] [cursor=pointer]:
+                        - /url: /fideos?map=ft&_q=fideos
+                        - generic [ref=e2512]: "8."
+                        - text: fideos
+                    - listitem [ref=e2513]:
+                      - link "9. queso" [ref=e2514] [cursor=pointer]:
+                        - /url: /queso?map=ft&_q=queso
+                        - generic [ref=e2515]: "9."
+                        - text: queso
+                    - listitem [ref=e2516]:
+                      - link "10. vino" [ref=e2517] [cursor=pointer]:
+                        - /url: /vino?map=ft&_q=vino
+                        - generic [ref=e2518]: "10."
+                        - text: vino
+  - application:
+    - generic [aria-hidden] [ref=e2519]:
+      - heading [level=4] [ref=e2532]: Ahorros de la semana
+      - generic [ref=e2533]:
+        - generic [ref=e2536]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2539] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2542] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+        - generic [ref=e2545] [cursor=pointer]:
+          - generic:
+            - generic:
+              - button [aria-hidden]: Ahorros para tu bolsillo 🔥
+      - button [ref=e2546] [cursor=pointer]
+      - button [ref=e2547] [cursor=pointer]
