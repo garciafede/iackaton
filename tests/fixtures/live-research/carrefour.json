@@ -1,0 +1,797 @@
+{
+  "retailer": "carrefour",
+  "observationDate": "2026-09-13",
+  "scope": "Catálogo online anónimo; sin asociación automática con sucursal física",
+  "onlinePriceFound": true,
+  "physicalStoreMapping": false,
+  "captures": [
+    {
+      "extractedAt": "2026-09-13T12:21:46.412Z",
+      "request": {
+        "url": "https://www.carrefour.com.ar/detergente%20magistral%20500%20ml?_q=detergente+Magistral+500+ml&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "detergente Magistral 500 ml",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "_dyjsession",
+          "_fbp",
+          "cf_clearance",
+          "__cf_bm",
+          "VtexRCSessionIdv7",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_dyid_server",
+          "vtex-search-session",
+          "vtex-search-anonymous",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "sp-variant",
+          "smc_ls_session",
+          "_dyid",
+          "intent_audience",
+          "_dy_soct",
+          "vtex_session",
+          "vtex_segment",
+          "dtm_token_sc",
+          "dtm_token",
+          "_rlid",
+          "_clck",
+          "_clsk",
+          "OptanonAlertBoxClosed",
+          "eupubconsent-v2",
+          "OptanonConsent",
+          "_ga_YL72LN8HLQ"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "detergente magistral 500 ml",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL_AVAILABLE",
+        "to": 15,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "detergente magistral 500 ml"
+          }
+        ],
+        "fullText": "detergente magistral 500 ml",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 4,
+          "products": [
+            {
+              "productId": "741296",
+              "productName": "Detergente Magistral Ultra Limón Botella 500 ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-limon-en-botella-500-ml-741296/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "195332",
+                  "name": "Detergente Magistral Ultra Limón Botella 500 ml",
+                  "ean": "7790990003039",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 2960,
+                        "ListPrice": 4553.85,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [
+                          {
+                            "name": "PROMO-35% Off Max 8 unidades -Reg-1-35-AS9.9 AL 15.9",
+                            "__typename": "Discount"
+                          }
+                        ],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "741297",
+              "productName": "Detergente Magistral Ultra Marina Botella 500 ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-marina-en-botella-500-ml-741297/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "195338",
+                  "name": "Detergente Magistral Ultra Marina Botella 500 ml",
+                  "ean": "7790990003138",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 2963.35,
+                        "ListPrice": 4559,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [
+                          {
+                            "name": "PROMO-35% Off Max 8 unidades -Reg-1-35-AS9.9 AL 15.9",
+                            "__typename": "Discount"
+                          }
+                        ],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "753540",
+              "productName": "Detergente Magistral Ultra Limón Cremoso Botella 500 ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-limon-cremoso-botella-500-ml-753540/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "220192",
+                  "name": "Detergente Magistral Ultra Limón Cremoso Botella 500 ml",
+                  "ean": "7790990003411",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 2963.35,
+                        "ListPrice": 4559,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [
+                          {
+                            "name": "PROMO-35% Off Max 8 unidades -Reg-1-35-AS9.9 AL 15.9",
+                            "__typename": "Discount"
+                          }
+                        ],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "748588",
+              "productName": "Detergente Magistral Platinum Limón Amarillo Botella 500 ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-platinum-limon-amarillo-botella-500-ml-748588/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "208959",
+                  "name": "Detergente Magistral Platinum Limón Amarillo Botella 500 ml",
+                  "ean": "7790990003381",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 4003.35,
+                        "ListPrice": 6159,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [
+                          {
+                            "name": "PROMO-35% Off Max 8 unidades -Reg-1-35-AS9.9 AL 15.9",
+                            "__typename": "Discount"
+                          }
+                        ],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T12:21:46.428Z",
+      "request": {
+        "url": "https://www.carrefour.com.ar/oreo?_q=oreo&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "oreo",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "_fbp",
+          "cf_clearance",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_dyid_server",
+          "vtex-search-anonymous",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "smc_ls_session",
+          "_dyid",
+          "intent_audience",
+          "vtex_session",
+          "vtex_segment",
+          "dtm_token",
+          "_rlid",
+          "_clck",
+          "OptanonAlertBoxClosed",
+          "eupubconsent-v2",
+          "OptanonConsent",
+          "biggy-search-history",
+          "_dy_soct",
+          "dtm_token_sc",
+          "vtex-search-session",
+          "sp-variant",
+          "_ga_YL72LN8HLQ",
+          "VtexRCSessionIdv7"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "b",
+        "orderBy": "OrderByScoreDESC",
+        "query": "oreo",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL_AVAILABLE",
+        "to": 15,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "b",
+            "value": "oreo"
+          }
+        ],
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 14,
+          "products": [
+            {
+              "productId": "715951",
+              "productName": "Galletitas Oreo Rellenas con crema sabor original 354 g.",
+              "brand": "Oreo",
+              "link": "/galletitas-oreo-rellenas-con-crema-sabor-original-354-g-715951/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "126397",
+                  "name": "Galletitas Oreo Rellenas con crema sabor original 354 g.",
+                  "ean": "7622201735258",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 6646.15,
+                        "ListPrice": 6646.15,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          },
+                          {
+                            "name": "PROMO-2do al 70% Max 8 unidades Combinable OREO-Reg-2-70-AS9.9 AL 15.9",
+                            "conditions": {
+                              "minimumQuantity": 2,
+                              "parameters": [
+                                {
+                                  "name": "SkuIdsList",
+                                  "value": "300316,126397,126384,126388,143707,192710,53189,49608,192732,205463,205471,277735,265653,143700,143723,11627,7480,39526,40467,39566,143720,126389,97612,285581,40515,4316,43063,43050",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "35",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "715949",
+              "productName": "Galletitas dulces Oreo rellenas con crema 118 g.",
+              "brand": "Oreo",
+              "link": "/galletitas-dulce-oreo-rellenas-con-crema-118-g-715949/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "126384",
+                  "name": "Galletitas dulces Oreo rellenas con crema 118 g.",
+                  "ean": "7622201735296",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 2469,
+                        "ListPrice": 2469,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          },
+                          {
+                            "name": "PROMO-2do al 70% Max 8 unidades Combinable OREO-Reg-2-70-AS9.9 AL 15.9",
+                            "conditions": {
+                              "minimumQuantity": 2,
+                              "parameters": [
+                                {
+                                  "name": "SkuIdsList",
+                                  "value": "300316,126397,126384,126388,143707,192710,53189,49608,192732,205463,205471,277735,265653,143700,143723,11627,7480,39526,40467,39566,143720,126389,97612,285581,40515,4316,43063,43050",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "35",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T12:21:46.443Z",
+      "request": {
+        "url": "https://www.carrefour.com.ar/coca%20zero?_q=coca+zero&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "coca zero",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "_fbp",
+          "cf_clearance",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_dyid_server",
+          "vtex-search-anonymous",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "smc_ls_session",
+          "_dyid",
+          "intent_audience",
+          "vtex_session",
+          "vtex_segment",
+          "dtm_token",
+          "_rlid",
+          "_clck",
+          "OptanonAlertBoxClosed",
+          "eupubconsent-v2",
+          "OptanonConsent",
+          "vtex-search-session",
+          "sp-variant",
+          "VtexRCSessionIdv7",
+          "_dyjsession",
+          "biggy-search-history",
+          "__cf_bm",
+          "_dy_soct",
+          "dtm_token_sc",
+          "_ga_YL72LN8HLQ"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "coca zero",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL_AVAILABLE",
+        "to": 15,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "coca zero"
+          }
+        ],
+        "fullText": "coca zero",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 18,
+          "products": [
+            {
+              "productId": "393964",
+              "productName": "Gaseosa cola Coca Cola Zero 2,25 lts",
+              "brand": "Coca Cola",
+              "link": "/gaseosa-cola-coca-cola-zero-225-lts-393964/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "11324",
+                  "name": "Gaseosa cola Coca Cola Zero 2,25 lts",
+                  "ean": "7790895067570",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "CARREFOUR",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 5900,
+                        "ListPrice": 5900,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": [
+                          {
+                            "name": "Tarjeta Carrefour 15%",
+                            "conditions": {
+                              "minimumQuantity": 0,
+                              "parameters": [
+                                {
+                                  "name": "RestrictionsBins",
+                                  "value": "507858,858110,858111,585274,538156,520225,539958,527061,898989",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "15",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          },
+                          {
+                            "name": "PROMO-Exclusivo online 2do al 50% Iguales-Reg-2-50-Cocacola21/7 al 31/9",
+                            "conditions": {
+                              "minimumQuantity": 2,
+                              "parameters": [
+                                {
+                                  "name": "SkuIdsList",
+                                  "value": "11324,4011,3802,247693",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "25",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          },
+                          {
+                            "name": "PROMO-2do al 50% Max 48 unidades Combinable COCA COLA-Reg-2-50-AS9.9 AL 15.9",
+                            "conditions": {
+                              "minimumQuantity": 2,
+                              "parameters": [
+                                {
+                                  "name": "SkuIdsList",
+                                  "value": "3807,11324,11187,4011,12350,15509,10883",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserCondition"
+                            },
+                            "effects": {
+                              "parameters": [
+                                {
+                                  "name": "PercentualDiscount",
+                                  "value": "25",
+                                  "__typename": "TeaserValue"
+                                }
+                              ],
+                              "__typename": "TeaserEffects"
+                            },
+                            "__typename": "Teaser"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

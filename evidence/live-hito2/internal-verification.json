@@ -1,0 +1,113 @@
+{
+  "checkedAt": "2026-09-13T13:24:20.918Z",
+  "reference": "Sucursal pública Carrefour Catamarca 1116",
+  "query": "detergente Magistral ultra limon 500 ml",
+  "before": {
+    "offers": 3318,
+    "realOffers": 3303,
+    "demoOffers": 15,
+    "observations": 3,
+    "liveProducts": 1
+  },
+  "after": {
+    "offers": 3318,
+    "realOffers": 3303,
+    "demoOffers": 15,
+    "observations": 3,
+    "liveProducts": 1
+  },
+  "first": [
+    {
+      "retailer": "CARREFOUR",
+      "status": "OK",
+      "durationMs": 554,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "CHANGOMAS",
+      "status": "OK",
+      "durationMs": 505,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "VEA",
+      "status": "OK",
+      "durationMs": 553,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    }
+  ],
+  "second": [
+    {
+      "retailer": "CARREFOUR",
+      "status": "OK",
+      "durationMs": 57,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "CHANGOMAS",
+      "status": "OK",
+      "durationMs": 105,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "VEA",
+      "status": "OK",
+      "durationMs": 114,
+      "cache": "HIT",
+      "candidates": 1,
+      "warnings": []
+    }
+  ],
+  "flagOff": {
+    "discoveredProductFound": false,
+    "stableBusinessResponseIdentical": true
+  },
+  "branchesByChain": {
+    "Carrefour": 28,
+    "Vea": 31,
+    "ChangoMás": 22
+  },
+  "offers": [
+    {
+      "retailer": "CARREFOUR",
+      "ean": "7790990003039",
+      "price": 2788.5,
+      "store": "Carrefour Hiper Tucumán",
+      "distanceKm": 0.05,
+      "mapping": "EXACT_PICKUP",
+      "confidence": "CONFIRMED_FOR_PICKUP",
+      "scope": "BRANCH_CONFIRMED"
+    },
+    {
+      "retailer": "CHANGOMAS",
+      "ean": "7790990003039",
+      "price": 4349,
+      "store": "ChangoMás Tuc. Ejército Del Norte",
+      "distanceKm": 2.72,
+      "mapping": "NEAREST_BRANCH_ASSUMPTION",
+      "confidence": "UNCONFIRMED_AT_STORE",
+      "scope": "ONLINE_CHAIN"
+    },
+    {
+      "retailer": "VEA",
+      "ean": "7790990003039",
+      "price": 4990,
+      "store": "Vea Av Sarmiento",
+      "distanceKm": 1.41,
+      "mapping": "NEAREST_BRANCH_ASSUMPTION",
+      "confidence": "UNCONFIRMED_AT_STORE",
+      "scope": "ONLINE_CHAIN"
+    }
+  ],
+  "example": "*Detergente Magistral Ultra Limón Botella 500 ml *\nDentro de 25 km. Ordenadas por precio.\n\nLos precios online de cadena se comparan como referencia; no confirman el precio del local candidato.\n\n1. *Detergente Magistral Ultra Limón Botella 500 ml* · EAN 7790990003039\n*$2.788,50* · Precio para compra online con retiro\nPunto de retiro: Carrefour Hiper Tucumán\nCatamarca, 1116, San Miguel De Tucumán, Tucumán\n0,05 km en línea recta\nRetiro disponible. Disponibilidad en góndola no confirmada. Plazo informado: 1 día(s) hábil(es).\nFuente: REAL:LIVE:CARREFOUR. Consultado online: 13/09/2026, 10:21 (UTC−03:00).\n\n2. *Detergente Magistral Ultra Limón 500 Ml* · EAN 7790990003039\n*Precio online encontrado en ChangoMás: $4.349,00*\nSucursal candidata: ChangoMás Tuc. Ejército Del Norte\nAVENIDA EJERCITO DEL NORTE, 2324, SAN MIGUEL DE TUCUMAN, AR-T\n2,72 km en línea recta\nDisponibilidad online detectada. Sucursal más cercana de la cadena.\nDisponibilidad en esta sucursal no confirmada. Precio en esta sucursal no confirmado.\nFuente: REAL:LIVE:CHANGOMAS. Consultado online: 13/09/2026, 10:21 (UTC−03:00).\n\n3. *Detergente para Lavavajillas Ultra Limón 500 Ml Magistral* · EAN 7790990003039\n*Precio online encontrado en Vea: $4.990,00*\nSucursal candidata: Vea Av Sarmiento\nAv. Sarmiento Domiengo FAustino, 750, SAN MIGUEL DE TUCUMAN, AR-T\n1,41 km en línea recta\nDisponibilidad online detectada. Sucursal más cercana de la cadena.\nDisponibilidad en esta sucursal no confirmada. Precio en esta sucursal no confirmado.\nFuente: REAL:LIVE:VEA. Consultado online: 13/09/2026, 10:21 (UTC−03:00)."
+}

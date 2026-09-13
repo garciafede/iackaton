@@ -8,11 +8,14 @@ import {
 } from "./tools.js";
 import { resolveMessageRadius } from "./search-preferences.js";
 import { offerQualityConfig } from "../services/offer-quality.js";
+import { formatOffers } from "./format-offers.js";
+import { followupSort, isGreeting, type PreviousSearch } from "./conversation.js";
 
 type AgentInput = {
   message: string;
   latitude?: number;
   longitude?: number;
+  previousSearch?: PreviousSearch;
   onEvent?: (event: AgentEvent) => void;
 };
 
@@ -97,8 +100,8 @@ Mostrá hasta tres opciones, salvo que el usuario pida más. Si las opciones est
 mostrá igualmente su distancia real, sin calificarlas como cercanas.
 `;
 
-const addUsage = (...responses: OpenAI.Responses.Response[]): AgentUsage | undefined => {
-  const usages = responses.map(({ usage }) => usage).filter((usage) => usage !== undefined);
+const addUsage = (...responses: Array<OpenAI.Responses.Response | undefined>): AgentUsage | undefined => {
+  const usages = responses.map((response) => response?.usage).filter((usage) => usage !== undefined);
   if (usages.length === 0) return undefined;
 
   return usages.reduce<AgentUsage>(
@@ -124,6 +127,9 @@ export const runProductAgent = async (
   input: AgentInput,
   dependencies?: AgentDependencies,
 ): Promise<AgentResult> => {
+  if (isGreeting(input.message)) return { message: "¡Hola! Decime qué producto querés buscar y compartime tu ubicación.", toolUsed: false };
+  const reorder = followupSort(input.message);
+  if (reorder && !input.previousSearch) return { message: "Decime qué producto querés comparar.", toolUsed: false };
   if (input.latitude === undefined || input.longitude === undefined) {
     return {
       message: "Compartime tu ubicación para buscar los comercios más cercanos.",
@@ -140,31 +146,39 @@ export const runProductAgent = async (
     },
   ];
 
-  const toolDecisionResponse = await agent.createResponse({
+  const toolDecisionResponse = reorder && input.previousSearch ? undefined : await agent.createResponse({
     model: agent.model,
     instructions: agentInstructions,
     tools: productAgentTools,
     input: conversation,
   });
 
-  const toolCall = toolDecisionResponse.output.find(
+  const toolCall = toolDecisionResponse?.output.find(
     (item): item is OpenAI.Responses.ResponseFunctionToolCall =>
       item.type === "function_call" && item.name === "findProductOffers",
   );
 
-  if (!toolCall) {
+  if (!toolCall && !reorder) {
     const usage = addUsage(toolDecisionResponse);
     return {
-      message: toolDecisionResponse.output_text || "Decime qué producto querés buscar.",
+      message: "Decime qué producto querés buscar.",
       toolUsed: false,
       ...(usage ? { usage } : {}),
     };
   }
 
-  const toolArguments = JSON.parse(toolCall.arguments) as FindProductOffersArguments;
+  let toolArguments: FindProductOffersArguments;
+  try {
+    toolArguments = reorder && input.previousSearch
+      ? { ...input.previousSearch, sort: reorder, latitude: input.latitude, longitude: input.longitude }
+      : JSON.parse(toolCall!.arguments) as FindProductOffersArguments;
+    if (!toolArguments || typeof toolArguments.query !== "string" || !toolArguments.query.trim() || toolArguments.query.length > 200 || !["price", "distance", "recommended"].includes(toolArguments.sort)) throw new Error("Invalid tool arguments");
+  } catch {
+    return { message: "No pude interpretar la búsqueda. Decime el nombre del producto e intentamos de nuevo.", toolUsed: false };
+  }
   toolArguments.latitude = input.latitude;
   toolArguments.longitude = input.longitude;
-  try { toolArguments.radiusKm = resolveMessageRadius(input.message, toolArguments.radiusKm); }
+  try { if (!reorder) toolArguments.radiusKm = resolveMessageRadius(input.message, toolArguments.radiusKm); }
   catch {
     const usage = addUsage(toolDecisionResponse);
     return { message: `Indicá un radio mayor que 0 y hasta ${offerQualityConfig.maxRadiusKm} km, o pedime buscar sin límite de distancia.`, toolUsed: false, ...(usage ? { usage } : {}) };
@@ -199,32 +213,18 @@ export const runProductAgent = async (
       ? toolResult.suggestedRadiusKm === null ? " ¿Querés ampliar la búsqueda sin límite de distancia?" : ` ¿Querés ampliar la búsqueda a ${toolResult.suggestedRadiusKm} km?`
       : " No hay ofertas elegibles en los datos disponibles para ampliar la búsqueda.";
     const usage = addUsage(toolDecisionResponse);
-    return { message: `No encontré ofertas de ${productName}${radiusText}.${expansion}`, toolUsed: true, toolArguments, ...(usage ? { usage } : {}) };
+    return { message: [`No encontré ofertas de ${productName}${radiusText}.${expansion}`,...(toolResult.notices??[])].join("\n"), toolUsed: true, toolArguments, ...(usage ? { usage } : {}) };
   }
 
-  conversation.push(
-    ...(toolDecisionResponse.output as unknown as OpenAI.Responses.ResponseInput),
-  );
-  conversation.push({
-    type: "function_call_output",
-    call_id: toolCall.call_id,
-    output: JSON.stringify({ ...toolResult, sort: toolArguments.sort }),
-  });
-
   input.onEvent?.({ type: "response_generation_started" });
-  const finalResponse = await agent.createResponse({
-    model: agent.model,
-    instructions: finalResponseInstructions,
-    input: conversation,
-  });
-
-  const usage = addUsage(toolDecisionResponse, finalResponse);
+  const message = formatOffers(toolResult, toolArguments.sort);
+  const usage = addUsage(toolDecisionResponse);
   input.onEvent?.({
     type: "response_generated",
     ...(usage ? { usage } : {}),
   });
   return {
-    message: finalResponse.output_text,
+    message,
     toolUsed: true,
     toolArguments,
     ...(usage ? { usage } : {}),

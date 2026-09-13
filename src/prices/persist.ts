@@ -27,12 +27,16 @@ export async function persistObservations(db: Pick<PrismaClient, "$transaction">
     await tx.$queryRaw`SELECT pg_advisory_xact_lock(731204)::text AS locked`;
     const products = new Map<string, number>();
     const stores = new Map<string, number>();
+    const previousDates = new Map((await tx.offer.findMany({
+      where: { product: { ean: { in: [...new Set(mapped.map((o) => o.product.ean))] } } },
+      select: { productId: true, storeId: true, lastCheckedAt: true },
+    })).map((offer) => [`${offer.productId}:${offer.storeId}`, offer.lastCheckedAt]));
     let updated = 0;
     for (const observation of mapped) {
       const { product: p, store: s, price, stock, source, lastCheckedAt } = observation;
       let productId = products.get(p.ean);
       if (productId === undefined) {
-        const product = { ean: p.ean, brand: p.brand, name: p.name, variant: p.variant, size: p.size };
+        const product = { ean: p.ean, brand: p.brand, name: p.name, variant: p.variant, size: p.size, liveOnly: false, ...(p.category ? { category: p.category } : {}) };
         productId = (await tx.product.upsert({ where: { ean: p.ean }, create: product, update: product })).id;
         products.set(p.ean, productId);
       }
@@ -50,12 +54,14 @@ export async function persistObservations(db: Pick<PrismaClient, "$transaction">
         stores.set(key, storeId);
       }
       const where = { productId_storeId: { productId, storeId } };
-      const previous = await tx.offer.findUnique({ where, select: { lastCheckedAt: true } });
-      if (!isNewerObservation(lastCheckedAt, previous?.lastCheckedAt)) continue;
+      const dateKey = `${productId}:${storeId}`;
+      if (!isNewerObservation(lastCheckedAt, previousDates.get(dateKey))) continue;
       const record = { productId, storeId, price, stock, source, lastCheckedAt };
       await tx.offer.upsert({ where, create: record, update: record });
+      previousDates.set(dateKey, lastCheckedAt);
       updated++;
     }
     return updated;
-  }, { maxWait: 10000, timeout: 120000 });
+  // Misma transacción atómica; el catálogo ampliado no debe vencer al límite de 5 grupos.
+  }, { maxWait: 10000, timeout: Math.min(900000, Math.max(120000, mapped.length * 200 + 60000)) });
 }

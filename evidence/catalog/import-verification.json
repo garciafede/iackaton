@@ -1,0 +1,130 @@
+{
+  "checkedAt": "2026-09-13T12:25:19.183Z",
+  "coverage": {
+    "configured": 60,
+    "available": 60,
+    "configuredEans": 63,
+    "foundEans": 62,
+    "categories": [
+      "Aceite",
+      "Aguas",
+      "Arroz",
+      "Azúcar",
+      "Café",
+      "Conservas",
+      "Fideos",
+      "Galletitas",
+      "Gaseosas",
+      "Harina",
+      "Higiene personal",
+      "Jugos",
+      "Lácteos",
+      "Limpieza",
+      "Salsas",
+      "Snacks",
+      "Té",
+      "Yerba"
+    ],
+    "offers": 3303,
+    "stores": 59,
+    "chains": [
+      {
+        "name": "Carrefour",
+        "offers": 1660,
+        "stores": 28,
+        "products": 60
+      },
+      {
+        "name": "Vea",
+        "offers": 1643,
+        "stores": 31,
+        "products": 53
+      }
+    ],
+    "latestSepa": "2026-09-12T11:30:02.000Z",
+    "missing": []
+  },
+  "counts": {
+    "products": 67,
+    "realProducts": 62,
+    "realOffers": 3303,
+    "demoOffers": 15
+  },
+  "reference": {
+    "id": 15,
+    "name": "Carrefour Tucumán III",
+    "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T",
+    "latitude": "-26.814605",
+    "longitude": "-65.209515"
+  },
+  "queries": [
+    {
+      "query": "coca zero",
+      "found": true,
+      "offers": 36,
+      "onlyReal": true
+    },
+    {
+      "query": "oreo 118 g",
+      "found": true,
+      "offers": 59,
+      "onlyReal": true
+    },
+    {
+      "query": "playadito",
+      "found": true,
+      "offers": 54,
+      "onlyReal": true
+    },
+    {
+      "query": "gallo oro",
+      "found": true,
+      "offers": 113,
+      "onlyReal": true
+    },
+    {
+      "query": "villavicencio 1500 ml",
+      "found": true,
+      "offers": 57,
+      "onlyReal": true
+    },
+    {
+      "query": "villavicencio 2 litros",
+      "found": true,
+      "offers": 56,
+      "onlyReal": true
+    },
+    {
+      "query": "harina morixe 000",
+      "found": true,
+      "offers": 59,
+      "onlyReal": true
+    },
+    {
+      "query": "harina morixe 0000",
+      "found": true,
+      "offers": 59,
+      "onlyReal": true
+    },
+    {
+      "query": "te la virginia",
+      "found": true,
+      "offers": 52,
+      "onlyReal": true
+    },
+    {
+      "query": "cif limon 500 ml",
+      "found": true,
+      "offers": 59,
+      "onlyReal": true
+    }
+  ],
+  "health": 200,
+  "searchStatus": 200,
+  "searchHttp": {
+    "status": 200,
+    "results": 11,
+    "onlyReal": true,
+    "within25Km": true
+  }
+}

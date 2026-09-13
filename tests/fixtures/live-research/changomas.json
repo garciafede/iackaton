@@ -1,0 +1,371 @@
+{
+  "retailer": "changomas",
+  "observationDate": "2026-09-13",
+  "scope": "Catálogo online anónimo; sin asociación automática con sucursal física",
+  "onlinePriceFound": true,
+  "physicalStoreMapping": false,
+  "captures": [
+    {
+      "extractedAt": "2026-09-13T04:18:18.979Z",
+      "request": {
+        "url": "https://www.masonline.com.ar/detergente%20magistral%20500%20ml?_q=detergente+Magistral+500+ml&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "detergente Magistral 500 ml",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          "sec-ch-ua-platform",
+          "referer",
+          "user-agent",
+          "accept",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile"
+        ],
+        "cookieNames": [],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITH_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "detergente magistral 500 ml",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 23,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "detergente magistral 500 ml"
+          }
+        ],
+        "fullText": "detergente magistral 500 ml",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 5,
+          "products": [
+            {
+              "productId": "224219",
+              "productName": "Detergente Magistral Ultra Limón 500 Ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-limon-en-botella-500-cc-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "224771",
+                  "name": "Detergente Magistral Ultra Limón 500 Ml",
+                  "ean": "7790990003039",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 4349,
+                        "ListPrice": 4349,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "231167",
+              "productName": "Detergente Magistral Ultra Limón Cremoso 500 Ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-limon-cremoso-500ml/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "231686",
+                  "name": "Detergente Magistral Ultra Limón Cremoso 500 Ml",
+                  "ean": "7790990003411",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 5149,
+                        "ListPrice": 5149,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "224221",
+              "productName": "Detergente Magistral Ultra Marina 500 Ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-ultra-marina-en-botella-500-cc-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "224773",
+                  "name": "Detergente Magistral Ultra Marina 500 Ml",
+                  "ean": "7790990003138",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 5149,
+                        "ListPrice": 5149,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "225391",
+              "productName": "Detergente Magistral Platinum Limón 500 Ml",
+              "brand": "Magistral",
+              "link": "/detergente-magistral-platinum-limon-500-ml-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "225849",
+                  "name": "Detergente Magistral Platinum Limón 500 Ml",
+                  "ean": "7790990003381",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 6279,
+                        "ListPrice": 6279,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T04:18:18.987Z",
+      "request": {
+        "url": "https://www.masonline.com.ar/oreo?_q=oreo&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "oreo",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          "sec-ch-ua-platform",
+          "referer",
+          "user-agent",
+          "accept",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile"
+        ],
+        "cookieNames": [],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITH_INTEREST",
+        "map": "b",
+        "orderBy": "OrderByScoreDESC",
+        "query": "oreo",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 23,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "b",
+            "value": "oreo"
+          }
+        ],
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 18,
+          "products": [
+            {
+              "productId": "189283",
+              "productName": "Galletitas Oreo Original 118g",
+              "brand": "Oreo",
+              "link": "/gelletitas-oreo-regular-single-118g-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "189283",
+                  "name": "Galletitas Oreo Original 118g",
+                  "ean": "7622201735296",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 1481.4,
+                        "ListPrice": 2469,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T04:18:18.996Z",
+      "request": {
+        "url": "https://www.masonline.com.ar/coca%20zero?_q=coca+zero&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "coca zero",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          "sec-ch-ua-platform",
+          "referer",
+          "user-agent",
+          "accept",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile"
+        ],
+        "cookieNames": [],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITH_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "coca zero",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 23,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "coca zero"
+          }
+        ],
+        "fullText": "coca zero",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 13,
+          "products": [
+            {
+              "productId": "407",
+              "productName": "Gaseosa Coca Cola Zero 1.5 L",
+              "brand": "Coca Cola",
+              "link": "/gaseosa-coca-cola-sin-azucares-1-5-lt-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "406",
+                  "name": "Gaseosa Coca Cola Zero 1.5 L",
+                  "ean": "7790895067556",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 3899,
+                        "ListPrice": 3899,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "195",
+              "productName": "Gaseosa Coca Cola Zero 2.25 L",
+              "brand": "Coca Cola",
+              "link": "/gaseosa-coca-cola-sin-azucar-2-25-lt-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "195",
+                  "name": "Gaseosa Coca Cola Zero 2.25 L",
+                  "ean": "7790895067570",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "MasOnline",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 5599,
+                        "ListPrice": 5599,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

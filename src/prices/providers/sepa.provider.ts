@@ -60,7 +60,7 @@ export class SepaPriceProvider implements PriceProvider {
   readonly name = "SEPA";
   async refresh(options: RefreshOptions = {}): Promise<RefreshResult> {
     const started = Date.now();
-    const targets = selectedTargets(options.product);
+    const targets = selectedTargets(options.product, options);
     const result: RefreshResult = { provider: this.name, productsSearched: targets.map((p) => p.key), productsFound: [], productsNotFound: [], offersUpdated: 0, unmapped: 0, unmatched: 0, errors: [], durationMs: 0, observations: [] };
     const seen = new Set<string>();
     const eans = new Map(targets.flatMap((p) => p.eans.map((ean) => [ean, p] as const)));
@@ -116,7 +116,7 @@ export class SepaPriceProvider implements PriceProvider {
           if (!/^\d{1,10}(\.\d{1,2})?$/.test(price) || Number(price) <= 0) { result.unmatched += 1; continue; }
           if (!row.productos_descripcion || row.productos_descripcion.includes("\uFFFD")) { result.unmatched += 1; continue; }
           result.observations.push({
-            product: { key: target.key, ean: row.id_producto!, brand: target.brand, name: target.name, variant: eanVariants[row.id_producto!] ?? target.variant, size: target.size },
+            product: { key: target.key, ean: row.id_producto!, brand: target.brand, name: target.name, variant: eanVariants[row.id_producto!] ?? target.variant, size: target.size, category: target.category },
             store, price, stock: null, source: "REAL:SEPA", lastCheckedAt: date,
           });
         }

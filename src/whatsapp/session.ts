@@ -1,5 +1,8 @@
+import type { PreviousSearch } from "../ai/conversation.js";
+
 export type WhatsAppSession = {
   pendingMessage?: string;
+  previousSearch?: PreviousSearch;
   latitude?: number;
   longitude?: number;
   updatedAt: number;

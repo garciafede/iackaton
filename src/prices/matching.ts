@@ -3,10 +3,15 @@ import type { ProductTarget } from "./config.js";
 export const normalizeProductText = (value: string) => value.normalize("NFD")
   .replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/,/g, ".");
 
-export function presentationMatches(name: string, product: Pick<ProductTarget, "quantity" | "unit">): boolean {
-  const text = normalizeProductText(name);
+export function presentationMatches(name: string, product: Pick<ProductTarget, "quantity" | "unit">, requireCount = true): boolean {
+  const text = normalizeProductText(name).replace(/\b1\s*\/\s*2\s*(kg|kilo|l|litro)\b/g, "0.5 $1");
   if (/\b(?:pack|combo|duo)\b|\b[2-9]\s*x\s*\d/i.test(text)) return false;
-  const sizes = [...text.matchAll(/(\d+(?:\.\d+)?)\s*[- ]?\s*(kg|kilos?|grs?|gramos?|g|litros?|lts?|l|ml|cc)\b/g)];
+  if (product.unit === "unit") {
+    const counts = [...text.matchAll(/(\d+)\s*[- ]?\s*(?:unidades?|uni|un|u|saquitos?|saq|s)\b/g)];
+    // Un envase puede declarar 25 saquitos y 50 g: son dimensiones diferentes.
+    return (counts.length > 0 || !requireCount) && counts.every((match) => Number(match[1]) === product.quantity);
+  }
+  const sizes = [...text.matchAll(/(\d+(?:\.\d+)?)\s*[- ]?\s*(kg|kilos?|grm|grs?|gramos?|g|litros?|lts?|l|ml|cc)\b/g)];
   if (!sizes.length) return true; // Un EAN ya verificado sigue identificando el producto.
   return sizes.every((match) => {
     const unit = match[2]!;
@@ -26,7 +31,7 @@ export function matchExactEan(ean: string, name: string, products: ProductTarget
 export function matchDescription(name: string, brand: string, products: ProductTarget[]) {
   const words = (s: string) => normalizeProductText(s).replace(/[^a-z0-9.]+/g, " ").trim();
   const text = words(name);
-  if (!/\d\s*(?:kg|g|grs?|lts?|l|ml|cc)\b/i.test(text)) return null;
+  if (!/\d\s*(?:kg|g|grs?|lts?|l|ml|cc|unidades?|uni|un|saquitos?|saq)\b/i.test(text)) return null;
   return products.find((p) => words(brand) === words(p.brand) && presentationMatches(name, p) &&
     [p.name, ...p.aliases.filter((a) => words(a).split(" ").length >= 2)].some((alias) =>
       words(alias).split(" ").every((word) => text.split(" ").includes(word))) &&

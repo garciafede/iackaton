@@ -1,0 +1,118 @@
+[
+  {
+    "retailer": "carrefour",
+    "queries": [
+      {
+        "query": "detergente magistral 500 ml",
+        "returned": 4,
+        "fixtureEans": [
+          "7790990003039",
+          "7790990003138",
+          "7790990003411",
+          "7790990003381"
+        ]
+      },
+      {
+        "query": "oreo",
+        "returned": 14,
+        "fixtureEans": [
+          "7622201735258",
+          "7622201735296"
+        ]
+      },
+      {
+        "query": "coca zero",
+        "returned": 16,
+        "fixtureEans": [
+          "7790895067570"
+        ]
+      }
+    ],
+    "http": [
+      {
+        "endpoint": "https://www.carrefour.com.ar/detergente%20magistral%20500%20ml",
+        "status": 200,
+        "identical": true
+      },
+      {
+        "endpoint": "https://www.carrefour.com.ar/_v/segment/graphql/v1",
+        "status": 200,
+        "identical": true
+      }
+    ]
+  },
+  {
+    "retailer": "vea",
+    "queries": [
+      {
+        "query": "detergente magistral 500 ml",
+        "returned": 5,
+        "fixtureEans": [
+          "7790990003039",
+          "7790990003411",
+          "7790990003138",
+          "7790990003381"
+        ]
+      },
+      {
+        "query": "oreo",
+        "returned": 16,
+        "fixtureEans": [
+          "7622201735296",
+          "7622201735258"
+        ]
+      },
+      {
+        "query": "coca zero",
+        "returned": 7,
+        "fixtureEans": [
+          "7790895067570"
+        ]
+      }
+    ],
+    "http": [
+      {
+        "endpoint": "https://www.vea.com.ar/detergente%20magistral%20500%20ml",
+        "status": 200,
+        "identical": true
+      }
+    ]
+  },
+  {
+    "retailer": "changomas",
+    "queries": [
+      {
+        "query": "detergente magistral 500 ml",
+        "returned": 5,
+        "fixtureEans": [
+          "7790990003039",
+          "7790990003411",
+          "7790990003138",
+          "7790990003381"
+        ]
+      },
+      {
+        "query": "oreo",
+        "returned": 18,
+        "fixtureEans": [
+          "7622201735296"
+        ]
+      },
+      {
+        "query": "coca zero",
+        "returned": 13,
+        "fixtureEans": [
+          "7790895067556",
+          "7790895067570"
+        ]
+      }
+    ],
+    "http": [
+      {
+        "endpoint": "https://www.masonline.com.ar/detergente%20magistral%20500%20ml",
+        "status": 200,
+        "identical": true
+      }
+    ]
+  }
+]

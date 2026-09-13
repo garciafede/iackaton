@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-09-13T19:51:51.724Z",
+  "tests": {
+    "total": 106,
+    "passed": 106,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "healthHttp": 200,
+  "search": {
+    "http": 200,
+    "realSepaResults": 11,
+    "liveProvidersCalled": false
+  },
+  "liveFlag": "OFF",
+  "counts": {
+    "products": 68,
+    "liveOnlyProducts": 1,
+    "realOffers": 3303,
+    "demoOffers": 15,
+    "observations": 3
+  },
+  "paidOpenAiCalls": 0,
+  "whatsAppMessagesSent": 0
+}

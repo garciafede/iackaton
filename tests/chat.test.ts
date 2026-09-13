@@ -83,10 +83,10 @@ test("sin ubicación solicita ubicación sin llamar a OpenAI", async () => {
   assert.match(result.message, /ubicación/i);
 });
 
-test("OpenAI recibe fuente/stock originales e instrucciones distintas para REAL y DEMO", async () => {
-  for (const source of ["REAL:SEPA", "DEMO"]) {
+test("la respuesta conserva fuente/stock y distingue REAL de DEMO sin texto libre del modelo", async () => {
+  for (const source of ["REAL:SEPA", "REAL:PLAYWRIGHT:CARREFOUR", "REAL:PLAYWRIGHT:VEA", "REAL:PLAYWRIGHT:CHANGOMAS", "DEMO"]) {
     let calls = 0;
-    await runProductAgent({ message: "coca zero", latitude: 0, longitude: 0 }, {
+    const result = await runProductAgent({ message: "coca zero", latitude: 0, longitude: 0 }, {
       model: "fixture",
       executeTool: async () => ({ ...demoToolResult, results: [{ ...demoToolResult.results[0]!, stock: null, source }] }),
       createResponse: async (params) => {
@@ -95,18 +95,22 @@ test("OpenAI recibe fuente/stock originales e instrucciones distintas para REAL 
         assert.match(params.instructions!, /source igual a DEMO: indicá "Resultado DEMO"/);
         assert.match(params.instructions!, /source que comienza con REAL:.*no lo etiquetes como DEMO/);
         assert.doesNotMatch(params.instructions!, /Los datos actuales son DEMO/);
-        if (++calls === 1) return functionCallResponse({ query: "coca zero", latitude: 0, longitude: 0, sort: "price" });
-        const output = (params.input as Array<any>).find((p) => p.type === "function_call_output");
-        const data = JSON.parse(output.output);
-        assert.equal(data.results[0].source, source);
-        assert.equal(data.results[0].stock, null);
-        return finalTextResponse("Respuesta simulada de test.");
+        calls++;
+        return { ...functionCallResponse({ query: "coca zero", latitude: 0, longitude: 0, sort: "price" }), output_text: "Inventado: $1 en Tienda Falsa, Calle Falsa 123, 0 km, disponible hoy." };
       },
     });
+    assert.equal(calls, 1);
+    assert.match(result.message, /disponibilidad no confirmada/);
+    assert.match(result.message, /\$2\.350/);
+    assert.doesNotMatch(result.message, /Inventado|Tienda Falsa|Calle Falsa|disponible hoy/);
+    if (source === "DEMO") assert.match(result.message, /Fuente: Resultado DEMO/);
+    else assert.doesNotMatch(result.message, /Fuente: Resultado DEMO/);
+    if (source === "REAL:SEPA") assert.match(result.message, /Fuente: SEPA/);
+    if (source.startsWith("REAL:PLAYWRIGHT:")) assert.match(result.message, /Fuente: Playwright/);
   }
 });
 
-test("con ubicación completa tool y segundo turno de Responses API", async () => {
+test("con ubicación consulta la herramienta y forma los hechos sin segunda inferencia", async () => {
   let responseCalls = 0;
   let receivedSort = "";
   let receivedToolOutput = false;
@@ -138,13 +142,52 @@ test("con ubicación completa tool y segundo turno de Responses API", async () =
     },
   );
 
-  assert.equal(responseCalls, 2);
-  assert.equal(receivedToolOutput, true);
+  assert.equal(responseCalls, 1);
+  assert.equal(receivedToolOutput, false);
   assert.equal(receivedSort, "price");
   assert.equal(result.toolUsed, true);
   assert.equal(result.toolArguments?.query, "coca zero");
-  assert.equal(result.usage?.totalTokens, 150);
+  assert.equal(result.usage?.totalTokens, 50);
   assert.match(result.message, /Vea Demo/);
+  assert.match(result.message, /1,24 km/);
+  assert.match(result.message, /31\/12\/2025, 21:00 \(UTC−03:00\)/);
+});
+
+test("Hola responde sin OpenAI y una respuesta libre sin herramienta nunca entrega hechos inventados", async () => {
+  const greeting = await runProductAgent({ message: "Hola" });
+  assert.match(greeting.message, /Hola.*producto/);
+  const result = await runProductAgent({ message: "inventá un precio", latitude: 0, longitude: 0 }, {
+    model: "fixture", createResponse: async () => finalTextResponse("$99 en Tienda Inventada, 0 km, disponible hoy"),
+    executeTool: async () => { assert.fail("No hubo function call"); },
+  });
+  assert.equal(result.message, "Decime qué producto querés buscar.");
+});
+
+test("más barata y más cercana conservan el producto y radio previos sin otra inferencia", async () => {
+  for (const [message, sort] of [["Quiero la más barata", "price"], ["Quiero la más cercana", "distance"]] as const) {
+    const result = await runProductAgent({ message, latitude: 0, longitude: 0, previousSearch: { query: "coca zero", sort: "distance", radiusKm: null } }, {
+      model: "fixture", createResponse: async () => { assert.fail("Reordenar no necesita OpenAI"); },
+      executeTool: async (args) => { assert.equal(args.query, "coca zero"); assert.equal(args.sort, sort); assert.equal(args.radiusKm, null); return { ...demoToolResult, radiusKm: null }; },
+    });
+    assert.equal(result.toolArguments?.sort, sort);
+    assert.match(result.message, /Sin límite de distancia/);
+  }
+  assert.match((await runProductAgent({ message: "Quiero la más barata" })).message, /qué producto/);
+});
+
+test("otro producto válido reemplaza la consulta anterior y los argumentos malformados no llegan a PostgreSQL", async () => {
+  const result = await runProductAgent({ message: "Buscame Oreo", latitude: 0, longitude: 0, previousSearch: { query: "coca zero", sort: "price", radiusKm: 25 } }, {
+    model: "fixture", createResponse: async () => functionCallResponse({ query: "oreo", sort: "distance", radiusKm: 25 }),
+    executeTool: async (args) => { assert.equal(args.query, "oreo"); return { ...demoToolResult, product: { ...demoToolResult.product, name: "Galletitas Oreo Original", size: "118 g" } }; },
+  });
+  assert.match(result.message, /Oreo Original 118 g/);
+  for (const args of [{ query: "oreo", sort: "invented" }, { query: null, sort: "price" }]) {
+    const invalid = await runProductAgent({ message: "Buscame Oreo", latitude: 0, longitude: 0 }, {
+      model: "fixture", createResponse: async () => functionCallResponse(args),
+      executeTool: async () => { assert.fail("Argumentos inválidos"); },
+    });
+    assert.equal(invalid.toolUsed, false);
+  }
 });
 
 test("un producto inexistente no inventa resultados", async () => {

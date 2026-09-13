@@ -13,9 +13,13 @@ async function main() {
   const options: RefreshOptions = { dryRun: args.includes("--dry-run") };
   const product = args.find((arg) => arg.startsWith("--product="))?.slice(10);
   const file = args.find((arg) => arg.startsWith("--file="))?.slice(7);
+  const category = args.find((arg) => arg.startsWith("--category="))?.slice(11);
   if (product) options.product = product;
   if (file) options.file = file;
-  // Secuencial: máximo 5 búsquedas por cadena, fuera de las rutas WhatsApp.
+  if (category) options.category = category;
+  if (args.includes("--all")) options.all = true;
+  if (args.some((arg) => arg.startsWith("--") && !/^(--dry-run|--all|--product=.+|--category=.+|--file=.+)$/.test(arg))) throw new Error("Opción desconocida o vacía.");
+  // Secuencial: cinco grupos web por defecto; ampliar solo con filtro explícito.
   for (const name of names) {
   const started = Date.now();
   const result = await priceProviders[name]!().refresh(options);

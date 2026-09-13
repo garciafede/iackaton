@@ -1,0 +1,2974 @@
+{
+  "sourceFile": ".cache/prices/sepa/sepa-2026-09-12.zip",
+  "checkedAt": "2026-09-13T03:40:20.525Z",
+  "groups": 60,
+  "eans": 63,
+  "categories": [
+    "Gaseosas",
+    "Galletitas",
+    "Yerba",
+    "Arroz",
+    "Aguas",
+    "Jugos",
+    "Café",
+    "Té",
+    "Snacks",
+    "Fideos",
+    "Harina",
+    "Azúcar",
+    "Aceite",
+    "Conservas",
+    "Salsas",
+    "Lácteos",
+    "Limpieza",
+    "Higiene personal"
+  ],
+  "warnings": [
+    "ChangoMás: bandera 1, fecha 2021-04-03T12:53:43-03:00, excluida",
+    "ChangoMás: bandera 2, fecha 2017-10-19T12:15:37-03:00, excluida",
+    "ChangoMás: bandera 3, fecha 2017-10-19T12:15:45-03:00, excluida",
+    "ChangoMás: bandera 4, fecha 2017-10-19T12:15:53-03:00, excluida",
+    "ChangoMás: bandera 5, fecha 2021-04-03T12:53:57-03:00, excluida"
+  ],
+  "discardedRows": {
+    "sin EAN válido": 2153
+  },
+  "products": [
+    {
+      "key": "coca-zero-1500",
+      "brand": "Coca-Cola",
+      "name": "Coca-Cola Sin Azúcar",
+      "variant": "Sin Azúcar",
+      "size": "1.5 L",
+      "quantity": 1500,
+      "unit": "ml",
+      "eans": [
+        "7790895067556"
+      ],
+      "aliases": [
+        "coca zero",
+        "coca sin azucar",
+        "coca cola zero"
+      ],
+      "category": "Gaseosas",
+      "enabled": true,
+      "observed": [
+        {
+          "ean": "7790895067556",
+          "names": [
+            "GASEOSA COLA SIN AZUCAR COCA COLA PET X 1.5LT",
+            "gaseosa COCA COLA Zero 1.5lt PET-1500-ml."
+          ],
+          "brands": [
+            "COCA COLA LIGHT",
+            "COCA COLA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.50 ml."
+          ],
+          "offers": 36,
+          "chains": {
+            "Carrefour": 14,
+            "Vea": 22
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-X": 15,
+            "AR-B": 9
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 36
+        }
+      ]
+    },
+    {
+      "key": "oreo-118",
+      "brand": "Oreo",
+      "name": "Galletitas Oreo Original",
+      "variant": "Original",
+      "size": "118 g",
+      "quantity": 118,
+      "unit": "g",
+      "eans": [
+        "7622201735296",
+        "7622201735272"
+      ],
+      "aliases": [
+        "oreo",
+        "oreo original",
+        "galletitas oreo"
+      ],
+      "category": "Galletitas",
+      "enabled": true,
+      "observed": [
+        {
+          "ean": "7622201735296",
+          "names": [
+            "GALLETITAS CHOCOLATE RELL VAINILLA OREO X 118 GRS",
+            "Galletita OREO Regular X118G PAQ-118-gr."
+          ],
+          "brands": [
+            "OREO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".12 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-X": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "playadito-1000",
+      "brand": "Playadito",
+      "name": "Yerba Mate Playadito Suave",
+      "variant": "Suave con palo",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "eans": [
+        "7793704000928"
+      ],
+      "aliases": [
+        "playadito",
+        "yerba playadito",
+        "playadito 1 kg"
+      ],
+      "category": "Yerba",
+      "enabled": true,
+      "observed": [
+        {
+          "ean": "7793704000928",
+          "names": [
+            "YERBA MATE SUAVE C PALO PLAYADITO X 1 KG.",
+            "Yerba Mate PLAYADITO Suave x1kg. PAQ-1000-gr."
+          ],
+          "brands": [
+            "PLAYADITO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 50,
+          "chains": {
+            "Carrefour": 26,
+            "Vea": 24
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-C": 14,
+            "AR-X": 8,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 50
+        }
+      ]
+    },
+    {
+      "key": "pepsi-black-1500",
+      "brand": "Pepsi",
+      "name": "Pepsi Black",
+      "variant": "Black / Sin Azúcar",
+      "size": "1.5 L",
+      "quantity": 1500,
+      "unit": "ml",
+      "eans": [
+        "7791813828419",
+        "7791813421054"
+      ],
+      "aliases": [
+        "pepsi black",
+        "pepsi sin azucar",
+        "pepsi zero"
+      ],
+      "category": "Gaseosas",
+      "enabled": true,
+      "observed": [
+        {
+          "ean": "7791813828419",
+          "names": [
+            "GASEOSA COLA BLACK PEPSI NF PET X 1.5 LT",
+            "gaseosa PEPSI Black 1.5lt BOT-1500-ml."
+          ],
+          "brands": [
+            "PEPSI LIGHT",
+            "PEPSI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.50 ml."
+          ],
+          "offers": 55,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 27
+          },
+          "provinces": {
+            "AR-B": 15,
+            "AR-X": 15,
+            "AR-T": 10,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 55
+        },
+        {
+          "ean": "7791813421054",
+          "names": [
+            "gaseosa PEPSI Black 1.5lt BOT-1500-ml."
+          ],
+          "brands": [
+            "PEPSI"
+          ],
+          "presentations": [
+            "1.50 ml."
+          ],
+          "offers": 27,
+          "chains": {
+            "Vea": 27
+          },
+          "provinces": {
+            "AR-X": 7,
+            "AR-B": 7,
+            "AR-T": 6,
+            "AR-C": 7
+          },
+          "latest": "2026-09-12T08:02:55.000Z",
+          "stores": 27
+        }
+      ]
+    },
+    {
+      "key": "gallo-oro-1000",
+      "brand": "Gallo",
+      "name": "Arroz Gallo Oro",
+      "variant": "Parboil",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "eans": [
+        "7790070431417",
+        "7790070433091"
+      ],
+      "aliases": [
+        "gallo oro",
+        "arroz gallo oro",
+        "gallo parboil"
+      ],
+      "category": "Arroz",
+      "enabled": true,
+      "observed": [
+        {
+          "ean": "7790070431417",
+          "names": [
+            "ARROZ PARBOIL GALLO ORO BOLSA X 1 KG",
+            "Arroz GALLO Parboil Bolsa 1kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "GALLO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 57,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 29
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 14,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 57
+        },
+        {
+          "ean": "7790070433091",
+          "names": [
+            "ARROZ PARBOIL GALLO ORO CAJA X 1 KG",
+            "Arroz GALLO ORO Selec Paraboil x1kg EST-1000-gr."
+          ],
+          "brands": [
+            "GALLO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 54,
+          "chains": {
+            "Carrefour": 25,
+            "Vea": 29
+          },
+          "provinces": {
+            "AR-X": 13,
+            "AR-B": 14,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 54
+        }
+      ]
+    },
+    {
+      "key": "fanta-naranja-2250",
+      "name": "Gaseosa Fanta Naranja",
+      "brand": "Fanta",
+      "variant": "Naranja regular",
+      "size": "2.25 L",
+      "quantity": 2250,
+      "unit": "ml",
+      "category": "Gaseosas",
+      "enabled": true,
+      "eans": [
+        "7790895001017"
+      ],
+      "aliases": [
+        "fanta naranja",
+        "fanta 2.25",
+        "fanta naranja 2.25 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7790895001017",
+          "names": [
+            "GASEOSA NARANJA REGULAR FANTA PET X 2.25 LT",
+            "gaseosa FANTA Naranja 2.25lt BOT-2250-ml."
+          ],
+          "brands": [
+            "FANTA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.25 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "pepsi-original-2000",
+      "name": "Pepsi Original",
+      "brand": "Pepsi",
+      "variant": "Regular",
+      "size": "2 L",
+      "quantity": 2000,
+      "unit": "ml",
+      "category": "Gaseosas",
+      "enabled": true,
+      "eans": [
+        "7791813888468"
+      ],
+      "aliases": [
+        "pepsi original",
+        "pepsi comun 2 litros",
+        "pepsi regular"
+      ],
+      "observed": [
+        {
+          "ean": "7791813888468",
+          "names": [
+            "GASEOSA COLA REGULAR PEPSI PET N X 2 LT",
+            "gaseosa PEPSI Cola 2lt BOT-2000-ml."
+          ],
+          "brands": [
+            "PEPSI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "sprite-2250",
+      "name": "Sprite Lima Limón",
+      "brand": "Sprite",
+      "variant": "Regular",
+      "size": "2.25 L",
+      "quantity": 2250,
+      "unit": "ml",
+      "category": "Gaseosas",
+      "enabled": true,
+      "eans": [
+        "7790895001000"
+      ],
+      "aliases": [
+        "sprite",
+        "sprite lima limon",
+        "sprite 2.25 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7790895001000",
+          "names": [
+            "GASEOSA LIMA LIMON REGULAR SPRITE X 2.25 LT",
+            "gaseosa SPRITE Lima Limon 2.25lt BOT-2200-ml."
+          ],
+          "brands": [
+            "SPRITE"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.20 ml."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-B": 15,
+            "AR-X": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "coca-original-354",
+      "name": "Coca-Cola Original",
+      "brand": "Coca-Cola",
+      "variant": "Regular, lata",
+      "size": "354 ml",
+      "quantity": 354,
+      "unit": "ml",
+      "category": "Gaseosas",
+      "enabled": true,
+      "eans": [
+        "7790895000232"
+      ],
+      "aliases": [
+        "coca original lata",
+        "coca comun lata",
+        "coca cola 354 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7790895000232",
+          "names": [
+            "GASEOSA COLA REGULAR COCA COLA LATA X 354 CC.",
+            "gaseosa COCA COLA Original 354cc LAT-354-ml."
+          ],
+          "brands": [
+            "COCA COLA"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".35 ml."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-X": 15,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "eco-andes-2000",
+      "name": "Agua Eco de los Andes Sin Gas",
+      "brand": "Eco de los Andes",
+      "variant": "Sin gas",
+      "size": "2 L",
+      "quantity": 2000,
+      "unit": "ml",
+      "category": "Aguas",
+      "enabled": true,
+      "eans": [
+        "7792799000097"
+      ],
+      "aliases": [
+        "eco de los andes",
+        "agua eco sin gas",
+        "eco de los andes 2 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7792799000097",
+          "names": [
+            "AGUA MINERAL SIN GAS ECO DE LOS ANDES PET X 2 LT.",
+            "agua ECO DE LOS ANDES Sin Gas 2lt BOT-2000-ml."
+          ],
+          "brands": [
+            "ECO DE LOS ANDES"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "villa-sur-2250",
+      "name": "Agua Villa del Sur Sin Gas",
+      "brand": "Villa del Sur",
+      "variant": "Sin gas",
+      "size": "2.25 L",
+      "quantity": 2250,
+      "unit": "ml",
+      "category": "Aguas",
+      "enabled": true,
+      "eans": [
+        "7798062547559"
+      ],
+      "aliases": [
+        "villa del sur",
+        "agua villa del sur sin gas",
+        "villa del sur 2.25 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7798062547559",
+          "names": [
+            "AGUA MINERAL SIN GAS VILLA DEL SUR X 2.25 LT",
+            "agua VILLA DEL SUR Sin Gas 2.25lt BOT-2200-ml."
+          ],
+          "brands": [
+            "VILLA DEL SUR"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.20 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "villavicencio-1500",
+      "name": "Agua Villavicencio Sin Gas",
+      "brand": "Villavicencio",
+      "variant": "Sin gas",
+      "size": "1.5 L",
+      "quantity": 1500,
+      "unit": "ml",
+      "category": "Aguas",
+      "enabled": true,
+      "eans": [
+        "7799155000180"
+      ],
+      "aliases": [
+        "villavicencio 1.5 litros",
+        "agua villavicencio 1.5",
+        "villavicencio litro y medio"
+      ],
+      "observed": [
+        {
+          "ean": "7799155000180",
+          "names": [
+            "AGUA MINERAL SIN GAS VILLAVICENCIO PET X 1.5 LT",
+            "agua VILLAVICENCIO Sin Gas 1,5lt BOT-1500-ml."
+          ],
+          "brands": [
+            "VILLAVICENCIO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.50 ml."
+          ],
+          "offers": 57,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 29
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-B": 15,
+            "AR-X": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 57
+        }
+      ]
+    },
+    {
+      "key": "villavicencio-2000",
+      "name": "Agua Villavicencio Sin Gas",
+      "brand": "Villavicencio",
+      "variant": "Sin gas",
+      "size": "2 L",
+      "quantity": 2000,
+      "unit": "ml",
+      "category": "Aguas",
+      "enabled": true,
+      "eans": [
+        "7799155000197"
+      ],
+      "aliases": [
+        "villavicencio 2 litros",
+        "agua villavicencio 2 l"
+      ],
+      "observed": [
+        {
+          "ean": "7799155000197",
+          "names": [
+            "AGUA MINERAL SIN GAS VILLAVICENCIO PET X 2 LT",
+            "agua VILLAVICENCIO Sin Gas 2lt BOT-2000-ml."
+          ],
+          "brands": [
+            "VILLAVICENCIO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "2.00 ml."
+          ],
+          "offers": 56,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 28
+          },
+          "provinces": {
+            "AR-T": 11,
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 14
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 56
+        }
+      ]
+    },
+    {
+      "key": "tang-naranja-15",
+      "name": "Jugo en Polvo Tang Naranja",
+      "brand": "Tang",
+      "variant": "Naranja",
+      "size": "15 g",
+      "quantity": 15,
+      "unit": "g",
+      "category": "Jugos",
+      "enabled": true,
+      "eans": [
+        "7622201705961"
+      ],
+      "aliases": [
+        "tang naranja",
+        "jugo tang naranja",
+        "tang naranja 15 g"
+      ],
+      "observed": [
+        {
+          "ean": "7622201705961",
+          "names": [
+            "JUGO EN POLVO NARANJA TANG X 15 GRS",
+            "jugo en polvo TANG Naranja 15gr SOB-15-gr."
+          ],
+          "brands": [
+            "TANG"
+          ],
+          "presentations": [
+            "1 UNI",
+            "15.00 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-T": 11
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "tang-manzana-15",
+      "name": "Jugo en Polvo Tang Manzana",
+      "brand": "Tang",
+      "variant": "Manzana",
+      "size": "15 g",
+      "quantity": 15,
+      "unit": "g",
+      "category": "Jugos",
+      "enabled": true,
+      "eans": [
+        "7622201705992"
+      ],
+      "aliases": [
+        "tang manzana",
+        "jugo tang manzana"
+      ],
+      "observed": [
+        {
+          "ean": "7622201705992",
+          "names": [
+            "JUGO EN POLVO MANZANA TANG X 15 GRS",
+            "jugo en polvo TANG Manzana 15gr SOB-15-gr."
+          ],
+          "brands": [
+            "TANG"
+          ],
+          "presentations": [
+            "1 UNI",
+            "15.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "clight-pomelo-8",
+      "name": "Jugo en Polvo Clight Pomelo Rosado",
+      "brand": "Clight",
+      "variant": "Pomelo rosado",
+      "size": "8 g",
+      "quantity": 8,
+      "unit": "g",
+      "category": "Jugos",
+      "enabled": true,
+      "eans": [
+        "7622201703172"
+      ],
+      "aliases": [
+        "clight pomelo",
+        "clight pomelo rosado",
+        "jugo clight pomelo"
+      ],
+      "observed": [
+        {
+          "ean": "7622201703172",
+          "names": [
+            "JUGO EN POLVO POMELO ROSADO CLIGHT X 8 GRS",
+            "jugo en polvo CLIGHT Pomelo Rosa 8gr SOB-8-gr."
+          ],
+          "brands": [
+            "CLIGHT"
+          ],
+          "presentations": [
+            "1 UNI",
+            "8.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "taragui-palo-1000",
+      "name": "Yerba Mate Taragüi Con Palo",
+      "brand": "Taragüi",
+      "variant": "Con palo",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Yerba",
+      "enabled": true,
+      "eans": [
+        "7790387013610"
+      ],
+      "aliases": [
+        "yerba taragui",
+        "taragui con palo",
+        "taragui 1 kg"
+      ],
+      "observed": [
+        {
+          "ean": "7790387013610",
+          "names": [
+            "YERBA MATE C PALO ORIG CROL TARAGUI 4FLEX X1KG",
+            "Yerba Mate TARAGUI 4FLEX 1kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "TARAGUI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "cruz-malta-1000",
+      "name": "Yerba Mate Cruz de Malta Con Palo",
+      "brand": "Cruz de Malta",
+      "variant": "Con palo",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Yerba",
+      "enabled": true,
+      "eans": [
+        "7790070509055"
+      ],
+      "aliases": [
+        "cruz de malta",
+        "yerba cruz de malta",
+        "cruz de malta 1 kg"
+      ],
+      "observed": [
+        {
+          "ean": "7790070509055",
+          "names": [
+            "YERBA MATE CON PALO SIN TACC CRUZ DE MALTA X 1 KG",
+            "Mate CRUZ DE MALTA Tradicional ST x1kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "CRUZ DE MALTA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 11,
+            "AR-B": 16,
+            "AR-X": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "union-suave-500",
+      "name": "Yerba Mate Unión Suave",
+      "brand": "Unión",
+      "variant": "Suave",
+      "size": "500 g",
+      "quantity": 500,
+      "unit": "g",
+      "category": "Yerba",
+      "enabled": true,
+      "eans": [
+        "7790387014624"
+      ],
+      "aliases": [
+        "yerba union suave",
+        "union suave 500 g",
+        "union suave medio kilo"
+      ],
+      "observed": [
+        {
+          "ean": "7790387014624",
+          "names": [
+            "YERBA MATE SUAVE ORIG CONTROL UNION X 500GRS",
+            "Yerba Mate UNION 4FLEX 1/2kg PAQ-500-gr."
+          ],
+          "brands": [
+            "UNION"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-X": 15,
+            "AR-B": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "cabrales-super-250",
+      "name": "Café Súper Cabrales Tostado Molido",
+      "brand": "Cabrales",
+      "variant": "Súper, tostado molido",
+      "size": "250 g",
+      "quantity": 250,
+      "unit": "g",
+      "category": "Café",
+      "enabled": true,
+      "eans": [
+        "7790550022234"
+      ],
+      "aliases": [
+        "cafe cabrales",
+        "super cabrales",
+        "cabrales molido 250 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790550022234",
+          "names": [
+            "CAFE MOLIDO TOSTADO SUPER CABRALES X 250 GRS",
+            "Café CABRALES molido x250g CJA-250-gr."
+          ],
+          "brands": [
+            "CABRALES"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".25 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "dolca-origenes-170",
+      "name": "Café Instantáneo Dolca Orígenes",
+      "brand": "Dolca",
+      "variant": "Orígenes, frasco",
+      "size": "170 g",
+      "quantity": 170,
+      "unit": "g",
+      "category": "Café",
+      "enabled": true,
+      "eans": [
+        "8445291082212"
+      ],
+      "aliases": [
+        "dolca origenes",
+        "cafe dolca",
+        "dolca frasco 170 g"
+      ],
+      "observed": [
+        {
+          "ean": "8445291082212",
+          "names": [
+            "CAFE INSTANTANEO ORIGENES FR DOLCA X 170 GRS",
+            "Café NESCAFE DOLCA Original x170g FCO-170-gr."
+          ],
+          "brands": [
+            "DOLCA"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".17 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "nescafe-descafeinado-100",
+      "name": "Café Instantáneo Nescafé Descafeinado",
+      "brand": "Nescafé",
+      "variant": "Descafeinado",
+      "size": "100 g",
+      "quantity": 100,
+      "unit": "g",
+      "category": "Café",
+      "enabled": true,
+      "eans": [
+        "7613035379213"
+      ],
+      "aliases": [
+        "nescafe descafeinado",
+        "cafe sin cafeina nescafe",
+        "nescafe descafeinado 100 g"
+      ],
+      "observed": [
+        {
+          "ean": "7613035379213",
+          "names": [
+            "CAFE DESCAFEINADO INSTANTANEO NESCAFE X 100 GRS",
+            "Cafe Descafeinado NESCAFE MasAroma 100g FCO-100-gr."
+          ],
+          "brands": [
+            "NESCAFE"
+          ],
+          "presentations": [
+            "1 UNI",
+            "100.00 gr."
+          ],
+          "offers": 56,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 28
+          },
+          "provinces": {
+            "AR-X": 13,
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 56
+        }
+      ]
+    },
+    {
+      "key": "virginia-te-25",
+      "name": "Té La Virginia",
+      "brand": "La Virginia",
+      "variant": "En saquitos",
+      "size": "25 saquitos",
+      "quantity": 25,
+      "unit": "unit",
+      "category": "Té",
+      "enabled": true,
+      "eans": [
+        "7790150211908"
+      ],
+      "aliases": [
+        "te la virginia",
+        "la virginia 25 saquitos",
+        "te virginia 25"
+      ],
+      "observed": [
+        {
+          "ean": "7790150211908",
+          "names": [
+            "TE EN SAQUITOS LA VIRGINIA X 25 UNI",
+            "Te La Virginia Naturalidad intacta x25s EST-25-un."
+          ],
+          "brands": [
+            "LA VIRGINIA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "25.00 un."
+          ],
+          "offers": 52,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 24
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 12,
+            "AR-T": 12,
+            "AR-B": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 52
+        }
+      ]
+    },
+    {
+      "key": "taragui-te-25",
+      "name": "Té Taragüi Diamantado",
+      "brand": "Taragüi",
+      "variant": "Diamantado, en saquitos",
+      "size": "25 saquitos",
+      "quantity": 25,
+      "unit": "unit",
+      "category": "Té",
+      "enabled": true,
+      "eans": [
+        "7790387800135"
+      ],
+      "aliases": [
+        "te taragui",
+        "te taragui diamantado",
+        "taragui 25 saquitos"
+      ],
+      "observed": [
+        {
+          "ean": "7790387800135",
+          "names": [
+            "TE FILTRO DIAMANTADO TARAGUI X 25 UNI",
+            "Té TARAGUI Diamantado 25 saq EST-50-gr."
+          ],
+          "brands": [
+            "TARAGUI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "50.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "chocolinas-170",
+      "name": "Galletitas Chocolinas Chocolate",
+      "brand": "Chocolinas",
+      "variant": "Chocolate",
+      "size": "170 g",
+      "quantity": 170,
+      "unit": "g",
+      "category": "Galletitas",
+      "enabled": true,
+      "eans": [
+        "7790040143227"
+      ],
+      "aliases": [
+        "chocolinas",
+        "chocolinas chocolate",
+        "chocolinas 170 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790040143227",
+          "names": [
+            "GALLETITAS CHOCOLATE CHOCOLINAS X 170 GRS",
+            "Galletitas CHOCOLINAS x170g PAQ-170-gr."
+          ],
+          "brands": [
+            "CHOCOLINAS"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".17 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "sonrisas-108",
+      "name": "Galletitas Sonrisas Frambuesa",
+      "brand": "Sonrisas",
+      "variant": "Rellenas de frambuesa",
+      "size": "108 g",
+      "quantity": 108,
+      "unit": "g",
+      "category": "Galletitas",
+      "enabled": true,
+      "eans": [
+        "7790040133488"
+      ],
+      "aliases": [
+        "sonrisas",
+        "galletitas sonrisas",
+        "sonrisas frambuesa"
+      ],
+      "observed": [
+        {
+          "ean": "7790040133488",
+          "names": [
+            "GALLETITAS FRAMBUESA RELL SONRISAS X 108 GRS",
+            "Galle SONRISAS frambuesa X108G PAQ-108-gr."
+          ],
+          "brands": [
+            "SONRISAS"
+          ],
+          "presentations": [
+            "1 UNI",
+            "108.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "lincoln-219",
+      "name": "Galletitas Lincoln Vainilla Clásicas",
+      "brand": "Lincoln",
+      "variant": "Vainilla clásicas",
+      "size": "219 g",
+      "quantity": 219,
+      "unit": "g",
+      "category": "Galletitas",
+      "enabled": true,
+      "eans": [
+        "7622201735319"
+      ],
+      "aliases": [
+        "lincoln",
+        "galletitas lincoln",
+        "lincoln vainilla"
+      ],
+      "observed": [
+        {
+          "ean": "7622201735319",
+          "names": [
+            "GALLETITAS VAINILLA CLASICA LINCOLN X 219 GRS",
+            "Galletitas LINCOLN Clasicas x219g PCK-220-gr."
+          ],
+          "brands": [
+            "LINCOLN"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".22 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "lays-clasicas-85",
+      "name": "Papas Fritas Lay’s Clásicas",
+      "brand": "Lay’s",
+      "variant": "Clásicas",
+      "size": "85 g",
+      "quantity": 85,
+      "unit": "g",
+      "category": "Snacks",
+      "enabled": true,
+      "eans": [
+        "7790310985458"
+      ],
+      "aliases": [
+        "lays clasicas",
+        "papas lays 85 g",
+        "lays 85 gramos"
+      ],
+      "observed": [
+        {
+          "ean": "7790310985458",
+          "names": [
+            "PAPAS FRITAS CLASICAS LAYS X 85 GRS",
+            "Papas fritas LAYS Clasicas x85g BSA-80-gr."
+          ],
+          "brands": [
+            "LAYS",
+            "LAY´S"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".08 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-B": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "doritos-queso-77",
+      "name": "Nachos Doritos Queso",
+      "brand": "Doritos",
+      "variant": "Queso",
+      "size": "77 g",
+      "quantity": 77,
+      "unit": "g",
+      "category": "Snacks",
+      "enabled": true,
+      "eans": [
+        "7790310985649"
+      ],
+      "aliases": [
+        "doritos queso",
+        "doritos 77 g",
+        "nachos doritos"
+      ],
+      "observed": [
+        {
+          "ean": "7790310985649",
+          "names": [
+            "NACHOS SABOR QUESO DORITOS X 77 GRS",
+            "DORITOS Queso  x77g BSA-80-gr."
+          ],
+          "brands": [
+            "DORITOS"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".08 gr."
+          ],
+          "offers": 52,
+          "chains": {
+            "Carrefour": 21,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 11,
+            "AR-C": 13,
+            "AR-X": 16,
+            "AR-B": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 52
+        }
+      ]
+    },
+    {
+      "key": "cheetos-queso-85",
+      "name": "Palitos de Maíz Cheetos Queso",
+      "brand": "Cheetos",
+      "variant": "Queso",
+      "size": "85 g",
+      "quantity": 85,
+      "unit": "g",
+      "category": "Snacks",
+      "enabled": true,
+      "eans": [
+        "7790310985809"
+      ],
+      "aliases": [
+        "cheetos",
+        "cheetos queso",
+        "cheetos 85 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790310985809",
+          "names": [
+            "PALITOS DE MAIZ QUESO CHEETOS X 85 GRS",
+            "Palitos de Maiz CHEETOS Queso x85g BSA-850-gr."
+          ],
+          "brands": [
+            "CHEETOS"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".85 gr."
+          ],
+          "offers": 53,
+          "chains": {
+            "Carrefour": 23,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-C": 13,
+            "AR-X": 16,
+            "AR-T": 11,
+            "AR-B": 13
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 53
+        }
+      ]
+    },
+    {
+      "key": "gallo-fino-500",
+      "name": "Arroz Gallo Largo Fino 00000",
+      "brand": "Gallo",
+      "variant": "Largo fino 00000",
+      "size": "500 g",
+      "quantity": 500,
+      "unit": "g",
+      "category": "Arroz",
+      "enabled": true,
+      "eans": [
+        "7790070433145"
+      ],
+      "aliases": [
+        "arroz gallo largo fino",
+        "gallo fino 500 g",
+        "arroz gallo cinco ceros"
+      ],
+      "observed": [
+        {
+          "ean": "7790070433145",
+          "names": [
+            "ARROZ LARGO FINO 00000 GALLO BOLSA X 500 GRS",
+            "Arroz GALLO Largo Fino Selec x500g SOB-500-gr."
+          ],
+          "brands": [
+            "GALLO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "lucchetti-arroz-1000",
+      "name": "Arroz Lucchetti Largo Fino 00000",
+      "brand": "Lucchetti",
+      "variant": "Largo fino 00000",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Arroz",
+      "enabled": true,
+      "eans": [
+        "7790070431486"
+      ],
+      "aliases": [
+        "arroz lucchetti",
+        "lucchetti largo fino",
+        "arroz lucchetti 1 kg"
+      ],
+      "observed": [
+        {
+          "ean": "7790070431486",
+          "names": [
+            "ARROZ LARGO FINO 00000 LUCCHETTI X 1 KG",
+            "Arroz LUCHETTI Largo Fino x1kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "LUCCHETTI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-B": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "lucchetti-coditos-500",
+      "name": "Fideos Lucchetti Coditos",
+      "brand": "Lucchetti",
+      "variant": "Coditos",
+      "size": "500 g",
+      "quantity": 500,
+      "unit": "g",
+      "category": "Fideos",
+      "enabled": true,
+      "eans": [
+        "7790070318343"
+      ],
+      "aliases": [
+        "coditos lucchetti",
+        "fideos lucchetti coditos",
+        "lucchetti coditos 500 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790070318343",
+          "names": [
+            "FIDEOS CODITOS LUCCHETTI BOLSA X 500 GRS",
+            "fideos LUCCHETTI Coditos PAQ-500-gr."
+          ],
+          "brands": [
+            "LUCCHETTI"
+          ],
+          "presentations": [
+            "1 UNI",
+            "500.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "matarazzo-tirabuzones-500",
+      "name": "Fideos Matarazzo Tirabuzones",
+      "brand": "Matarazzo",
+      "variant": "Tirabuzones N28",
+      "size": "500 g",
+      "quantity": 500,
+      "unit": "g",
+      "category": "Fideos",
+      "enabled": true,
+      "eans": [
+        "7790070336293"
+      ],
+      "aliases": [
+        "tirabuzones matarazzo",
+        "fideos matarazzo tirabuzones"
+      ],
+      "observed": [
+        {
+          "ean": "7790070336293",
+          "names": [
+            "FIDEOS TIRABUZONES N28 MATARAZZO X 500 GRS",
+            "Fideos MATARAZZO Tirabuzón N28 x500g PAQ-500-gr."
+          ],
+          "brands": [
+            "MATARAZZO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "matarazzo-tallarines-500",
+      "name": "Fideos Matarazzo Tallarines",
+      "brand": "Matarazzo",
+      "variant": "Tallarines N5",
+      "size": "500 g",
+      "quantity": 500,
+      "unit": "g",
+      "category": "Fideos",
+      "enabled": true,
+      "eans": [
+        "7790070336316"
+      ],
+      "aliases": [
+        "tallarines matarazzo",
+        "fideos matarazzo tallarines"
+      ],
+      "observed": [
+        {
+          "ean": "7790070336316",
+          "names": [
+            "FIDEOS TALLARINES N5 MATARAZZO X 500 GRS",
+            "Fideos MATARAZZO Tallarín N5 x500g PAQ-500-gr."
+          ],
+          "brands": [
+            "MATARAZZO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "morixe-000-1000",
+      "name": "Harina Morixe 000",
+      "brand": "Morixe",
+      "variant": "000",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Harina",
+      "enabled": true,
+      "eans": [
+        "7790199000013"
+      ],
+      "aliases": [
+        "harina morixe 000",
+        "morixe tres ceros",
+        "harina morixe tres ceros"
+      ],
+      "observed": [
+        {
+          "ean": "7790199000013",
+          "names": [
+            "HARINA 000 MORIXE X 1 KG",
+            "Harina morixe 000 1 kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "MORIXE"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "morixe-0000-1000",
+      "name": "Harina Morixe 0000",
+      "brand": "Morixe",
+      "variant": "0000",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Harina",
+      "enabled": true,
+      "eans": [
+        "7790199000020"
+      ],
+      "aliases": [
+        "harina morixe 0000",
+        "morixe cuatro ceros",
+        "harina morixe cuatro ceros"
+      ],
+      "observed": [
+        {
+          "ean": "7790199000020",
+          "names": [
+            "HARINA 0000 MORIXE X 1 KG",
+            "Harina morixe 0000 1kg PAQ-1000-gr."
+          ],
+          "brands": [
+            "MORIXE"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-X": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "pureza-leudante-1000",
+      "name": "Harina Pureza Leudante",
+      "brand": "Pureza",
+      "variant": "Leudante",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Harina",
+      "enabled": true,
+      "eans": [
+        "7792180140708"
+      ],
+      "aliases": [
+        "harina pureza leudante",
+        "pureza leudante",
+        "harina leudante pureza 1 kg"
+      ],
+      "observed": [
+        {
+          "ean": "7792180140708",
+          "names": [
+            "HARINA LEUDANTE C VIT DPUREZA X 1 KG",
+            "Harina Pureza Leud P/Repost Ulta refin PAQ-1000-gr."
+          ],
+          "brands": [
+            "PUREZA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1000.00 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-X": 15,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "ledesma-superior-1000",
+      "name": "Azúcar Ledesma Molida Superior",
+      "brand": "Ledesma",
+      "variant": "Molida superior",
+      "size": "1 kg",
+      "quantity": 1000,
+      "unit": "g",
+      "category": "Azúcar",
+      "enabled": true,
+      "eans": [
+        "7792540250450"
+      ],
+      "aliases": [
+        "azucar ledesma superior",
+        "azucar ledesma 1 kg",
+        "ledesma molida superior"
+      ],
+      "observed": [
+        {
+          "ean": "7792540250450",
+          "names": [
+            "AZUCAR MOLIDA SUPERIOR LEDESMA BOLSA X 1 KG.",
+            "azucar LEDESMA Superior X BSA-1000-gr."
+          ],
+          "brands": [
+            "LEDESMA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 gr."
+          ],
+          "offers": 51,
+          "chains": {
+            "Carrefour": 20,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-B": 11,
+            "AR-C": 14,
+            "AR-X": 14
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 51
+        }
+      ]
+    },
+    {
+      "key": "ledesma-mascabo-800",
+      "name": "Azúcar Ledesma Selección Rubio Mascabo",
+      "brand": "Ledesma",
+      "variant": "Selección rubio mascabo",
+      "size": "800 g",
+      "quantity": 800,
+      "unit": "g",
+      "category": "Azúcar",
+      "enabled": true,
+      "eans": [
+        "7792540294607"
+      ],
+      "aliases": [
+        "azucar ledesma mascabo",
+        "ledesma mascabo",
+        "azucar mascabo ledesma 800 g"
+      ],
+      "observed": [
+        {
+          "ean": "7792540294607",
+          "names": [
+            "AZUCAR SELECCION RUBIO MASCABO LEDESMA X 800 GRS",
+            "Azucar Mascabo LEDESMA x800gr PAQ-800-gr."
+          ],
+          "brands": [
+            "LEDESMA"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".80 gr."
+          ],
+          "offers": 41,
+          "chains": {
+            "Carrefour": 26,
+            "Vea": 15
+          },
+          "provinces": {
+            "AR-B": 12,
+            "AR-X": 6,
+            "AR-T": 12,
+            "AR-C": 11
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 41
+        }
+      ]
+    },
+    {
+      "key": "cocinero-girasol-900",
+      "name": "Aceite Cocinero Girasol",
+      "brand": "Cocinero",
+      "variant": "Girasol",
+      "size": "900 ml",
+      "quantity": 900,
+      "unit": "ml",
+      "category": "Aceite",
+      "enabled": true,
+      "eans": [
+        "7790070012050"
+      ],
+      "aliases": [
+        "aceite cocinero 900",
+        "cocinero girasol 900 ml",
+        "aceite cocinero 900 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7790070012050",
+          "names": [
+            "ACEITE GIRASOL COCINERO PET X 900 CC",
+            "Aceite cocinero girasol PET-900-ml."
+          ],
+          "brands": [
+            "COCINERO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".90 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "cocinero-girasol-1500",
+      "name": "Aceite Cocinero Girasol",
+      "brand": "Cocinero",
+      "variant": "Girasol",
+      "size": "1.5 L",
+      "quantity": 1500,
+      "unit": "ml",
+      "category": "Aceite",
+      "enabled": true,
+      "eans": [
+        "7790060023684"
+      ],
+      "aliases": [
+        "aceite cocinero 1.5",
+        "cocinero girasol litro y medio",
+        "aceite cocinero 1.5 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7790060023684",
+          "names": [
+            "ACEITE GIRASOL COCINERO PET X 1.5 LT",
+            "Aceite COCINERO Girasol PVC-1.5-lt."
+          ],
+          "brands": [
+            "COCINERO"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.50 lt."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 15,
+            "AR-T": 12,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "cocinero-oliva-500",
+      "name": "Aceite Cocinero Oliva Extra Virgen",
+      "brand": "Cocinero",
+      "variant": "Oliva extra virgen",
+      "size": "500 ml",
+      "quantity": 500,
+      "unit": "ml",
+      "category": "Aceite",
+      "enabled": true,
+      "eans": [
+        "7790070265098"
+      ],
+      "aliases": [
+        "aceite oliva cocinero",
+        "cocinero oliva extra virgen",
+        "aceite oliva cocinero 500 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7790070265098",
+          "names": [
+            "ACEITE DE OLIVA EXTRA VIRGEN COCINERO PET X 500 CC",
+            "Aceite de Oliva COCINERO EV s/Tcc x500cc BOT-500-ml."
+          ],
+          "brands": [
+            "COCINERO"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 ml."
+          ],
+          "offers": 56,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 29
+          },
+          "provinces": {
+            "AR-C": 14,
+            "AR-B": 16,
+            "AR-X": 14,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 56
+        }
+      ]
+    },
+    {
+      "key": "arcor-arvejas-300",
+      "name": "Arvejas Arcor Secas Remojadas",
+      "brand": "Arcor",
+      "variant": "Secas remojadas, lata",
+      "size": "300 g",
+      "quantity": 300,
+      "unit": "g",
+      "category": "Conservas",
+      "enabled": true,
+      "eans": [
+        "7790580132392"
+      ],
+      "aliases": [
+        "arvejas arcor",
+        "arvejas arcor lata",
+        "arvejas arcor 300 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790580132392",
+          "names": [
+            "ARVEJAS SECAS REMOJADAS ARCOR LATA X 300 GRS",
+            "Arvejas Seca ARCOR X300gr LAT-300-gr."
+          ],
+          "brands": [
+            "ARCOR"
+          ],
+          "presentations": [
+            "1 UNI",
+            "300.00 gr."
+          ],
+          "offers": 58,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 11
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 58
+        }
+      ]
+    },
+    {
+      "key": "arcor-choclo-300",
+      "name": "Choclo Arcor Granos Amarillos",
+      "brand": "Arcor",
+      "variant": "Granos amarillos, lata",
+      "size": "300 g",
+      "quantity": 300,
+      "unit": "g",
+      "category": "Conservas",
+      "enabled": true,
+      "eans": [
+        "7790580132422"
+      ],
+      "aliases": [
+        "choclo arcor",
+        "choclo amarillo arcor",
+        "choclo arcor 300 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790580132422",
+          "names": [
+            "CHOCLO EN GRANOS AMARILLO ARCOR LATA X 300 GRS",
+            "choclo ARCOR entero x300g CJA-300-gr."
+          ],
+          "brands": [
+            "ARCOR"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".30 gr."
+          ],
+          "offers": 56,
+          "chains": {
+            "Carrefour": 25,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 14,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 11
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 56
+        }
+      ]
+    },
+    {
+      "key": "campagnola-atun-170",
+      "name": "Atún La Campagnola Lomitos Al Natural",
+      "brand": "La Campagnola",
+      "variant": "Lomitos al natural",
+      "size": "170 g",
+      "quantity": 170,
+      "unit": "g",
+      "category": "Conservas",
+      "enabled": true,
+      "eans": [
+        "7790580131364"
+      ],
+      "aliases": [
+        "atun campagnola natural",
+        "atun la campagnola al natural",
+        "lomitos atun campagnola 170 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790580131364",
+          "names": [
+            "ATUN AL NATURAL LOMITOS LA CAMPAGNOLA X 170 GRS",
+            "Atun LA CAMPAGNOLA al natural x170g LAT-170-gr."
+          ],
+          "brands": [
+            "LA CAMPAGNOLA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "170.00 gr."
+          ],
+          "offers": 57,
+          "chains": {
+            "Carrefour": 27,
+            "Vea": 30
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-X": 14,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 57
+        }
+      ]
+    },
+    {
+      "key": "campagnola-tomate-530",
+      "name": "Puré de Tomate La Campagnola",
+      "brand": "La Campagnola",
+      "variant": "Puré, tetra",
+      "size": "530 g",
+      "quantity": 530,
+      "unit": "g",
+      "category": "Salsas",
+      "enabled": true,
+      "eans": [
+        "7790580138868"
+      ],
+      "aliases": [
+        "pure tomate campagnola",
+        "pure de tomate la campagnola",
+        "tomate campagnola 530 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790580138868",
+          "names": [
+            "PURE DE TOMATE LA CAMPAGNOLA TETRA X 530 GRM",
+            "Pure de Tomate LA CAMPAGNOLA 530g BRK-530-gr."
+          ],
+          "brands": [
+            "LA CAMPAGNOLA"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".53 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "arcor-tomate-400",
+      "name": "Tomate Arcor Pelado Perita",
+      "brand": "Arcor",
+      "variant": "Pelado perita, lata",
+      "size": "400 g",
+      "quantity": 400,
+      "unit": "g",
+      "category": "Salsas",
+      "enabled": true,
+      "eans": [
+        "7790580567903"
+      ],
+      "aliases": [
+        "tomate perita arcor",
+        "tomate pelado arcor",
+        "tomate arcor lata 400 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790580567903",
+          "names": [
+            "TOMATE PELADO PERITA ARCOR LATA X 400 GRS",
+            "Tomate perita Pelado Arcor LAT-240-gr."
+          ],
+          "brands": [
+            "ARCOR"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".24 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "hellmanns-mayonesa-475",
+      "name": "Mayonesa Hellmann’s Regular",
+      "brand": "Hellmann’s",
+      "variant": "Regular, doy pack",
+      "size": "475 g",
+      "quantity": 475,
+      "unit": "g",
+      "category": "Salsas",
+      "enabled": true,
+      "eans": [
+        "7794000006072"
+      ],
+      "aliases": [
+        "mayonesa hellmanns",
+        "hellmanns mayonesa 475 g",
+        "mayonesa hellmanns regular"
+      ],
+      "observed": [
+        {
+          "ean": "7794000006072",
+          "names": [
+            "MAYONESA REGULAR HELLMANNS DOYPACK X 475 GRS",
+            "Mayonesa HELLMANNS Clasica DP X475G PCH-475-gr."
+          ],
+          "brands": [
+            "HELLMANNS",
+            "HELLMANN'S"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".48 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "serenisima-entera-1000",
+      "name": "Leche La Serenísima Entera UAT",
+      "brand": "La Serenísima",
+      "variant": "Entera, fortificada, 3%",
+      "size": "1 L",
+      "quantity": 1000,
+      "unit": "ml",
+      "category": "Lácteos",
+      "enabled": true,
+      "eans": [
+        "7790742363008"
+      ],
+      "aliases": [
+        "leche serenisima entera",
+        "la serenisima entera larga vida",
+        "leche entera serenisima 1 litro"
+      ],
+      "observed": [
+        {
+          "ean": "7790742363008",
+          "names": [
+            "LECHE UAT ENTERA FORT 3% LA SERENISIMA EDGE 1L",
+            "Leche UAT 3% LS Brik 1 L  envase EDGE BRK-1000-ml."
+          ],
+          "brands": [
+            "LA SERENISIMA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "serenisima-descremada-1000",
+      "name": "Leche La Serenísima Parcialmente Descremada UAT",
+      "brand": "La Serenísima",
+      "variant": "Parcialmente descremada, fortificada, 1%",
+      "size": "1 L",
+      "quantity": 1000,
+      "unit": "ml",
+      "category": "Lácteos",
+      "enabled": true,
+      "eans": [
+        "7790742363107"
+      ],
+      "aliases": [
+        "leche serenisima descremada",
+        "la serenisima descremada larga vida",
+        "leche serenisima 1 por ciento"
+      ],
+      "observed": [
+        {
+          "ean": "7790742363107",
+          "names": [
+            "LECHE UAT PARC DESC FORT 1% LA SERENISIMA EDGE 1L",
+            "Leche UAT 1% LS Brik 1 L  envase EDGE BRK-1000-ml."
+          ],
+          "brands": [
+            "LA SERENISIMA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-C": 15,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "serenisima-colonial-400",
+      "name": "Dulce de Leche La Serenísima Colonial",
+      "brand": "La Serenísima",
+      "variant": "Colonial",
+      "size": "400 g",
+      "quantity": 400,
+      "unit": "g",
+      "category": "Lácteos",
+      "enabled": true,
+      "eans": [
+        "7790742625205"
+      ],
+      "aliases": [
+        "dulce de leche serenisima colonial",
+        "dulce serenisima colonial",
+        "la serenisima colonial 400 g"
+      ],
+      "observed": [
+        {
+          "ean": "7790742625205",
+          "names": [
+            "DULCE DE LECHE COLONIAL LA SERENISIMA X 400 GRS",
+            "D.Leche La Serenisima Colonial 400g POT-400-gr."
+          ],
+          "brands": [
+            "LA SERENISIMA"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".40 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-B": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "casancrem-light-290",
+      "name": "Queso Crema Casancrem Light",
+      "brand": "Casancrem",
+      "variant": "Light",
+      "size": "290 g",
+      "quantity": 290,
+      "unit": "g",
+      "category": "Lácteos",
+      "enabled": true,
+      "eans": [
+        "7791337061385"
+      ],
+      "aliases": [
+        "casancrem light",
+        "queso casancrem light",
+        "casancrem light 290 g"
+      ],
+      "observed": [
+        {
+          "ean": "7791337061385",
+          "names": [
+            "QUESO CREMA LIGHT CASANCREM X 290 GRS",
+            "Queso Casancrem Light 290gramos POT-290-gr."
+          ],
+          "brands": [
+            "CASANCREM"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".29 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "ayudin-original-1000",
+      "name": "Lavandina Ayudín Original",
+      "brand": "Ayudín",
+      "variant": "Original",
+      "size": "1 L",
+      "quantity": 1000,
+      "unit": "ml",
+      "category": "Limpieza",
+      "enabled": true,
+      "eans": [
+        "7790132098459"
+      ],
+      "aliases": [
+        "lavandina ayudin",
+        "ayudin original 1 litro",
+        "lavandina ayudin original"
+      ],
+      "observed": [
+        {
+          "ean": "7790132098459",
+          "names": [
+            "LAVANDINA ORIGINAL AYUDIN X 1 LT",
+            "lavandina AYUDIN original 1L       PVC-1000-ml."
+          ],
+          "brands": [
+            "AYUDIN"
+          ],
+          "presentations": [
+            "1 UNI",
+            "1.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "ala-ecolavado-3000",
+      "name": "Jabón Líquido Ala Matic Eco Lavado",
+      "brand": "Ala",
+      "variant": "Matic eco lavado, para ropa",
+      "size": "3 L",
+      "quantity": 3000,
+      "unit": "ml",
+      "category": "Limpieza",
+      "enabled": true,
+      "eans": [
+        "7791290792036"
+      ],
+      "aliases": [
+        "jabon ala matic",
+        "ala eco lavado",
+        "ala matic 3 litros"
+      ],
+      "observed": [
+        {
+          "ean": "7791290792036",
+          "names": [
+            "JABON LIQUIDO P ROPA ECO LAVADO ALA MATIC X 3 LT",
+            "jabon ropa ALA Ecolavado Doypack 3lt DOY-3000-ml."
+          ],
+          "brands": [
+            "ALA MATIC",
+            "ALA"
+          ],
+          "presentations": [
+            "1 UNI",
+            "3.00 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-X": 16,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "cif-limon-300",
+      "name": "Detergente Cif Bioactive Limón",
+      "brand": "Cif",
+      "variant": "Bioactive limón",
+      "size": "300 ml",
+      "quantity": 300,
+      "unit": "ml",
+      "category": "Limpieza",
+      "enabled": true,
+      "eans": [
+        "7791290794054"
+      ],
+      "aliases": [
+        "detergente cif 300",
+        "cif limon 300 ml",
+        "detergente cif limon 300 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7791290794054",
+          "names": [
+            "DETERGENTE BIOACTIVE LIMON CIF X 300 CC",
+            "lavavajilla CIF bioactive limon 300ml. BOT-300-ml."
+          ],
+          "brands": [
+            "BIOACTIVE",
+            "CIF"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".30 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-C": 15,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "cif-limon-500",
+      "name": "Detergente Cif Bioactive Limón",
+      "brand": "Cif",
+      "variant": "Bioactive limón",
+      "size": "500 ml",
+      "quantity": 500,
+      "unit": "ml",
+      "category": "Limpieza",
+      "enabled": true,
+      "eans": [
+        "7791290794061"
+      ],
+      "aliases": [
+        "detergente cif 500",
+        "cif limon 500 ml",
+        "detergente cif limon 500 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7791290794061",
+          "names": [
+            "DETERGENTE BIOACTIVE LIMON CIF X 500 CC",
+            "lavavajilla CIF bioactive limon 500ml BOT-500-ml."
+          ],
+          "brands": [
+            "BIOACTIVE",
+            "CIF"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".50 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-T": 12,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "sedal-balance-340",
+      "name": "Shampoo Sedal Crema Balance",
+      "brand": "Sedal",
+      "variant": "Crema balance",
+      "size": "340 ml",
+      "quantity": 340,
+      "unit": "ml",
+      "category": "Higiene personal",
+      "enabled": true,
+      "eans": [
+        "7791293045740"
+      ],
+      "aliases": [
+        "shampoo sedal balance",
+        "sedal crema balance",
+        "champu sedal balance 340 ml"
+      ],
+      "observed": [
+        {
+          "ean": "7791293045740",
+          "names": [
+            "SHAMPOO CREMA BALANCE SEDAL X 340 CC",
+            "shampoo SEDAL crema balance 340ml BOT-340-ml."
+          ],
+          "brands": [
+            "SEDAL"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".34 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-T": 12,
+            "AR-B": 16,
+            "AR-X": 16
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "sedal-ceramidas-650",
+      "name": "Shampoo Sedal Ceramidas",
+      "brand": "Sedal",
+      "variant": "Ceramidas",
+      "size": "650 ml",
+      "quantity": 650,
+      "unit": "ml",
+      "category": "Higiene personal",
+      "enabled": true,
+      "eans": [
+        "7791293045795"
+      ],
+      "aliases": [
+        "shampoo sedal ceramidas",
+        "sedal ceramidas 650 ml",
+        "champu sedal ceramidas"
+      ],
+      "observed": [
+        {
+          "ean": "7791293045795",
+          "names": [
+            "SHAMPOO CERAMIDAS SEDAL X 650 CC",
+            "shampoo SEDAL ceramidas 650ml BOT-650-ml."
+          ],
+          "brands": [
+            "SEDAL"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".65 ml."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-B": 16,
+            "AR-T": 12,
+            "AR-X": 16,
+            "AR-C": 15
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    },
+    {
+      "key": "dove-blanco-90",
+      "name": "Jabón de Tocador Dove Blanco",
+      "brand": "Dove",
+      "variant": "Blanco",
+      "size": "90 g",
+      "quantity": 90,
+      "unit": "g",
+      "category": "Higiene personal",
+      "enabled": true,
+      "eans": [
+        "7791293051208"
+      ],
+      "aliases": [
+        "jabon dove blanco",
+        "dove blanco 90 g",
+        "jabon dove"
+      ],
+      "observed": [
+        {
+          "ean": "7791293051208",
+          "names": [
+            "JABON TOCADOR BLANCO DOVE X 90 GRS",
+            "jabon de tocador DOVE original 90g CJA-90-gr."
+          ],
+          "brands": [
+            "DOVE"
+          ],
+          "presentations": [
+            "1 UNI",
+            ".09 gr."
+          ],
+          "offers": 59,
+          "chains": {
+            "Carrefour": 28,
+            "Vea": 31
+          },
+          "provinces": {
+            "AR-C": 15,
+            "AR-X": 16,
+            "AR-B": 16,
+            "AR-T": 12
+          },
+          "latest": "2026-09-12T11:30:02.000Z",
+          "stores": 59
+        }
+      ]
+    }
+  ]
+}

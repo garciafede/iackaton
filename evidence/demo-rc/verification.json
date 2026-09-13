@@ -1,0 +1,220 @@
+{
+  "checkedAt": "2026-09-12T21:06:51.448Z",
+  "node": "v24.20.0",
+  "tests": {
+    "total": 70,
+    "passed": 70,
+    "failed": 0
+  },
+  "typecheck": "OK",
+  "build": "OK",
+  "buildHealthHTTP": 200,
+  "precheck": {
+    "checkedAt": "2026-09-12T21:06:47.080Z",
+    "checks": [
+      {
+        "name": "Node",
+        "status": "OK",
+        "detail": "24.20.0; esperado 24.20.0"
+      },
+      {
+        "name": "variables env",
+        "status": "OK",
+        "detail": "Configuradas; valores ocultos"
+      },
+      {
+        "name": "Neon",
+        "status": "OK",
+        "detail": "SELECT y transacción READ ONLY completados"
+      },
+      {
+        "name": "productos",
+        "status": "OK",
+        "detail": "12 filas totales; 7 EAN reales; 5/5 grupos con ofertas elegibles"
+      },
+      {
+        "name": "ofertas reales",
+        "status": "OK",
+        "detail": "346 guardadas; 346 elegibles; 59 sucursales; última 2026-09-12T11:30:02.000Z"
+      },
+      {
+        "name": "OpenAI",
+        "status": "OK",
+        "detail": "HTTP 200. Acceso al modelo autorizado; saldo e inferencia se comprueban manualmente"
+      },
+      {
+        "name": "WhatsApp config",
+        "status": "ERROR",
+        "detail": "HTTP 401; code 190; subcode 463. Revisar credencial/permisos en el panel del proveedor"
+      },
+      {
+        "name": "SEPA",
+        "status": "WARN",
+        "detail": "Último ZIP publicado: 2026-09-12; último refresh con 5 advertencias. No se descarga ni importa desde este check"
+      },
+      {
+        "name": "Carrefour provider",
+        "status": "WARN",
+        "detail": "Inicio HTTP 200; última extracción: 4/5 grupos; sin mapping físico, no importa precios web"
+      },
+      {
+        "name": "Vea provider",
+        "status": "WARN",
+        "detail": "Inicio HTTP 200; última extracción: 4/5 grupos; sin mapping físico, no importa precios web"
+      },
+      {
+        "name": "ChangoMás provider",
+        "status": "WARN",
+        "detail": "Inicio HTTP 200; última extracción: 5/5 grupos; sin mapping físico, no importa precios web"
+      }
+    ],
+    "data": {
+      "products": 12,
+      "demoOffers": 15,
+      "realProducts": 7,
+      "configuredGroups": 5,
+      "targetGroups": 5,
+      "missingGroups": [],
+      "realOffers": 346,
+      "eligibleRealOffers": 346,
+      "realStores": 59,
+      "latest": "2026-09-12T11:30:02.000Z",
+      "bySource": [
+        {
+          "source": "REAL:SEPA",
+          "offers": 346,
+          "stores": 59,
+          "latest": "2026-09-12T11:30:02.000Z"
+        }
+      ],
+      "byChain": [
+        {
+          "chain": "Carrefour",
+          "offers": 151,
+          "stores": 28,
+          "latest": "2026-09-12T11:30:02.000Z"
+        },
+        {
+          "chain": "Vea",
+          "offers": 195,
+          "stores": 31,
+          "latest": "2026-09-12T08:02:55.000Z"
+        }
+      ]
+    },
+    "exitCode": 1
+  },
+  "readOnlyCheckPreservedData": true,
+  "reference": {
+    "name": "Carrefour Tucumán III",
+    "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T",
+    "kind": "Sucursal pública SEPA; no ubicación personal"
+  },
+  "refresh": {
+    "source": "REAL:SEPA",
+    "imported": 338,
+    "observations": 338,
+    "errors": [
+      "ChangoMás, bandera 1: fecha declarada inválida o antigua (2021-04-03T12:53:43-03:00); no se reemplaza por la fecha de descarga.",
+      "ChangoMás, bandera 2: fecha declarada inválida o antigua (2017-10-19T12:15:37-03:00); no se reemplaza por la fecha de descarga.",
+      "ChangoMás, bandera 3: fecha declarada inválida o antigua (2017-10-19T12:15:45-03:00); no se reemplaza por la fecha de descarga.",
+      "ChangoMás, bandera 4: fecha declarada inválida o antigua (2017-10-19T12:15:53-03:00); no se reemplaza por la fecha de descarga.",
+      "ChangoMás, bandera 5: fecha declarada inválida o antigua (2021-04-03T12:53:57-03:00); no se reemplaza por la fecha de descarga."
+    ]
+  },
+  "providers": [
+    {
+      "name": "carrefour",
+      "productsFound": 4,
+      "productsSearched": 5,
+      "unmapped": 5,
+      "offersUpdated": 0,
+      "errors": []
+    },
+    {
+      "name": "vea",
+      "productsFound": 4,
+      "productsSearched": 5,
+      "unmapped": 5,
+      "offersUpdated": 0,
+      "errors": []
+    },
+    {
+      "name": "changomas",
+      "productsFound": 5,
+      "productsSearched": 5,
+      "unmapped": 5,
+      "offersUpdated": 0,
+      "errors": []
+    }
+  ],
+  "internalAgent": {
+    "model": "mock",
+    "database": "Neon real, lectura",
+    "queries": [
+      "coca zero",
+      "oreo",
+      "producto inexistente zzzxyz"
+    ],
+    "cocaResponse": "*Coca-Cola Sin Azúcar 1.5 L*\nDentro de 25 km. Ordenadas por precio.\n\n1. *$3.900* — Carrefour Tucumán III\nAv. Catamarca, 1116, San Miguel de Tucumán, AR-T\nSin Azúcar · 1.5 L · EAN 7790895067556\n0 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.\n\n2. *$3.900* — Carrefour Tucumán I\n24 de Septiembre, 653, San Miguel de Tucumán, AR-T\nSin Azúcar · 1.5 L · EAN 7790895067556\n1,8 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.\n\n3. *$3.900* — Carrefour Tucumán II\nSan Martín, 344, San Miguel de Tucumán, AR-T\nSin Azúcar · 1.5 L · EAN 7790895067556\n1,9 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.",
+    "oreoResponse": "*Galletitas Oreo Original 118 g*\nDentro de 25 km. Ordenadas por precio.\n\n1. *$2.299* — Carrefour Tucumán III\nAv. Catamarca, 1116, San Miguel de Tucumán, AR-T\nOriginal · 118 g · EAN 7622201735296\n0 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.\n\n2. *$2.299* — Carrefour Tucumán I\n24 de Septiembre, 653, San Miguel de Tucumán, AR-T\nOriginal · 118 g · EAN 7622201735296\n1,8 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.\n\n3. *$2.569* — Carrefour Tucumán II\nSan Martín, 344, San Miguel de Tucumán, AR-T\nOriginal · 118 g · EAN 7622201735296\n1,9 km en línea recta · disponibilidad no confirmada.\nFuente: SEPA. Precio verificado: 12/09/2026, 08:30 (UTC−03:00).\nPrecio verificado hace 9 horas. Confianza media.",
+    "missingResponse": "No encontramos un producto compatible con tu búsqueda. Probá reformulando el nombre."
+  },
+  "search": {
+    "http": 200,
+    "results": 11,
+    "radiusKm": 25,
+    "first": {
+      "store": {
+        "id": 15,
+        "chain": "Carrefour",
+        "name": "Carrefour Tucumán III",
+        "address": "Av. Catamarca, 1116, San Miguel de Tucumán, AR-T"
+      },
+      "price": 3900,
+      "distanceKm": 0,
+      "stock": null,
+      "availability": "disponibilidad no confirmada",
+      "product": {
+        "id": 15,
+        "ean": "7790895067556",
+        "variant": "Sin Azúcar",
+        "size": "1.5 L"
+      },
+      "source": "REAL:SEPA",
+      "lastCheckedAt": "2026-09-12T11:30:02.000Z",
+      "quality": {
+        "freshness": "FRESH",
+        "ageHours": 9.61,
+        "freshnessLabel": "Precio verificado hace 9 horas.",
+        "confidence": "MEDIUM",
+        "confidenceReasons": [
+          "Fuente oficial SEPA",
+          "Sucursal identificada en los datos",
+          "Precio verificado hace 9 horas.",
+          "Disponibilidad no confirmada"
+        ],
+        "storeIdentified": true
+      },
+      "recommendation": {
+        "score": 95,
+        "components": {
+          "distance": 45,
+          "price": 35,
+          "freshness": 15,
+          "availability": 0
+        },
+        "comparisonToCheapest": {
+          "storeId": 15,
+          "productId": 15,
+          "priceDifference": 0,
+          "distanceSavedKm": 0
+        }
+      }
+    }
+  },
+  "realWhatsAppMessagesSent": 0,
+  "paidOpenAIInferences": 0,
+  "manualWhatsAppPending": true,
+  "videoRecordingPending": true
+}

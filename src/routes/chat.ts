@@ -67,7 +67,7 @@ export const createChatRoutes = (agent: ChatAgent = runProductAgent): FastifyPlu
                 longitude: longitude!,
                 onEvent: (agentEvent) => {
                   request.log.info(
-                    { event: `chat.${agentEvent.type}`, ...agentEvent },
+                    { event: `chat.${agentEvent.type}`, ...(agentEvent.type === "tool_completed" ? { totalResults: agentEvent.totalResults } : {}) },
                     `Agente: ${agentEvent.type}`,
                   );
                 },
@@ -78,7 +78,6 @@ export const createChatRoutes = (agent: ChatAgent = runProductAgent): FastifyPlu
           {
             event: result.toolUsed ? "chat.tool_executed" : "chat.completed",
             tool: result.toolUsed ? "findProductOffers" : undefined,
-            toolArguments: result.toolArguments,
             usage: result.usage,
             durationMs: Math.round(performance.now() - startedAt),
             result: "ok",

@@ -1,5 +1,18 @@
 # Fuentes de precios de la PoC
 
+Actualización del 13/09/2026: el [catálogo validado](PRODUCT-CATALOG.md) conserva
+60 grupos y tiene 3.303 ofertas reales en 59 sucursales. La nueva
+[investigación HTTP](LIVE-RETAILER-RESEARCH.md) obtuvo EAN en las tres cadenas y
+demostró compra online con retiro para un SKU de Carrefour. El [HITO 2](LIVE-SEARCH.md)
+incorpora providers HTTP bajo feature flag; los importadores estables descritos
+abajo conservan sus reglas. Las observaciones live se guardan separadas de Offer.
+
+Actualización del 12/09/2026: se importaron 338 observaciones del ZIP del día;
+quedaron 346 ofertas reales en 59 sucursales. Las observaciones web continúan sin
+mapping físico y ChangoMás SEPA mantiene fechas inválidas/antiguas. Ver el
+[estado actual de la candidata](DEMO-STATUS.md). Los detalles de inspección que
+siguen corresponden a la fuente original observada en septiembre.
+
 Inspección realizada el 8 de septiembre de 2026. El ZIP minorista más reciente
 publicado al consultar era el del 7 de septiembre. El importador descubre la
 fecha en el catálogo; no supone que el archivo del día de la semana esté actualizado.

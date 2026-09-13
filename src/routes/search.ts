@@ -5,6 +5,7 @@ import {
   type SearchSort,
 } from "../services/product-search.service.js";
 import { resolveRadiusKm } from "../services/offer-quality.js";
+import {searchWithLiveOffers} from "../live/orchestrator.js";
 
 type SearchQuery = {
   q?: string;
@@ -72,7 +73,7 @@ export const searchRoutes: FastifyPluginAsync = async (fastify) => {
     }
 
     const { query, latitude, longitude, sort, radiusKm } = parsed.value;
-    const result = await searchProductOffers(query, latitude, longitude, sort, radiusKm);
+    const result = await searchWithLiveOffers(query, latitude, longitude, sort, radiusKm);
 
     if (!result) {
       return reply.status(404).send({

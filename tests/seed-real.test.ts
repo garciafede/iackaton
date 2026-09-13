@@ -128,6 +128,15 @@ test("seed-real crea un producto sin EAN y reutiliza sus IDs en la segunda carga
   assert.equal(h.state.offers.length, 2);
 });
 
+test("seed-real incorpora un descubrimiento live al catálogo estable sin duplicarlo", async () => {
+  const h = harness();
+  h.state.products[0]!.liveOnly = true;
+  await importRealData(h.db, fixture());
+  assert.equal(h.state.products.length, 1);
+  assert.equal(h.state.products[0]!.liveOnly, false);
+  assert.deepEqual(h.state.products[0]!.aliases, ["alias existente"]);
+});
+
 test("seed-real permite corregir dirección mediante ID sin crear otra sucursal", async () => {
   const h = harness();
   const data = fixture();

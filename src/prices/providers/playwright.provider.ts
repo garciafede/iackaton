@@ -21,7 +21,7 @@ export class EcommercePlaywrightProvider implements PriceProvider {
   constructor(private readonly config: EcommerceConfig) { this.name = config.key.toUpperCase(); }
   async refresh(options: RefreshOptions = {}): Promise<RefreshResult> {
     const started = Date.now();
-    const targets = selectedTargets(options.product);
+    const targets = selectedTargets(options.product, { ...options, forPlaywright: true });
     const result: RefreshResult = { provider: this.name, productsSearched: [], productsFound: [], productsNotFound: [], offersUpdated: 0, unmapped: 0, unmatched: 0, errors: [], durationMs: 0, observations: [] };
     let browser;
     let stage = "browser";

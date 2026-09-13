@@ -1,0 +1,174 @@
+{
+  "observedAt": "2026-09-13T12:20:11.795Z",
+  "purpose": "Investigación, simulación pública sin crear pedido ni modificar carrito",
+  "request": {
+    "url": "https://www.carrefour.com.ar/api/checkout/pub/orderForms/simulation",
+    "method": "POST",
+    "body": {
+      "items": [
+        {
+          "id": "195332",
+          "quantity": 1,
+          "seller": "1"
+        }
+      ],
+      "geoCoordinates": [
+        -65.20911,
+        -26.814789
+      ],
+      "country": "ARG",
+      "postalCode": null
+    },
+    "cookies": false,
+    "authentication": false
+  },
+  "status": 200,
+  "ean": "7790990003039",
+  "items": [
+    {
+      "id": "195332",
+      "quantity": 1,
+      "seller": "1",
+      "sellerChain": [
+        "1",
+        "carrefourar0046"
+      ],
+      "price": 429000,
+      "listPrice": 429000,
+      "sellingPrice": 278850,
+      "availability": "available",
+      "priceValidUntil": "2027-09-13T12:15:22Z"
+    }
+  ],
+  "logisticsInfo": [
+    {
+      "itemIndex": 0,
+      "selectedSla": null,
+      "selectedDeliveryChannel": null,
+      "deliveryChannels": [
+        {
+          "id": "pickup-in-point"
+        },
+        {
+          "id": "delivery"
+        }
+      ],
+      "slas": [
+        {
+          "id": "Drive (0046PR)",
+          "deliveryChannel": "pickup-in-point",
+          "pickupPointId": "carrefourar0046_0046PR",
+          "pickupStoreInfo": {
+            "isPickupStore": true,
+            "friendlyName": "Hiper Tucumán",
+            "address": {
+              "addressType": "pickup",
+              "receiverName": null,
+              "addressId": "0046PR",
+              "isDisposable": true,
+              "postalCode": "4000",
+              "city": "San Miguel De Tucumán",
+              "state": "Tucumán",
+              "country": "ARG",
+              "street": "Catamarca",
+              "number": "1116",
+              "neighborhood": null,
+              "complement": "DR",
+              "reference": null,
+              "geoCoordinates": [
+                -65.20911,
+                -26.814789
+              ]
+            },
+            "additionalInfo": "",
+            "dockId": null
+          },
+          "deliveryIds": [
+            {
+              "courierId": "0046_DRV",
+              "warehouseId": "1",
+              "dockId": "1",
+              "courierName": "Drive 0046 - Hiper Tucuman",
+              "quantity": 1,
+              "kitItemDetails": []
+            }
+          ],
+          "shippingEstimate": "1bd",
+          "price": 0
+        },
+        {
+          "id": "Retiro en Tienda (0046PR)",
+          "deliveryChannel": "pickup-in-point",
+          "pickupPointId": "carrefourar0046_0046PR",
+          "pickupStoreInfo": {
+            "isPickupStore": true,
+            "friendlyName": "Hiper Tucumán",
+            "address": {
+              "addressType": "pickup",
+              "receiverName": null,
+              "addressId": "0046PR",
+              "isDisposable": true,
+              "postalCode": "4000",
+              "city": "San Miguel De Tucumán",
+              "state": "Tucumán",
+              "country": "ARG",
+              "street": "Catamarca",
+              "number": "1116",
+              "neighborhood": null,
+              "complement": "DR",
+              "reference": null,
+              "geoCoordinates": [
+                -65.20911,
+                -26.814789
+              ]
+            },
+            "additionalInfo": "",
+            "dockId": null
+          },
+          "deliveryIds": [
+            {
+              "courierId": "0046_RET",
+              "warehouseId": "1",
+              "dockId": "1",
+              "courierName": "Retiro en Tienda 0046 - Hiper Tucuman",
+              "quantity": 1,
+              "kitItemDetails": []
+            }
+          ],
+          "shippingEstimate": "1bd",
+          "price": 0
+        }
+      ]
+    }
+  ],
+  "pickupPoints": [
+    {
+      "id": "carrefourar0046_0046PR",
+      "friendlyName": "Hiper Tucumán",
+      "isActive": null,
+      "address": {
+        "addressId": "0046PR",
+        "postalCode": "4000",
+        "city": "San Miguel De Tucumán",
+        "state": "Tucumán",
+        "country": "ARG",
+        "street": "Catamarca",
+        "number": "1116",
+        "geoCoordinates": [
+          -65.20911,
+          -26.814789
+        ]
+      }
+    }
+  ],
+  "messages": [],
+  "sellers": [
+    {
+      "id": "1",
+      "name": "CARREFOUR",
+      "minimumOrderValue": 200000
+    }
+  ],
+  "physicalStoreMapping": true,
+  "mappingScope": "Este SKU simulado, compra online con retiro; no confirma stock en góndola ni otras sucursales"
+}

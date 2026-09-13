@@ -129,7 +129,7 @@ export const importRealData = async (db: Pick<PrismaClient, "$transaction">, inp
         throw new RealDataError(`Producto ${key}: el EAN difiere del registro existente; revisar antes de actualizar.`);
       }
       // -1 es solo un selector imposible para altas; el ID creado sigue siendo autoincremental.
-      const saved = await tx.product.upsert({ where: { id: matches[0]?.id ?? -1 }, create: product, update: product });
+      const saved = await tx.product.upsert({ where: { id: matches[0]?.id ?? -1 }, create: { ...product, liveOnly: false }, update: { ...product, liveOnly: false } });
       if ([...productIds.values()].includes(saved.id)) throw new RealDataError("Dos productos del archivo apuntan al mismo registro.");
       productIds.set(key, saved.id);
     }

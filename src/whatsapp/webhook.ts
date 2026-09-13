@@ -3,6 +3,8 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import type { FastifyPluginAsync, FastifyRequest } from "fastify";
 
 import { runProductAgent } from "../ai/agent.js";
+import { followupSort, isGreeting } from "../ai/conversation.js";
+import { safeErrorLog } from "../lib/safe-logging.js";
 import { sendTextMessage } from "./client.js";
 import { getWhatsAppAppSecret, getWhatsAppVerifyToken } from "./config.js";
 import { MessageDeduplicator, WhatsAppSessionStore } from "./session.js";
@@ -91,6 +93,11 @@ const processMessage = async (
 	if (type === "text") {
 		const text = message.text?.body?.trim();
 		if (!text) return;
+		if (isGreeting(text)) {
+			const result = await dependencies.agent({ message: text });
+			await dependencies.sendText(from, result.message);
+			return;
+		}
 
 		if (
 			session?.latitude !== undefined &&
@@ -99,18 +106,25 @@ const processMessage = async (
 			dependencies.sessions.update(from, {
 				latitude: session.latitude,
 				longitude: session.longitude,
+				...(session.previousSearch ? { previousSearch: session.previousSearch } : {}),
 			});
 			const result = await dependencies.agent({
 				message: text,
 				latitude: session.latitude,
 				longitude: session.longitude,
+				...(session.previousSearch ? { previousSearch: session.previousSearch } : {}),
+			});
+			if (result.toolArguments) dependencies.sessions.update(from, {
+				latitude: session.latitude, longitude: session.longitude,
+				previousSearch: { query: result.toolArguments.query, sort: result.toolArguments.sort, radiusKm: result.toolArguments.radiusKm ?? null },
 			});
 			await dependencies.sendText(from, result.message);
 			return;
 		}
 
-		dependencies.sessions.update(from, { pendingMessage: text });
-		const result = await dependencies.agent({ message: text });
+		const pendingMessage = followupSort(text) && session?.pendingMessage ? `${session.pendingMessage}. ${text}` : text;
+		dependencies.sessions.update(from, { pendingMessage });
+		const result = await dependencies.agent({ message: pendingMessage });
 		await dependencies.sendText(from, result.message);
 		return;
 	}
@@ -118,7 +132,10 @@ const processMessage = async (
 	if (type === "location") {
 		const latitude = message.location?.latitude;
 		const longitude = message.location?.longitude;
-		if (latitude === undefined || longitude === undefined) return;
+		if (typeof latitude !== "number" || typeof longitude !== "number" || !Number.isFinite(latitude) || !Number.isFinite(longitude) || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) {
+			await dependencies.sendText(from, "No pude leer esa ubicación. Compartila nuevamente desde WhatsApp.");
+			return;
+		}
 
 		if (session?.pendingMessage) {
 			dependencies.sessions.update(from, { latitude, longitude });
@@ -127,11 +144,15 @@ const processMessage = async (
 				latitude,
 				longitude,
 			});
+			if (result.toolArguments) dependencies.sessions.update(from, {
+				latitude, longitude,
+				previousSearch: { query: result.toolArguments.query, sort: result.toolArguments.sort, radiusKm: result.toolArguments.radiusKm ?? null },
+			});
 			await dependencies.sendText(from, result.message);
 			return;
 		}
 
-		dependencies.sessions.update(from, { latitude, longitude });
+		dependencies.sessions.update(from, { latitude, longitude, ...(session?.previousSearch ? { previousSearch: session.previousSearch } : {}) });
 		await dependencies.sendText(
 			from,
 			"Ubicación recibida. Ahora decime qué producto querés buscar.",
@@ -235,23 +256,7 @@ export const createWhatsAppWebhookRoutes = (
 									event: "whatsapp.processing_error",
 									messageId: message.id,
 
-									// Pino/Fastify serializa especialmente la propiedad "err"
-									err: error,
-
-									errorName:
-										error instanceof Error
-											? error.name
-											: "UnknownError",
-
-									errorMessage:
-										error instanceof Error
-											? error.message
-											: String(error),
-
-									errorStack:
-										error instanceof Error
-											? error.stack
-											: undefined,
+									error: safeErrorLog(error),
 								},
 								"Error procesando webhook de WhatsApp",
 							);

@@ -1,0 +1,347 @@
+{
+  "checkedAt": "2026-09-13T20:22:06.623Z",
+  "liveFlag": "ON",
+  "businessCodeChanged": false,
+  "tests": {
+    "total": 106,
+    "passed": 106,
+    "failed": 0,
+    "scope": "freeze suite already passed; business code unchanged"
+  },
+  "build": "PASS",
+  "locationReceived": true,
+  "openai": {
+    "responses": [
+      {
+        "at": "2026-09-13T20:19:05.053Z",
+        "event": "openai.response",
+        "http": 200,
+        "durationMs": 4405
+      },
+      {
+        "at": "2026-09-13T20:19:31.157Z",
+        "event": "openai.response",
+        "http": 200,
+        "durationMs": 2692
+      }
+    ],
+    "commercialTextMatchesBackend": true
+  },
+  "searches": [
+    {
+      "at": "2026-09-13T20:19:09.289Z",
+      "event": "tool.result",
+      "phase": "COCA_ZERO",
+      "sort": "distance",
+      "durationMs": 4206,
+      "totalResults": 12,
+      "providers": [
+        {
+          "retailer": "CARREFOUR",
+          "status": "WARN",
+          "durationMs": 3242,
+          "cache": "MISS",
+          "candidates": 0,
+          "warnings": [
+            "CACHE_READ_UNAVAILABLE",
+            "NO_MATCHING_PRODUCT"
+          ]
+        },
+        {
+          "retailer": "CHANGOMAS",
+          "status": "WARN",
+          "durationMs": 3104,
+          "cache": "MISS",
+          "candidates": 1,
+          "warnings": [
+            "CACHE_READ_UNAVAILABLE"
+          ]
+        },
+        {
+          "retailer": "VEA",
+          "status": "WARN",
+          "durationMs": 4163,
+          "cache": "MISS",
+          "candidates": 0,
+          "warnings": [
+            "CACHE_READ_UNAVAILABLE",
+            "NO_MATCHING_PRODUCT"
+          ]
+        }
+      ],
+      "sources": [
+        "REAL:SEPA",
+        "REAL:LIVE:CHANGOMAS"
+      ]
+    },
+    {
+      "at": "2026-09-13T20:19:33.722Z",
+      "event": "tool.result",
+      "phase": "MAGISTRAL",
+      "sort": "price",
+      "durationMs": 2529,
+      "totalResults": 3,
+      "providers": [
+        {
+          "retailer": "CARREFOUR",
+          "status": "OK",
+          "durationMs": 2367,
+          "cache": "MISS",
+          "candidates": 1,
+          "warnings": []
+        },
+        {
+          "retailer": "CHANGOMAS",
+          "status": "OK",
+          "durationMs": 2251,
+          "cache": "MISS",
+          "candidates": 1,
+          "warnings": []
+        },
+        {
+          "retailer": "VEA",
+          "status": "OK",
+          "durationMs": 2525,
+          "cache": "MISS",
+          "candidates": 1,
+          "warnings": []
+        }
+      ],
+      "sources": [
+        "REAL:LIVE:CARREFOUR",
+        "REAL:LIVE:CHANGOMAS",
+        "REAL:LIVE:VEA"
+      ]
+    },
+    {
+      "at": "2026-09-13T20:20:28.112Z",
+      "event": "tool.result",
+      "phase": "MAGISTRAL",
+      "sort": "price",
+      "durationMs": 269,
+      "totalResults": 3,
+      "providers": [
+        {
+          "retailer": "CARREFOUR",
+          "status": "OK",
+          "durationMs": 110,
+          "cache": "HIT",
+          "candidates": 1,
+          "warnings": []
+        },
+        {
+          "retailer": "CHANGOMAS",
+          "status": "OK",
+          "durationMs": 105,
+          "cache": "HIT",
+          "candidates": 1,
+          "warnings": []
+        },
+        {
+          "retailer": "VEA",
+          "status": "OK",
+          "durationMs": 108,
+          "cache": "HIT",
+          "candidates": 1,
+          "warnings": []
+        }
+      ],
+      "sources": [
+        "REAL:LIVE:CARREFOUR",
+        "REAL:LIVE:CHANGOMAS",
+        "REAL:LIVE:VEA"
+      ]
+    }
+  ],
+  "sends": [
+    {
+      "at": "2026-09-13T20:19:10.433Z",
+      "event": "meta.send",
+      "http": 200,
+      "characters": 1251,
+      "commercialResponse": true,
+      "exactDeterministicMatch": true,
+      "processingMs": 9785,
+      "phase": "COCA_ZERO",
+      "sort": "distance"
+    },
+    {
+      "at": "2026-09-13T20:19:34.599Z",
+      "event": "meta.send",
+      "http": 200,
+      "characters": 1624,
+      "commercialResponse": true,
+      "exactDeterministicMatch": true,
+      "processingMs": 6133,
+      "phase": "MAGISTRAL",
+      "sort": "price"
+    },
+    {
+      "at": "2026-09-13T20:20:29.265Z",
+      "event": "meta.send",
+      "http": 200,
+      "characters": 1624,
+      "commercialResponse": true,
+      "exactDeterministicMatch": true,
+      "processingMs": null,
+      "phase": "MAGISTRAL",
+      "sort": "price"
+    }
+  ],
+  "cache": {
+    "allThreeHit": true,
+    "pricesAndTimestampsUnchanged": true,
+    "extraOpenAiCall": false
+  },
+  "deliveryApproxSeconds": {
+    "cocaZero": 12,
+    "magistral": 8,
+    "magistralCached": 4
+  },
+  "userConfirmedCachedResponseAndClarity": true,
+  "commercialMetadata": [
+    {
+      "at": "2026-09-13T20:19:09.321Z",
+      "event": "commercial.validation",
+      "phase": "COCA_ZERO",
+      "characters": 1251,
+      "hasLocalUnconfirmed": true,
+      "hasLocalPriceUnconfirmed": true,
+      "hasShelfUnconfirmed": false,
+      "hasSource": true,
+      "hasDate": true,
+      "selected": [
+        {
+          "chain": "Vea",
+          "ean": "7790895067556",
+          "price": 4390,
+          "source": "REAL:SEPA",
+          "mapping": "SEPA_REPORTED",
+          "scope": "SEPA_BRANCH",
+          "availability": "UNCONFIRMED",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-12T08:02:55.000Z"
+        },
+        {
+          "chain": "ChangoMás",
+          "ean": "7790895067556",
+          "price": 3899,
+          "source": "REAL:LIVE:CHANGOMAS",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:07.864Z"
+        },
+        {
+          "chain": "Vea",
+          "ean": "7790895067556",
+          "price": 4390,
+          "source": "REAL:SEPA",
+          "mapping": "SEPA_REPORTED",
+          "scope": "SEPA_BRANCH",
+          "availability": "UNCONFIRMED",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-12T08:02:55.000Z"
+        }
+      ]
+    },
+    {
+      "at": "2026-09-13T20:19:33.724Z",
+      "event": "commercial.validation",
+      "phase": "MAGISTRAL",
+      "characters": 1624,
+      "hasLocalUnconfirmed": true,
+      "hasLocalPriceUnconfirmed": true,
+      "hasShelfUnconfirmed": false,
+      "hasSource": true,
+      "hasDate": true,
+      "selected": [
+        {
+          "chain": "Carrefour",
+          "ean": "7790990003039",
+          "price": 2960,
+          "source": "REAL:LIVE:CARREFOUR",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.280Z"
+        },
+        {
+          "chain": "ChangoMás",
+          "ean": "7790990003039",
+          "price": 4349,
+          "source": "REAL:LIVE:CHANGOMAS",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.184Z"
+        },
+        {
+          "chain": "Vea",
+          "ean": "7790990003039",
+          "price": 4990,
+          "source": "REAL:LIVE:VEA",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.375Z"
+        }
+      ]
+    },
+    {
+      "at": "2026-09-13T20:20:28.117Z",
+      "event": "commercial.validation",
+      "phase": "MAGISTRAL",
+      "characters": 1624,
+      "hasLocalUnconfirmed": true,
+      "hasLocalPriceUnconfirmed": true,
+      "hasShelfUnconfirmed": false,
+      "hasSource": true,
+      "hasDate": true,
+      "selected": [
+        {
+          "chain": "Carrefour",
+          "ean": "7790990003039",
+          "price": 2960,
+          "source": "REAL:LIVE:CARREFOUR",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.280Z"
+        },
+        {
+          "chain": "ChangoMás",
+          "ean": "7790990003039",
+          "price": 4349,
+          "source": "REAL:LIVE:CHANGOMAS",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.184Z"
+        },
+        {
+          "chain": "Vea",
+          "ean": "7790990003039",
+          "price": 4990,
+          "source": "REAL:LIVE:VEA",
+          "mapping": "NEAREST_BRANCH_ASSUMPTION",
+          "scope": "ONLINE_CHAIN",
+          "availability": "ASSUMED_NEAREST_BRANCH",
+          "confidence": "UNCONFIRMED_AT_STORE",
+          "lastCheckedAt": "2026-09-13T20:19:33.375Z"
+        }
+      ]
+    }
+  ],
+  "risks": [
+    "Carrefour no confirmó pickup para la ubicación de esta prueba; inferencia claramente rotulada.",
+    "Coca Zero sin match live válido en Carrefour/Vea; SEPA sostuvo resultados.",
+    "Primera lectura de caché produjo WARN; las siguientes y los tres HIT funcionaron."
+  ]
+}

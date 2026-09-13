@@ -103,9 +103,10 @@ test("upsert conserva identidad, stock desconocido y la observación más recien
   const products: any[] = [], stores: any[] = [], offers: any[] = [];
   const tx = {
     $queryRaw: async () => [],
-    product: { upsert: async ({ where, create }: any) => {
+    product: { upsert: async ({ where, create, update }: any) => {
       let p = products.find((p) => p.ean === where.ean);
       if (!p) { p = { id: products.length + 1, ...create }; products.push(p); }
+      else Object.assign(p, update);
       return p;
     } },
     store: {
@@ -118,6 +119,7 @@ test("upsert conserva identidad, stock desconocido y la observación más recien
     },
     offer: {
       count: async () => 0,
+      findMany: async () => offers,
       findUnique: async ({ where: { productId_storeId: key } }: any) => offers.find((o) => o.productId === key.productId && o.storeId === key.storeId) ?? null,
       upsert: async ({ create, update, where: { productId_storeId: key } }: any) => {
         const existing = offers.find((o) => o.productId === key.productId && o.storeId === key.storeId);
@@ -132,7 +134,9 @@ test("upsert conserva identidad, stock desconocido y la observación más recien
     price: "123.45", stock: null, source: "REAL:SEPA", lastCheckedAt: new Date("2026-09-01T12:00:00Z"),
   };
   assert.equal(await persistObservations(db, [observation]), 1);
+  products[0].liveOnly = true; // Descubierto online; SEPA debe habilitarlo también en OFF.
   assert.equal(await persistObservations(db, [observation]), 0);
+  assert.equal(products[0].liveOnly, false);
   assert.equal(offers[0].stock, null);
   const newer = { ...observation, price: "120.00", stock: true, source: "REAL:PLAYWRIGHT:VEA", lastCheckedAt: new Date("2026-09-01T13:00:00Z") };
   assert.equal(await persistObservations(db, [newer]), 1);

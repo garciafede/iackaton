@@ -6,6 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "demo:check": "tsx scripts/demo-check.ts",
+    "catalog:generate": "tsx scripts/generate-catalog.ts",
+    "live:smoke": "tsx scripts/live-smoke.ts",
+    "db:sepa-stores": "tsx scripts/import-sepa-stores.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed",
@@ -16,7 +23,7 @@
     "prices:scrape:vea": "tsx src/prices/cli.ts vea",
     "prices:scrape:changomas": "tsx src/prices/cli.ts changomas",
     "prices:smoke": "tsx src/prices/cli.ts scrape --dry-run --product=oreo-118",
-    "test": "tsx --test tests/search.test.ts tests/search-quality.test.ts tests/chat.test.ts tests/whatsapp.test.ts tests/whatsapp-client.test.ts tests/seed-real.test.ts tests/prices.test.ts"
+    "test": "tsx --import ./tests/offline-env.mjs --test tests/search.test.ts tests/search-quality.test.ts tests/chat.test.ts tests/whatsapp.test.ts tests/whatsapp-client.test.ts tests/seed-real.test.ts tests/prices.test.ts tests/demo-check.test.ts tests/catalog.test.ts tests/live-research.test.ts tests/live.test.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

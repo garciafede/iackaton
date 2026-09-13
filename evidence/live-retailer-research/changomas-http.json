@@ -1,0 +1,162 @@
+{
+  "retailer": "changomas",
+  "checkedOn": "2026-09-13",
+  "http": [
+    {
+      "endpoint": "https://www.masonline.com.ar/detergente%20magistral%20500%20ml",
+      "query": "detergente magistral 500 ml",
+      "status": 200,
+      "sentHeaders": [
+        "accept: application/json"
+      ],
+      "sentCookies": false,
+      "authenticated": false,
+      "bodyKeys": [
+        "appsEtag",
+        "blocks",
+        "blocksTree",
+        "components",
+        "contentMap",
+        "extensions",
+        "messages",
+        "page",
+        "pages",
+        "query",
+        "queryData",
+        "route",
+        "runtimeMeta",
+        "settings"
+      ],
+      "records": 5,
+      "observed": [
+        {
+          "ean": "7790990003039",
+          "sku": "224771",
+          "price": 4349,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003411",
+          "sku": "231686",
+          "price": 5149,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003138",
+          "sku": "224773",
+          "price": 5149,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003381",
+          "sku": "225849",
+          "price": 6279,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990004005",
+          "sku": "246330",
+          "price": 5659,
+          "quantity": 10000,
+          "sellerId": "1"
+        }
+      ],
+      "browser": [
+        {
+          "ean": "7790990003039",
+          "sku": "224771",
+          "price": 4349,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003411",
+          "sku": "231686",
+          "price": 5149,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003138",
+          "sku": "224773",
+          "price": 5149,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003381",
+          "sku": "225849",
+          "price": 6279,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990004005",
+          "sku": "246330",
+          "price": 5659,
+          "quantity": 10000,
+          "sellerId": "1"
+        }
+      ],
+      "identicalEanSkuPrice": true
+    }
+  ],
+  "graphql": {
+    "url": "https://www.masonline.com.ar/_v/segment/graphql/v1?workspace=master&maxAge=short&appsEtag=remove&domain=store&locale=es-AR&operationName=productSearchV3&variables=%7B%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22b398fc0a2fd04ea5d4f7a94c732c10fb1bf64f8f9a2b31c92aee6a5e796457c9%22%2C%22sender%22%3A%22vtex.store-resources%400.x%22%2C%22provider%22%3A%22vtex.search-graphql%400.x%22%7D%2C%22variables%22%3A%22eyJza3VzRmlsdGVyIjoiQUxMIiwic2ltdWxhdGlvbkJlaGF2aW9yIjoiZGVmYXVsdCIsImluc3RhbGxtZW50Q3JpdGVyaWEiOiJNQVhfV0lUSF9JTlRFUkVTVCIsInByb2R1Y3RPcmlnaW5WdGV4IjpmYWxzZSwibWFwIjoiYiIsInF1ZXJ5Ijoib3Jlby9vcmVvIiwib3JkZXJCeSI6Ik9yZGVyQnlTY29yZURFU0MiLCJmcm9tIjowLCJ0byI6MjMsInNlbGVjdGVkRmFjZXRzIjpbeyJrZXkiOiJiIiwidmFsdWUiOiJvcmVvIn1dLCJoaWRlVW5hdmFpbGFibGVJdGVtcyI6dHJ1ZSwiZmFjZXRzQmVoYXZpb3IiOiJTdGF0aWMiLCJjYXRlZ29yeVRyZWVCZWhhdmlvciI6ImRlZmF1bHQiLCJ3aXRoRmFjZXRzIjpmYWxzZX0%3D%22%7D",
+    "method": "GET",
+    "queryParams": {
+      "workspace": "master",
+      "maxAge": "short",
+      "appsEtag": "remove",
+      "domain": "store",
+      "locale": "es-AR",
+      "operationName": "productSearchV3",
+      "variables": "{}",
+      "extensions": "{\"persistedQuery\":{\"version\":1,\"sha256Hash\":\"b398fc0a2fd04ea5d4f7a94c732c10fb1bf64f8f9a2b31c92aee6a5e796457c9\",\"sender\":\"vtex.store-resources@0.x\",\"provider\":\"vtex.search-graphql@0.x\"},\"variables\":\"eyJza3VzRmlsdGVyIjoiQUxMIiwic2ltdWxhdGlvbkJlaGF2aW9yIjoiZGVmYXVsdCIsImluc3RhbGxtZW50Q3JpdGVyaWEiOiJNQVhfV0lUSF9JTlRFUkVTVCIsInByb2R1Y3RPcmlnaW5WdGV4IjpmYWxzZSwibWFwIjoiYiIsInF1ZXJ5Ijoib3Jlby9vcmVvIiwib3JkZXJCeSI6Ik9yZGVyQnlTY29yZURFU0MiLCJmcm9tIjowLCJ0byI6MjMsInNlbGVjdGVkRmFjZXRzIjpbeyJrZXkiOiJiIiwidmFsdWUiOiJvcmVvIn1dLCJoaWRlVW5hdmFpbGFibGVJdGVtcyI6dHJ1ZSwiZmFjZXRzQmVoYXZpb3IiOiJTdGF0aWMiLCJjYXRlZ29yeVRyZWVCZWhhdmlvciI6ImRlZmF1bHQiLCJ3aXRoRmFjZXRzIjpmYWxzZX0=\"}"
+    },
+    "headerNames": [
+      "sec-ch-ua-platform",
+      "referer",
+      "user-agent",
+      "accept",
+      "sec-ch-ua",
+      "content-type",
+      "sec-ch-ua-mobile"
+    ],
+    "cookieNames": [],
+    "body": null,
+    "decodedExtensions": {
+      "persistedQuery": {
+        "version": 1,
+        "sha256Hash": "b398fc0a2fd04ea5d4f7a94c732c10fb1bf64f8f9a2b31c92aee6a5e796457c9",
+        "sender": "vtex.store-resources@0.x",
+        "provider": "vtex.search-graphql@0.x"
+      },
+      "variables": {
+        "skusFilter": "ALL",
+        "simulationBehavior": "default",
+        "installmentCriteria": "MAX_WITH_INTEREST",
+        "productOriginVtex": false,
+        "map": "b",
+        "query": "oreo/oreo",
+        "orderBy": "OrderByScoreDESC",
+        "from": 0,
+        "to": 23,
+        "selectedFacets": [
+          {
+            "key": "b",
+            "value": "oreo"
+          }
+        ],
+        "hideUnavailableItems": true,
+        "facetsBehavior": "Static",
+        "categoryTreeBehavior": "default",
+        "withFacets": false
+      }
+    }
+  }
+}

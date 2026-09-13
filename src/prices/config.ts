@@ -1,18 +1,9 @@
-export type ProductTarget = {
-  key: string; brand: string; name: string; variant: string; size: string;
-  quantity: number; unit: "ml" | "g";
-  eans: string[]; aliases: string[];
-};
+import { catalogProducts, type CatalogProduct } from "../catalog/products.js";
+export type ProductTarget = CatalogProduct;
+export const productTargets = catalogProducts.filter((product) => product.enabled);
 
-// EAN observados en SEPA 2026-09-07. Cada EAN se conserva como Product separado.
-// Evidencia y diferencias de empaque: docs/PRICE-SOURCES.md.
-export const productTargets: ProductTarget[] = [
-  { key: "coca-zero-1500", brand: "Coca-Cola", name: "Coca-Cola Sin Azúcar", variant: "Sin Azúcar", size: "1.5 L", quantity: 1500, unit: "ml", eans: ["7790895067556"], aliases: ["coca zero", "coca sin azucar", "coca cola zero"] },
-  { key: "oreo-118", brand: "Oreo", name: "Galletitas Oreo Original", variant: "Original", size: "118 g", quantity: 118, unit: "g", eans: ["7622201735296", "7622201735272"], aliases: ["oreo", "oreo original", "galletitas oreo"] },
-  { key: "playadito-1000", brand: "Playadito", name: "Yerba Mate Playadito Suave", variant: "Suave con palo", size: "1 kg", quantity: 1000, unit: "g", eans: ["7793704000928"], aliases: ["playadito", "yerba playadito", "playadito 1 kg"] },
-  { key: "pepsi-black-1500", brand: "Pepsi", name: "Pepsi Black", variant: "Black / Sin Azúcar", size: "1.5 L", quantity: 1500, unit: "ml", eans: ["7791813828419", "7791813421054"], aliases: ["pepsi black", "pepsi sin azucar", "pepsi zero"] },
-  { key: "gallo-oro-1000", brand: "Gallo", name: "Arroz Gallo Oro", variant: "Parboil", size: "1 kg", quantity: 1000, unit: "g", eans: ["7790070431417", "7790070433091"], aliases: ["gallo oro", "arroz gallo oro", "gallo parboil"] },
-];
+// El refresh web predeterminado sigue limitado a los cinco grupos originales.
+export const playwrightSmokeProductKeys = ["coca-zero-1500", "oreo-118", "playadito-1000", "pepsi-black-1500", "gallo-oro-1000"];
 
 export const priceConfig = {
   sepaCatalogUrl: "https://datos.produccion.gob.ar/dataset/sepa-precios",
@@ -28,16 +19,20 @@ export const priceConfig = {
   ],
 };
 
-export function selectedTargets(filter?: string): ProductTarget[] {
-  if (!filter) return productTargets;
-  const query = filter.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
-  const matches = productTargets.filter((p) => [p.key, p.name, ...p.eans, ...p.aliases].some((v) => v.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase() === query));
+export function selectedTargets(filter?: string, options: { category?: string; all?: boolean; forPlaywright?: boolean } = {}): ProductTarget[] {
+  if ([Boolean(filter), Boolean(options.category), Boolean(options.all)].filter(Boolean).length > 1) throw new Error("Elegir solo --product, --category o --all.");
+  const normalize = (value: string) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
+  if (options.category) {
+    const matches = productTargets.filter((p) => normalize(p.category) === normalize(options.category!));
+    if (!matches.length) throw new Error("Categoría no encontrada en el catálogo habilitado.");
+    return matches;
+  }
+  if (!filter) return options.forPlaywright && !options.all ? productTargets.filter((p) => playwrightSmokeProductKeys.includes(p.key)) : productTargets;
+  const query = normalize(filter);
+  const matches = productTargets.filter((p) => [p.key, p.name, `${p.name} ${p.size}`, ...p.eans, ...p.aliases].some((v) => normalize(v) === query));
   if (!matches.length) throw new Error("El producto solicitado no está en la configuración de precios.");
   return matches;
 }
 
 // El empaque es distinto aunque ambas presentaciones pertenezcan al mismo grupo.
-export const eanVariants: Record<string, string> = {
-  "7790070431417": "Parboil, bolsa",
-  "7790070433091": "Parboil, caja",
-};
+export const eanVariants: Record<string, string> = Object.assign({}, ...productTargets.map((product) => product.eanVariants ?? {}));

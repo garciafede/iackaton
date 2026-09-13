@@ -1,0 +1,65 @@
+{
+  "observedOn": "2026-09-13",
+  "query": "detergente Magistral ultra limon 500 ml",
+  "readOnly": true,
+  "reference": "Sucursal pública Carrefour Catamarca 1116",
+  "providers": [
+    {
+      "retailer": "CHANGOMAS",
+      "status": "OK",
+      "durationMs": 1321,
+      "cache": "DISABLED",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "CARREFOUR",
+      "status": "OK",
+      "durationMs": 1935,
+      "cache": "DISABLED",
+      "candidates": 1,
+      "warnings": []
+    },
+    {
+      "retailer": "VEA",
+      "status": "OK",
+      "durationMs": 1999,
+      "cache": "DISABLED",
+      "candidates": 1,
+      "warnings": []
+    }
+  ],
+  "offers": [
+    {
+      "chain": "Carrefour",
+      "ean": "7790990003039",
+      "price": 2788.5,
+      "mapping": "EXACT_PICKUP",
+      "confidence": "CONFIRMED_FOR_PICKUP",
+      "priceScope": "BRANCH_CONFIRMED",
+      "store": "Carrefour Hiper Tucumán",
+      "distanceKm": 0.05
+    },
+    {
+      "chain": "ChangoMás",
+      "ean": "7790990003039",
+      "price": 4349,
+      "mapping": "NEAREST_BRANCH_ASSUMPTION",
+      "confidence": "UNCONFIRMED_AT_STORE",
+      "priceScope": "ONLINE_CHAIN",
+      "store": "ChangoMás Tuc. Ejército Del Norte",
+      "distanceKm": 2.72
+    },
+    {
+      "chain": "Vea",
+      "ean": "7790990003039",
+      "price": 4990,
+      "mapping": "NEAREST_BRANCH_ASSUMPTION",
+      "confidence": "UNCONFIRMED_AT_STORE",
+      "priceScope": "ONLINE_CHAIN",
+      "store": "Vea Av Sarmiento",
+      "distanceKm": 1.41
+    }
+  ],
+  "notices": []
+}

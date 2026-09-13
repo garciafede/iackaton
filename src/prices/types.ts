@@ -2,6 +2,8 @@ export type RefreshOptions = {
   dryRun?: boolean;
   product?: string;
   file?: string;
+  category?: string;
+  all?: boolean;
 };
 
 export type VerifiedProduct = {
@@ -11,6 +13,7 @@ export type VerifiedProduct = {
   name: string;
   variant: string;
   size: string;
+  category?: string;
 };
 
 export type PriceObservation = {

@@ -3,6 +3,9 @@ import { calculateDistanceKm } from "../utils/distance.js";
 import { normalizeSearchText } from "../utils/normalize-text.js";
 import { priceConfig, productTargets } from "../prices/config.js";
 import { presentationMatches } from "../prices/matching.js";
+import { catalogProducts } from "../catalog/products.js";
+import type {LiveMetadata} from "../live/types.js";
+import { normalizeCatalogText, queryFitsCatalogProduct } from "../catalog/matching.js";
 import { addRecommendations, assessOfferQuality, filterByRadius, offerQualityConfig, resolveRadiusKm, type OfferQuality, type Recommendation } from "./offer-quality.js";
 
 export type SearchableProduct = {
@@ -23,12 +26,16 @@ export type SearchResult = {
     chain: string;
     name: string;
     address: string;
+    latitude?: number;
+    longitude?: number;
+    externalId?: string;
   };
   price: number;
   distanceKm: number;
   stock: boolean | null;
   availability?: string;
-  product?: { id: number; ean: string | null; variant: string | null; size: string | null };
+  product?: { id: number; ean: string | null; variant: string | null; size: string | null; name?: string; brand?: string };
+  live?: LiveMetadata;
   source: string | null;
   lastCheckedAt: Date;
   quality?: OfferQuality;
@@ -55,35 +62,40 @@ export const findBestProduct = (
   query: string,
   products: SearchableProduct[],
 ): SearchableProduct | null => {
-  const normalizedQuery = normalizeSearchText(query);
+  const normalizedQuery = normalizeCatalogText(query);
   if (!normalizedQuery) return null;
 
-  let bestMatch: { product: SearchableProduct; score: number } | null = null;
+  let bestMatch: { product: SearchableProduct; score: number; identity: string } | null = null;
+  let ambiguous = false;
 
   for (const product of products) {
+    const target = productTargets.find((p) => product.ean && p.eans.includes(product.ean));
+    if (target && (!presentationMatches(query, target, false) || !queryFitsCatalogProduct(query, [product.name, product.brand, product.variant ?? "", product.size ?? "", ...product.aliases.map((a) => a.alias), ...target.aliases]))) continue;
     const groups = [
       { priority: 400, values: product.aliases.map(({ alias }) => alias) },
-      { priority: 300, values: [product.name] },
-      { priority: 200, values: [product.brand] },
-      { priority: 100, values: product.variant ? [product.variant] : [] },
+      { priority: 300, values: [product.name, `${product.name} ${product.size ?? ""}`, `${product.brand} ${product.variant ?? ""}`] },
+      { priority: 200, values: normalizedQuery === normalizeCatalogText(product.brand) ? [product.brand] : [] },
     ];
 
     const score = Math.max(
       0,
       ...groups.flatMap(({ priority, values }) =>
         values.map((value) => {
-          const similarity = similarityScore(normalizedQuery, normalizeSearchText(value));
-          return similarity > 0 ? priority + similarity : 0;
+          const similarity = similarityScore(normalizedQuery, normalizeCatalogText(value));
+          return similarity > 0 ? priority + similarity + (similarity === 100 ? 1000 : 0) + (target ? 10 : 0) : 0;
         }),
       ),
     );
 
     if (score > 0 && (!bestMatch || score > bestMatch.score)) {
-      bestMatch = { product, score };
+      bestMatch = { product, score, identity: target?.key ?? `${product.brand}|${product.name}|${product.variant}|${product.size}` };
+      ambiguous = false;
+    } else if (score > 0 && bestMatch && score === bestMatch.score && bestMatch.identity !== (target?.key ?? `${product.brand}|${product.name}|${product.variant}|${product.size}`)) {
+      ambiguous = true;
     }
   }
 
-  return bestMatch?.product ?? null;
+  return ambiguous ? null : bestMatch?.product ?? null;
 };
 
 export const sortSearchResults = (
@@ -111,6 +123,7 @@ export const searchProductOffers = async (
   if (!["distance", "price", "recommended"].includes(sort)) throw new Error("Orden de búsqueda inválido.");
   const evaluatedAt = new Date();
   const products = await prisma.product.findMany({
+    where: { liveOnly: false },
     select: {
       id: true,
       ean: true,
@@ -123,7 +136,8 @@ export const searchProductOffers = async (
   });
 
   // Aliases compartidos por grupo sin reasignar ProductAlias de DEMO.
-  const candidates = products.map((p) => {
+  const disabledEans = new Set(catalogProducts.filter((p) => !p.enabled).flatMap((p) => p.eans));
+  const candidates = products.filter((p) => !p.ean || !disabledEans.has(p.ean)).map((p) => {
     const target = productTargets.find((t) => p.ean && t.eans.includes(p.ean));
     return { ...p, aliases: [...p.aliases, ...(target?.aliases.map((alias) => ({ alias })) ?? [])] };
   });
@@ -132,7 +146,7 @@ export const searchProductOffers = async (
   const product = exactEan ?? findBestProduct(query, [...realCandidates, ...candidates.filter((p) => !realCandidates.includes(p))]);
   if (!product) return null;
   const group = productTargets.find((t) => product.ean && t.eans.includes(product.ean));
-  if (group && !presentationMatches(query, group)) return null;
+  if (group && !presentationMatches(query, group, false)) return null;
   const packageHint = /\b(caja|bolsa)\b/i.exec(query)?.[1]?.toLowerCase();
   const groupProducts = group && !exactEan
     ? candidates.filter((p) => p.ean && group.eans.includes(p.ean) && (!packageHint || p.variant?.toLowerCase().includes(packageHint)))

@@ -1,5 +1,12 @@
 # Codex + Playwright CLI en el IACKATÓN
 
+El [hito de investigación del 13/09](LIVE-RETAILER-RESEARCH.md) reutilizó la CLI y
+el skill instalados para capturar request/response, reproducir HTTP y comprobar
+un punto de retiro Carrefour. Incluye fixtures y tests offline; no integró una
+nueva arquitectura al agente. El [HITO 2 posterior](LIVE-SEARCH.md) sí conecta
+providers HTTP bajo feature flag, sin abrir navegadores durante las consultas.
+El resto de este documento conserva el trabajo inicial.
+
 El 8/9/2026 Codex utilizó realmente `@playwright/cli` y la skill existente
 `.claude/skills/playwright-cli/SKILL.md`, además de su referencia `running-code.md`.
 Se consultó `playwright-cli --help`. No se reinstalaron la CLI ni sus skills.

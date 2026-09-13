@@ -1,0 +1,109 @@
+{
+  "retailer": "vea",
+  "checkedOn": "2026-09-13",
+  "http": [
+    {
+      "endpoint": "https://www.vea.com.ar/detergente%20magistral%20500%20ml",
+      "query": "detergente magistral 500 ml",
+      "status": 200,
+      "sentHeaders": [
+        "accept: application/json"
+      ],
+      "sentCookies": false,
+      "authenticated": false,
+      "bodyKeys": [
+        "appsEtag",
+        "blocks",
+        "blocksTree",
+        "components",
+        "contentMap",
+        "extensions",
+        "messages",
+        "page",
+        "pages",
+        "query",
+        "queryData",
+        "route",
+        "runtimeMeta",
+        "settings"
+      ],
+      "records": 5,
+      "observed": [
+        {
+          "ean": "7790990003039",
+          "sku": "232084",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003411",
+          "sku": "1370708",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003138",
+          "sku": "1359928",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003381",
+          "sku": "1366230",
+          "price": 6190,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990004005",
+          "sku": "3083743",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        }
+      ],
+      "browser": [
+        {
+          "ean": "7790990003039",
+          "sku": "232084",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003411",
+          "sku": "1370708",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003138",
+          "sku": "1359928",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990003381",
+          "sku": "1366230",
+          "price": 6190,
+          "quantity": 10000,
+          "sellerId": "1"
+        },
+        {
+          "ean": "7790990004005",
+          "sku": "3083743",
+          "price": 4990,
+          "quantity": 10000,
+          "sellerId": "1"
+        }
+      ],
+      "identicalEanSkuPrice": true
+    }
+  ],
+  "graphql": null
+}

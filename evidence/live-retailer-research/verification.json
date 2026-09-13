@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-13",
+  "scope": "Investigación; integración dinámica pendiente de revisión",
+  "tests": {"total": 78, "passed": 78, "failed": 0, "offline": true},
+  "typecheck": "PASS",
+  "build": "PASS",
+  "healthHttpStatus": 200,
+  "searchHttpStatus": 200,
+  "searchRealOffersWithin25Km": 11,
+  "validatedCatalog": {"groups": 60, "categories": 18, "configuredEans": 63, "eansWithRealOffers": 62, "realOffers": 3303, "realStores": 59, "demoOffersPreserved": 15},
+  "newDependencies": 0,
+  "paidOpenAiCalls": 0,
+  "whatsappMessagesSent": 0,
+  "liveOffersPersisted": 0,
+  "schemaChanges": 0,
+  "sepaImport": {"observations": 3295, "offersUpdated": 2957, "exitCode": 1, "reason": "Cinco fechas SEPA antiguas de ChangoMás descartadas; importación válida Carrefour/Vea completada"},
+  "research": {"browserSearchesPerRetailer": 3, "anonymousSearchHttpReplays": 4, "productPickupHttpSimulations": 1, "authenticationBypasses": 0},
+  "secretsScan": {"checkedFilesBeforeThisSummary": 46, "matches": 0}
+}

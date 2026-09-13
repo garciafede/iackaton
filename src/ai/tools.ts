@@ -1,10 +1,10 @@
 import type OpenAI from "openai";
 
 import {
-  searchProductOffers,
   type SearchSort,
 } from "../services/product-search.service.js";
 import { offerQualityConfig } from "../services/offer-quality.js";
+import {searchWithLiveOffers} from "../live/orchestrator.js";
 
 export type FindProductOffersArguments = {
   query: string;
@@ -19,7 +19,7 @@ export const productAgentTools: OpenAI.Responses.Tool[] = [
     type: "function",
     name: "findProductOffers",
     description:
-      "Busca ofertas previamente verificadas en PostgreSQL: prioriza fuentes reales, incluye disponibilidad desconocida y calcula distancia. DEMO solo como fallback de desarrollo. No consulta ecommerce en vivo.",
+      "Busca productos y ofertas con distancia y fuentes verificables. Distingue precio online de cadena, precio de sucursal y retiro; la disponibilidad física puede no estar confirmada. Usa el backend como fuente de verdad.",
     strict: true,
     parameters: {
       type: "object",
@@ -53,5 +53,5 @@ export const productAgentTools: OpenAI.Responses.Tool[] = [
 ];
 
 export const executeFindProductOffers = (args: FindProductOffersArguments) => {
-  return searchProductOffers(args.query, args.latitude, args.longitude, args.sort, args.radiusKm);
+  return searchWithLiveOffers(args.query, args.latitude, args.longitude, args.sort, args.radiusKm);
 };

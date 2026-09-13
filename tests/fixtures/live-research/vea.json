@@ -1,0 +1,645 @@
+{
+  "retailer": "vea",
+  "observationDate": "2026-09-13",
+  "scope": "Catálogo online anónimo; sin asociación automática con sucursal física",
+  "onlinePriceFound": true,
+  "physicalStoreMapping": false,
+  "captures": [
+    {
+      "extractedAt": "2026-09-13T04:18:03.509Z",
+      "request": {
+        "url": "https://www.vea.com.ar/detergente%20magistral%20500%20ml?_q=detergente+Magistral+500+ml&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "detergente Magistral 500 ml",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "VtexRCSessionIdv7",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_vwo_uuid_v2",
+          "vtex_session",
+          "vtex_segment",
+          "__kdtv",
+          "_kdt",
+          "_tt_enable_cookie",
+          "_ttp",
+          "wpnViewcount",
+          "_fbp",
+          "TPIDC",
+          "cwdscc",
+          "_wpn_cotpc",
+          "cwdcc",
+          "sdtpc",
+          "cus",
+          "vtex-search-session",
+          "vtex-search-anonymous",
+          "vtex_binding_address",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "cartCacheMarker",
+          "__gads",
+          "__gpi",
+          "__eoi",
+          "_ga_KQK42GZ2MZ",
+          "ttcsid",
+          "ttcsid_COGIJ9JC77U0VOQQGJA0"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "detergente magistral 500 ml",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 19,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "detergente magistral 500 ml"
+          }
+        ],
+        "fullText": "detergente magistral 500 ml",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 5,
+          "products": [
+            {
+              "productId": "195869",
+              "productName": "Detergente para Lavavajillas Ultra Limón 500 Ml Magistral",
+              "brand": "MAGISTRAL",
+              "link": "/detergente-ultra-limon-500-ml-magistral/p",
+              "properties": [
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Botella"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Aroma",
+                  "values": [
+                    "Limón"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Variedad",
+                  "values": [
+                    "Concentrado"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Capacidad",
+                  "values": [
+                    "500 Ml"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Contenido Neto",
+                  "values": [
+                    "500 Ml"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "232084",
+                  "name": "Detergente para Lavavajillas Ultra Limón 500 Ml Magistral",
+                  "ean": "7790990003039",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 4990,
+                        "ListPrice": 412397,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "1372707",
+              "productName": "Detergente para Lavavajillas Limón Cremoso 500 Ml Magistral",
+              "brand": "MAGISTRAL",
+              "link": "/detergente-ultra-limon-cremoso-x-500-ml-magistral/p",
+              "properties": [
+                {
+                  "name": "Contenido Neto",
+                  "values": [
+                    "500 Ml"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Variedad",
+                  "values": [
+                    "Cremoso"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Botella"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Aroma",
+                  "values": [
+                    "Limón"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "1370708",
+                  "name": "Detergente para Lavavajillas Limón Cremoso 500 Ml Magistral",
+                  "ean": "7790990003411",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 4990,
+                        "ListPrice": 412397,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "1360341",
+              "productName": "Detergente para Lavavajillas Ultra Marina 500 Ml Magistral",
+              "brand": "MAGISTRAL",
+              "link": "/detergente-ultra-marina-botella-500-ml-magistral/p",
+              "properties": [
+                {
+                  "name": "Variedad",
+                  "values": [
+                    "Líquido"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Botella"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Aroma",
+                  "values": [
+                    "Marina"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Contenido Neto",
+                  "values": [
+                    "500 Ml"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "1359928",
+                  "name": "Detergente para Lavavajillas Ultra Marina 500 Ml Magistral",
+                  "ean": "7790990003138",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 4990,
+                        "ListPrice": 412397,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "1367616",
+              "productName": "Detergente para Lavavajillas Platinum Limón 500 Ml Magistral",
+              "brand": "MAGISTRAL",
+              "link": "/detergente-magistral-platinum-limon-ama-500ml/p",
+              "properties": [
+                {
+                  "name": "Variedad",
+                  "values": [
+                    "Concentrado"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Aroma",
+                  "values": [
+                    "Limón"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Contenido Neto",
+                  "values": [
+                    "500 Ml"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Botella"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "1366230",
+                  "name": "Detergente para Lavavajillas Platinum Limón 500 Ml Magistral",
+                  "ean": "7790990003381",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 6190,
+                        "ListPrice": 511570,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T04:18:03.521Z",
+      "request": {
+        "url": "https://www.vea.com.ar/oreo?_q=oreo&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "oreo",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "VtexRCSessionIdv7",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_vwo_uuid_v2",
+          "vtex_session",
+          "vtex_segment",
+          "__kdtv",
+          "_kdt",
+          "_tt_enable_cookie",
+          "_ttp",
+          "wpnViewcount",
+          "_fbp",
+          "TPIDC",
+          "cwdcc",
+          "cus",
+          "vtex-search-session",
+          "vtex-search-anonymous",
+          "vtex_binding_address",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "__gads",
+          "__gpi",
+          "__eoi",
+          "ttcsid",
+          "ttcsid_COGIJ9JC77U0VOQQGJA0",
+          "cartCacheMarker",
+          "_ga_KQK42GZ2MZ"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "oreo",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 19,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "oreo"
+          }
+        ],
+        "fullText": "oreo",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 16,
+          "products": [
+            {
+              "productId": "389654",
+              "productName": "Galletitas Oreo Rellenas Con Crema Sabor Original 118 Gr",
+              "brand": "OREO",
+              "link": "/galletitas-oreo-rellenas-con-crema-sabor-original-118-gr-2/p",
+              "properties": [],
+              "items": [
+                {
+                  "itemId": "387750",
+                  "name": "Galletitas Oreo Rellenas Con Crema Sabor Original 118 Gr",
+                  "ean": "7622201735296",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 2490,
+                        "ListPrice": 205785,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "productId": "389653",
+              "productName": "Galletitas Sabor Original 354 Grs x 3 Un Oreo",
+              "brand": "OREO",
+              "link": "/galletitas-rellenas-con-crema-sabor-original-354-gr-x-3-un-oreo/p",
+              "properties": [
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Paquete"
+                  ],
+                  "__typename": "Property"
+                },
+                {
+                  "name": "Contenido Neto",
+                  "values": [
+                    "354 Grs"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "387749",
+                  "name": "Galletitas Sabor Original 354 Grs x 3 Un Oreo",
+                  "ean": "7622201735258",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 6490,
+                        "ListPrice": 536364,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "extractedAt": "2026-09-13T04:18:03.525Z",
+      "request": {
+        "url": "https://www.vea.com.ar/coca%20zero?_q=coca+zero&map=ft&__pickRuntime=appsEtag%2Cblocks%2CblocksTree%2Ccomponents%2CcontentMap%2Cextensions%2Cmessages%2Cpage%2Cpages%2Cquery%2CqueryData%2Croute%2CruntimeMeta%2Csettings&__device=desktop",
+        "method": "GET",
+        "queryParams": {
+          "_q": "coca zero",
+          "map": "ft",
+          "__pickRuntime": "appsEtag,blocks,blocksTree,components,contentMap,extensions,messages,page,pages,query,queryData,route,runtimeMeta,settings",
+          "__device": "desktop"
+        },
+        "headerNames": [
+          ":authority",
+          ":method",
+          ":path",
+          ":scheme",
+          "accept",
+          "accept-encoding",
+          "accept-language",
+          "cookie",
+          "priority",
+          "referer",
+          "sec-ch-ua",
+          "sec-ch-ua-mobile",
+          "sec-ch-ua-platform",
+          "sec-fetch-dest",
+          "sec-fetch-mode",
+          "sec-fetch-site",
+          "user-agent"
+        ],
+        "cookieNames": [
+          "VtexWorkspace",
+          "VtexRCSessionIdv7",
+          "VtexRCMacIdv7",
+          "_gcl_au",
+          "_ga",
+          "_vwo_uuid_v2",
+          "vtex_session",
+          "vtex_segment",
+          "__kdtv",
+          "_kdt",
+          "_tt_enable_cookie",
+          "_ttp",
+          "wpnViewcount",
+          "_fbp",
+          "TPIDC",
+          "cwdcc",
+          "cus",
+          "vtex-search-session",
+          "vtex-search-anonymous",
+          "vtex_binding_address",
+          "checkout.vtex.com",
+          "CheckoutOrderFormOwnership",
+          "cartCacheMarker",
+          "biggy-search-history",
+          "ttcsid",
+          "ttcsid_COGIJ9JC77U0VOQQGJA0",
+          "__gads",
+          "__gpi",
+          "__eoi",
+          "_ga_KQK42GZ2MZ"
+        ],
+        "body": null
+      },
+      "status": 200,
+      "variables": {
+        "from": 0,
+        "hideUnavailableItems": true,
+        "installmentCriteria": "MAX_WITHOUT_INTEREST",
+        "map": "ft",
+        "orderBy": "OrderByScoreDESC",
+        "query": "coca zero",
+        "simulationBehavior": "default",
+        "skusFilter": "ALL",
+        "to": 19,
+        "withFacets": false,
+        "selectedFacets": [
+          {
+            "key": "ft",
+            "value": "coca zero"
+          }
+        ],
+        "fullText": "coca zero",
+        "productOriginVtex": false
+      },
+      "data": {
+        "productSearch": {
+          "recordsFiltered": 7,
+          "products": [
+            {
+              "productId": "21814",
+              "productName": "Gaseosa Cola Zero 2,25 Lts Coca Cola",
+              "brand": "COCA COLA",
+              "link": "/coca-cola-zero-2-25-lt/p",
+              "properties": [
+                {
+                  "name": "Envase",
+                  "values": [
+                    "Botella"
+                  ],
+                  "__typename": "Property"
+                }
+              ],
+              "items": [
+                {
+                  "itemId": "18976",
+                  "name": "Gaseosa Cola Zero 2,25 Lts Coca Cola",
+                  "ean": "7790895067570",
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1,
+                  "sellers": [
+                    {
+                      "sellerId": "1",
+                      "sellerName": "Jumbo Argentina",
+                      "sellerDefault": true,
+                      "commertialOffer": {
+                        "Price": 5790,
+                        "ListPrice": 478512,
+                        "AvailableQuantity": 10000,
+                        "discountHighlights": [],
+                        "teasers": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
