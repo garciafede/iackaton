@@ -1,4 +1,5 @@
 import {normalizeSearchText} from "../utils/normalize-text.js";
+import {logError} from '../lib/safe-logging.js';
 export type GeocodeResult={status:"OK";latitude:number;longitude:number;label:string}|{status:"AMBIGUOUS"|"NOT_FOUND"|"UNAVAILABLE"};
 export const changeLocation=(text:string)=>/^(?:(?:(?:quiero|puedo) )?(?:cambiar|actualizar) (?:de |mi |la )?ubicacion|(?:me voy a otra zona\s*)?(?:quiero )?actualizar (?:mi |la )?ubicacion|quiero probar en otra ubicacion|no me actualizaste (?:la ultima |mi )?(?:ubicacion|direccion)(?: que te pase)?)$/.test(normalizeSearchText(text).replace(/[¿¡.,!?]/g,"").trim());
 export function writtenAddress(text:string):string|undefined {
@@ -28,5 +29,5 @@ export async function geocodeAddress(address:string,fetcher:typeof fetch=fetch):
   url.search=new URLSearchParams({direccion:street!,max:"5"}).toString();
   if(city)url.searchParams.set("localidad_censal",city);
   if(province)url.searchParams.set("provincia",province);
-  try{const response=await fetcher(url,{headers:{Accept:"application/json"},signal:AbortSignal.timeout(8000)});if(!response.ok)return {status:"UNAVAILABLE"};return parseGeoref(await response.json(),number);}catch{return {status:"UNAVAILABLE"};}
+  try{const response=await fetcher(url,{headers:{Accept:"application/json"},signal:AbortSignal.timeout(8000)});if(!response.ok)return {status:"UNAVAILABLE"};return parseGeoref(await response.json(),number);}catch(error){logError(error,{intent:'SET_LOCATION',provider:'GEOREF',stage:'georef.request'});return {status:"UNAVAILABLE"};}
 }

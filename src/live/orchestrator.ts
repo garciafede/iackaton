@@ -7,6 +7,7 @@ import {liveConfig,liveEnabled} from "./config.js";
 import {liveCacheKey,neonLiveRepository,type LiveRepository} from "./repository.js";
 import {mapLiveCandidates} from "./store-mapping.js";
 import {retailers,type LiveProvider,type LiveRequest,type ProviderData,type ProviderReport,type Retailer} from "./types.js";
+import {logError} from '../lib/safe-logging.js';
 
 type StableResponse=NonNullable<Awaited<ReturnType<typeof searchProductOffers>>>;
 export type SearchResponse=Omit<StableResponse,"results"> & {results:SearchResult[];notices?:string[];liveReports?:ProviderReport[];multipleProducts?:boolean};
@@ -37,8 +38,8 @@ export class ProductSearchOrchestrator {
     const preferred=preferredEans(query);
     const input:LiveRequest={query:query.trim(),latitude,longitude,radiusKm:radius,...(preferred?{preferredEans:preferred}:{})};
     const now=this.deps.now(),config=liveConfig();
-    const fallbackPromise=bounded(this.deps.fallback(query,latitude,longitude,sort,radius),4000).catch(()=>null);
-    const branchesPromise=bounded(this.deps.repository.branches(),3000).catch(()=>[]);
+    const fallbackPromise=bounded(this.deps.fallback(query,latitude,longitude,sort,radius),4000).catch(error=>{logError(error,{intent:'SEARCH_PRODUCT',query,provider:'SEPA',stage:'fallback.search'});return null;});
+    const branchesPromise=bounded(this.deps.repository.branches(),3000).catch(error=>{logError(error,{intent:'SEARCH_PRODUCT',query,stage:'branches.read'});return [];});
     const reports:ProviderReport[]=[];
     const outcomes=await Promise.allSettled(this.deps.providers.map(async provider=>{
       const start=Date.now(),key=liveCacheKey(provider.retailer,input),warnings:string[]=[];
@@ -52,7 +53,7 @@ export class ProductSearchOrchestrator {
               const age=now.getTime()-Date.parse(value.checkedAt);
               if(age>=0&&age<config.ttlMinutes*60000) {data=value;cache="HIT";}
             }
-          } catch {warnings.push("CACHE_READ_UNAVAILABLE");}
+          } catch(error) {logError(error,{intent:'SEARCH_PRODUCT',query,provider:provider.retailer,stage:'cache.read'});warnings.push("CACHE_READ_UNAVAILABLE");}
         }
         if(!data) {
           // Coalescer solo durante una request concurrente; TTL/histórico residen en Neon.
@@ -65,7 +66,7 @@ export class ProductSearchOrchestrator {
           }
           data=await work;
           if(!validProviderData(data,provider.retailer)||Date.parse(data.checkedAt)>this.deps.now().getTime()+1000) throw new Error("INVALID_JSON");
-          if(options.persist!==false) try {await bounded(this.deps.repository.save(key,data),3500);} catch {warnings.push("CACHE_WRITE_UNAVAILABLE");}
+          if(options.persist!==false) try {await bounded(this.deps.repository.save(key,data),3500);} catch(error) {logError(error,{intent:'SEARCH_PRODUCT',query,provider:provider.retailer,stage:'cache.write'});warnings.push("CACHE_WRITE_UNAVAILABLE");}
         }
         warnings.push(...data.warnings);
         if(!data.candidates.length)warnings.push("NO_MATCHING_PRODUCT");
@@ -74,7 +75,7 @@ export class ProductSearchOrchestrator {
       } catch(error) {
         warnings.push(safeWarning(error));
         reports.push({retailer:provider.retailer,status:"WARN",durationMs:Date.now()-start,cache,candidates:0,warnings});
-        console.warn("live.provider",{retailer:provider.retailer,status:"WARN",reason:warnings.at(-1)});
+        logError(error,{intent:'SEARCH_PRODUCT',query,provider:provider.retailer,stage:'provider.search'});
         throw new Error("PROVIDER_UNAVAILABLE");
       }
     }));

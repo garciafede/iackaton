@@ -1,4 +1,5 @@
 import {matchesLiveProduct, presentation, validEan} from "./matching.js";
+import {logError} from '../lib/safe-logging.js';
 import {liveConfig} from "./config.js";
 import {retailers, type Candidate, type LiveProvider, type LiveRequest, type Pickup, type ProviderData, type Retailer} from "./types.js";
 
@@ -93,7 +94,7 @@ export class RetailerHttpProvider implements LiveProvider {
         if (!c.product.ean) return;
         try {c.pickups=parsePickupSimulation(await this.json(new URL("/api/checkout/pub/orderForms/simulation",origins.CARREFOUR),AbortSignal.any([signal,AbortSignal.timeout(2500)]),
           {items:[{id:c.product.sku,quantity:1,seller:c.sellerId}],geoCoordinates:[input.longitude,input.latitude],country:"ARG",postalCode:null}),c.product.sku);}
-        catch {warnings.push("PICKUP_UNAVAILABLE");}
+        catch(error) {logError(error,{intent:'SEARCH_PRODUCT',query:input.query,provider:this.retailer,stage:'pickup.simulation'});warnings.push("PICKUP_UNAVAILABLE");}
       }));
     }
     return {version:1,retailer:this.retailer,checkedAt:new Date().toISOString(),candidates,warnings:[...new Set(warnings)]};

@@ -106,6 +106,17 @@ test("live: caída de providers conserva SEPA localizado como fallback",async()=
   const result=await setup({providers,fallback:stable()}).search();
   assert.equal(result?.results.length,1);assert.equal(result?.results[0]?.source,"REAL:SEPA");assert.equal(result?.results[0]?.live?.priceScope,"SEPA_BRANCH");
 });
+
+test('live: error real identifica cada provider y conserva mensaje, causa y etapa sin payloads',async t=>{
+  const logs:string[]=[];t.mock.method(console,'info',(line:string)=>logs.push(line));
+  const providers=(Object.keys(retailers) as Retailer[]).map(retailer=>({retailer,search:async()=>{throw Object.assign(new Error('provider fixture failed',{cause:new Error('fixture socket failure')}),{request:{token:'private-provider-fixture'}});}}));
+  const result=await setup({providers,fallback:stable()}).search({cache:false,persist:false});
+  assert.equal(result?.results[0]?.source,'REAL:SEPA');
+  const records=logs.map(line=>JSON.parse(line));assert.equal(records.length,3);
+  assert.deepEqual(records.map(r=>r.provider).sort(),Object.keys(retailers).sort());
+  for(const record of records){assert.equal(record.stage,'provider.search');assert.equal(record.query,input.query);assert.equal(record.intent,'SEARCH_PRODUCT');assert.equal(record.err.message,'provider fixture failed');assert.equal(record.err.cause.message,'fixture socket failure');assert.ok(record.err.stack);}
+  assert.doesNotMatch(logs.join(''),/private-provider-fixture/);
+});
 test("live: no mezcla DEMO cuando obtuvo datos live",async()=>{
   const result=await setup({fallback:stable("DEMO")}).search();
   assert.equal(result?.results.length,3);assert.ok(result?.results.every(r=>r.source!=="DEMO"));

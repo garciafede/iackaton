@@ -183,7 +183,7 @@ export const createWhatsAppWebhookRoutes = (
 									event: "whatsapp.processing_error",
 									messageId: message.id,
 
-									error: safeErrorLog(error),
+									err: safeErrorLog(error), intent: 'WHATSAPP_MESSAGE', stage: 'webhook.processing',
 								},
 								"Error procesando webhook de WhatsApp",
 							);

@@ -12,7 +12,7 @@ import { safeErrorLog, safeRequestLog } from "./lib/safe-logging.js";
 
 const fastify = Fastify({ logger: { serializers: {
   req: safeRequestLog,
-  err: (error) => ({ ...safeErrorLog(error), type: "Error", message: "Detalles privados omitidos", stack: "" }),
+  err: (error) => safeErrorLog(error),
 } } });
 
 fastify.get("/", async () => {
@@ -30,7 +30,7 @@ await fastify.register(chatRoutes);
 await fastify.register(whatsappWebhookRoutes);
 
 fastify.setErrorHandler((error: FastifyError, request, reply) => {
-  request.log.error({ event: "request.error", error: safeErrorLog(error) });
+  request.log.error({ event: "request.error", err: safeErrorLog(error), intent: 'HTTP_REQUEST', stage: 'request.handler' });
 
   if (error.statusCode && error.statusCode < 500) {
     return reply.status(error.statusCode).send({ message: error.message });
@@ -53,7 +53,7 @@ try {
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error("Puerto inválido");
   await fastify.listen({ port, host: "0.0.0.0" });
 } catch (error) {
-  fastify.log.error({ event: "startup.error", error: safeErrorLog(error) });
+  fastify.log.error({ event: "startup.error", err: safeErrorLog(error), intent: 'STARTUP', stage: 'server.listen' });
   await prisma.$disconnect();
   process.exit(1);
 }

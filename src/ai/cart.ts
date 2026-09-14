@@ -5,6 +5,7 @@ import type {SearchResult,SearchSort} from "../services/product-search.service.j
 import {normalizeSearchText} from "../utils/normalize-text.js";
 import {findBestProduct} from "../services/product-search.service.js";
 import {queryFitsCatalogProduct} from "../catalog/matching.js";
+import {logError} from "../lib/safe-logging.js";
 
 export type CartItem={query:string;quantity:number};
 export const MAX_CART_ITEMS=10;
@@ -31,6 +32,11 @@ export function parseCart(message:string):CartItem[]|undefined {
 type CartLine={item:CartItem;offer:SearchResult|null;subtotal:number|null};
 export type CartComparison={chain:string;store:string|null;lines:CartLine[];complete:boolean;total:number;online:boolean;distance:number;channel:string};
 export type CartResult={comparisons:CartComparison[];winner:CartComparison|null;sort:SearchSort;ambiguous:string[]};
+// Cambiar el orden conserva el relevamiento: mismos productos, sucursales y precios.
+export function reorderCart(result:CartResult,sort:SearchSort):CartResult {
+  const complete=result.comparisons.filter(c=>c.complete).sort((a,b)=>(sort==='distance'?a.distance-b.distance:0)||a.total-b.total);
+  return {...result,sort,winner:complete[0]??null};
+}
 const chains=["Carrefour","Vea","ChangoMás"];
 type Search=typeof executeFindProductOffers;
 export async function compareCart(items:CartItem[],latitude:number,longitude:number,sort:SearchSort="price",radiusKm:number|null=25,search:Search=searchCartProduct):Promise<CartResult>{
@@ -38,7 +44,7 @@ export async function compareCart(items:CartItem[],latitude:number,longitude:num
   // Dos productos a la vez; cada orquestador ya paraleliza las tres cadenas.
   const results:Array<Awaited<ReturnType<Search>>>=Array(items.length).fill(null);
   let next=0;
-  await Promise.all([0,1].map(async()=>{while(next<items.length){const index=next++;try{results[index]=await search({query:items[index]!.query,latitude,longitude,sort,radiusKm});}catch{results[index]=null;}}}));
+  await Promise.all([0,1].map(async()=>{while(next<items.length){const index=next++;try{results[index]=await search({query:items[index]!.query,latitude,longitude,sort,radiusKm});}catch(error){logError(error,{intent:'CART_SEARCH',query:items[index]!.query,stage:'cart.item.search'});results[index]=null;}}}));
   const ambiguous:string[]=[];
   const offers=results.map((result,index)=>{
     const rows=(result?.results??[]).filter(r=>r.source?.startsWith("REAL:")&&r.stock!==false&&Number.isFinite(r.price)&&r.price>0);

@@ -1,6 +1,7 @@
 import type { FastifyPluginAsync } from "fastify";
 
 import { runProductAgent } from "../ai/agent.js";
+import {safeErrorLog,redactLogText} from '../lib/safe-logging.js';
 import {
   MissingOpenAIApiKeyError,
   MissingOpenAIModelError,
@@ -90,7 +91,7 @@ export const createChatRoutes = (agent: ChatAgent = runProductAgent): FastifyPlu
           {
             event: "chat.error",
             durationMs: Math.round(performance.now() - startedAt),
-            errorName: error instanceof Error ? error.name : "UnknownError",
+            err: safeErrorLog(error), intent: 'SEARCH_PRODUCT', query: redactLogText(message??''), stage: 'chat.agent',
           },
           "Error en chat",
         );

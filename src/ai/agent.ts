@@ -1,4 +1,5 @@
 import type OpenAI from "openai";
+import {logError} from '../lib/safe-logging.js';
 
 import { createOpenAIClient, getOpenAIModel } from "../config/openai.js";
 import {
@@ -145,6 +146,8 @@ export const runProductAgent = async (
   input: AgentInput,
   dependencies?: AgentDependencies,
 ): Promise<AgentResult> => {
+  let stage='agent.input',query=input.previousSearch?.query??input.message;
+  try {
   if (isGreeting(input.message)) return { message: input.latitude === undefined ? "¡Hola! Decime qué producto querés buscar y compartime tu ubicación." : "¡Hola! Ya tengo tu ubicación. Decime qué producto querés buscar.", toolUsed: false };
   const reorder = followupSort(input.message) ?? (wantsDetails(input.message) && !/\b(buscame|buscar|comprar)\b/i.test(input.message) && input.previousSearch ? input.previousSearch.sort : undefined);
   if (reorder && !input.previousSearch) return { message: "Decime qué producto querés comparar.", toolUsed: false };
@@ -155,6 +158,7 @@ export const runProductAgent = async (
     };
   }
 
+  stage='openai.configuration';
   const agent = dependencies ?? defaultDependencies();
   const conversation: OpenAI.Responses.ResponseInput = [
     { role: "user", content: input.message },
@@ -164,6 +168,7 @@ export const runProductAgent = async (
     },
   ];
 
+  stage='openai.responses';
   const toolDecisionResponse = reorder && input.previousSearch ? undefined : await agent.createResponse({
     model: agent.model,
     instructions: agentInstructions,
@@ -191,14 +196,16 @@ export const runProductAgent = async (
       ? { ...input.previousSearch, sort: reorder, latitude: input.latitude, longitude: input.longitude }
       : JSON.parse(toolCall!.arguments) as FindProductOffersArguments;
     if (!toolArguments || typeof toolArguments.query !== "string" || !toolArguments.query.trim() || toolArguments.query.length > 200 || !["price", "distance", "recommended"].includes(toolArguments.sort)) throw new Error("Invalid tool arguments");
-  } catch {
+  } catch(error) {
+    logError(error,{intent:'SEARCH_PRODUCT',query,provider:'OPENAI',stage:'tool.arguments'});
     return { message: "No pude interpretar la búsqueda. Decime el nombre del producto e intentamos de nuevo.", toolUsed: false };
   }
   toolArguments.latitude = input.latitude;
   toolArguments.longitude = input.longitude;
   toolArguments.sort = requestedSort(input.message) ?? input.sort ?? input.previousSearch?.sort ?? toolArguments.sort;
   try { if (!reorder) toolArguments.radiusKm = resolveMessageRadius(input.message, toolArguments.radiusKm); }
-  catch {
+  catch(error) {
+    logError(error,{intent:'SEARCH_PRODUCT',query:toolArguments.query,stage:'tool.radius'});
     const usage = addUsage(toolDecisionResponse);
     return { message: `Indicá un radio mayor que 0 y hasta ${offerQualityConfig.maxRadiusKm} km, o pedime buscar sin límite de distancia.`, toolUsed: false, ...(usage ? { usage } : {}) };
   }
@@ -209,6 +216,7 @@ export const runProductAgent = async (
     arguments: toolArguments,
   });
   input.onEvent?.({ type: "tool_started", tool: "findProductOffers" });
+  stage='findProductOffers';query=toolArguments.query;
   const toolResult = await agent.executeTool(toolArguments);
   input.onSearchResult?.(toolResult);
   input.onEvent?.({
@@ -216,6 +224,7 @@ export const runProductAgent = async (
     tool: "findProductOffers",
     totalResults: toolResult?.totalResults ?? 0,
   });
+  stage='response.format';
   if (!toolResult) {
     const usage = addUsage(toolDecisionResponse);
     return {
@@ -251,4 +260,8 @@ export const runProductAgent = async (
     toolArguments,
     ...(usage ? { usage } : {}),
   };
+  } catch(error) {
+    logError(error,{intent:'SEARCH_PRODUCT',query,stage,...(stage.startsWith('openai.')?{provider:'OPENAI'}:{})});
+    throw error;
+  }
 };

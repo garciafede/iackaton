@@ -281,7 +281,7 @@ test("UX: ¿Y cuál me queda más cerca? responde sucursal y distancia del carri
   assert.equal(h.sessions.get("a")?.cartResult?.winner?.chain,"Carrefour");
   await h.text("¿Y cuál me queda más cerca?");
   assert.equal(h.sessions.get("a")?.cart?.length,5);assert.equal(h.sessions.get("a")?.sort,"distance");
-  assert.deepEqual(sorts,["price","distance"]);
+  assert.deepEqual(sorts,["price"],"Cercanía reutiliza los precios y faltantes guardados");
   assert.equal(h.sessions.get("a")?.cartResult?.winner?.chain,"Vea");
   assert.match(h.sent.at(-1)!,/Carrito completo más cercano: Vea · Vea test/);
   assert.match(h.sent.at(-1)!,/1,5 km/);assert.doesNotMatch(h.sent.at(-1)!,/1 Oreo|1 Coca Zero/);
@@ -401,7 +401,7 @@ test("UX: frases contextuales recalculan carrito con ubicación actual sin busca
   for(const text of ["Dónde me conviene comprar el carrito ahora?","recalculá el carrito","y el carrito con esta ubicación?"]){
     await h.text(text);assert.deepEqual(h.sessions.get("a")?.cart,items);assert.match(h.sent.at(-1)!,/Más barato/);
   }
-  assert.deepEqual(calls,Array.from({length:3},()=>({latitude:-26,longitude:-65,sort:"price"})));
+  assert.deepEqual(calls,Array.from({length:2},()=>({latitude:-26,longitude:-65,sort:"price"})),"Nueva ubicación y recálculo explícito consultan; el seguimiento reutiliza");
 });
 
 test("UX: despedidas compuestas tienen prioridad y conservan carrito sin búsquedas",async()=>{
@@ -505,8 +505,8 @@ test("chat real: referencias al carrito sobreviven a búsquedas individuales int
   for(const text of ["Cuánto gastaría en cada supermercado?","De lo anterior que te mandé","Y ahora con el carro anterior donde me conviene comprar por cercanía?","Volviendo a la compra anterior, cuál es la más barata?"]){
     await h.text(text);assert.deepEqual(h.sessions.get("a")?.cart,cart);
   }
-  assert.deepEqual(searches.map(s=>s.sort),["price","price","distance","price"]);
-  assert.ok(searches.every(s=>s.lat===-27&&s.lon===-66));
+  assert.deepEqual(searches,[],"Las referencias conservan el relevamiento del carrito anterior");
+  assert.equal(h.sessions.get('a')?.latitude,-27);assert.equal(h.sessions.get('a')?.longitude,-66);
   assert.match(h.sent.at(-1)!,/Más barato/);
 });
 

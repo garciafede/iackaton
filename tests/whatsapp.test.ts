@@ -230,8 +230,10 @@ test("webhook con firma inválida no ejecuta agente ni envía mensajes", async (
 
 test("logs omiten token de verificación y contenido privado de errores SDK", () => {
   const request = safeRequestLog({ method: "GET", url: "/webhooks/whatsapp?hub.verify_token=private-fixture" });
-  const error = safeErrorLog(Object.assign(new Error("private-fixture"), { headers: { authorization: "private-fixture" }, status: 401 }));
+  const error = safeErrorLog(Object.assign(new Error("Request failed: Bearer private-fixture"), { headers: { authorization: "private-fixture" }, status: 401 }));
   assert.equal(request.url, "/webhooks/whatsapp");
   assert.equal(error.status, 401);
-  assert.doesNotMatch(JSON.stringify({ request, error }), /private-fixture|authorization|stack/);
+  assert.doesNotMatch(JSON.stringify({ request, error }), /private-fixture|authorization/);
+  assert.match(error.message,/Request failed/);
+  assert.match(error.stack!,/Error/);
 });

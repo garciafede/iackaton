@@ -1,4 +1,5 @@
 import { getWhatsAppClientConfig } from "./config.js";
+import {logError} from '../lib/safe-logging.js';
 
 type SendTextDependencies = {
   fetch: typeof globalThis.fetch;
@@ -101,10 +102,11 @@ export const sendTextMessage = async (
         error_data: { details: safeErrorText(error?.error_data?.details) },
       },
     };
-    console.error("Meta Graph API error:", diagnostic);
-
-    throw new Error(
+    const failure = new Error(
       `Meta Graph API respondió HTTP ${response.status}: ${JSON.stringify(diagnostic.error)}`,
     );
+    logError(failure,{intent:'SEND_MESSAGE',provider:'META',stage:'meta.response'});
+    console.info(JSON.stringify({level:50,event:'meta.error',provider:'META',stage:'meta.response',...diagnostic}));
+    throw failure;
   }
 };
