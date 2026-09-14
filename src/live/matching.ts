@@ -1,4 +1,4 @@
-import {normalizeCatalogText} from "../catalog/matching.js";
+import {normalizeCatalogText,productWord} from "../catalog/matching.js";
 import type {LiveProduct} from "./types.js";
 import {catalogProducts} from "../catalog/products.js";
 import {presentationMatches} from "../prices/matching.js";
@@ -26,7 +26,7 @@ export function matchesLiveProduct(query: string, product: LiveProduct, preferre
   const wantedSize = presentation(query);
   if (wantedSize && wantedSize !== product.size) return false;
   const words = normalized.split(" ").filter(w=>w && !ignore.has(w));
-  if (!words.length || !words.every(w=>name.split(" ").includes(w))) return false;
+  if (!words.length || !words.every(w=>name.split(" ").map(productWord).includes(productWord(w)))) return false;
   // Una identidad sin EAN exige al menos marca y presentación explícitas.
   if (!product.ean && (!wantedSize || !normalizeCatalogText(product.brand).split(" ").every(w=>normalized.split(" ").includes(w)))) return false;
   // Si ya se indicó una variante concreta, no ampliarla con calificadores distintos.

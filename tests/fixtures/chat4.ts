@@ -1,0 +1,22 @@
+// Mensajes textuales del chat(4).md. Los GPS son sustitutos sintéticos con la misma relación de proximidad.
+export const chat4=[
+  ['Hola, estoy buscando papas lays clásicas. Dónde puedo comprarlas?','SEARCH_PRODUCT'],
+  ['GPS_A','SET_LOCATION'],
+  ['De esas opciones cual tiene el mejor precio?','PRODUCT_FOLLOWUP'],
+  ['Las papas lays clásicas','SEARCH_PRODUCT'],
+  ['Y cuál tiene el mejor precio?','PRODUCT_FOLLOWUP'],
+  ['Necesito comprar: 2 oreo original 118g, 1 yerba playadito 1kg, 1 fideos Terrabusi tallarin n° 7 500 g, 1 magistral ultra limón 500ml. En qué super me conviene comprar todo?','CREATE_CART'],
+  ['Cuánto gastaría en cada supermercado con esa compra?','CART_FOLLOWUP'],
+  ['Cuál sería el más barato para la compra que te pasé?','CART_FOLLOWUP'],
+  ['Quiero comprar lo mismo pero desde otra ubicación','CHANGE_LOCATION'],
+  ['Nueva ubicación','CHANGE_LOCATION'],
+  ['Cambiar ubicación','CHANGE_LOCATION'],
+  ['GPS_B','SET_LOCATION'],
+  ['No es la misma','CHANGE_LOCATION'],
+  ['Cómo era mi carrito?','SHOW_CART'],
+  ['Quiero una coca zero','SEARCH_PRODUCT'],
+  ['Y la más barata?','PRODUCT_FOLLOWUP'],
+  ['Cuál es mi carrito?','SHOW_CART'],
+  ['Si en vez de 1 coca quiero 3, como queda el carrito?','MODIFY_CART'],
+  ['Gracias por la ayuda. Hasta luego','FAREWELL'],
+] as const;

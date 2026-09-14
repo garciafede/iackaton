@@ -1,0 +1,9 @@
+[build]
+builder = "railpack"
+buildCommand = "npm run db:generate && npm run build"
+
+[deploy]
+preDeployCommand = ["npx --no-install prisma migrate deploy"]
+startCommand = "npm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 100

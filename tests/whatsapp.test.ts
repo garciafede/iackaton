@@ -12,7 +12,7 @@ import { safeErrorLog, safeRequestLog } from "../src/lib/safe-logging.js";
 const APP_SECRET = "test-app-secret";
 const VERIFY_TOKEN = "test-verify-token";
 
-type AgentCall = { message: string; latitude?: number; longitude?: number; previousSearch?: PreviousSearch };
+type AgentCall = { message: string; latitude?: number; longitude?: number; previousSearch?: PreviousSearch; onSearchResult?: Parameters<typeof import("../src/ai/agent.js").runProductAgent>[0]["onSearchResult"] };
 
 const messagePayload = (message: object) => ({
   object: "whatsapp_business_account",
@@ -120,9 +120,12 @@ test("texto seguido de ubicación ejecuta el agente con el mensaje pendiente", a
   );
   assert.deepEqual(harness.agentCalls[1], {
     message: "oreo cerca",
+    sort: "distance",
     latitude: -26.82,
     longitude: -65.22,
+    onSearchResult: harness.agentCalls[1]!.onSearchResult,
   });
+  assert.equal(typeof harness.agentCalls[1]!.onSearchResult,"function");
   assert.match(harness.sent[1]?.body ?? "", /DEMO/);
   await harness.app.close();
 });
@@ -144,9 +147,12 @@ test("ubicación seguida de texto ejecuta el agente con ubicación guardada", as
   );
   assert.deepEqual(harness.agentCalls[0], {
     message: "pepsi black",
+    sort: "distance",
     latitude: -26.83,
     longitude: -65.21,
+    onSearchResult: harness.agentCalls[0]!.onSearchResult,
   });
+  assert.equal(typeof harness.agentCalls[0]!.onSearchResult,"function");
   await harness.app.close();
 });
 

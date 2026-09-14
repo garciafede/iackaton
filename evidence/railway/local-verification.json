@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-09-13T20:50:53.988Z",
+  "prismaGenerate": "PASS",
+  "build": "PASS",
+  "tests": {
+    "total": 106,
+    "passed": 106,
+    "failed": 0
+  },
+  "startChecks": [
+    {
+      "nodeEnv": "development",
+      "port": 3317,
+      "healthHttp": 200,
+      "host": "0.0.0.0",
+      "command": "npm start"
+    },
+    {
+      "nodeEnv": "production",
+      "port": 3318,
+      "healthHttp": 200,
+      "host": "0.0.0.0",
+      "command": "npm start"
+    }
+  ],
+  "envPresent": [
+    "DATABASE_URL",
+    "DATABASE_URL_UNPOOLED",
+    "OPENAI_API_KEY",
+    "OPENAI_MODEL",
+    "WHATSAPP_ACCESS_TOKEN",
+    "WHATSAPP_PHONE_NUMBER_ID",
+    "WHATSAPP_GRAPH_API_VERSION",
+    "WHATSAPP_VERIFY_TOKEN",
+    "WHATSAPP_APP_SECRET"
+  ],
+  "live": true,
+  "dependencyVersionsUnchanged": true,
+  "railwayDeploy": "NOT_PERFORMED"
+}

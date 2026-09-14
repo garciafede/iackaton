@@ -9,14 +9,18 @@ import {
 import { resolveMessageRadius } from "./search-preferences.js";
 import { offerQualityConfig } from "../services/offer-quality.js";
 import { formatOffers } from "./format-offers.js";
-import { followupSort, isGreeting, type PreviousSearch } from "./conversation.js";
+import { followupSort, isGreeting, requestedSort, wantsDetails, type PreviousSearch } from "./conversation.js";
+import { formatCompactOffers } from "./format-compact.js";
 
 type AgentInput = {
   message: string;
   latitude?: number;
   longitude?: number;
   previousSearch?: PreviousSearch;
+  compact?: boolean;
+  sort?: import("../services/product-search.service.js").SearchSort;
   onEvent?: (event: AgentEvent) => void;
+  onSearchResult?: (result:SearchToolResult)=>void;
 };
 
 export type AgentEvent =
@@ -123,12 +127,26 @@ const defaultDependencies = (): AgentDependencies => {
   };
 };
 
+// Cada ítem del carrito interpreta el producto con el mismo agente que una búsqueda individual.
+export async function searchCartProduct(args:FindProductOffersArguments,dependencies?:AgentDependencies):Promise<SearchToolResult>{
+  const agent=dependencies??defaultDependencies();
+  let found:SearchToolResult=null;
+  await runProductAgent({message:args.query,latitude:args.latitude,longitude:args.longitude,sort:args.sort,compact:true},{
+    ...agent,
+    executeTool:async selected=>{
+      found=await agent.executeTool({...selected,latitude:args.latitude,longitude:args.longitude,sort:args.sort,...(args.radiusKm!==undefined?{radiusKm:args.radiusKm}:{})});
+      return found;
+    },
+  });
+  return found;
+}
+
 export const runProductAgent = async (
   input: AgentInput,
   dependencies?: AgentDependencies,
 ): Promise<AgentResult> => {
-  if (isGreeting(input.message)) return { message: "¡Hola! Decime qué producto querés buscar y compartime tu ubicación.", toolUsed: false };
-  const reorder = followupSort(input.message);
+  if (isGreeting(input.message)) return { message: input.latitude === undefined ? "¡Hola! Decime qué producto querés buscar y compartime tu ubicación." : "¡Hola! Ya tengo tu ubicación. Decime qué producto querés buscar.", toolUsed: false };
+  const reorder = followupSort(input.message) ?? (wantsDetails(input.message) && !/\b(buscame|buscar|comprar)\b/i.test(input.message) && input.previousSearch ? input.previousSearch.sort : undefined);
   if (reorder && !input.previousSearch) return { message: "Decime qué producto querés comparar.", toolUsed: false };
   if (input.latitude === undefined || input.longitude === undefined) {
     return {
@@ -178,6 +196,7 @@ export const runProductAgent = async (
   }
   toolArguments.latitude = input.latitude;
   toolArguments.longitude = input.longitude;
+  toolArguments.sort = requestedSort(input.message) ?? input.sort ?? input.previousSearch?.sort ?? toolArguments.sort;
   try { if (!reorder) toolArguments.radiusKm = resolveMessageRadius(input.message, toolArguments.radiusKm); }
   catch {
     const usage = addUsage(toolDecisionResponse);
@@ -191,6 +210,7 @@ export const runProductAgent = async (
   });
   input.onEvent?.({ type: "tool_started", tool: "findProductOffers" });
   const toolResult = await agent.executeTool(toolArguments);
+  input.onSearchResult?.(toolResult);
   input.onEvent?.({
     type: "tool_completed",
     tool: "findProductOffers",
@@ -217,7 +237,9 @@ export const runProductAgent = async (
   }
 
   input.onEvent?.({ type: "response_generation_started" });
-  const message = formatOffers(toolResult, toolArguments.sort);
+  // El criterio explícito manda incluso si el modelo o un adaptador devolvió otro orden.
+  if (toolArguments.sort === "price") toolResult.results.sort((a,b)=>a.price-b.price || a.distanceKm-b.distanceKm);
+  const message = input.compact && !wantsDetails(input.message) ? formatCompactOffers(toolResult, toolArguments.sort) : formatOffers(toolResult, toolArguments.sort);
   const usage = addUsage(toolDecisionResponse);
   input.onEvent?.({
     type: "response_generated",

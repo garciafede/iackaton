@@ -79,3 +79,21 @@ model Offer {
   @@unique([productId, storeId])
   @@index([storeId])
 }
+
+model ConversationLog {
+  id             String   @id @default(cuid())
+  createdAt      DateTime @default(now())
+  sessionId      String
+  direction      String
+  messageType    String
+  text           String?
+  location       Json?
+  detectedIntent String
+  sortCriterion  String
+  stateSummary   Json
+  latencyMs      Int?
+  error          String?
+
+  @@index([sessionId, createdAt])
+  @@index([createdAt])
+}
