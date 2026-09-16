@@ -4,6 +4,7 @@ import type {SearchSort} from "../services/product-search.service.js";
 import type {SearchResult} from "../services/product-search.service.js";
 import {randomUUID} from "node:crypto";
 import type {Coordinates} from "../utils/distance.js";
+import type {PendingLocation} from './geocoding.js';
 
 export type PendingAction =
   | {type:"LOCATION";street?:string;locality?:string;province?:string;question?:"city"|"province";resume?:"product"|"cart"}
@@ -12,6 +13,7 @@ export type ConversationState={
   sessionId:string;location?:Coordinates;lastProduct?:PreviousSearch;lastProductResults?:SearchResult[];
   currentCart:CartItem[];cartResults?:CartResult;sortCriterion:SearchSort;
   pendingAction?:PendingAction;activeSubject?:"product"|"cart";lastLocationSimilar?:boolean;updatedAt:number;
+  pendingLocation?:PendingLocation;
 };
 
 type LegacySession = {

@@ -32,7 +32,7 @@ export function cartChange(message:string):CartChange|undefined{
 export function resolveIntent(message:string,state:ConversationState):Intent{
   const text=words(message),sort=criterion(text),order=sort?{sort}:{};
   const locationTopic=/\b(ubicacion|direccion|zona|lugar|punto)\b/.test(text);
-  const locationChange=/\b(cambiar|cambio|actualizar|actualizaste|nueva|nuevo|otra|otro|voy|probar)\b/.test(text);
+  const locationChange=/\b(cambiar|cambio|actualizar|actualizaste|nueva|nuevo|otra|otro|voy|probar|mude)\b/.test(text);
   const quantityOnly=text.match(/^(?:(?:pone|poneme|quiero)\s+|de\s+\d+\s+a\s+)(\d+)(?:\s+unidades?)?$/);
   const explicitAddress=writtenAddress(message);
   if(explicitAddress&&!(state.currentCart.length&&quantityOnly))return {name:'SET_LOCATION',query:explicitAddress};

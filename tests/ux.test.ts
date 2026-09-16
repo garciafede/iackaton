@@ -4,7 +4,7 @@ import {runProductAgent,searchCartProduct} from "../src/ai/agent.js";
 import {answerStoreQuestion,followupSort,requestedSort} from "../src/ai/conversation.js";
 import {compareCart,formatCart,MAX_CART_ITEMS,parseCart} from "../src/ai/cart.js";
 import {formatCompactOffers} from "../src/ai/format-compact.js";
-import {geocodeAddress,parseGeoref,writtenAddress} from "../src/whatsapp/geocoding.js";
+import {geocodeAddress,parseGeoref,writtenAddress,parseAddress} from "../src/whatsapp/geocoding.js";
 import {handleMessage} from "../src/whatsapp/handle-message.js";
 import {WhatsAppSessionStore,MessageDeduplicator} from "../src/whatsapp/session.js";
 import type {WhatsAppWebhookDependencies,WhatsAppMessage} from "../src/whatsapp/webhook.js";
@@ -72,6 +72,88 @@ test("UX: geocodificación no inventa coordenadas ni acepta otra altura",async()
   assert.deepEqual(parseGeoref({total:1,direcciones:[{altura:{valor:4320},ubicacion:{lat:null,lon:null}}]},"4320"),{status:"NOT_FOUND"});
   assert.deepEqual(parseGeoref(geodata,"4319"),{status:"NOT_FOUND"});
   assert.deepEqual(await geocodeAddress("Italia 4320",(async()=>{throw new Error("network");}) as typeof fetch),{status:"UNAVAILABLE"});
+});
+
+for(const [text,street,city,province] of [
+  ['Estoy en Italia 1110, San Miguel de Tucumán, Tucumán','Italia 1110','San Miguel de Tucumán','Tucumán'],
+  ['Av. Corrientes 1500, CABA','Avenida Corrientes 1500',null,'Ciudad Autónoma de Buenos Aires'],
+  ['Av. Colón 1200; Córdoba; Córdoba','Avenida Colón 1200','Córdoba','Córdoba'],
+  ['Mitre 500, San Martín, Buenos Aires, CP 1650','Mitre 500','San Martín','Buenos Aires'],
+  ['ahora estoy en Italia 1110 San Miguel de Tucumán','Italia 1110','San Miguel de Tucumán',null],
+] as const){test(`dirección escrita completa/parcial genérica: ${text}`,async()=>{
+  const h=harness();let count=0;
+  h.deps.geocode=address=>geocodeAddress(address,(async(url:URL)=>{
+    count++;assert.equal(url.pathname,'/georef/api/v2.0/direcciones');assert.equal(url.searchParams.get('direccion'),street);
+    assert.equal(url.searchParams.get('localidad_censal'),city);assert.equal(url.searchParams.get('provincia'),province);
+    assert.equal(url.searchParams.has('municipio'),false);assert.equal(url.searchParams.has('postalCode'),false);
+    return Response.json({total:1,direcciones:[{altura:{valor:Number(street.match(/\d+$/)![0])},calle:{nombre:street.replace(/ \d+$/,'')},ubicacion:{lat:-30,lon:-64},nomenclatura:'Dirección fixture confirmada por Georef'}]});
+  }) as typeof fetch);
+  await h.text(text);assert.equal(count,1);assert.equal(h.sent.length,1);
+  assert.equal(h.sent[0],'Ubicación actualizada ✅\nDirección fixture confirmada por Georef');
+  assert.deepEqual(h.sessions.get('a')?.location,{latitude:-30,longitude:-64});assert.equal(h.sessions.get('a')?.pendingLocation,undefined);assert.equal(h.calls.length,0);
+});}
+
+for(const steps of [['San Miguel de Tucumán','Tucumán'],['San Miguel de Tucumán, Tucumán']]){
+  test(`dirección en ${steps.length+1} mensajes conserva Italia 1110 y contexto explícito`,async()=>{
+    const h=harness();const urls:URL[]=[];
+    h.deps.geocode=address=>geocodeAddress(address,(async(url:URL)=>{
+      urls.push(url);
+      return Response.json(url.searchParams.has('provincia')?{total:1,direcciones:[{altura:{valor:1110},calle:{nombre:'ITALIA'},ubicacion:{lat:-30,lon:-64}}]}:{total:0,direcciones:[]});
+    }) as typeof fetch);
+    await h.text('Italia 1110');assert.match(h.sent.at(-1)!,/localidad o ciudad/);
+    assert.deepEqual(h.sessions.get('a')?.pendingLocation,{originalInput:'Italia 1110',street:'Italia',number:'1110'});
+    for(const step of steps){await h.text(step);if(step==='San Miguel de Tucumán'){
+      assert.equal(h.sent.at(-1),'¿En qué provincia?');assert.equal(h.sessions.get('a')?.pendingLocation?.street,'Italia');assert.equal(h.sessions.get('a')?.pendingLocation?.locality,step);
+    }}
+    assert.equal(urls.length,steps.length+1);assert.ok(urls.every(url=>url.searchParams.get('direccion')==='Italia 1110'));
+    assert.equal(urls.at(-1)!.searchParams.get('localidad_censal'),'San Miguel de Tucumán');assert.equal(urls.at(-1)!.searchParams.get('provincia'),'Tucumán');
+    assert.equal(h.sessions.get('a')?.pendingLocation,undefined);assert.match(h.sent.at(-1)!,/Ubicación actualizada/);
+  });
+}
+
+test('dirección conserva CP y separa número, sin inferir provincia desde una ciudad',()=>{
+  const parsed=parseAddress('Italia 1110, San Miguel de Tucumán, Tucumán, CP 4000');
+  assert.equal(parsed.street,'Italia');assert.equal(parsed.number,'1110');assert.equal(parsed.locality,'San Miguel de Tucumán');assert.equal(parsed.province,'Tucumán');assert.equal(parsed.postalCode,'4000');
+  assert.equal(parseAddress('Av. Colón 1200, Córdoba').province,undefined);
+  assert.equal(parseAddress('Av. 9 de Julio 1500, CABA').street,'Avenida 9 de Julio');
+});
+
+for(const status of ['ambigua','inexistente','calle equivocada'] as const){test(`dirección ${status}: no reemplaza GPS anterior ni elige coordenadas arbitrarias`,async()=>{
+  const h=harness();await h.gps();const previous=h.sessions.get('a')!.location;
+  h.deps.geocode=address=>geocodeAddress(address,(async()=>Response.json({total:status==='ambigua'?2:status==='inexistente'?0:1,direcciones:status==='inexistente'?[]:[{altura:{valor:1110},calle:{nombre:status==='calle equivocada'?'OTRA CALLE':'ITALIA'},ubicacion:{lat:-30,lon:-64}}]})) as typeof fetch);
+  await h.text('Italia 1110, San Miguel de Tucumán, Tucumán');
+  assert.match(h.sent.at(-1)!,/ubicación GPS/);assert.deepEqual(h.sessions.get('a')?.location,previous);
+  assert.equal(h.sessions.get('a')?.pendingLocation?.number,'1110');
+});}
+
+test('cambio por dirección conserva carrito y último producto e invalida distancias anteriores',async()=>{
+  const h=harness();const searches:Array<{latitude:number;longitude:number}>=[];
+  const oldGps={latitude:-27,longitude:-66},newGps={latitude:-30,longitude:-64};
+  h.deps.cartSearch=(items,lat,lon,sort,radius)=>{
+    searches.push({latitude:lat,longitude:lon});
+    return compareCart(items,lat,lon,sort,radius,async()=>result(names.map((chain,i)=>({...offer(chain,100),distanceKm:calculateDistanceKm({latitude:lat,longitude:lon},i===0?oldGps:newGps)}))));
+  };
+  await h.gps();await h.text('Buscame Coca Zero');await h.text(input);
+  const before=h.sessions.get('a')!,cart=structuredClone(before.currentCart),product=structuredClone(before.lastProduct),oldDistances=before.cartResults!.comparisons.map(c=>c.distance);
+  await h.text('Quiero cambiar mi ubicación');assert.deepEqual(h.sessions.get('a')?.location,oldGps);
+  h.deps.geocode=async address=>address.includes('Tucumán')?{status:'OK',...newGps,label:'Dirección fixture'}:{status:'NOT_FOUND'};
+  await h.text('Bolivia 4536');assert.deepEqual(h.sessions.get('a')?.location,oldGps);assert.deepEqual(h.sessions.get('a')?.currentCart,cart);
+  await h.text('San Miguel de Tucumán, Tucumán');
+  assert.deepEqual(h.sessions.get('a')?.location,newGps);assert.deepEqual(h.sessions.get('a')?.lastProduct,product);assert.deepEqual(h.sessions.get('a')?.currentCart,cart);
+  assert.equal(h.sessions.get('a')?.cartResults,undefined);assert.equal(h.sessions.get('a')?.lastProductResults,undefined);assert.equal(h.sessions.get('a')?.pendingLocation,undefined);
+  await h.text('¿Cuál supermercado me queda más cerca para mi carrito?');
+  assert.deepEqual(searches.at(-1),newGps);assert.notDeepEqual(h.sessions.get('a')?.cartResults?.comparisons.map(c=>c.distance),oldDistances);assert.equal(h.sessions.get('a')?.cartResults?.winner?.chain,'Vea');
+});
+
+test('GPS resuelve un cambio pendiente por dirección y conserva producto/carrito',async()=>{
+  const h=harness();await h.gps();await h.text('Buscame Coca Zero');await h.text(input);
+  const before=h.sessions.get('a')!;await h.text('Estoy en otra dirección');
+  h.deps.geocode=async()=>({status:'NOT_FOUND'});await h.text('Italia 1110');
+  assert.equal(h.sessions.get('a')?.pendingLocation?.number,'1110');
+  h.deps.geocode=async()=>{assert.fail('GPS no debe consultar Georef');};
+  await handleMessage({id:'gps-address-change',from:'a',type:'location',location:{latitude:-30,longitude:-64}},h.deps);
+  assert.deepEqual(h.sessions.get('a')?.location,{latitude:-30,longitude:-64});assert.equal(h.sessions.get('a')?.pendingLocation,undefined);
+  assert.deepEqual(h.sessions.get('a')?.currentCart,before.currentCart);assert.deepEqual(h.sessions.get('a')?.lastProduct,before.lastProduct);
 });
 function harness(){
   const sessions=new WhatsAppSessionStore(),calls:any[]=[],sent:string[]=[],geocodes:string[]=[];let id=0;
@@ -204,7 +286,7 @@ test("UX: Bolivia 4536 conserva calle y reintenta Georef con ciudad y provincia 
   assert.equal(requests[1]!.searchParams.get("direccion"),"Bolivia 4536");
   assert.equal(requests[1]!.searchParams.get("localidad_censal"),"San Miguel de Tucumán");
   assert.equal(requests[1]!.searchParams.get("provincia"),"Tucumán");
-  assert.equal(h.sent.at(-1),"Ubicación actualizada ✅");
+  assert.equal(h.sent.at(-1),"Ubicación actualizada ✅\nBolivia 4536, San Miguel de Tucumán, Tucumán");
   assert.equal(h.sessions.get("a")?.latitude,-26);
   assert.equal(h.sessions.get("a")?.awaitingLocation,false);
   for(const key of ["pendingStreetAddress","pendingLocality","pendingProvince","pendingAddress"] as const)assert.equal(h.sessions.get("a")?.[key],undefined);
@@ -225,7 +307,7 @@ test("UX: Cambiar ubicación seguido de Italia 1210 con CP nunca entra al carrit
   await h.text("Cambiar ubicación");
   assert.equal(h.sessions.get("a")?.awaitingLocation,true);
   await h.text("Italia 1210, San Miguel de Tucumán, Tucumán, CP 4000");
-  assert.equal(requests,1);assert.equal(h.sent.at(-1),"Ubicación actualizada ✅");
+  assert.equal(requests,1);assert.equal(h.sent.at(-1),"Ubicación actualizada ✅\nItalia 1210, San Miguel de Tucumán, Tucumán, CP 4000");
   assert.equal(h.sessions.get("a")?.cart,undefined);assert.equal(h.sessions.get("a")?.pendingMessage,undefined);
   assert.equal(h.sessions.get("a")?.awaitingLocation,false);
 });

@@ -2,7 +2,7 @@ import {compareCart,formatCart,reorderCart,MAX_CART_ITEMS} from '../ai/cart.js';
 import {logError} from '../lib/safe-logging.js';
 import {resolveMessageRadius} from '../ai/search-preferences.js';
 import {wantsDetails} from '../ai/conversation.js';
-import {addressParts,geocodeAddress,writtenAddress} from './geocoding.js';
+import {parseAddress,completeAddress,formatAddress,geocodeAddress,writtenAddress} from './geocoding.js';
 import {calculateDistanceKm} from '../utils/distance.js';
 import {normalizeSearchText} from '../utils/normalize-text.js';
 import {newConversationState,type ConversationState} from './session.js';
@@ -58,13 +58,13 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
     stage='cart.format';
     state.cartResults=result;save();await send(formatCart(result,wantsDetails(text)));
   }
-  async function acceptLocation(location:{latitude:number;longitude:number},address=false){
+  async function acceptLocation(location:{latitude:number;longitude:number},address=false,label?:string){
     const pending=state.pendingAction?.type==='LOCATION'?state.pendingAction:undefined;
     const updating=address||!!pending||!!state.location;
     const announce=!(pending?.resume&&!state.location&&!address);
     state.lastLocationSimilar=!!state.location&&calculateDistanceKm(state.location,location)<0.05;
-    state.location={...location};delete state.pendingAction;delete state.cartResults;delete state.lastProductResults;save();
-    if(announce){if(updating)await send(state.lastLocationSimilar?'Ubicación recibida ✅ Es prácticamente la misma que la anterior.':'Ubicación actualizada ✅');
+    state.location={...location};delete state.pendingLocation;delete state.pendingAction;delete state.cartResults;delete state.lastProductResults;save();
+    if(announce){if(updating)await send((state.lastLocationSimilar?'Ubicación recibida ✅ Es prácticamente la misma que la anterior.':'Ubicación actualizada ✅')+(address&&label?`\n${label}`:''));
     else await send('Ubicación recibida. Ahora decime qué producto querés buscar.');}
     if(pending?.resume==='cart')await searchCart('recalcular');
     else if(pending?.resume==='product'&&state.lastProduct)await searchProduct(state.lastProduct.query);
@@ -72,16 +72,21 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
   async function setAddress(text:string){
     const prior=state.pendingAction?.type==='LOCATION'?state.pendingAction:undefined;
     const fresh=writtenAddress(text);
-    const address=fresh??(prior?.street?(prior.question==='province'?`${prior.street}, ${prior.locality}, ${text}`:`${prior.street}, ${text}`):text);
-    const {street,locality,province}=addressParts(address);
-    state.pendingAction={type:'LOCATION',street,locality,province,...(prior?.resume?{resume:prior.resume}:{})};save();
+    const pending=state.pendingLocation??(prior?.street?parseAddress([prior.street,prior.locality,prior.province].filter(Boolean).join(', ')):undefined);
+    const parsed=fresh?parseAddress(fresh):pending?.number?completeAddress(pending,text,prior?.question):{originalInput:text,street:text,number:''};
+    state.pendingLocation=parsed;
+    const address=parsed.number?formatAddress(parsed):text;
+    const street=[parsed.street,parsed.number].filter(Boolean).join(' '),{locality,province}=parsed;
+    state.pendingAction={type:'LOCATION',street,...(locality?{locality}:{}),...(province?{province}:{}),...(prior?.resume?{resume:prior.resume}:{})};save();
     stage='georef.resolve';
     const found=await(d.geocode??geocodeAddress)(address);
-    if(found.status==='OK'){await acceptLocation({latitude:found.latitude,longitude:found.longitude},true);return;}
+    if(found.status==='OK'&&validLocation(found)){await acceptLocation({latitude:found.latitude,longitude:found.longitude},true,found.label==='Dirección encontrada'?address:found.label);return;}
     if(found.status==='UNAVAILABLE'){await send('No pude consultar la dirección ahora. Compartí tu ubicación GPS o intentá nuevamente. No cambié tu ubicación anterior.');return;}
-    if(!locality){state.pendingAction.question='city';save();await send('¿En qué localidad o ciudad es?');}
+    if(!parsed.number){await send('Indicame calle y número, o compartí tu ubicación GPS desde WhatsApp.');return;}
+    if(!locality&&!province){state.pendingAction.question='city';save();await send('¿En qué localidad o ciudad es?');}
     else if(!province){state.pendingAction.question='province';save();await send('¿En qué provincia?');}
-    else await send('No pude identificar esa dirección con confianza. Compartí tu ubicación GPS desde WhatsApp.');
+    else if(!locality&&province!=='Ciudad Autónoma de Buenos Aires'){state.pendingAction.question='city';save();await send('¿En qué localidad o ciudad es?');}
+    else await send('No pude ubicar esa dirección con suficiente precisión. Podés compartir tu ubicación GPS desde WhatsApp.');
   }
   async function modifyCart(change:CartChange){
     if(!change.query.trim()){await send('¿De qué producto del carrito querés cambiar la cantidad?');return;}
@@ -109,7 +114,7 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
     const text=message.text?.body?.trim();if(!text)return;
     if(intent.answer){await send(intent.answer);return;}
     switch(intent.name){
-      case 'CHANGE_LOCATION':state.pendingAction={type:'LOCATION'};save();await send(intent.sameLocationDispute?'Las coordenadas recibidas son prácticamente iguales a las anteriores. Seleccioná manualmente otro punto en el mapa de WhatsApp o compartí un nuevo GPS.':'Compartí la nueva ubicación por WhatsApp o escribí calle y número. Conservaré la anterior hasta confirmar la nueva.');return;
+      case 'CHANGE_LOCATION':state.pendingAction={type:'LOCATION'};delete state.pendingLocation;save();await send(intent.sameLocationDispute?'Las coordenadas recibidas son prácticamente iguales a las anteriores. Seleccioná manualmente otro punto en el mapa de WhatsApp o compartí un nuevo GPS.':'Compartí la nueva ubicación por WhatsApp o escribí calle y número. Conservaré la anterior hasta confirmar la nueva.');return;
       case 'SET_LOCATION':await setAddress(intent.query??text);return;
       case 'FAREWELL':await send('¡De nada! Hasta luego 👋');return;
       case 'SMALLTALK':await send(state.location?'¡Hola! Ya tengo tu ubicación. Decime qué producto o lista querés buscar.':'¡Hola! Decime qué producto querés buscar y compartime tu ubicación.');return;
