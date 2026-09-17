@@ -30,6 +30,16 @@ const finalTextResponse = (text: string): OpenAI.Responses.Response =>
     usage: { input_tokens: 80, output_tokens: 20, total_tokens: 100 },
   }) as unknown as OpenAI.Responses.Response;
 
+test('E2E Coca Zero 2L: el modelo no puede omitir ni cambiar la presentación explícita',async()=>{
+  for(const query of ['Coca Zero','Coca Zero 1.5L']){
+    const answer=await runProductAgent({message:'Y coca zero 2l?',latitude:-27,longitude:-66},{
+      model:'mock',createResponse:async()=>functionCallResponse({query,sort:'price'}),
+      executeTool:async()=>{assert.fail('No consultar una presentación distinta de la solicitada');},
+    });
+    assert.equal(answer.toolUsed,false);assert.match(answer.message,/No pude interpretar/);assert.doesNotMatch(answer.message,/1[.,]5\s*L|DEMO|\$/);
+  }
+});
+
 const demoToolResult = {
   radiusKm: 25 as number | null,
   evaluatedAt: new Date("2026-01-01T01:00:00.000Z"),

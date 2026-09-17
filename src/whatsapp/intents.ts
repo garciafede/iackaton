@@ -5,7 +5,7 @@ import {writtenAddress} from './geocoding.js';
 import type {ConversationState} from './session.js';
 import type {SearchSort} from '../services/product-search.service.js';
 
-export type IntentName='SET_LOCATION'|'CHANGE_LOCATION'|'SEARCH_PRODUCT'|'PRODUCT_FOLLOWUP'|'CREATE_CART'|'CART_FOLLOWUP'|'MODIFY_CART'|'SHOW_CART'|'SMALLTALK'|'FAREWELL'|'UNKNOWN';
+export type IntentName='SET_LOCATION'|'CHANGE_LOCATION'|'CANCEL_LOCATION'|'SEARCH_PRODUCT'|'PRODUCT_FOLLOWUP'|'CREATE_CART'|'CART_FOLLOWUP'|'MODIFY_CART'|'SHOW_CART'|'SMALLTALK'|'FAREWELL'|'UNKNOWN';
 export type CartChange={operation:'add'|'remove'|'set';query:string;quantity:number};
 export type Intent={name:IntentName;sort?:SearchSort;query?:string;items?:CartItem[];change?:CartChange;answer?:string;sameLocationDispute?:boolean;confirm?:boolean};
 const words=(text:string)=>normalizeSearchText(text).replace(/[.]/g,' ').replace(/\s+/g,' ').trim();
@@ -16,7 +16,7 @@ function criterion(text:string):SearchSort|undefined{
   return last?(/cerca|distancia/.test(last)?'distance':'price'):requestedSort(text);
 }
 export function cartChange(message:string):CartChange|undefined{
-  const text=words(message).replace(/\b(?:una?|uno)\b/g,'1').replace(/\b(?:dos)\b/g,'2').replace(/\b(?:tres)\b/g,'3');
+  const text=normalizeSearchText(message.replace(/(\d),(?=\d)/g,'$1.')).replace(/\b(?:una?|uno)\b/g,'1').replace(/\b(?:dos)\b/g,'2').replace(/\b(?:tres)\b/g,'3');
   const replacement=text.match(/(?:en vez de|en lugar de)\s+\d+\s+(.+?)\s+(?:quiero|pone|poneme|pon|sean)\s+(\d+)/);
   if(replacement)return {operation:'set',query:replacement[1]!,quantity:Number(replacement[2])};
   const transition=text.match(/^(?:(?:cambia|cambiame)\s+)?(?:las? |los? )?(.+?)\s+de\s+\d+\s+a\s+(\d+)(?:\s+unidades?)?$/);
@@ -25,7 +25,7 @@ export function cartChange(message:string):CartChange|undefined{
   if(quantity)return {operation:'set',query:quantity[2]!,quantity:Number(quantity[1])};
   const removal=text.match(/\b(?:saca|quita|elimina|borra)\s+(?:las? |los? )?(.+?)(?: del carrito| de la compra|$)/);
   if(removal)return {operation:'remove',query:removal[1]!,quantity:1};
-  const addition=text.match(/\b(?:agrega|anadi|suma|sumale)\s+(?:(\d+)\s+)?(.+?)(?: al carrito| a la compra|$)/);
+  const addition=text.match(/\b(?:agrega|anadi|suma|sumale)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
   if(addition)return {operation:'add',query:addition[2]!,quantity:Number(addition[1]??1)};
   return undefined;
 }
@@ -36,6 +36,7 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
   const quantityOnly=text.match(/^(?:(?:pone|poneme|quiero)\s+|de\s+\d+\s+a\s+)(\d+)(?:\s+unidades?)?$/);
   const explicitAddress=writtenAddress(message);
   if(explicitAddress&&!(state.currentCart.length&&quantityOnly))return {name:'SET_LOCATION',query:explicitAddress};
+  if((state.pendingAction?.type==='LOCATION'||state.pendingLocation)&&/^(?:cancelar|cancela|cancelalo|dejalo)(?: (?:el cambio de ubicacion|la ubicacion|la direccion|el pendiente))?$/.test(text))return {name:'CANCEL_LOCATION'};
   if(locationTopic&&locationChange)return {name:'CHANGE_LOCATION'};
   if(state.lastLocationSimilar&&/\bno\b/.test(text)&&/\b(misma|mismo|igual)\b/.test(text))return {name:'CHANGE_LOCATION',sameLocationDispute:true};
   if(isFarewell(message)||(/\b(gracias|chau|adios|hasta luego)\b/.test(text)&&! /\b(busco|buscame|comprar|agrega)\b/.test(text)))return {name:'FAREWELL'};
@@ -45,7 +46,7 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
   const ref=cartReference(text)||(state.currentCart.length>0&&/\b(gastaria|total)\b/.test(text)&&/\b(supermercado|super|cadena)\b/.test(text)),change=cartChange(message);
   if(change&&(!/^(?:pone|poneme|pon|quiero)\s+\d+\b/.test(text)||state.currentCart.length>0))return {name:'MODIFY_CART',change,...order};
   if(state.currentCart.length&&/\b(?:esos|estos) supermercados\b/.test(text)&&sort)return {name:'CART_FOLLOWUP',...order};
-  if(ref&&/\b(como|cual|mostra\w*|recorda\w*)\b/.test(text)&&!sort&&!/\b(precio|cuesta|gast\w*)\b/.test(text))return {name:'SHOW_CART'};
+  if(ref&&/\b(como|cual|que tengo|mostra\w*|recorda\w*)\b/.test(text)&&!sort&&!/\b(precio|cuesta|gast\w*)\b/.test(text))return {name:'SHOW_CART'};
   if(ref&&!/\b(?:comprar|necesito)\s*:\s*\d/i.test(message)&&!/(?:^|[,;\n])\s*\d+\s/.test(message))return {name:'CART_FOLLOWUP',...order};
   const stored=state.activeSubject==='cart'?state.cartResults?.comparisons.flatMap(c=>c.lines.flatMap(l=>l.offer?[l.offer]:[])):state.lastProductResults;
   const storeAnswer=answerStoreQuestion(message,stored??[]);
@@ -58,7 +59,7 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
     if(state.pendingAction.resume&&/(?:^|[,;\n])\s*\d+\s/.test(message)){
       const items=parseCart(message);if(items)return {name:'CREATE_CART',items,sort:sort??'price'};
     }
-    if(/\b(busca\w*|quiero (?:un|una)|necesito (?:un|una))\b/.test(text)&&!state.pendingAction.question)return {name:'SEARCH_PRODUCT',query:message,...order};
+    if(/\b(busca\w*|quiero (?:un|una)|necesito (?:un|una)|precio)\b/.test(text)||/\d+(?:[.,]\d+)?\s*(?:lts?|litros?|l|ml|cc|kg|g|gramos?)\b/i.test(message))return {name:'SEARCH_PRODUCT',query:message,...order};
     // Las aclaraciones de dirección consumen respuestas de contexto, no intents claros como mostrar carrito.
     return {name:'SET_LOCATION',query:message};
   }

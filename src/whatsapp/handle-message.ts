@@ -81,12 +81,12 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
     stage='georef.resolve';
     const found=await(d.geocode??geocodeAddress)(address);
     if(found.status==='OK'&&validLocation(found)){await acceptLocation({latitude:found.latitude,longitude:found.longitude},true,found.label==='Dirección encontrada'?address:found.label);return;}
-    if(found.status==='UNAVAILABLE'){await send('No pude consultar la dirección ahora. Compartí tu ubicación GPS o intentá nuevamente. No cambié tu ubicación anterior.');return;}
+    if(found.status==='UNAVAILABLE'){delete state.pendingAction;save();await send('No pude consultar la dirección ahora. Compartí tu ubicación GPS o intentá nuevamente. No cambié tu ubicación anterior.');return;}
     if(!parsed.number){await send('Indicame calle y número, o compartí tu ubicación GPS desde WhatsApp.');return;}
     if(!locality&&!province){state.pendingAction.question='city';save();await send('¿En qué localidad o ciudad es?');}
     else if(!province){state.pendingAction.question='province';save();await send('¿En qué provincia?');}
     else if(!locality&&province!=='Ciudad Autónoma de Buenos Aires'){state.pendingAction.question='city';save();await send('¿En qué localidad o ciudad es?');}
-    else await send('No pude ubicar esa dirección con suficiente precisión. Podés compartir tu ubicación GPS desde WhatsApp.');
+    else {delete state.pendingAction;save();await send('No pude ubicar esa dirección con suficiente precisión. Podés compartir tu ubicación GPS desde WhatsApp.');}
   }
   async function modifyCart(change:CartChange){
     if(!change.query.trim()){await send('¿De qué producto del carrito querés cambiar la cantidad?');return;}
@@ -115,6 +115,7 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
     if(intent.answer){await send(intent.answer);return;}
     switch(intent.name){
       case 'CHANGE_LOCATION':state.pendingAction={type:'LOCATION'};delete state.pendingLocation;save();await send(intent.sameLocationDispute?'Las coordenadas recibidas son prácticamente iguales a las anteriores. Seleccioná manualmente otro punto en el mapa de WhatsApp o compartí un nuevo GPS.':'Compartí la nueva ubicación por WhatsApp o escribí calle y número. Conservaré la anterior hasta confirmar la nueva.');return;
+      case 'CANCEL_LOCATION':delete state.pendingAction;delete state.pendingLocation;save();await send('Cancelé el cambio de ubicación. Conservé tu carrito y la ubicación anterior.');return;
       case 'SET_LOCATION':await setAddress(intent.query??text);return;
       case 'FAREWELL':await send('¡De nada! Hasta luego 👋');return;
       case 'SMALLTALK':await send(state.location?'¡Hola! Ya tengo tu ubicación. Decime qué producto o lista querés buscar.':'¡Hola! Decime qué producto querés buscar y compartime tu ubicación.');return;
@@ -125,7 +126,7 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
       case 'CREATE_CART':state.currentCart=intent.items!.map(i=>({...i}));state.activeSubject='cart';delete state.cartResults;if(state.pendingAction?.type!=='LOCATION')delete state.pendingAction;save();await searchCart(text);return;
       case 'CART_FOLLOWUP':await searchCart(text,true);return;
       case 'PRODUCT_FOLLOWUP':if(!state.lastProduct){await send('Decime qué producto querés comparar.');return;}await searchProduct(text,true);return;
-      case 'SEARCH_PRODUCT':await searchProduct(intent.query??text);return;
+      case 'SEARCH_PRODUCT':if(state.pendingAction?.type==='LOCATION'){delete state.pendingAction;delete state.pendingLocation;}await searchProduct(intent.query??text);return;
       default:await send('¿Querés consultar un producto, mostrar tu carrito o modificarlo?');
     }
   }catch(error){

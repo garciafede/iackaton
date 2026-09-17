@@ -14,6 +14,12 @@ export function normalizeCatalogText(value: string) {
 }
 
 const ignored = new Set(["buscame", "busca", "buscar", "quiero", "necesito", "dame", "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "con", "por", "favor", "me", "en"]);
+// Toda presentación explícita debe existir en el producto, también sin EAN de catálogo.
+export function matchesRequestedPresentation(query:string,description:string):boolean {
+  const sizes=(text:string)=>[...normalizeCatalogText(text).matchAll(/\b\d+(?:\.\d+)?\s+(?:ml|g|unidades)\b/g)].map(m=>m[0]);
+  const actual=new Set(sizes(description));
+  return sizes(query).every(size=>actual.has(size));
+}
 export const productWord=(word:string)=>word.length>4?word.replace(/(?:es|s)$/,''):word;
 export function queryFitsCatalogProduct(query: string, values: string[]) {
   const words = new Set(values.flatMap((value) => normalizeCatalogText(value).split(" ").map(productWord)));

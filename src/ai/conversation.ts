@@ -33,6 +33,7 @@ export function answerStoreQuestion(message:string,results:SearchResult[]):strin
 // Solo seguimientos inequívocos: una consulta que nombra otro producto pasa al agente.
 export function followupSort(message: string): SearchSort | undefined {
   const text = clean(message).replace(/^y\s+/, "");
+  if (/^volvamos a (?:la |el )?(?:mas )?barat[ao]$/.test(text)) return "price";
   if (/^(?:por precio|priorizo el precio|cual opcion me conviene si priorizo el precio|el que te dije recien)$/.test(text)) return "price";
   if (/^(?:cual|que supermercado|que cadena) (?:me |nos )?queda mas cerca$/.test(text)) return "distance";
   if (/^(?:(?:ahora )?(?:quiero|buscame|mostrame|dame) )?(?:la |el |las |los )?(?:mas barat[ao]s?|menor precio|donde conviene|donde es mas barato)$/.test(text)) return "price";

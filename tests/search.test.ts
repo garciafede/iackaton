@@ -42,6 +42,31 @@ const result = (price: number, distanceKm: number): SearchResult => ({
   lastCheckedAt: new Date("2026-01-01T00:00:00.000Z"),
 });
 
+test('E2E Coca Zero 2L: alias sin EAN no puede sustituir 1.5L; 3L ausente devuelve null',()=>{
+  for(const query of ['Coca Zero 2L','Y coca zero 2l?','coca zero 3L'])assert.equal(findBestProduct(query,products),null,query);
+  assert.equal(findBestProduct('coca zero 1,5L',products)?.id,1);
+  const exact={...products[0]!,id:20,size:'2 L'};
+  assert.equal(findBestProduct('coca zero 2L',[...products,exact])?.id,20);
+});
+
+for(const environment of ['production','development']){
+  test(`E2E ${environment}: sin ofertas reales no hay fallback DEMO`,async t=>{
+    const prior=process.env.NODE_ENV;process.env.NODE_ENV=environment;
+    t.after(()=>{if(prior===undefined)delete process.env.NODE_ENV;else process.env.NODE_ENV=prior;});
+    const originalProduct=prisma.product.findMany,originalOffer=prisma.offer.findMany;
+    t.after(()=>{Object.assign(prisma.product,{findMany:originalProduct});Object.assign(prisma.offer,{findMany:originalOffer});});
+    Object.assign(prisma.product,{findMany:async()=>products});
+    const queries:any[]=[];
+    Object.assign(prisma.offer,{findMany:async(args:any)=>{
+      queries.push(args.where);assert.deepEqual(args.where.source,{startsWith:'REAL:'});return [];
+    }});
+    assert.equal(await searchProductOffers('coca zero 2L',0,0,'price'),null);
+    assert.equal(queries.length,0);
+    const absent=await searchProductOffers('coca zero 1,5L',0,0,'price');
+    assert.equal(absent?.totalResults,0);assert.equal(queries.length,1);
+  });
+}
+
 test("prioriza EAN reales, agrupa empaques y nunca mezcla DEMO en la misma búsqueda", async (t) => {
   const originalProductFindMany = prisma.product.findMany, originalOfferFindMany = prisma.offer.findMany;
   t.after(() => { Object.assign(prisma.product, { findMany: originalProductFindMany }); Object.assign(prisma.offer, { findMany: originalOfferFindMany }); });

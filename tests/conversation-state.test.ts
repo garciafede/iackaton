@@ -28,6 +28,68 @@ function harness(){
   return {deps,sessions,sent,intents,logs,text,post,searches:()=>searches,state:()=>sessions.get('test')!};
 }
 
+test('E2E 16/09: Volvamos a la barata conserva Coca Zero y aplica price',async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});
+  await h.text('Quiero coca zero');await h.text('Cuál es la más barata?');await h.text('Y la más cercana?');
+  const product=h.state().lastProduct!.query,before=h.searches();
+  await h.text('Volvamos a la barata');
+  assert.equal(h.intents.at(-1),'PRODUCT_FOLLOWUP');assert.equal(h.state().lastProduct?.query,product);
+  assert.equal(h.state().sortCriterion,'price');assert.equal(h.searches(),before+1);
+  assert.notEqual(h.sent.at(-1),'Decime qué producto querés buscar.');
+});
+
+for(const [message,query,quantity] of [
+  ['Agrega al carrito 1 fideo la serenísima de 500 gramos','fideo la serenisima de 500 gramos',1],
+  ['Agrega al carrito 3 x oreo','oreo',3],
+  ['Agrega al carrito 3 x Oreo','oreo',3],
+  ['Agregá una Pepsi black 1,5L','pepsi black 1.5l',1],
+] as const){test(`E2E 16/09: ${message} guarda solo producto y cantidad`,async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('1 Arroz\n1 Leche');
+  const before=structuredClone(h.state().currentCart),calls=h.searches();
+  await h.text(message);
+  assert.equal(h.intents.at(-1),'MODIFY_CART');assert.deepEqual(h.state().currentCart,[...before,{query,quantity}]);
+  assert.equal(h.searches(),calls+1);assert.doesNotMatch(JSON.stringify(h.state().currentCart),/al carrito|1 5l/);
+});}
+
+for(const message of ['Que tengo en el carrito?','Qué tengo en el carrito?']){
+  test(`E2E 16/09: ${message} muestra sin consultar ni comparar`,async()=>{
+    const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('2 Oreo\n1 Coca Zero');
+    const before=h.searches(),results=h.state().cartResults;
+    await h.text(message);assert.equal(h.intents.at(-1),'SHOW_CART');assert.equal(h.searches(),before);
+    assert.equal(h.state().cartResults,results);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito:/);assert.match(h.sent.at(-1)!,/2 Oreo/);assert.doesNotMatch(h.sent.at(-1)!,/Total|parcial/);
+  });
+}
+
+test('E2E 16/09: dirección fallida no secuestra Coca ni Pepsi 1,5lts, conserva carrito y GPS',async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('1 Oreo\n1 Playadito');
+  const cart=structuredClone(h.state().currentCart),location=structuredClone(h.state().location);let geocodes=0;
+  h.deps.geocode=async()=>{geocodes++;return {status:'NOT_FOUND'};};
+  await h.text('Ahora estoy en otra dirección');await h.text('Uruguay 1010');assert.match(h.sent.at(-1)!,/localidad/);
+  await h.text('San Miguel de Tucumán, Tucumán');assert.match(h.sent.at(-1)!,/GPS/);
+  assert.equal(h.state().pendingAction,undefined);
+  await h.text('Chile 1702, San Miguel de Tucumán, Tucumán');assert.equal(h.intents.at(-1),'SET_LOCATION');assert.match(h.sent.at(-1)!,/GPS/);
+  const before=geocodes;
+  for(const message of ['Y el precio de una coca zero 1.5l?','Pepsi 1,5lts','Y Pepsi de 1,5lts?']){
+    await h.text(message);assert.equal(h.intents.at(-1),'SEARCH_PRODUCT',message);assert.equal(geocodes,before);
+    assert.doesNotMatch(h.sent.at(-1)!,/provincia|dirección/);
+  }
+  assert.deepEqual(h.state().location,location);assert.deepEqual(h.state().currentCart,cart);
+  await h.post({type:'location',location:{latitude:-30,longitude:-64}});
+  assert.equal(h.state().pendingAction,undefined);assert.equal(h.state().pendingLocation,undefined);assert.deepEqual(h.state().currentCart,cart);
+});
+
+test('E2E dirección pendiente: permite consulta explícita o cancelar sin perder carrito',async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('1 Oreo\n1 Playadito');
+  const cart=structuredClone(h.state().currentCart),location=structuredClone(h.state().location);
+  await h.text('Uruguay 1010');await h.text('Pepsi 1,5lts');
+  assert.equal(h.intents.at(-1),'SEARCH_PRODUCT');assert.equal(h.state().pendingAction,undefined);
+  for(const cancel of ['cancelar','cancelar el cambio de ubicación']){
+    await h.text('Uruguay 1010');await h.text(cancel);assert.equal(h.intents.at(-1),'CANCEL_LOCATION');
+  }
+  assert.equal(h.state().pendingAction,undefined);assert.equal(h.state().pendingLocation,undefined);
+  assert.deepEqual(h.state().location,location);assert.deepEqual(h.state().currentCart,cart);
+});
+
 test('chat(4) completo: intent y estado independientes después de cada turno',async()=>{
   const h=harness();let cart:unknown,lastProduct:string|undefined;
   for(const [message,intent] of chat4){

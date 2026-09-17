@@ -12,6 +12,7 @@ import { offerQualityConfig } from "../services/offer-quality.js";
 import { formatOffers } from "./format-offers.js";
 import { followupSort, isGreeting, requestedSort, wantsDetails, type PreviousSearch } from "./conversation.js";
 import { formatCompactOffers } from "./format-compact.js";
+import { matchesRequestedPresentation } from "../catalog/matching.js";
 
 type AgentInput = {
   message: string;
@@ -196,6 +197,7 @@ export const runProductAgent = async (
       ? { ...input.previousSearch, sort: reorder, latitude: input.latitude, longitude: input.longitude }
       : JSON.parse(toolCall!.arguments) as FindProductOffersArguments;
     if (!toolArguments || typeof toolArguments.query !== "string" || !toolArguments.query.trim() || toolArguments.query.length > 200 || !["price", "distance", "recommended"].includes(toolArguments.sort)) throw new Error("Invalid tool arguments");
+    if (!reorder && !matchesRequestedPresentation(input.message, toolArguments.query)) throw new Error("Tool arguments changed the requested presentation");
   } catch(error) {
     logError(error,{intent:'SEARCH_PRODUCT',query,provider:'OPENAI',stage:'tool.arguments'});
     return { message: "No pude interpretar la búsqueda. Decime el nombre del producto e intentamos de nuevo.", toolUsed: false };

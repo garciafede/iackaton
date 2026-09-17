@@ -5,7 +5,7 @@ import { priceConfig, productTargets } from "../prices/config.js";
 import { presentationMatches } from "../prices/matching.js";
 import { catalogProducts } from "../catalog/products.js";
 import type {LiveMetadata} from "../live/types.js";
-import { normalizeCatalogText, queryFitsCatalogProduct } from "../catalog/matching.js";
+import { normalizeCatalogText, queryFitsCatalogProduct, matchesRequestedPresentation } from "../catalog/matching.js";
 import { addRecommendations, assessOfferQuality, filterByRadius, offerQualityConfig, resolveRadiusKm, type OfferQuality, type Recommendation } from "./offer-quality.js";
 
 export type SearchableProduct = {
@@ -69,6 +69,7 @@ export const findBestProduct = (
   let ambiguous = false;
 
   for (const product of products) {
+    if (!matchesRequestedPresentation(query, `${product.name} ${product.size ?? ""}`)) continue;
     const target = productTargets.find((p) => product.ean && p.eans.includes(product.ean));
     if (target && (!presentationMatches(query, target, false) || !queryFitsCatalogProduct(query, [product.name, product.brand, product.variant ?? "", product.size ?? "", ...product.aliases.map((a) => a.alias), ...target.aliases]))) continue;
     const groups = [
@@ -159,13 +160,7 @@ export const searchProductOffers = async (
     },
     include: { store: true },
   });
-  if (!offers.length && process.env.NODE_ENV === "development") {
-    const demoProduct = findBestProduct(query, candidates.filter((p) => !realCandidates.includes(p)));
-    if (demoProduct) offers = await prisma.offer.findMany({
-      where: { productId: demoProduct.id, stock: true, source: "DEMO" },
-      include: { store: true },
-    });
-  }
+  // Una consulta comercial sin ofertas reales no se reemplaza por datos DEMO.
 
   const validOffers = offers.filter((offer) => {
     const price = Number(offer.price), lat = Number(offer.store.latitude), lng = Number(offer.store.longitude);

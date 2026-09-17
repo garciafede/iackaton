@@ -74,6 +74,52 @@ test("UX: geocodificación no inventa coordenadas ni acepta otra altura",async()
   assert.deepEqual(await geocodeAddress("Italia 4320",(async()=>{throw new Error("network");}) as typeof fetch),{status:"UNAVAILABLE"});
 });
 
+for(const scenario of [
+  {name:'único válido',body:{cantidad:1,total:1,direcciones:[{calle:{nombre:'ITALIA'},altura:{valor:1110},ubicacion:{lat:-30.123456,lon:-64.123456},nomenclatura:'ITALIA 1110, Córdoba, Córdoba'}]},reason:'OK',detail:'UNIQUE_VALID_CANDIDATE',status:'OK'},
+  {name:'ambiguo',body:{cantidad:1,total:2,direcciones:[{nomenclatura:'ITALIA 1110, Córdoba'}]},reason:'AMBIGUOUS',detail:'MULTIPLE_CANDIDATES',status:'AMBIGUOUS'},
+  {name:'sin candidatos',body:{cantidad:0,total:0,direcciones:[]},reason:'NOT_FOUND',detail:'NO_CANDIDATES',status:'NOT_FOUND'},
+  {name:'sin coordenadas',body:{cantidad:1,total:1,direcciones:[{altura:{valor:1110},nomenclatura:'ITALIA 1110',ubicacion:{lat:null,lon:null}}]},reason:'NO_COORDS',detail:'MISSING_OR_INVALID_COORDINATES',status:'NOT_FOUND'},
+  {name:'altura distinta',body:{cantidad:1,total:1,direcciones:[{altura:{valor:1112},nomenclatura:'ITALIA 1112'}]},reason:'NOT_FOUND',detail:'HEIGHT_MISMATCH',status:'NOT_FOUND'},
+  {name:'calle distinta',body:{cantidad:1,total:1,direcciones:[{calle:{nombre:'OTRA CALLE'},altura:{valor:1110}}]},reason:'NOT_FOUND',detail:'STREET_MISMATCH',status:'NOT_FOUND'},
+  {name:'respuesta inválida',body:{error:'fixture'},reason:'HTTP_ERROR',detail:'INVALID_RESPONSE',status:'UNAVAILABLE'},
+] as const){test(`Georef diagnóstico seguro: ${scenario.name}`,async t=>{
+  const output:string[]=[];t.mock.method(console,'info',(line:string)=>output.push(line));
+  const result=await geocodeAddress('Italia 1110, Córdoba, Córdoba',(async(url:URL)=>{
+    assert.equal(url.searchParams.get('direccion'),'Italia 1110');assert.equal(url.searchParams.get('localidad_censal'),'Córdoba');
+    assert.equal(url.searchParams.get('provincia'),'Córdoba');return Response.json(scenario.body);
+  }) as typeof fetch);
+  assert.equal(result.status,scenario.status,'El diagnóstico no cambia el resultado funcional');
+  assert.equal(output.length,1);const log=JSON.parse(output[0]!);
+  assert.equal(log.event,'georef.attempt');assert.equal(log.provider,'GEOREF');assert.equal(log.intent,'SET_LOCATION');assert.equal(log.stage,'georef.resolve');
+  assert.equal(log.reason,scenario.reason);assert.equal(log.detail,scenario.detail);assert.equal(log.httpStatus,200);assert.equal(log.requestSent,true);
+  assert.equal(log.addressSent,'Italia [NÚMERO]');assert.equal(log.locality,'Córdoba');assert.equal(log.province,'Córdoba');
+  assert.equal(log.url,'https://apis.datos.gob.ar/georef/api/v2.0/direcciones');assert.equal(typeof log.attemptId,'string');assert.ok(Number.isFinite(Date.parse(log.time)));assert.ok(log.durationMs>=0);
+  if('direcciones' in scenario.body){
+    assert.equal(log.cantidad,scenario.body.cantidad);assert.equal(log.total,scenario.body.total);assert.equal(log.candidateCount,scenario.body.direcciones.length);
+    assert.equal(log.nomenclaturas.length,scenario.body.direcciones.length);
+  }else {assert.equal(log.cantidad,null);assert.equal(log.total,null);assert.equal(log.candidateCount,null);}
+  assert.doesNotMatch(output[0]!,/1110|1112|-30\.123456|-64\.123456|direccion=/);
+  if(scenario.name==='único válido')assert.deepEqual(log.nomenclaturas,['ITALIA [NÚMERO], Córdoba, Córdoba']);
+});}
+
+for(const failure of ['http','network','json','input'] as const){test(`Georef diagnóstico de fallo ${failure} sin secretos`,async t=>{
+  const output:string[]=[];t.mock.method(console,'info',(line:string)=>output.push(line));let calls=0;
+  const prior=process.env.GEOREF_TEST_SECRET;process.env.GEOREF_TEST_SECRET='fixture-private-value';
+  t.after(()=>{if(prior===undefined)delete process.env.GEOREF_TEST_SECRET;else process.env.GEOREF_TEST_SECRET=prior;});
+  const result=await geocodeAddress(failure==='input'?'Italia':'Italia 1110, Córdoba, Córdoba',(async()=>{
+    calls++;
+    if(failure==='network')throw new Error('fixture-private-value Bearer secret-fixture https://fixture.test/?direccion=Italia1110');
+    if(failure==='json')return new Response('fixture-private-value',{status:200});
+    return Response.json({message:'fixture-private-value'},{status:503});
+  }) as typeof fetch);
+  assert.equal(result.status,failure==='input'?'NOT_FOUND':'UNAVAILABLE');assert.equal(output.length,1);
+  const log=JSON.parse(output[0]!);assert.equal(log.reason,failure==='input'?'NOT_FOUND':'HTTP_ERROR');
+  assert.equal(log.httpStatus,failure==='http'?503:failure==='json'?200:null);assert.equal(log.requestSent,failure!=='input');
+  assert.equal(calls,failure==='input'?0:1);assert.equal(log.candidateCount,null);assert.deepEqual(log.nomenclaturas,[]);
+  if(failure==='network'){assert.equal(log.detail,'REQUEST_FAILED');assert.equal(log.err.name,'Error');assert.ok(log.err.message);}
+  assert.doesNotMatch(output[0]!,/fixture-private-value|secret-fixture|1110|direccion=/);
+});}
+
 for(const [text,street,city,province] of [
   ['Estoy en Italia 1110, San Miguel de Tucumán, Tucumán','Italia 1110','San Miguel de Tucumán','Tucumán'],
   ['Av. Corrientes 1500, CABA','Avenida Corrientes 1500',null,'Ciudad Autónoma de Buenos Aires'],
