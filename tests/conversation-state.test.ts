@@ -38,6 +38,30 @@ test('E2E 16/09: Volvamos a la barata conserva Coca Zero y aplica price',async()
   assert.notEqual(h.sent.at(-1),'Decime qué producto querés buscar.');
 });
 
+test('chat 21:37/21:42: Más cerca? reutiliza producto y carrito, sin otra inferencia',async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('La pepsi de 2l');
+  const original=h.state().lastProduct!.query;
+  for(const [phrase,sort] of [['Más cerca?','distance'],['Más barata?','price'],['Volvamos a la barata','price']]){
+    await h.text(phrase!);assert.equal(h.intents.at(-1),'PRODUCT_FOLLOWUP');assert.equal(h.state().lastProduct?.query,original);assert.equal(h.state().sortCriterion,sort);
+  }
+  await h.text('1 Oreo\n1 Playadito');const before=h.searches();
+  await h.text('Agrega al carrito 2 arroz colpado');assert.equal(h.searches(),before);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+  assert.equal(h.state().cartResults,undefined);await h.text('Más cerca?');assert.equal(h.intents.at(-1),'CART_FOLLOWUP');assert.equal(h.searches(),before+1);
+});
+
+test('chat 21:51: Sacame el aceite, el arroz colpado y el jabón en polvo quita tres sin recrear carrito',async()=>{
+  const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});
+  await h.text('Quiero comprar:\nArroz lucchetti\nAceite girasol natura\nLeche entera la serenísima\nFideos matarazo tirabuzón\nGalletitas chocolinas\nJabón en polvo Diozque');
+  await h.text('Agrega al carrito 2 arroz colpado');const before=h.searches();
+  await h.text('Sacame el aceite, el arroz colpado y el jabón en polvo');
+  assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),before);assert.equal(h.state().cartResults,undefined);
+  assert.deepEqual(h.state().currentCart.map(i=>i.query),['Arroz lucchetti','Leche entera la serenísima','Fideos matarazo tirabuzón','Galletitas chocolinas']);
+  assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);assert.doesNotMatch(h.sent.at(-1)!,/Sacame|colpado|aceite|jabón/i);
+  await h.text('Cuánto gastaría en cada super?');assert.equal(h.intents.at(-1),'CART_FOLLOWUP');assert.equal(h.searches(),before+1);
+  await h.text('Sacá las Galletitas chocolinas');assert.equal(h.searches(),before+1);assert.equal(h.state().currentCart.length,3);
+  await h.text('Cambiá la leche entera la serenísima de 1 a 3');assert.equal(h.searches(),before+1);assert.equal(h.state().currentCart[1]?.quantity,3);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+});
+
 for(const [message,query,quantity] of [
   ['Agrega al carrito 1 fideo la serenísima de 500 gramos','fideo la serenisima de 500 gramos',1],
   ['Agrega al carrito 3 x oreo','oreo',3],
@@ -48,7 +72,7 @@ for(const [message,query,quantity] of [
   const before=structuredClone(h.state().currentCart),calls=h.searches();
   await h.text(message);
   assert.equal(h.intents.at(-1),'MODIFY_CART');assert.deepEqual(h.state().currentCart,[...before,{query,quantity}]);
-  assert.equal(h.searches(),calls+1);assert.doesNotMatch(JSON.stringify(h.state().currentCart),/al carrito|1 5l/);
+  assert.equal(h.searches(),calls);assert.equal(h.state().cartResults,undefined);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);assert.doesNotMatch(JSON.stringify(h.state().currentCart),/al carrito|1 5l/);
 });}
 
 for(const message of ['Que tengo en el carrito?','Qué tengo en el carrito?']){
@@ -126,7 +150,7 @@ for(const [intent,phrases] of [
   for(const phrase of phrases)assert.equal(resolveIntent(phrase,state).name,intent,phrase);
 });}
 
-test('modificación conserva cantidades, confirma ausentes y recalcula solo después de confirmar',async()=>{
+test('modificación conserva cantidades, confirma ausentes y espera una comparación explícita',async()=>{
   const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('2 Oreo\n1 Playadito');
   await h.text('Si en vez de 2 Oreo quiero 3, cómo queda el carrito?');assert.equal(h.state().currentCart[0]?.quantity,3);
   await h.text('sacá las Oreo');assert.deepEqual(h.state().currentCart,[{query:'Playadito',quantity:1}]);
@@ -193,7 +217,9 @@ for(const message of ['Cambia las oreo de 1 a 2 unidades','cambiá las Oreo de 1
       return base(...args);
     };
     await h.text(message);
-    assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),before+1);
+    assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),before);
+    assert.equal(h.state().cartResults,undefined);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+    await h.text('Más barata?');assert.equal(h.searches(),before+1);
     assert.notEqual(h.state().cartResults,old);assert.equal(h.state().cartResults?.winner?.total,500);
   });
 }
@@ -270,7 +296,7 @@ for(const failAt of [undefined,'openai.responses','findProductOffers'] as const)
       if(failAt==='openai.responses')throw new Error('OpenAI fixture failure');
       return {output:[{type:'function_call',name:'findProductOffers',arguments:JSON.stringify({query:'Pepsi 3L',sort:'distance',radiusKm:25})}]} as any;
     },executeTool:async a=>{
-      searches++;assert.equal(a.query,'Pepsi 3L');assert.equal(a.latitude,-27);assert.equal(a.longitude,-66);
+      searches++;assert.equal(a.query,searches===1?'Pepsi 3L':'Pepsi');assert.equal(a.latitude,-27);assert.equal(a.longitude,-66);
       if(failAt==='findProductOffers')throw new Error('Search fixture failure',{cause:new Error('fixture connection refused')});
       return {product:{name:'Pepsi',size:'3 L'},results:[],totalResults:0,radiusKm:25} as any;
     }});
@@ -281,6 +307,6 @@ for(const failAt of [undefined,'openai.responses','findProductOffers'] as const)
       assert.match(h.sent.at(-1)!,/No pude completar/);
       const diagnostic=output.map(line=>JSON.parse(line)).find(r=>r.stage===failAt);
       assert.ok(diagnostic);assert.equal(diagnostic.query,'Pepsi 3L');assert.match(diagnostic.err.message,/fixture failure/);assert.ok(diagnostic.err.stack);
-    }else{assert.equal(searches,1);assert.match(h.sent.at(-1)!,/No encontré ofertas de Pepsi 3 L/);assert.doesNotMatch(h.sent.at(-1)!,/No pude completar/);}
+    }else{assert.equal(searches,2);assert.match(h.sent.at(-1)!,/No encontré ofertas de Pepsi 3 L/);assert.doesNotMatch(h.sent.at(-1)!,/No pude completar/);}
   });
 }

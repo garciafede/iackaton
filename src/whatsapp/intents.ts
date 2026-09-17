@@ -6,7 +6,7 @@ import type {ConversationState} from './session.js';
 import type {SearchSort} from '../services/product-search.service.js';
 
 export type IntentName='SET_LOCATION'|'CHANGE_LOCATION'|'CANCEL_LOCATION'|'SEARCH_PRODUCT'|'PRODUCT_FOLLOWUP'|'CREATE_CART'|'CART_FOLLOWUP'|'MODIFY_CART'|'SHOW_CART'|'SMALLTALK'|'FAREWELL'|'UNKNOWN';
-export type CartChange={operation:'add'|'remove'|'set';query:string;quantity:number};
+export type CartChange={operation:'add'|'remove'|'set';query:string;quantity:number;queries?:string[]};
 export type Intent={name:IntentName;sort?:SearchSort;query?:string;items?:CartItem[];change?:CartChange;answer?:string;sameLocationDispute?:boolean;confirm?:boolean};
 const words=(text:string)=>normalizeSearchText(text).replace(/[.]/g,' ').replace(/\s+/g,' ').trim();
 const cartReference=(text:string)=>/\b(carrito|carro|compra|lo anterior|lo mismo)\b/.test(text);
@@ -23,8 +23,11 @@ export function cartChange(message:string):CartChange|undefined{
   if(transition)return {operation:'set',query:transition[1]!,quantity:Number(transition[2])};
   const quantity=/[\r\n;,]/.test(message)?null:words(message).match(/^(?:pone|poneme|pon|quiero)\s+(\d+)\s+(?:unidades? de\s+)?(.+?)(?:\s+unidades?|\s+en el carrito|\s+del carrito)?$/);
   if(quantity)return {operation:'set',query:quantity[2]!,quantity:Number(quantity[1])};
-  const removal=text.match(/\b(?:saca|quita|elimina|borra)\s+(?:las? |los? )?(.+?)(?: del carrito| de la compra|$)/);
-  if(removal)return {operation:'remove',query:removal[1]!,quantity:1};
+  const removal=message.match(/^\s*(?:sac[aá](?:me)?|quit[aá](?:me)?|elimin[aá](?:me)?|borr[aá](?:me)?)\s+(.+?)(?: del carrito| de la compra)?[.!?]*$/i);
+  if(removal){
+    const queries=removal[1]!.split(/(?<!\d),|,(?!\d)|;|\s+y\s+/i).map(q=>q.trim().replace(/^(?:el|la|las|los)\s+/i,'')).filter(Boolean);
+    return {operation:'remove',query:queries[0]??'',quantity:1,...(queries.length>1?{queries}:{})};
+  }
   const addition=text.match(/\b(?:agrega|anadi|suma|sumale)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
   if(addition)return {operation:'add',query:addition[2]!,quantity:Number(addition[1]??1)};
   return undefined;

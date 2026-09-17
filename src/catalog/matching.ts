@@ -20,6 +20,9 @@ export function matchesRequestedPresentation(query:string,description:string):bo
   const actual=new Set(sizes(description));
   return sizes(query).every(size=>actual.has(size));
 }
+export function withoutPresentation(query:string):string {
+  return query.replace(/\b\d+(?:[.,]\d+)?\s*(?:kg|kilos?|grm|grs?|gramos?|g|litros?|lts?|lt|l|ml|cc|unidades?|saquitos?)\b/gi,'').replace(/\s+/g,' ').replace(/\s+de\s*$/i,'').trim();
+}
 export const productWord=(word:string)=>word.length>4?word.replace(/(?:es|s)$/,''):word;
 export function queryFitsCatalogProduct(query: string, values: string[]) {
   const words = new Set(values.flatMap((value) => normalizeCatalogText(value).split(" ").map(productWord)));

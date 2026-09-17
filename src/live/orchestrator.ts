@@ -1,4 +1,4 @@
-import {searchProductOffers,findBestProduct,sortSearchResults,type SearchResult,type SearchSort} from "../services/product-search.service.js";
+import {searchProductOffers,findBestProduct,findCompatibleProducts,sortSearchResults,type SearchResult,type SearchSort} from "../services/product-search.service.js";
 import {catalogProducts} from "../catalog/products.js";
 import {normalizeCatalogText} from "../catalog/matching.js";
 import {addRecommendations,assessOfferQuality,offerQualityConfig,resolveRadiusKm} from "../services/offer-quality.js";
@@ -23,6 +23,8 @@ function preferredEans(query:string):string[]|undefined {
   const enabled=catalogProducts.filter(p=>p.enabled);
   const exact=enabled.find(p=>p.eans.includes(query.trim()));
   if (exact) return [query.trim()];
+  const compatible=findCompatibleProducts(query,enabled.map((p,i)=>({id:i,ean:p.eans[0]!,name:p.name,brand:p.brand,variant:p.variant,size:p.size,aliases:p.aliases.map(alias=>({alias}))})));
+  if(compatible.length)return compatible.flatMap(p=>enabled[p.id]!.eans);
   const found=findBestProduct(query,enabled.map((p,i)=>({id:i,ean:p.eans[0]!,name:p.name,brand:p.brand,variant:p.variant,size:p.size,aliases:p.aliases.map(alias=>({alias}))}))) ;
   return found ? enabled[found.id]!.eans : undefined;
 }
@@ -116,7 +118,8 @@ export class ProductSearchOrchestrator {
     if(!fallback&&!product)return null;
     const multipleProducts=new Set(results.map(r=>r.product?.ean??`${r.source}:${r.live?.sku}`)).size>1&&!preferred;
     const canExpand=!results.length&&radius!==null&&(notices.length>0||fallback?.canExpandRadius===true);
-    return {product:fallback?.product??{id:0,name:multipleProducts?`Variantes de ${query}`:product!.name,brand:product!.brand,size:null,variant:null},
+    const best=results[0]?.product;
+    return {product:best?.name&&best.brand?{id:best.id,name:best.name,brand:best.brand,size:best.size,variant:best.variant}:fallback?.product??{id:0,name:multipleProducts?`Variantes de ${query}`:product!.name,brand:product!.brand,size:null,variant:null},
       totalResults:results.length,results,radiusKm:radius,evaluatedAt:now,status:results.length?"OK":canExpand?"NO_OFFERS_WITHIN_RADIUS":"NO_ELIGIBLE_OFFERS",
       outsideRadiusCount:fallback?.outsideRadiusCount??0,canExpandRadius:canExpand,suggestedRadiusKm:canExpand&&radius<offerQualityConfig.maxRadiusKm?Math.min(offerQualityConfig.maxRadiusKm,radius*2):null,
       notices:[...new Set(notices)],liveReports:reports.sort((a,b)=>a.retailer.localeCompare(b.retailer)),multipleProducts};

@@ -40,6 +40,35 @@ test('E2E Coca Zero 2L: el modelo no puede omitir ni cambiar la presentación ex
   }
 });
 
+for(const [query,broader,size] of [['Coca Zero 2L','Coca Zero','1.5 L'],['Pepsi de 3L','Pepsi','2 L']]){
+  test(`chat: ${query} ofrece otra presentación real sin tratarla como match exacto`,async()=>{
+    const calls:string[]=[];
+    const response=await runProductAgent({message:query!,latitude:-27,longitude:-66,compact:true},{model:'mock',createResponse:async()=>functionCallResponse({query,sort:'price'}),executeTool:async a=>{
+      calls.push(a.query);if(calls.length===1)return null;
+      assert.equal(a.query,broader);
+      return {...demoToolResult,product:{...demoToolResult.product,name:broader!,size:size!},results:[{...demoToolResult.results[0]!,source:'REAL:SEPA'}]};
+    }});
+    assert.deepEqual(calls,[query,broader]);assert.match(response.message,/No encontré/);assert.match(response.message,/Sí encontré/);assert.ok(response.message.includes(size!));
+    assert.equal(response.toolArguments?.query,query);assert.doesNotMatch(response.message,/Menor precio|DEMO/);
+  });
+}
+
+test('alternativas nunca ofrecen DEMO ni se incorporan automáticamente al carrito',async()=>{
+  let calls=0;
+  const deps={model:'mock',createResponse:async()=>functionCallResponse({query:'Coca Zero 2L',sort:'price'}),executeTool:async()=>++calls%2?null:demoToolResult};
+  const response=await runProductAgent({message:'Coca Zero 2L',latitude:-27,longitude:-66},deps);
+  assert.equal(calls,2);assert.doesNotMatch(response.message,/Sí encontré|1.5 L|DEMO/);
+  calls=0;
+  const {searchCartProduct}=await import('../src/ai/agent.js');
+  const found=await searchCartProduct({query:'Coca Zero 2L',latitude:-27,longitude:-66,sort:'price'},deps);
+  assert.equal(found,null);assert.equal(calls,1);
+});
+
+test('Pepsi sin tamaño no acepta que el modelo restrinja a Original 2L',async()=>{
+  let query='';await runProductAgent({message:'Quiero una pepsi',latitude:-27,longitude:-66},{model:'mock',createResponse:async()=>functionCallResponse({query:'Pepsi Original 2L',sort:'price'}),executeTool:async a=>{query=a.query;return null;}});
+  assert.equal(query,'Quiero una pepsi');
+});
+
 const demoToolResult = {
   radiusKm: 25 as number | null,
   evaluatedAt: new Date("2026-01-01T01:00:00.000Z"),

@@ -42,7 +42,7 @@ export function formatOffers(data: Offers, sort: SearchSort): string {
       : offer.stock ? "disponible en el relevamiento" : "sin stock en el relevamiento";
     const checked = Number.isFinite(offer.lastCheckedAt.getTime())
       ? `${date.format(offer.lastCheckedAt)} (UTC−03:00)` : "fecha no disponible";
-    const variant = offer.product?.variant ? `\n${offer.product.variant}${offer.product.size ? ` · ${offer.product.size}` : ""}` : "";
+    const variant = offer.product ? `\n${[offer.product.name,offer.product.variant,offer.product.size].filter(Boolean).join(' · ')}` : "";
     const ean = offer.product?.ean ? ` · EAN ${offer.product.ean}` : "";
     const quality = offer.quality
       ? `\n${offer.quality.freshnessLabel} Confianza ${ { HIGH: "alta", MEDIUM: "media", LOW: "baja" }[offer.quality.confidence]}.` : "";

@@ -34,6 +34,16 @@ function setup(options:{payloads?:ProviderData[];fallback?:any;stores?:Branch[];
 const stable=(source="REAL:SEPA")=>({product:{id:10,name:"Magistral",brand:"Magistral",size:"500 ml",variant:"Ultra Limón"},totalResults:1,radiusKm:25,evaluatedAt:now,status:"OK",outsideRadiusCount:0,canExpandRadius:false,suggestedRadiusKm:null,
   results:[{store:branches[0]!,product:{id:10,ean:"7790990003039",size:"500 ml",variant:"Ultra Limón"},price:4000,distanceKm:0,stock:null,source,lastCheckedAt:new Date("2026-09-12T13:00:00Z")}]});
 
+test('live: Pepsi genérica conserva los EAN compatibles sin fijar una sola presentación',async()=>{
+  const expected=catalogProducts.filter(p=>p.enabled&&p.brand==='Pepsi').flatMap(p=>p.eans).sort();
+  assert.ok(expected.length>1);
+  const context=setup({providers:[{retailer:'VEA',search:async request=>{
+    assert.deepEqual(request.preferredEans?.slice().sort(),expected);
+    return {version:1,retailer:'VEA',checkedAt:now.toISOString(),candidates:[],warnings:[]};
+  }}]});
+  for(const sort of ['price','distance'] as const)await context.orchestrator.search('Pepsi',input.latitude,input.longitude,sort,25,{enabled:true,cache:false,persist:false});
+});
+
 test("live: runtime decodifica JSON anidado y conserva EAN/SKU/precio en las tres cadenas",()=>{
   for(const retailer of Object.keys(retailers) as Retailer[]) {
     const raw=fixtures[retailer.toLowerCase()].captures[0];

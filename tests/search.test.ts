@@ -42,6 +42,23 @@ const result = (price: number, distanceKm: number): SearchResult => ({
   lastCheckedAt: new Date("2026-01-01T00:00:00.000Z"),
 });
 
+for(const [query,brand,name,small,large] of [['Pepsi','Pepsi','Pepsi','1.5 L','2 L'],['Coca','Coca-Cola','Coca-Cola','354 ml','1.5 L'],['Arroz Lucchetti','Lucchetti','Arroz Lucchetti','500 g','1 kg']]){
+  test(`E2E sin presentación: ${query} compara variantes reales por precio/distancia`,async t=>{
+    const variants=[{id:31,brand:brand!,name:name!,variant:'Original',size:large!,aliases:[]},{id:32,brand:brand!,name:name!,variant:'Original',size:small!,aliases:[]}];
+    const originalProduct=prisma.product.findMany,originalOffer=prisma.offer.findMany;
+    t.after(()=>{Object.assign(prisma.product,{findMany:originalProduct});Object.assign(prisma.offer,{findMany:originalOffer});});
+    Object.assign(prisma.product,{findMany:async()=>variants});
+    Object.assign(prisma.offer,{findMany:async(args:any)=>{
+      assert.deepEqual(args.where.source,{startsWith:'REAL:'});assert.deepEqual(args.where.productId.in,[31,32]);
+      return variants.map((p,index)=>({productId:p.id,price:index?150:100,stock:null,source:'REAL:SEPA',lastCheckedAt:new Date(),store:{id:index+1,chain:'Vea',name:'Fixture',address:'Fixture',latitude:index?0.001:0.02,longitude:0}}));
+    }});
+    const cheap=await searchProductOffers(query!,0,0,'price'),near=await searchProductOffers(query!,0,0,'distance');
+    assert.equal(cheap?.product.size,large);assert.equal(cheap?.results[0]?.product?.size,large);
+    assert.equal(near?.product.size,small);assert.equal(near?.results[0]?.product?.size,small);
+    assert.equal(cheap?.results.length,2);assert.equal(near?.results.length,2);
+  });
+}
+
 test('E2E Coca Zero 2L: alias sin EAN no puede sustituir 1.5L; 3L ausente devuelve null',()=>{
   for(const query of ['Coca Zero 2L','Y coca zero 2l?','coca zero 3L'])assert.equal(findBestProduct(query,products),null,query);
   assert.equal(findBestProduct('coca zero 1,5L',products)?.id,1);

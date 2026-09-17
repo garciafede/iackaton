@@ -4,7 +4,7 @@ import {followupSort} from "./conversation.js";
 import type {SearchResult,SearchSort} from "../services/product-search.service.js";
 import {normalizeSearchText} from "../utils/normalize-text.js";
 import {findBestProduct} from "../services/product-search.service.js";
-import {queryFitsCatalogProduct} from "../catalog/matching.js";
+import {queryFitsCatalogProduct,withoutPresentation} from "../catalog/matching.js";
 import {logError} from "../lib/safe-logging.js";
 
 export type CartItem={query:string;quantity:number};
@@ -50,6 +50,10 @@ export async function compareCart(items:CartItem[],latitude:number,longitude:num
     const rows=(result?.results??[]).filter(r=>r.source?.startsWith("REAL:")&&r.stock!==false&&Number.isFinite(r.price)&&r.price>0);
     const identities=new Set(rows.map(r=>r.product?.ean??`${r.product?.brand}:${r.product?.name}:${r.product?.variant}:${r.product?.size}`));
     if(identities.size>1){
+      if(withoutPresentation(items[index]!.query)===items[index]!.query.trim()){
+        const compatible=rows.filter(r=>r.product?.name&&r.product.brand&&queryFitsCatalogProduct(items[index]!.query,[r.product.name,r.product.brand,r.product.variant??'',r.product.size??'']));
+        if(compatible.length)return compatible;
+      }
       const candidates=rows.filter(r=>r.product?.name&&r.product.brand).map(r=>({...r.product!,name:r.product!.name!,brand:r.product!.brand!,aliases:[]}))
         .filter(p=>queryFitsCatalogProduct(items[index]!.query,[p.name,p.brand,p.variant??"",p.size??""]));
       const distinct=[...new Map(candidates.map(p=>[p.ean??`${p.brand}:${p.name}:${p.size}`,p])).values()];
@@ -78,8 +82,10 @@ export async function compareCart(items:CartItem[],latitude:number,longitude:num
 const money=(n:number)=>`$${n.toLocaleString("es-AR",{minimumFractionDigits:2,maximumFractionDigits:2})}`;
 const clean=(s:string)=>s.replace(/[\r\n*_`~]/g," ").slice(0,65);
 export function formatCart(result:CartResult,details=false):string {
+  const found=result.comparisons.filter(c=>c.lines.some(l=>l.offer));
+  if(!found.length)return 'No encontré precios para los productos de tu carrito. Conservé tu lista.';
   if(result.sort==="distance"&&!details){
-    const nearby=result.comparisons.filter(c=>c.store&&Number.isFinite(c.distance)).sort((a,b)=>a.distance-b.distance);
+    const nearby=found.filter(c=>c.store&&Number.isFinite(c.distance)).sort((a,b)=>a.distance-b.distance);
     const nearest=nearby[0];
     if(!nearest)return "No encontré sucursales con distancia confirmada para tu carrito.";
     const lines=[`📍 ${nearest.complete?"Carrito completo más cercano":"Sucursal más cercana con precios encontrados"}: ${nearest.chain} · ${clean(nearest.store!)}`,`${nearest.distance.toLocaleString("es-AR",{maximumFractionDigits:2})} km · ${nearest.complete?"Total":"Total parcial"}: ${money(nearest.total)}`];
@@ -90,10 +96,10 @@ export function formatCart(result:CartResult,details=false):string {
   }
   const winner=result.winner;
   const lines=[winner?`🛒 ${result.sort==="distance"?"Carrito completo más cercano":"Más barato entre carritos completos"}: ${winner.chain}`:"🛒 Ninguna cadena tiene precio para todo el carrito."];
-  const order=winner?[winner,...result.comparisons.filter(c=>c!==winner)]:result.comparisons;
+  const order=winner?[winner,...found.filter(c=>c!==winner)]:found;
   for(const cart of order){
     lines.push(`\n${cart.chain}${cart.store?` · ${clean(cart.store)}`:""}`);
-    if(cart===winner||!cart.complete)for(const line of cart.lines)lines.push(`${line.item.quantity} ${clean(line.item.query)} — ${line.subtotal===null?"no encontrado":money(line.subtotal/100)}${line.item.quantity>1&&line.offer?` (${money(line.offer.price)} c/u)`:""}`);
+    if(cart===winner||!cart.complete)for(const line of cart.lines)lines.push(`${line.item.quantity} ${clean(line.item.query)}${line.offer?.product?.size?` (${[line.offer.product.name,line.offer.product.size].filter(Boolean).map(v=>clean(v!)).join(' · ')})`:''} — ${line.subtotal===null?"no encontrado":money(line.subtotal/100)}${line.item.quantity>1&&line.offer?` (${money(line.offer.price)} c/u)`:""}`);
     lines.push(`${cart.complete?"Total":"Total parcial"}: ${money(cart.total)}`);
     if(details)for(const line of cart.lines)if(line.offer)lines.push(`${clean(line.item.query)}: ${line.offer.source}; EAN ${line.offer.product?.ean??"no disponible"}; ${line.offer.lastCheckedAt.toISOString()}; ${line.offer.live?.availabilityConfidence??"disponibilidad no confirmada"}`);
   }

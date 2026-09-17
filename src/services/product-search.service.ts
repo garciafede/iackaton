@@ -58,6 +58,10 @@ const similarityScore = (query: string, candidate: string): number => {
   return overlap >= 0.6 ? Math.round(overlap * 50) : 0;
 };
 
+export const findCompatibleProducts = (query:string,products:SearchableProduct[]):SearchableProduct[] => products.filter(p=>
+  matchesRequestedPresentation(query,`${p.name} ${p.size??''}`) &&
+  queryFitsCatalogProduct(query,[p.name,p.brand,p.variant??'',p.size??'',...p.aliases.map(a=>a.alias)]));
+
 export const findBestProduct = (
   query: string,
   products: SearchableProduct[],
@@ -144,12 +148,13 @@ export const searchProductOffers = async (
   });
   const realCandidates = candidates.filter((p) => p.ean && productTargets.some((t) => t.eans.includes(p.ean!)));
   const exactEan = candidates.find((p) => p.ean === query.trim());
-  const product = exactEan ?? findBestProduct(query, [...realCandidates, ...candidates.filter((p) => !realCandidates.includes(p))]);
+  const compatible = exactEan ? [exactEan] : findCompatibleProducts(query,candidates);
+  const product = exactEan ?? compatible[0] ?? findBestProduct(query, [...realCandidates, ...candidates.filter((p) => !realCandidates.includes(p))]);
   if (!product) return null;
   const group = productTargets.find((t) => product.ean && t.eans.includes(product.ean));
   if (group && !presentationMatches(query, group, false)) return null;
   const packageHint = /\b(caja|bolsa)\b/i.exec(query)?.[1]?.toLowerCase();
-  const groupProducts = group && !exactEan
+  const groupProducts = compatible.length ? compatible : group && !exactEan
     ? candidates.filter((p) => p.ean && group.eans.includes(p.ean) && (!packageHint || p.variant?.toLowerCase().includes(packageHint)))
     : [product];
   let offers = await prisma.offer.findMany({
@@ -186,7 +191,7 @@ export const searchProductOffers = async (
     availability: offer.stock === null ? "disponibilidad no confirmada" : offer.stock ? "disponible" : "sin stock",
     product: (() => {
       const p = candidates.find((p) => p.id === offer.productId) ?? product;
-      return { id: p.id, ean: p.ean ?? null, variant: p.variant, size: p.size };
+      return { id: p.id, ean: p.ean ?? null, name:p.name,brand:p.brand,variant: p.variant, size: p.size };
     })(),
     source: offer.source,
     lastCheckedAt: offer.lastCheckedAt,
@@ -199,14 +204,16 @@ export const searchProductOffers = async (
   const results = addRecommendations(withinRadius).map((result) => ({ ...result, distanceKm: Number(result.distanceKm.toFixed(2)) }));
   const outsideRadiusCount = candidatesWithDistance.length - withinRadius.length;
   const canExpandRadius = results.length === 0 && radius !== null && outsideRadiusCount > 0;
+  const ordered=sortSearchResults(results,sort);
+  const selected=candidates.find(p=>p.id===ordered[0]?.product?.id)??product;
 
   return {
     product: {
-      id: product.id,
-      brand: product.brand,
-      name: product.name,
-      variant: product.variant,
-      size: product.size,
+      id: selected.id,
+      brand: selected.brand,
+      name: selected.name,
+      variant: selected.variant,
+      size: selected.size,
     },
     totalResults: results.length,
     radiusKm: radius,
@@ -216,6 +223,6 @@ export const searchProductOffers = async (
     canExpandRadius,
     suggestedRadiusKm: canExpandRadius && radius < offerQualityConfig.maxRadiusKm
       ? Math.min(offerQualityConfig.maxRadiusKm, Math.max(offerQualityConfig.defaultRadiusKm, radius * 2)) : null,
-    results: sortSearchResults(results, sort),
+    results: ordered,
   };
 };

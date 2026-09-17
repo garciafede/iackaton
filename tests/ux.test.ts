@@ -46,6 +46,37 @@ test("UX: sin carrito completo no declara ganador",async()=>{
   const cart=await compareCart(parseCart(input)!,-26,-65,"price",25,async a=>a.query==="arroz 53"?null:result(names.map(c=>offer(c,100))));
   assert.equal(cart.winner,null);assert.match(formatCart(cart),/Ninguna cadena tiene precio para todo/);
 });
+
+test('chat: no muestra ChangoMás ni total cero cuando no encontró ningún ítem',async()=>{
+  const cart=await compareCart([{query:'Oreo',quantity:1},{query:'Pepsi',quantity:1}],-26,-65,'price',25,async a=>a.query==='Oreo'?result([offer('Carrefour',100),offer('Vea',120)]):null);
+  assert.equal(cart.winner,null);const text=formatCart(cart);assert.match(text,/Carrefour|Vea/);assert.match(text,/Total parcial/);assert.doesNotMatch(text,/ChangoMás|\$0,00/);
+  const empty=await compareCart([{query:'Oreo',quantity:1}],-26,-65,'price',25,async()=>null);
+  assert.doesNotMatch(formatCart(empty),/Carrefour|Vea|ChangoMás|\$0,00/);
+});
+
+test('carrito genérico compara variantes compatibles y muestra la presentación encontrada',async()=>{
+  const cart=await compareCart([{query:'Pepsi',quantity:2}],-26,-65,'price',25,async()=>result([
+    {...offer('Carrefour',100),product:{id:31,ean:'fixture1',brand:'Pepsi',name:'Pepsi Original',variant:'Original',size:'2 L'}},
+    {...offer('Vea',80),product:{id:32,ean:'fixture2',brand:'Pepsi',name:'Pepsi Black',variant:'Black',size:'1.5 L'}},
+  ]));
+  assert.equal(cart.winner?.chain,'Vea');assert.equal(cart.winner?.total,160);assert.match(formatCart(cart),/Pepsi Black · 1.5 L/);
+});
+
+test('Uruguay 1210 → localidad → provincia: request real conserva contexto; Georef sin coordenadas ofrece GPS',async()=>{
+  // Respuesta observada el 17/09/2026: HTTP 200, cantidad 1, total 57 y ubicacion null.
+  const h=harness();await h.gps();await h.text(input);const cart=structuredClone(h.sessions.get('a')!.currentCart),location=structuredClone(h.sessions.get('a')!.location);
+  const requests:URL[]=[];
+  h.deps.geocode=address=>geocodeAddress(address,(async(url:URL)=>{
+    requests.push(url);return Response.json({cantidad:1,total:url.searchParams.has('localidad_censal')?57:4476,direcciones:[{calle:{nombre:'URUGUAY'},altura:{valor:1210},ubicacion:{lat:null,lon:null},nomenclatura:'URUGUAY 1210, San Miguel de Tucumán, Capital, Tucumán'}]});
+  }) as typeof fetch);
+  await h.text('Quiero cambiar de ubicación');await h.text('Uruguay 1210');assert.match(h.sent.at(-1)!,/localidad/);
+  await h.text('San Miguel de Tucumán');assert.match(h.sent.at(-1)!,/provincia/);
+  await h.text('Tucumán');assert.match(h.sent.at(-1)!,/ubicación GPS/);
+  assert.equal(requests.length,3);assert.ok(requests.every(u=>u.searchParams.get('direccion')==='Uruguay 1210'));
+  assert.equal(requests[0]!.searchParams.get('localidad_censal'),null);assert.equal(requests[1]!.searchParams.get('localidad_censal'),'San Miguel de Tucumán');
+  assert.equal(requests[2]!.searchParams.get('localidad_censal'),'San Miguel de Tucumán');assert.equal(requests[2]!.searchParams.get('provincia'),'Tucumán');
+  assert.deepEqual(h.sessions.get('a')!.location,location);assert.deepEqual(h.sessions.get('a')!.currentCart,cart);
+});
 test("UX: no suma sucursales distintas ni mezcla canales como compra única",async()=>{
   let index=0;const cart=await compareCart(parseCart(input)!,-26,-65,"price",25,async()=>result([offer("Carrefour",100,++index)]));assert.equal(cart.winner,null);
 });

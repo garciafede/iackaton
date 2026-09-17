@@ -33,6 +33,7 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
   };
   const send=async(body:string)=>{stage='meta.send';await d.sendText(from,body);await log('OUT',body);};
   const showCart=()=>state.currentCart.length?`🛒 Tu carrito:\n${state.currentCart.map(i=>`${i.quantity} ${i.query}`).join('\n')}`:'Todavía no tenés un carrito guardado. Decime qué productos querés comprar.';
+  const cartUpdated=()=>`🛒 Tu carrito actual:\n${state.currentCart.map(i=>`${i.quantity} ${i.query}`).join('\n')||'Vacío.'}\n¿Querés buscar la opción más barata o la más cercana?`;
   async function searchProduct(searchQuery:string,followup=false){
     query=followup?state.lastProduct?.query:searchQuery;
     stage='agent.search';
@@ -91,17 +92,27 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
   async function modifyCart(change:CartChange){
     if(!change.query.trim()){await send('¿De qué producto del carrito querés cambiar la cantidad?');return;}
     if(!Number.isInteger(change.quantity)||change.quantity<1||change.quantity>99){await send('Indicá cantidades de 1 a 99.');return;}
+    if(change.operation==='remove'){
+      const remove=new Set<number>();
+      for(const query of change.queries??[change.query]){
+        const tokens=normalizeSearchText(query).split(' ').filter(w=>!['el','la','las','los','un','una','en','de'].includes(w));
+        const matches=state.currentCart.flatMap((item,index)=>tokens.length&&tokens.every(w=>normalizeSearchText(item.query).split(' ').includes(w))?[index]:[]);
+        if(matches.length!==1){await send(matches.length?'Hay más de una presentación en tu carrito. Indicá cuál querés sacar.':`No encontré ${query} en tu carrito.`);return;}
+        remove.add(matches[0]!);
+      }
+      state.currentCart=state.currentCart.filter((_item,index)=>!remove.has(index));state.activeSubject='cart';
+      delete state.pendingAction;delete state.cartResults;save();await send(cartUpdated());return;
+    }
     const tokens=normalizeSearchText(change.query).split(' ').filter(w=>!['el','la','las','los','un','una'].includes(w));
     const matches=state.currentCart.map((item,index)=>({item,index})).filter(({item})=>tokens.every(w=>normalizeSearchText(item.query).split(' ').includes(w)));
     if(matches.length>1){await send('Hay más de una presentación en tu carrito. Indicá cuál querés modificar.');return;}
     if(!matches.length&&change.operation!=='add'){state.pendingAction={type:'ADD_ITEM',query:change.query,quantity:change.quantity};save();await send(`${change.query} no está en tu carrito. ¿Querés agregar ${change.quantity}?`);return;}
     const cart=state.currentCart.map(item=>({...item}));const match=matches[0];
-    if(change.operation==='remove')cart.splice(match!.index,1);
-    else if(match)cart[match.index]!.quantity=change.operation==='add'?match.item.quantity+change.quantity:change.quantity;
+    if(match)cart[match.index]!.quantity=change.operation==='add'?match.item.quantity+change.quantity:change.quantity;
     else cart.push({query:change.query,quantity:change.quantity});
     if(cart.length>MAX_CART_ITEMS){await send(`Puedo comparar hasta ${MAX_CART_ITEMS} productos por carrito para mantener una respuesta rápida. Dividí la compra en dos mensajes.`);return;}
     if(cart.some(i=>i.quantity>99)){await send('Máximo 99 unidades por producto.');return;}
-    state.currentCart=cart;delete state.pendingAction;delete state.cartResults;save();await searchCart('recalcular');
+    state.currentCart=cart;state.activeSubject='cart';delete state.pendingAction;delete state.cartResults;save();await send(cartUpdated());
   }
   try{
     intent=type==='location'?{name:'SET_LOCATION'}:type==='text'?resolveIntent(message.text?.body?.trim()??'',state):{name:'UNKNOWN'};

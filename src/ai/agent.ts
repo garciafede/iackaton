@@ -12,7 +12,7 @@ import { offerQualityConfig } from "../services/offer-quality.js";
 import { formatOffers } from "./format-offers.js";
 import { followupSort, isGreeting, requestedSort, wantsDetails, type PreviousSearch } from "./conversation.js";
 import { formatCompactOffers } from "./format-compact.js";
-import { matchesRequestedPresentation } from "../catalog/matching.js";
+import { matchesRequestedPresentation,withoutPresentation,queryFitsCatalogProduct } from "../catalog/matching.js";
 
 type AgentInput = {
   message: string;
@@ -20,6 +20,7 @@ type AgentInput = {
   longitude?: number;
   previousSearch?: PreviousSearch;
   compact?: boolean;
+  allowAlternatives?: boolean;
   sort?: import("../services/product-search.service.js").SearchSort;
   onEvent?: (event: AgentEvent) => void;
   onSearchResult?: (result:SearchToolResult)=>void;
@@ -82,6 +83,7 @@ usá findProductOffers. Elegí sort=price para pedidos de menor precio y sort=di
 para cercanía; por defecto usá distance.
 Elegí recommended cuando pida una recomendación o el mejor equilibrio.
 El query debe contener solo el producto y su presentación, sin instrucciones de radio u orden.
+Si el usuario no indicó presentación o variante, no inventes litros, gramos, Original o Black: conservá la búsqueda genérica.
 El radio por defecto es ${offerQualityConfig.defaultRadiusKm} km, también para "cerca mío".
 "A menos de 5 km" significa radiusKm=5. "No importa la distancia, quiero el más barato"
 significa radiusKm=null y sort=price. null requiere un pedido explícito de ignorar distancia.
@@ -133,7 +135,7 @@ const defaultDependencies = (): AgentDependencies => {
 export async function searchCartProduct(args:FindProductOffersArguments,dependencies?:AgentDependencies):Promise<SearchToolResult>{
   const agent=dependencies??defaultDependencies();
   let found:SearchToolResult=null;
-  await runProductAgent({message:args.query,latitude:args.latitude,longitude:args.longitude,sort:args.sort,compact:true},{
+  await runProductAgent({message:args.query,latitude:args.latitude,longitude:args.longitude,sort:args.sort,compact:true,allowAlternatives:false},{
     ...agent,
     executeTool:async selected=>{
       found=await agent.executeTool({...selected,latitude:args.latitude,longitude:args.longitude,sort:args.sort,...(args.radiusKm!==undefined?{radiusKm:args.radiusKm}:{})});
@@ -198,6 +200,7 @@ export const runProductAgent = async (
       : JSON.parse(toolCall!.arguments) as FindProductOffersArguments;
     if (!toolArguments || typeof toolArguments.query !== "string" || !toolArguments.query.trim() || toolArguments.query.length > 200 || !["price", "distance", "recommended"].includes(toolArguments.sort)) throw new Error("Invalid tool arguments");
     if (!reorder && !matchesRequestedPresentation(input.message, toolArguments.query)) throw new Error("Tool arguments changed the requested presentation");
+    if (!reorder && !/\d/.test(input.message)) toolArguments.query=queryFitsCatalogProduct(input.message,[toolArguments.query])&&!queryFitsCatalogProduct(toolArguments.query,[input.message])?input.message.trim():withoutPresentation(toolArguments.query);
   } catch(error) {
     logError(error,{intent:'SEARCH_PRODUCT',query,provider:'OPENAI',stage:'tool.arguments'});
     return { message: "No pude interpretar la búsqueda. Decime el nombre del producto e intentamos de nuevo.", toolUsed: false };
@@ -227,6 +230,16 @@ export const runProductAgent = async (
     totalResults: toolResult?.totalResults ?? 0,
   });
   stage='response.format';
+  if ((!toolResult||toolResult.totalResults===0)&&input.allowAlternatives!==false) {
+    const broader=withoutPresentation(toolArguments.query);
+    if(broader&&broader!==toolArguments.query.trim()){
+      stage='findProductOffers.alternatives';
+      const alternatives=await agent.executeTool({...toolArguments,query:broader});
+      const labels=[...new Set((alternatives?.results??[]).filter(r=>r.source?.startsWith('REAL:')&&r.stock!==false&&Number.isFinite(r.price)&&r.price>0)
+        .map(r=>{const p=r.product?.name?r.product:alternatives!.product;return [p.name,p.size].filter(Boolean).join(' ').replace(/[\r\n*_`~]/g,' ');}))].slice(0,3);
+      if(labels.length)return {message:`No encontré ${toolArguments.query}. Sí encontré: ${labels.join('; ')}. ¿Querés buscar alguna de esas presentaciones?`,toolUsed:true,toolArguments,...(addUsage(toolDecisionResponse)?{usage:addUsage(toolDecisionResponse)!}:{})};
+    }
+  }
   if (!toolResult) {
     const usage = addUsage(toolDecisionResponse);
     return {
