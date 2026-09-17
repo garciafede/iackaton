@@ -1,0 +1,739 @@
+2026-09-17T02:41:29.316028190Z [inf]  Starting Container
+2026-09-17T02:41:29.678549433Z [err]  npm warn config production Use `--omit=dev` instead.
+2026-09-17T02:41:29.678561523Z [inf]  
+2026-09-17T02:41:29.678566423Z [inf]  > iackaton@1.0.0 start
+2026-09-17T02:41:29.678571063Z [inf]  > node dist/server.js
+2026-09-17T02:41:29.678575033Z [inf]  
+2026-09-17T02:41:29.678579763Z [inf]  Server listening at http://127.0.0.1:8080
+2026-09-17T02:41:29.678583953Z [inf]  Server listening at http://10.184.213.172:8080
+2026-09-17T02:44:10.582208919Z [inf]  incoming request
+2026-09-17T02:44:10.582213629Z [inf]  
+2026-09-17T02:44:10.582217499Z [inf]  request completed
+2026-09-17T02:44:10.582221219Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:44:10.582225479Z [inf]  Meta Graph API request: {
+2026-09-17T02:44:10.582230469Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:44:10.582234379Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:44:10.582237789Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:44:10.582241599Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:44:10.582245159Z [inf]    recipientLength: 12,
+2026-09-17T02:44:10.582249259Z [inf]    messageType: 'text'
+2026-09-17T02:44:10.582253639Z [inf]  }
+2026-09-17T02:44:10.582258309Z [inf]  
+2026-09-17T02:44:10.582262119Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:44:10.583490727Z [inf]  incoming request
+2026-09-17T02:44:10.583500746Z [inf]  request completed
+2026-09-17T02:44:10.583506746Z [inf]  incoming request
+2026-09-17T02:44:10.583529116Z [inf]  request completed
+2026-09-17T02:44:10.583534376Z [inf]  incoming request
+2026-09-17T02:44:10.583539186Z [inf]  request completed
+2026-09-17T02:44:40.523828421Z [inf]  incoming request
+2026-09-17T02:44:40.523831941Z [inf]  
+2026-09-17T02:44:40.523836011Z [inf]  request completed
+2026-09-17T02:44:40.523838851Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:44:40.523841771Z [inf]  
+2026-09-17T02:44:40.523845131Z [inf]  Meta Graph API request: {
+2026-09-17T02:44:40.523848141Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:44:40.523850541Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:44:40.523864101Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:44:40.523867291Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:44:40.523872871Z [inf]    recipientLength: 12,
+2026-09-17T02:44:40.523891801Z [inf]    messageType: 'text'
+2026-09-17T02:44:40.524666922Z [inf]  }
+2026-09-17T02:44:40.524674382Z [inf]  
+2026-09-17T02:44:40.524678242Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:44:40.524681372Z [inf]  incoming request
+2026-09-17T02:44:40.524684482Z [inf]  request completed
+2026-09-17T02:44:40.524687912Z [inf]  incoming request
+2026-09-17T02:44:40.524690922Z [inf]  request completed
+2026-09-17T02:44:40.524694122Z [inf]  incoming request
+2026-09-17T02:44:40.524697112Z [inf]  request completed
+2026-09-17T02:44:45.560104368Z [inf]  incoming request
+2026-09-17T02:44:45.560111038Z [inf]  
+2026-09-17T02:44:45.560114558Z [inf]  request completed
+2026-09-17T02:44:45.560117898Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:44:46.117303888Z [inf]  Meta Graph API request: {
+2026-09-17T02:44:46.117307868Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:44:46.117311497Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:44:46.117315397Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:44:46.117318977Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:44:46.117322907Z [inf]    recipientLength: 12,
+2026-09-17T02:44:46.117327247Z [inf]    messageType: 'text'
+2026-09-17T02:44:46.117331417Z [inf]  }
+2026-09-17T02:44:46.499414416Z [inf]  
+2026-09-17T02:44:46.894204415Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:44:48.545936702Z [inf]  incoming request
+2026-09-17T02:44:48.545941672Z [inf]  request completed
+2026-09-17T02:44:48.913244042Z [inf]  incoming request
+2026-09-17T02:44:48.913251832Z [inf]  request completed
+2026-09-17T02:44:49.155101993Z [inf]  incoming request
+2026-09-17T02:44:49.155110823Z [inf]  request completed
+2026-09-17T02:45:09.038494234Z [inf]  incoming request
+2026-09-17T02:45:09.038498104Z [inf]  
+2026-09-17T02:45:09.038501434Z [inf]  request completed
+2026-09-17T02:45:09.038504674Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:45:09.903502071Z [inf]  Meta Graph API request: {
+2026-09-17T02:45:09.903507341Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:45:09.903532040Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:45:09.903535040Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:45:09.903538540Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:45:09.903541630Z [inf]    recipientLength: 12,
+2026-09-17T02:45:09.903544200Z [inf]    messageType: 'text'
+2026-09-17T02:45:09.903547310Z [inf]  }
+2026-09-17T02:45:10.833650266Z [inf]  
+2026-09-17T02:45:10.982276273Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:45:12.505419448Z [inf]  incoming request
+2026-09-17T02:45:12.505423578Z [inf]  request completed
+2026-09-17T02:45:12.767296393Z [inf]  incoming request
+2026-09-17T02:45:12.767302913Z [inf]  request completed
+2026-09-17T02:45:13.148802673Z [inf]  incoming request
+2026-09-17T02:45:13.148805923Z [inf]  request completed
+2026-09-17T02:45:33.156890641Z [inf]  incoming request
+2026-09-17T02:45:33.156895211Z [inf]  
+2026-09-17T02:45:33.156899001Z [inf]  request completed
+2026-09-17T02:45:33.156903501Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:45:33.156907631Z [inf]  Meta Graph API request: {
+2026-09-17T02:45:33.156911421Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:45:33.156915201Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:45:33.156922361Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:45:33.156926561Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:45:33.156930610Z [inf]    recipientLength: 12,
+2026-09-17T02:45:33.156934420Z [inf]    messageType: 'text'
+2026-09-17T02:45:33.156938460Z [inf]  }
+2026-09-17T02:45:33.297918670Z [inf]  
+2026-09-17T02:45:33.473464489Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:45:35.165999954Z [inf]  incoming request
+2026-09-17T02:45:35.166005674Z [inf]  request completed
+2026-09-17T02:45:35.333947920Z [inf]  incoming request
+2026-09-17T02:45:35.333953460Z [inf]  request completed
+2026-09-17T02:45:35.881700366Z [inf]  incoming request
+2026-09-17T02:45:35.881704936Z [inf]  request completed
+2026-09-17T02:45:55.756297744Z [inf]  incoming request
+2026-09-17T02:45:55.756301574Z [inf]  
+2026-09-17T02:45:55.756306084Z [inf]  request completed
+2026-09-17T02:45:55.756310694Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:45:55.756314424Z [inf]  Meta Graph API request: {
+2026-09-17T02:45:55.756318493Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:45:55.756322833Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:45:55.756326783Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:45:55.756329873Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:45:55.756333083Z [inf]    recipientLength: 12,
+2026-09-17T02:45:55.756336323Z [inf]    messageType: 'text'
+2026-09-17T02:45:55.756339523Z [inf]  }
+2026-09-17T02:45:55.756343583Z [inf]  
+2026-09-17T02:45:55.756347083Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:45:55.757033707Z [inf]  incoming request
+2026-09-17T02:45:55.757038547Z [inf]  request completed
+2026-09-17T02:45:55.757041547Z [inf]  incoming request
+2026-09-17T02:45:55.757044567Z [inf]  request completed
+2026-09-17T02:45:55.757047177Z [inf]  incoming request
+2026-09-17T02:45:55.757049977Z [inf]  request completed
+2026-09-17T02:46:05.302981882Z [inf]  incoming request
+2026-09-17T02:46:05.302993102Z [inf]  
+2026-09-17T02:46:05.302995762Z [inf]  request completed
+2026-09-17T02:46:05.302998512Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:46:05.682169552Z [inf]    recipientLength: 12,
+2026-09-17T02:46:05.682175272Z [inf]    messageType: 'text'
+2026-09-17T02:46:05.682179841Z [inf]  }
+2026-09-17T02:46:05.682198081Z [inf]  Meta Graph API request: {
+2026-09-17T02:46:05.682209991Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:46:05.682215831Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:46:05.682221481Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:46:05.682228591Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:46:06.424699643Z [inf]  
+2026-09-17T02:46:06.605753574Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:46:08.254470117Z [inf]  incoming request
+2026-09-17T02:46:08.254474577Z [inf]  request completed
+2026-09-17T02:46:08.991884132Z [inf]  incoming request
+2026-09-17T02:46:08.991888992Z [inf]  request completed
+2026-09-17T02:46:09.215934001Z [inf]  incoming request
+2026-09-17T02:46:09.215938070Z [inf]  request completed
+2026-09-17T02:46:49.147280815Z [inf]  incoming request
+2026-09-17T02:46:49.147289725Z [inf]  request completed
+2026-09-17T02:46:49.147293895Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:46:49.147297745Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:47:59.692797552Z [inf]  incoming request
+2026-09-17T02:47:59.692802732Z [inf]  
+2026-09-17T02:47:59.692807612Z [inf]  request completed
+2026-09-17T02:47:59.692811772Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:47:59.692816252Z [inf]  Meta Graph API request: {
+2026-09-17T02:47:59.692820132Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:47:59.692824292Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:47:59.692828442Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:47:59.692832322Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:47:59.692835962Z [inf]    recipientLength: 12,
+2026-09-17T02:47:59.692840332Z [inf]    messageType: 'text'
+2026-09-17T02:47:59.692845042Z [inf]  }
+2026-09-17T02:47:59.863031906Z [inf]  
+2026-09-17T02:48:00.049495198Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:48:01.824180783Z [inf]  incoming request
+2026-09-17T02:48:01.824186563Z [inf]  request completed
+2026-09-17T02:48:02.062717896Z [inf]  incoming request
+2026-09-17T02:48:02.062722206Z [inf]  request completed
+2026-09-17T02:48:02.062725226Z [inf]  incoming request
+2026-09-17T02:48:02.062728346Z [inf]  request completed
+2026-09-17T02:48:22.057848707Z [inf]  incoming request
+2026-09-17T02:48:22.057853007Z [inf]  
+2026-09-17T02:48:22.057856757Z [inf]  request completed
+2026-09-17T02:48:22.057859607Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:48:22.057863797Z [inf]  Meta Graph API request: {
+2026-09-17T02:48:22.057867217Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:48:22.057870397Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:48:22.057873457Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:48:22.057877057Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:48:22.057879937Z [inf]    recipientLength: 12,
+2026-09-17T02:48:22.057882647Z [inf]    messageType: 'text'
+2026-09-17T02:48:22.057885307Z [inf]  }
+2026-09-17T02:48:22.057888337Z [inf]  
+2026-09-17T02:48:22.057891377Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:48:22.058583671Z [inf]  incoming request
+2026-09-17T02:48:22.058591231Z [inf]  request completed
+2026-09-17T02:48:22.058594991Z [inf]  incoming request
+2026-09-17T02:48:22.058598411Z [inf]  request completed
+2026-09-17T02:48:27.618463460Z [inf]  incoming request
+2026-09-17T02:48:27.618469850Z [inf]  
+2026-09-17T02:48:27.618473460Z [inf]  request completed
+2026-09-17T02:48:27.618476820Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:48:28.145680501Z [inf]  Meta Graph API request: {
+2026-09-17T02:48:28.145685021Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:48:28.145688261Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:48:28.145692030Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:48:28.145695650Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:48:28.145699200Z [inf]    recipientLength: 12,
+2026-09-17T02:48:28.145702620Z [inf]    messageType: 'text'
+2026-09-17T02:48:28.145706420Z [inf]  }
+2026-09-17T02:48:28.564221432Z [inf]  
+2026-09-17T02:48:28.746776937Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:48:30.433580856Z [inf]  incoming request
+2026-09-17T02:48:30.433584046Z [inf]  request completed
+2026-09-17T02:48:31.145438434Z [inf]  incoming request
+2026-09-17T02:48:31.145442374Z [inf]  request completed
+2026-09-17T02:48:31.145446214Z [inf]  incoming request
+2026-09-17T02:48:31.145450544Z [inf]  request completed
+2026-09-17T02:48:38.269959779Z [inf]  incoming request
+2026-09-17T02:48:38.269963419Z [inf]  
+2026-09-17T02:48:38.269967919Z [inf]  request completed
+2026-09-17T02:48:38.269972399Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:48:45.283541333Z [inf]  Meta Graph API request: {
+2026-09-17T02:48:45.283544673Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:48:45.283547843Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:48:45.283550883Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:48:45.283553643Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:48:45.283557053Z [inf]    recipientLength: 12,
+2026-09-17T02:48:45.283559563Z [inf]    messageType: 'text'
+2026-09-17T02:48:45.283562293Z [inf]  }
+2026-09-17T02:48:45.695182159Z [inf]  
+2026-09-17T02:48:46.064345666Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:48:48.313657675Z [inf]  incoming request
+2026-09-17T02:48:48.313660765Z [inf]  request completed
+2026-09-17T02:48:48.313663185Z [inf]  incoming request
+2026-09-17T02:48:48.313665615Z [inf]  request completed
+2026-09-17T02:48:48.352859667Z [inf]  incoming request
+2026-09-17T02:48:48.352867396Z [inf]  request completed
+2026-09-17T02:48:58.065215391Z [inf]  incoming request
+2026-09-17T02:48:58.065218941Z [inf]  request completed
+2026-09-17T02:49:07.831696189Z [inf]  incoming request
+2026-09-17T02:49:07.831701719Z [inf]  
+2026-09-17T02:49:07.831704659Z [inf]  request completed
+2026-09-17T02:49:07.831707779Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:08.206604067Z [inf]    messageType: 'text'
+2026-09-17T02:49:08.206614067Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:08.206627567Z [inf]  }
+2026-09-17T02:49:08.206628497Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:08.206635746Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:08.206644376Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:49:08.206648446Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:49:08.206652576Z [inf]    recipientLength: 12,
+2026-09-17T02:49:08.808626488Z [inf]  
+2026-09-17T02:49:09.004529478Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:09.943560003Z [inf]  incoming request
+2026-09-17T02:49:09.943565183Z [inf]  request completed
+2026-09-17T02:49:11.052165920Z [inf]  incoming request
+2026-09-17T02:49:11.052170260Z [inf]  request completed
+2026-09-17T02:49:15.597431205Z [inf]  incoming request
+2026-09-17T02:49:15.597434525Z [inf]  
+2026-09-17T02:49:15.597438245Z [inf]  request completed
+2026-09-17T02:49:15.597441785Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:15.716379528Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:15.716384778Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:15.716388188Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:15.716391818Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:49:15.716395038Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:49:15.716398018Z [inf]    recipientLength: 12,
+2026-09-17T02:49:15.716400938Z [inf]    messageType: 'text'
+2026-09-17T02:49:15.716404118Z [inf]  }
+2026-09-17T02:49:16.326435813Z [inf]  
+2026-09-17T02:49:16.610530813Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:18.313432769Z [inf]  incoming request
+2026-09-17T02:49:18.313443239Z [inf]  request completed
+2026-09-17T02:49:18.345063086Z [inf]  incoming request
+2026-09-17T02:49:18.345068056Z [inf]  request completed
+2026-09-17T02:49:18.724516913Z [inf]  incoming request
+2026-09-17T02:49:18.724525103Z [inf]  request completed
+2026-09-17T02:49:27.216433858Z [inf]  incoming request
+2026-09-17T02:49:27.216440678Z [inf]  
+2026-09-17T02:49:27.216444388Z [inf]  request completed
+2026-09-17T02:49:27.216447508Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:30.033741609Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:30.033749379Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:49:30.033755589Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:49:30.033759299Z [inf]    recipientLength: 12,
+2026-09-17T02:49:30.033762759Z [inf]    messageType: 'text'
+2026-09-17T02:49:30.033767229Z [inf]  }
+2026-09-17T02:49:30.033809758Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:30.033813108Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:30.612925827Z [inf]  
+2026-09-17T02:49:30.870240425Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:31.908245651Z [inf]  incoming request
+2026-09-17T02:49:31.908250720Z [inf]  request completed
+2026-09-17T02:49:32.164791127Z [inf]  incoming request
+2026-09-17T02:49:32.164795416Z [inf]  request completed
+2026-09-17T02:49:35.897011634Z [inf]  incoming request
+2026-09-17T02:49:35.897013974Z [inf]  request completed
+2026-09-17T02:49:37.955001622Z [inf]  incoming request
+2026-09-17T02:49:37.955005342Z [inf]  
+2026-09-17T02:49:37.955009212Z [inf]  request completed
+2026-09-17T02:49:37.955012422Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:37.993318534Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:37.993324294Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:37.993327674Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:37.993330144Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:49:37.993332724Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:49:37.993335114Z [inf]    recipientLength: 12,
+2026-09-17T02:49:37.993338724Z [inf]    messageType: 'text'
+2026-09-17T02:49:37.993341364Z [inf]  }
+2026-09-17T02:49:38.682671699Z [inf]  
+2026-09-17T02:49:38.959692524Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:40.614853474Z [inf]  incoming request
+2026-09-17T02:49:40.614856434Z [inf]  request completed
+2026-09-17T02:49:40.983200479Z [inf]  incoming request
+2026-09-17T02:49:40.983203999Z [inf]  request completed
+2026-09-17T02:49:41.084952875Z [inf]  incoming request
+2026-09-17T02:49:41.084957385Z [inf]  request completed
+2026-09-17T02:49:43.954693141Z [inf]  incoming request
+2026-09-17T02:49:43.954696171Z [inf]  
+2026-09-17T02:49:43.954700641Z [inf]  request completed
+2026-09-17T02:49:43.954705141Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:47.109185837Z [inf]  }
+2026-09-17T02:49:47.109188607Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:49:47.109195857Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:47.109196007Z [inf]    recipientLength: 12,
+2026-09-17T02:49:47.109199087Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:49:47.109201887Z [inf]    messageType: 'text'
+2026-09-17T02:49:47.109205117Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:47.109208357Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:47.667604208Z [inf]  
+2026-09-17T02:49:47.914761159Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:48.658531103Z [inf]  incoming request
+2026-09-17T02:49:48.658534103Z [inf]  request completed
+2026-09-17T02:49:49.138006854Z [inf]  incoming request
+2026-09-17T02:49:49.138009624Z [inf]  request completed
+2026-09-17T02:49:54.905142482Z [inf]  incoming request
+2026-09-17T02:49:54.905162381Z [inf]  
+2026-09-17T02:49:54.905848464Z [inf]  request completed
+2026-09-17T02:49:54.905853594Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:49:56.890953224Z [inf]  Meta Graph API request: {
+2026-09-17T02:49:56.890956304Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:49:56.890959124Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:49:56.890961834Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:49:56.890965224Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:49:56.890967854Z [inf]    recipientLength: 12,
+2026-09-17T02:49:56.890971354Z [inf]    messageType: 'text'
+2026-09-17T02:49:56.890974154Z [inf]  }
+2026-09-17T02:49:57.363566076Z [inf]  
+2026-09-17T02:49:57.562000530Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:49:58.366146424Z [inf]  incoming request
+2026-09-17T02:49:58.366150424Z [inf]  request completed
+2026-09-17T02:49:58.789646900Z [inf]  incoming request
+2026-09-17T02:49:58.789659820Z [inf]  request completed
+2026-09-17T02:50:03.913637110Z [inf]  incoming request
+2026-09-17T02:50:03.914188105Z [inf]  
+2026-09-17T02:50:03.915083235Z [inf]  request completed
+2026-09-17T02:50:03.915088425Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:04.405390676Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:04.405393616Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:04.405396606Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:04.405399516Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:50:04.405403026Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:50:04.405405966Z [inf]    recipientLength: 12,
+2026-09-17T02:50:04.405408706Z [inf]    messageType: 'text'
+2026-09-17T02:50:04.405411766Z [inf]  }
+2026-09-17T02:50:04.885602485Z [inf]  
+2026-09-17T02:50:05.081853062Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:06.686784544Z [inf]  incoming request
+2026-09-17T02:50:06.686788474Z [inf]  request completed
+2026-09-17T02:50:06.764046713Z [inf]  incoming request
+2026-09-17T02:50:06.764052953Z [inf]  request completed
+2026-09-17T02:50:07.458939789Z [inf]  incoming request
+2026-09-17T02:50:07.458944429Z [inf]  request completed
+2026-09-17T02:50:09.512345517Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:09.512541575Z [inf]  incoming request
+2026-09-17T02:50:09.512554714Z [inf]  
+2026-09-17T02:50:09.512558404Z [inf]  request completed
+2026-09-17T02:50:10.514838495Z [inf]  
+2026-09-17T02:50:10.514842545Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:10.514845045Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:10.514848285Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:10.514851035Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:50:10.514853705Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:50:10.514856425Z [inf]    recipientLength: 12,
+2026-09-17T02:50:10.514858975Z [inf]    messageType: 'text'
+2026-09-17T02:50:10.514861395Z [inf]  }
+2026-09-17T02:50:10.932608842Z [inf]  
+2026-09-17T02:50:11.122418023Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:11.962454763Z [inf]  incoming request
+2026-09-17T02:50:11.962459613Z [inf]  request completed
+2026-09-17T02:50:12.524084324Z [inf]  incoming request
+2026-09-17T02:50:12.524088384Z [inf]  request completed
+2026-09-17T02:50:13.134228127Z [inf]  incoming request
+2026-09-17T02:50:13.134231597Z [inf]  request completed
+2026-09-17T02:50:13.134235217Z [inf]  
+2026-09-17T02:50:13.134238147Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:17.487374372Z [inf]  incoming request
+2026-09-17T02:50:17.487378552Z [inf]  
+2026-09-17T02:50:17.487382602Z [inf]  request completed
+2026-09-17T02:50:17.487386662Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:18.520636245Z [inf]  
+2026-09-17T02:50:18.520640815Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:18.520644814Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:18.520648254Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:18.520652284Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:50:18.520656074Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:50:18.520659684Z [inf]    recipientLength: 12,
+2026-09-17T02:50:18.520663334Z [inf]    messageType: 'text'
+2026-09-17T02:50:18.520668334Z [inf]  }
+2026-09-17T02:50:18.962502547Z [inf]  
+2026-09-17T02:50:19.352803536Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:20.162791667Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:20.162798247Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:20.162801967Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:20.162805047Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:50:20.162809777Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:50:20.162815177Z [inf]    recipientLength: 12,
+2026-09-17T02:50:20.162818046Z [inf]    messageType: 'text'
+2026-09-17T02:50:20.162824016Z [inf]  }
+2026-09-17T02:50:20.310313746Z [inf]  incoming request
+2026-09-17T02:50:20.310317936Z [inf]  request completed
+2026-09-17T02:50:20.526239601Z [inf]  incoming request
+2026-09-17T02:50:20.526246601Z [inf]  request completed
+2026-09-17T02:50:20.725478582Z [inf]  
+2026-09-17T02:50:20.916861798Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:22.716367206Z [inf]  incoming request
+2026-09-17T02:50:22.716374756Z [inf]  request completed
+2026-09-17T02:50:23.052999165Z [inf]  request completed
+2026-09-17T02:50:23.053096875Z [inf]  incoming request
+2026-09-17T02:50:23.053100335Z [inf]  request completed
+2026-09-17T02:50:23.053103515Z [inf]  incoming request
+2026-09-17T02:50:29.194726199Z [inf]  incoming request
+2026-09-17T02:50:29.194734449Z [inf]  
+2026-09-17T02:50:29.194737609Z [inf]  request completed
+2026-09-17T02:50:29.194740639Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:29.674368343Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:29.674371273Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:29.674374213Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:29.674376963Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:50:29.674379573Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:50:29.674382193Z [inf]    recipientLength: 12,
+2026-09-17T02:50:29.674384903Z [inf]    messageType: 'text'
+2026-09-17T02:50:29.674388283Z [inf]  }
+2026-09-17T02:50:30.247482389Z [inf]  
+2026-09-17T02:50:30.494686479Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:31.360807775Z [inf]  incoming request
+2026-09-17T02:50:31.360812885Z [inf]  request completed
+2026-09-17T02:50:31.902577060Z [inf]  incoming request
+2026-09-17T02:50:31.902582390Z [inf]  request completed
+2026-09-17T02:50:32.106576785Z [inf]  incoming request
+2026-09-17T02:50:32.106583714Z [inf]  
+2026-09-17T02:50:32.106587774Z [inf]  request completed
+2026-09-17T02:50:32.106591664Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:32.496165075Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:32.496168225Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:32.496171525Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:32.496174815Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:50:32.496177555Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:50:32.496180695Z [inf]    recipientLength: 12,
+2026-09-17T02:50:32.496183075Z [inf]    messageType: 'text'
+2026-09-17T02:50:32.496185685Z [inf]  }
+2026-09-17T02:50:33.106237699Z [inf]  
+2026-09-17T02:50:33.212861821Z [inf]  incoming request
+2026-09-17T02:50:33.212868481Z [inf]  request completed
+2026-09-17T02:50:33.242282722Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:34.975409750Z [inf]  incoming request
+2026-09-17T02:50:34.975422159Z [inf]  request completed
+2026-09-17T02:50:35.067733372Z [inf]  incoming request
+2026-09-17T02:50:35.067736392Z [inf]  request completed
+2026-09-17T02:50:35.089720016Z [inf]  incoming request
+2026-09-17T02:50:35.089730086Z [inf]  request completed
+2026-09-17T02:50:41.169100649Z [inf]  incoming request
+2026-09-17T02:50:41.169107539Z [inf]  
+2026-09-17T02:50:41.169111019Z [inf]  request completed
+2026-09-17T02:50:41.169113909Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:50:42.842618472Z [inf]  Meta Graph API request: {
+2026-09-17T02:50:42.842621932Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:50:42.842625622Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:50:42.842629742Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:50:42.842635852Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:50:42.842640002Z [inf]    recipientLength: 12,
+2026-09-17T02:50:42.842643532Z [inf]    messageType: 'text'
+2026-09-17T02:50:42.842647892Z [inf]  }
+2026-09-17T02:50:43.331181805Z [inf]  
+2026-09-17T02:50:43.514017539Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:50:44.366128672Z [inf]  incoming request
+2026-09-17T02:50:44.366135541Z [inf]  request completed
+2026-09-17T02:50:44.640952723Z [inf]  incoming request
+2026-09-17T02:50:44.640956613Z [inf]  request completed
+2026-09-17T02:51:04.640128169Z [inf]  incoming request
+2026-09-17T02:51:04.640131569Z [inf]  
+2026-09-17T02:51:04.640139729Z [inf]  request completed
+2026-09-17T02:51:04.640143939Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:51:04.640147449Z [inf]  Meta Graph API request: {
+2026-09-17T02:51:04.640152019Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:51:04.640155539Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:51:04.640158509Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:51:04.640161669Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:51:04.640164969Z [inf]    recipientLength: 12,
+2026-09-17T02:51:04.640168659Z [inf]    messageType: 'text'
+2026-09-17T02:51:04.640173519Z [inf]  }
+2026-09-17T02:51:04.640176859Z [inf]  
+2026-09-17T02:51:04.640180159Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:51:04.643563755Z [inf]  incoming request
+2026-09-17T02:51:04.643568965Z [inf]  request completed
+2026-09-17T02:51:04.643572515Z [inf]  incoming request
+2026-09-17T02:51:04.643575375Z [inf]  request completed
+2026-09-17T02:51:34.713790236Z [inf]  incoming request
+2026-09-17T02:51:34.713796726Z [inf]  
+2026-09-17T02:51:34.713800506Z [inf]  request completed
+2026-09-17T02:51:34.713803376Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:51:34.713806836Z [inf]  Meta Graph API request: {
+2026-09-17T02:51:34.713809896Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:51:34.713812866Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:51:34.713815406Z [inf]    recipientOriginal: '54*******2272',
+2026-09-17T02:51:34.713817786Z [inf]    recipientFinal: '54******2272',
+2026-09-17T02:51:34.713820636Z [inf]    recipientLength: 12,
+2026-09-17T02:51:34.713823156Z [inf]    messageType: 'text'
+2026-09-17T02:51:34.713825826Z [inf]  }
+2026-09-17T02:51:34.713828246Z [inf]  
+2026-09-17T02:51:34.713830686Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:51:34.714553209Z [inf]  incoming request
+2026-09-17T02:51:34.714555969Z [inf]  request completed
+2026-09-17T02:51:34.714558599Z [inf]  incoming request
+2026-09-17T02:51:34.714561009Z [inf]  request completed
+2026-09-17T02:54:35.296199901Z [inf]  incoming request
+2026-09-17T02:54:35.296209001Z [inf]  
+2026-09-17T02:54:35.296216061Z [inf]  request completed
+2026-09-17T02:54:35.296220721Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:54:35.296225331Z [inf]  Meta Graph API request: {
+2026-09-17T02:54:35.296229781Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:54:35.296236221Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:54:35.296241501Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:54:35.296246301Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:54:35.296250881Z [inf]    recipientLength: 12,
+2026-09-17T02:54:35.296255031Z [inf]    messageType: 'text'
+2026-09-17T02:54:35.296259051Z [inf]  }
+2026-09-17T02:54:35.296263291Z [inf]  
+2026-09-17T02:54:35.296267441Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:54:35.297391880Z [inf]  incoming request
+2026-09-17T02:54:35.297399180Z [inf]  request completed
+2026-09-17T02:54:35.297402980Z [inf]  incoming request
+2026-09-17T02:54:35.297406480Z [inf]  request completed
+2026-09-17T02:54:35.297409800Z [inf]  incoming request
+2026-09-17T02:54:35.297413460Z [inf]  request completed
+2026-09-17T02:54:39.279241672Z [inf]  incoming request
+2026-09-17T02:54:39.279245822Z [inf]  
+2026-09-17T02:54:39.280251732Z [inf]  request completed
+2026-09-17T02:54:39.280255862Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:54:42.567057727Z [inf]  Meta Graph API request: {
+2026-09-17T02:54:42.567063687Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:54:42.567066757Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:54:42.567069647Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:54:42.567072787Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:54:42.567076927Z [inf]    recipientLength: 12,
+2026-09-17T02:54:42.567080047Z [inf]    messageType: 'text'
+2026-09-17T02:54:42.567082757Z [inf]  }
+2026-09-17T02:54:43.260261260Z [inf]  
+2026-09-17T02:54:43.477999413Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:54:44.990294151Z [inf]  incoming request
+2026-09-17T02:54:44.990299361Z [inf]  request completed
+2026-09-17T02:54:45.214549262Z [inf]  incoming request
+2026-09-17T02:54:45.214562001Z [inf]  request completed
+2026-09-17T02:54:46.022918651Z [inf]  incoming request
+2026-09-17T02:54:46.022922781Z [inf]  request completed
+2026-09-17T02:55:05.979997874Z [inf]  incoming request
+2026-09-17T02:55:05.980009974Z [inf]  
+2026-09-17T02:55:05.980016184Z [inf]  request completed
+2026-09-17T02:55:05.980021164Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:55:05.980025814Z [inf]  Meta Graph API request: {
+2026-09-17T02:55:05.980030624Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:55:05.980034974Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:55:05.980039713Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:55:05.980044893Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:55:05.980049373Z [inf]    recipientLength: 12,
+2026-09-17T02:55:05.980053773Z [inf]    messageType: 'text'
+2026-09-17T02:55:05.980058043Z [inf]  }
+2026-09-17T02:55:05.980063073Z [inf]  
+2026-09-17T02:55:05.980067363Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:55:05.980728848Z [inf]  incoming request
+2026-09-17T02:55:05.980735408Z [inf]  request completed
+2026-09-17T02:55:06.416234288Z [inf]  incoming request
+2026-09-17T02:55:06.416237958Z [inf]  request completed
+2026-09-17T02:55:06.416242058Z [inf]  incoming request
+2026-09-17T02:55:06.416245888Z [inf]  request completed
+2026-09-17T02:55:13.022571449Z [inf]  incoming request
+2026-09-17T02:55:13.025059015Z [inf]  
+2026-09-17T02:55:13.025064835Z [inf]  request completed
+2026-09-17T02:55:13.025070565Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:55:14.021724215Z [inf]  Meta Graph API request: {
+2026-09-17T02:55:14.021731135Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:55:14.021735515Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:55:14.021739375Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:55:14.021743075Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:55:14.021746935Z [inf]    recipientLength: 12,
+2026-09-17T02:55:14.021751045Z [inf]    messageType: 'text'
+2026-09-17T02:55:14.021756255Z [inf]  }
+2026-09-17T02:55:14.669081411Z [inf]  
+2026-09-17T02:55:14.866942860Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:55:16.591997924Z [inf]  incoming request
+2026-09-17T02:55:16.592013614Z [inf]  request completed
+2026-09-17T02:55:16.685294883Z [inf]  incoming request
+2026-09-17T02:55:16.685298023Z [inf]  request completed
+2026-09-17T02:55:16.699132699Z [inf]  incoming request
+2026-09-17T02:55:16.699147359Z [inf]  request completed
+2026-09-17T02:55:20.917595902Z [inf]  incoming request
+2026-09-17T02:55:20.917601452Z [inf]  
+2026-09-17T02:55:20.917604642Z [inf]  request completed
+2026-09-17T02:55:20.917607802Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:55:23.948126934Z [inf]  Meta Graph API request: {
+2026-09-17T02:55:23.948134384Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:55:23.948139204Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:55:23.948143164Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:55:23.948147354Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:55:23.948151214Z [inf]    recipientLength: 12,
+2026-09-17T02:55:23.948154984Z [inf]    messageType: 'text'
+2026-09-17T02:55:23.948159854Z [inf]  }
+2026-09-17T02:55:24.579533656Z [inf]  
+2026-09-17T02:55:24.733698308Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:55:26.694414874Z [inf]  incoming request
+2026-09-17T02:55:26.694418284Z [inf]  request completed
+2026-09-17T02:55:26.694422464Z [inf]  incoming request
+2026-09-17T02:55:26.694426174Z [inf]  request completed
+2026-09-17T02:55:26.801841638Z [inf]  incoming request
+2026-09-17T02:55:26.801845438Z [inf]  request completed
+2026-09-17T02:56:37.441777040Z [inf]  incoming request
+2026-09-17T02:56:37.441779630Z [inf]  
+2026-09-17T02:56:37.441782200Z [inf]  request completed
+2026-09-17T02:56:37.441784549Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:56:37.441787769Z [inf]  Meta Graph API request: {
+2026-09-17T02:56:37.441790549Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:56:37.441792959Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:56:37.441795739Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:56:37.441799169Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:56:37.441801979Z [inf]    recipientLength: 12,
+2026-09-17T02:56:37.441804469Z [inf]    messageType: 'text'
+2026-09-17T02:56:37.441807229Z [inf]  }
+2026-09-17T02:56:37.441809789Z [inf]  
+2026-09-17T02:56:37.441812099Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:56:37.442324574Z [inf]  incoming request
+2026-09-17T02:56:37.442327774Z [inf]  request completed
+2026-09-17T02:56:37.442331004Z [inf]  incoming request
+2026-09-17T02:56:37.442334064Z [inf]  request completed
+2026-09-17T02:56:37.442337804Z [inf]  incoming request
+2026-09-17T02:56:37.442340564Z [inf]  request completed
+2026-09-17T02:57:07.507919588Z [inf]  incoming request
+2026-09-17T02:57:07.507925158Z [inf]  
+2026-09-17T02:57:07.507929818Z [inf]  request completed
+2026-09-17T02:57:07.507933538Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:57:07.507936378Z [inf]  Meta Graph API request: {
+2026-09-17T02:57:07.507938938Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:57:07.507941328Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:57:07.507946118Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:57:07.507949028Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:57:07.507951938Z [inf]    recipientLength: 12,
+2026-09-17T02:57:07.507954778Z [inf]    messageType: 'text'
+2026-09-17T02:57:07.507958478Z [inf]  }
+2026-09-17T02:57:07.507961578Z [inf]  
+2026-09-17T02:57:07.507965278Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:57:07.508353894Z [inf]  incoming request
+2026-09-17T02:57:07.508357034Z [inf]  request completed
+2026-09-17T02:57:07.508360094Z [inf]  incoming request
+2026-09-17T02:57:07.508362664Z [inf]  request completed
+2026-09-17T02:57:07.508365624Z [inf]  incoming request
+2026-09-17T02:57:07.508369653Z [inf]  request completed
+2026-09-17T02:57:09.317355719Z [inf]  incoming request
+2026-09-17T02:57:09.317360309Z [inf]  
+2026-09-17T02:57:09.317364589Z [inf]  request completed
+2026-09-17T02:57:09.317367909Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:57:09.380048056Z [inf]    messageType: 'text'
+2026-09-17T02:57:09.380056086Z [inf]  }
+2026-09-17T02:57:09.380068356Z [inf]  Meta Graph API request: {
+2026-09-17T02:57:09.380078066Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:57:09.380083036Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:57:09.380086486Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:57:09.380089946Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:57:09.380094726Z [inf]    recipientLength: 12,
+2026-09-17T02:57:10.175672636Z [inf]  
+2026-09-17T02:57:10.175677836Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:57:12.176679187Z [inf]  incoming request
+2026-09-17T02:57:12.176691837Z [inf]  request completed
+2026-09-17T02:57:12.176890715Z [inf]  incoming request
+2026-09-17T02:57:12.176896625Z [inf]  request completed
+2026-09-17T02:57:12.405759795Z [inf]  incoming request
+2026-09-17T02:57:12.405764055Z [inf]  request completed
+2026-09-17T02:57:32.393613565Z [inf]  incoming request
+2026-09-17T02:57:32.393618205Z [inf]  
+2026-09-17T02:57:32.393626825Z [inf]  request completed
+2026-09-17T02:57:32.393630675Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:57:32.393634555Z [inf]  Meta Graph API request: {
+2026-09-17T02:57:32.393641025Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:57:32.393645275Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:57:32.393650255Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:57:32.393654545Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:57:32.393658635Z [inf]    recipientLength: 12,
+2026-09-17T02:57:32.393662075Z [inf]    messageType: 'text'
+2026-09-17T02:57:32.393666265Z [inf]  }
+2026-09-17T02:57:32.393670565Z [inf]  
+2026-09-17T02:57:32.393675335Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:57:32.393679635Z [inf]  incoming request
+2026-09-17T02:57:32.393684105Z [inf]  request completed
+2026-09-17T02:57:32.393687925Z [inf]  incoming request
+2026-09-17T02:57:32.393692505Z [inf]  request completed
+2026-09-17T02:57:32.393696565Z [inf]  incoming request
+2026-09-17T02:57:32.393700234Z [inf]  request completed
+2026-09-17T02:57:42.029666484Z [inf]  incoming request
+2026-09-17T02:57:42.029670124Z [inf]  
+2026-09-17T02:57:42.029675154Z [inf]  request completed
+2026-09-17T02:57:42.029679744Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:57:42.613627306Z [inf]  Meta Graph API request: {
+2026-09-17T02:57:42.613630846Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:57:42.613634946Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:57:42.613638016Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:57:42.613640906Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:57:42.613643766Z [inf]    recipientLength: 12,
+2026-09-17T02:57:42.613646966Z [inf]    messageType: 'text'
+2026-09-17T02:57:42.613650216Z [inf]  }
+2026-09-17T02:57:43.060577824Z [inf]  
+2026-09-17T02:57:43.242947562Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:57:44.861181452Z [inf]  incoming request
+2026-09-17T02:57:44.861184932Z [inf]  request completed
+2026-09-17T02:57:45.641677506Z [inf]  incoming request
+2026-09-17T02:57:45.641689116Z [inf]  request completed
+2026-09-17T02:57:45.641694436Z [inf]  incoming request
+2026-09-17T02:57:45.641698966Z [inf]  request completed
+2026-09-17T02:58:15.568917354Z [inf]  incoming request
+2026-09-17T02:58:15.568922374Z [inf]  
+2026-09-17T02:58:15.568926334Z [inf]  request completed
+2026-09-17T02:58:15.568929454Z [inf]  Procesando mensaje de WhatsApp
+2026-09-17T02:58:15.568932654Z [inf]  Meta Graph API request: {
+2026-09-17T02:58:15.568936384Z [inf]    graphApiVersion: 'v25.0',
+2026-09-17T02:58:15.568939444Z [inf]    phoneNumberId: '1352742341246338',
+2026-09-17T02:58:15.568943313Z [inf]    recipientOriginal: '54*******0417',
+2026-09-17T02:58:15.568946483Z [inf]    recipientFinal: '54******0417',
+2026-09-17T02:58:15.568949653Z [inf]    recipientLength: 12,
+2026-09-17T02:58:15.568953003Z [inf]    messageType: 'text'
+2026-09-17T02:58:15.568956083Z [inf]  }
+2026-09-17T02:58:15.568959473Z [inf]  
+2026-09-17T02:58:15.568962823Z [inf]  Mensaje de WhatsApp procesado correctamente
+2026-09-17T02:58:15.569619907Z [inf]  incoming request
+2026-09-17T02:58:15.569623457Z [inf]  request completed
+2026-09-17T02:58:15.569626987Z [inf]  incoming request
+2026-09-17T02:58:15.569630037Z [inf]  request completed
+2026-09-17T02:58:15.569633207Z [inf]  incoming request
+2026-09-17T02:58:15.569637107Z [inf]  request completed

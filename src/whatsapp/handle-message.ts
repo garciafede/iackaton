@@ -38,14 +38,16 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
     query=followup?state.lastProduct?.query:searchQuery;
     stage='agent.search';
     state.activeSubject='product';
-    if(!followup)state.lastProduct={query:searchQuery,sort:state.sortCriterion,radiusKm:resolveMessageRadius(searchQuery)};
+    if(!followup){state.lastProduct={query:searchQuery,sort:state.sortCriterion,radiusKm:resolveMessageRadius(searchQuery)};if(state.pendingAction?.type==='ALTERNATIVE')delete state.pendingAction;}
     save();
     if(!state.location){state.pendingAction={...(state.pendingAction?.type==='LOCATION'?state.pendingAction:{}),type:'LOCATION',resume:'product'};save();await send((await d.agent({message:searchQuery})).message);return;}
     if(!state.lastProduct){await send('Decime qué producto querés comparar.');return;}
     delete state.lastProductResults;
     const input=followup?(state.sortCriterion==='price'?'más barata':state.sortCriterion==='distance'?'más cercana':searchQuery):searchQuery;
     const result=await d.agent({message:input,...state.location,sort:state.sortCriterion,onSearchResult:r=>{state.lastProductResults=r?.results??[];},...(followup?{previousSearch:state.lastProduct}:{})});
-    if(result.toolArguments)state.lastProduct={query:result.toolArguments.query,sort:state.sortCriterion,radiusKm:result.toolArguments.radiusKm??null};
+    if(result.toolArguments)state.lastProduct={query:followup?state.lastProduct.query:result.toolArguments.query,sort:state.sortCriterion,radiusKm:result.toolArguments.radiusKm??null,
+      ...((result.selectedProduct?.query??(followup?state.lastProduct.selectedQuery:undefined))?{selectedQuery:result.selectedProduct?.query??state.lastProduct.selectedQuery!}:{})};
+    if(result.alternatives?.length)state.pendingAction={type:'ALTERNATIVE',choices:result.alternatives};
     save();await send(result.message);
   }
   async function searchCart(text:string,reuse=false){
@@ -131,6 +133,14 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
       case 'FAREWELL':await send('¡De nada! Hasta luego 👋');return;
       case 'SMALLTALK':await send(state.location?'¡Hola! Ya tengo tu ubicación. Decime qué producto o lista querés buscar.':'¡Hola! Decime qué producto querés buscar y compartime tu ubicación.');return;
       case 'SHOW_CART':state.activeSubject='cart';save();await send(showCart());return;
+      case 'CONFIRM_ALTERNATIVE':{
+        const pending=state.pendingAction;if(pending?.type!=='ALTERNATIVE')return;
+        if(!intent.confirm){delete state.pendingAction;save();await send('Decime qué otro producto querés buscar.');return;}
+        if(pending.choices.length!==1){await send(`¿Cuál preferís: ${pending.choices.map(c=>c.label).join('; ')}?`);return;}
+        const choice=pending.choices[0]!;delete state.pendingAction;
+        state.lastProduct={query:choice.label,selectedQuery:choice.query,sort:state.sortCriterion,radiusKm:state.lastProduct?.radiusKm??null};save();
+        await searchProduct(choice.label,true);return;
+      }
       case 'MODIFY_CART':
         if(intent.confirm!==undefined&&state.pendingAction?.type==='ADD_ITEM'){const pending=state.pendingAction;delete state.pendingAction;save();if(intent.confirm)await modifyCart({operation:'add',query:pending.query,quantity:pending.quantity});else await send('Dejo tu carrito como estaba.');return;}
         if(intent.change)await modifyCart(intent.change);return;

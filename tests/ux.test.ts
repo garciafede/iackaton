@@ -10,6 +10,8 @@ import {WhatsAppSessionStore,MessageDeduplicator} from "../src/whatsapp/session.
 import type {WhatsAppWebhookDependencies,WhatsAppMessage} from "../src/whatsapp/webhook.js";
 import {calculateDistanceKm} from "../src/utils/distance.js";
 import {mapLiveCandidates,nearestBranch} from "../src/live/store-mapping.js";
+import {deduplicateOffers,sortSearchResults} from '../src/services/product-search.service.js';
+import {formatOffers} from '../src/ai/format-offers.js';
 
 // Importes, direcciones y coordenadas son fixtures en memoria; sin llamadas reales.
 const input="Quiero comprar:\n1 Oreo\n1 Coca Zero\n1 Playadito\n1 detergente Magistral\n1 arroz 53\n\n¿Dónde es más barato?";
@@ -17,6 +19,21 @@ const names=["Carrefour","Vea","ChangoMás"];
 const offer=(chain:string,price:number,storeId=names.indexOf(chain)+1):any=>({store:{id:storeId,chain,name:`${chain} test`,address:"Dirección sintética"},price,distanceKm:storeId,stock:null,source:`REAL:LIVE:${chain.toUpperCase()}`,lastCheckedAt:new Date("2026-09-13T13:00:00Z"),product:{id:1,ean:"7790895067556",name:"Producto test",variant:null,size:"500 ml"},live:{priceScope:"ONLINE_CHAIN",storeMappingMethod:"NEAREST_BRANCH_ASSUMPTION",fulfillment:"UNKNOWN",availabilityConfidence:"UNCONFIRMED_AT_STORE"}});
 const result=(rows:any[]):any=>({product:{id:1,name:"Producto test",brand:"Test",variant:null,size:"500 ml"},results:rows,totalResults:rows.length,radiusKm:25});
 const args={query:"Coca Zero",latitude:-26,longitude:-65,sort:"distance",radiusKm:25};
+
+test('chat 23:45: Pepsi Black 1.5 L no duplica Vea ni repite el producto en cada línea',()=>{
+  const first={...offer('Vea',3650),product:{id:20,ean:'7790000000020',brand:'Pepsi',name:'Pepsi Black',variant:'Black',size:'1.5 L'}};
+  const duplicate={...first,source:'REAL:SEPA',live:undefined};
+  const missingEan={...first,product:{...first.product,id:0,ean:null}};
+  const otherBranch={...first,store:{...first.store,id:99,name:'Vea otra sucursal',address:'Otro fixture'}};
+  const data={product:{name:'Pepsi Black',size:'1.5 L'},results:[first,duplicate,missingEan,otherBranch],radiusKm:25};
+  const unique=deduplicateOffers(data.results);assert.equal(unique.length,2);assert.equal(unique[0]!.source,'REAL:SEPA');
+  assert.equal(sortSearchResults(data.results,'price').length,2);assert.equal(sortSearchResults(data.results,'distance').length,2);
+  const compact=formatCompactOffers(data,'price');assert.equal(compact.match(/Vea test/g)?.length,1);assert.equal(compact.match(/Pepsi Black/g)?.length,1);assert.match(compact,/Vea otra sucursal/);
+  assert.equal(formatOffers(data,'price').match(/Vea test/g)?.length,1);
+  assert.equal(data.results.length,4,'No modificar la lista recibida');
+  const distinct=[first,{...first,price:4000},{...first,product:{...first.product,ean:'7790000000021',size:'2 L'}},otherBranch];
+  assert.equal(deduplicateOffers(distinct).length,4,'Conservar otro precio, presentación o sucursal');
+});
 for(const phrase of ["más barato","más barata","dónde conviene","menor precio"]){
   test(`UX: ${phrase} impone precio ascendente aunque el modelo seleccione distancia`,async()=>{
     let actual:any;
@@ -641,13 +658,14 @@ test("chat real: Buenas y Ahora quiero comprar no son productos",()=>{
 
 test("chat real: Lays conserva producto y fuerza precio en todos los seguimientos",async()=>{
   const h=harness();const toolCalls:any[]=[];let modelCalls=0;
+  const lays={id:51,ean:'7790000000051',name:'Papas Lays Clásicas',brand:'Lays',variant:'Clásicas',size:'150 g'};
   h.deps.agent=a=>runProductAgent({...a,compact:true},{model:"mock",createResponse:async()=>{
     modelCalls++;return {output:[{type:"function_call",name:"findProductOffers",arguments:JSON.stringify({...args,query:"papas lays clásicas",sort:"distance"})}]} as any;
-  },executeTool:async a=>{toolCalls.push(a);return result([offer("ChangoMás",4289),offer("Carrefour",4190)]);}});
+  },executeTool:async a=>{toolCalls.push(a);return {...result([offer("ChangoMás",4289),offer("Carrefour",4190)].map(r=>({...r,product:lays}))),product:lays};}});
   await h.text("Buenas, necesito saber dónde conseguir unas papas lays clásicas");await h.gps();
   assert.equal(h.sessions.get("a")?.cart,undefined);
   for(const text of ["Cuál opción me conviene si priorizo el precio?","priorizo el precio","Y por precio?","El que te dije recién"]){
-    await h.text(text);assert.equal(toolCalls.at(-1).query,"papas lays clásicas");assert.equal(toolCalls.at(-1).sort,"price");
+    await h.text(text);assert.equal(toolCalls.at(-1).query,lays.ean);assert.equal(h.sessions.get('a')?.lastProduct?.query,'papas lays clásicas');assert.equal(toolCalls.at(-1).sort,"price");
     assert.match(h.sent.at(-1)!,/Menor precio/);assert.ok(h.sent.at(-1)!.indexOf("Carrefour")<h.sent.at(-1)!.indexOf("ChangoMás"));
   }
   assert.equal(modelCalls,1,"Los seguimientos no necesitan otra inferencia");

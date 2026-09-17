@@ -75,7 +75,7 @@ for(const [message,query,quantity] of [
   assert.equal(h.searches(),calls);assert.equal(h.state().cartResults,undefined);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);assert.doesNotMatch(JSON.stringify(h.state().currentCart),/al carrito|1 5l/);
 });}
 
-for(const message of ['Que tengo en el carrito?','Qué tengo en el carrito?']){
+for(const message of ['Que tengo en el carrito?','Qué tengo en el carrito?','Muéstrame el carrito','mostrame el carrito','cuál es mi carrito','Muéstrame mi carrito por precio']){
   test(`E2E 16/09: ${message} muestra sin consultar ni comparar`,async()=>{
     const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('2 Oreo\n1 Coca Zero');
     const before=h.searches(),results=h.state().cartResults;
@@ -83,6 +83,89 @@ for(const message of ['Que tengo en el carrito?','Qué tengo en el carrito?']){
     assert.equal(h.state().cartResults,results);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito:/);assert.match(h.sent.at(-1)!,/2 Oreo/);assert.doesNotMatch(h.sent.at(-1)!,/Total|parcial/);
   });
 }
+
+for(const message of ['Agregar al carrito 2 arroz colpado','Agregar al carrito 3 x Oreo','Agregar al carrito 1 Pepsi 1,5L']){
+  test(`chat 23:46: ${message} crea un carrito sin ubicación ni consultas`,async()=>{
+    const h=harness();await h.text(message);
+    assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),0);assert.equal(h.state().currentCart.length,1);
+    assert.doesNotMatch(h.state().currentCart[0]!.query,/al carrito|agregar|1 5l/i);
+    assert.equal(h.state().currentCart[0]!.quantity,message.includes('3 x')?3:message.includes('2 arroz')?2:1);
+    if(message.includes('1,5L'))assert.match(h.state().currentCart[0]!.query,/1\.5l/);
+    assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+  });
+}
+
+for(const message of ['Sacá el aceite y los dos arroz colpado','Saca el aceite y los dos arroz colpado del carrito']){
+  test(`chat 23:50: ${message} elimina ambos y conserva el resto`,async()=>{
+    const h=harness();h.sessions.update('test',{...newConversationState(),currentCart:[{query:'aceite natura 900 ml',quantity:1},{query:'arroz colpado 1kg',quantity:2},{query:'arroz 53',quantity:1}]});
+    await h.text(message);assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),0);
+    assert.deepEqual(h.state().currentCart,[{query:'arroz 53',quantity:1}]);assert.equal(h.state().cartResults,undefined);
+    assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+  });
+}
+
+for(const message of ['Cambia el arroz lucchetti por 3 arroz lucchetti','Cambia el arroz lucchetti por 3 arroz lucchetti en el carrito','Cambia el arroz lucchetti de 1 a 3']){
+  test(`chat 23:57: ${message} cambia cantidad sin buscar supermercados`,async()=>{
+    const h=harness();h.sessions.update('test',{...newConversationState(),currentCart:[{query:'arroz lucchetti',quantity:1},{query:'Oreo',quantity:2}]});
+    await h.text(message);assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),0);
+    assert.deepEqual(h.state().currentCart,[{query:'arroz lucchetti',quantity:3},{query:'Oreo',quantity:2}]);assert.equal(h.state().cartResults,undefined);
+    assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+  });
+}
+
+// Identidades e importes sintéticos; el router y el agente son reales, las APIs no se llaman.
+function installVariantAgent(h:ReturnType<typeof harness>){
+  const calls:{query:string;sort:string}[]=[];let modelCalls=0;
+  const zero={id:501,ean:'7790895067556',name:'Coca-Cola Sin Azúcar',brand:'Coca-Cola',variant:'Zero',size:'1.5 L'};
+  const original={id:502,ean:'7790000000002',name:'Coca-Cola Original',brand:'Coca-Cola',variant:'Original',size:'354 ml'};
+  h.deps.agent=input=>runProductAgent({...input,compact:true},{model:'mock',createResponse:async()=>{
+    modelCalls++;return {output:[{type:'function_call',name:'findProductOffers',arguments:JSON.stringify({query:/2 litros/.test(input.message)?'Coca Zero 2 litros':'Coca',sort:'price'})}]} as any;
+  },executeTool:async a=>{
+    calls.push({query:a.query,sort:a.sort});if(/2 litros/.test(a.query))return null;
+    const products=a.query===zero.ean||a.query==='Coca Zero'?[zero]:a.query===original.ean?[original]:[original,zero];
+    const results=products.map((p,index)=>({product:p,store:{id:index+1,chain:'Vea',name:`Sucursal ${p.id}`,address:'Fixture'},price:p===original?100:200,distanceKm:p===original?3:1,source:'REAL:SEPA',stock:null,lastCheckedAt:new Date()}));
+    return {product:products[0],results,totalResults:results.length,radiusKm:25} as any;
+  }});
+  return {calls,modelCalls:()=>modelCalls,zero,original};
+}
+
+for(const yes of ['Si','sí']){
+  test(`chat 23:45: alternativa Coca Zero 2 litros → ${yes} usa 1.5 L sin otra inferencia`,async()=>{
+    const h=harness(),a=installVariantAgent(h);await h.post({type:'location',location:{latitude:-27,longitude:-66}});
+    await h.text('Y una coca zero de 2 litros?');assert.match(h.sent.at(-1)!,/No encontré.*2 litros.*Sí encontré.*1.5 L/);
+    assert.equal(h.state().pendingAction?.type,'ALTERNATIVE');await h.text(yes);
+    assert.equal(h.intents.at(-1),'CONFIRM_ALTERNATIVE');assert.equal(a.calls.at(-1)?.query,a.zero.ean);assert.equal(a.modelCalls(),1);
+    assert.equal(h.state().pendingAction,undefined);assert.equal(h.state().lastProduct?.selectedQuery,a.zero.ean);
+    assert.match(h.sent.at(-1)!,/Sin Azúcar 1.5 L/);assert.doesNotMatch(h.sent.at(-1)!,/Decime qué producto/);
+    await h.text('Más cerca?');assert.equal(a.calls.at(-1)?.query,a.zero.ean);assert.equal(a.calls.at(-1)?.sort,'distance');
+  });
+}
+
+test('chat 23:54: Y la más cercana? mantiene Original 354 ml; nueva búsqueda genérica permite variantes',async()=>{
+  const h=harness(),a=installVariantAgent(h);await h.post({type:'location',location:{latitude:-27,longitude:-66}});
+  h.sessions.update('test',{...h.state(),sortCriterion:'price'});
+  await h.text('Dónde consigo la coca?');assert.equal(h.state().lastProduct?.selectedQuery,a.original.ean);
+  for(const [phrase,sort] of [['Y la más cercana?','distance'],['Más barata?','price'],['Volvamos a la barata','price']]){
+    await h.text(phrase!);assert.equal(h.intents.at(-1),'PRODUCT_FOLLOWUP');assert.equal(a.calls.at(-1)?.query,a.original.ean);
+    assert.equal(a.calls.at(-1)?.sort,sort);assert.match(h.sent.at(-1)!,/Original 354 ml/);assert.doesNotMatch(h.sent.at(-1)!,/Sin Azúcar|1.5 L/);
+  }
+  assert.equal(a.modelCalls(),1);await h.text('Quiero una coca');assert.equal(a.modelCalls(),2);assert.equal(a.calls.at(-1)?.query,'Coca');
+});
+
+test('alternativa ambigua pide elección y una nueva búsqueda descarta el sí pendiente',async()=>{
+  const h=harness(),a=installVariantAgent(h);h.sessions.update('test',{...newConversationState(),location:{latitude:-27,longitude:-66},pendingAction:{type:'ALTERNATIVE',choices:[{query:a.zero.ean,label:'Zero 1.5 L'},{query:a.original.ean,label:'Original 354 ml'}]}});
+  await h.text('sí');assert.equal(a.calls.length,0);assert.match(h.sent.at(-1)!,/Cuál preferís/);
+  await h.text('Quiero una coca');assert.equal(h.state().pendingAction,undefined);
+  await h.text('sí');assert.notEqual(h.intents.at(-1),'CONFIRM_ALTERNATIVE');
+});
+
+test('SHOW_CART sin carrito no consulta productos ni cadenas aunque haya último producto',async()=>{
+  const h=harness(),a=installVariantAgent(h);await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('Quiero una coca');
+  const before=a.calls.length;
+  for(const phrase of ['Muéstrame el carrito','mostrame mi carrito','cuál es mi carrito']){
+    await h.text(phrase);assert.equal(h.intents.at(-1),'SHOW_CART');assert.equal(a.calls.length,before);assert.match(h.sent.at(-1)!,/Todavía no tenés un carrito/);
+  }
+});
 
 test('E2E 16/09: dirección fallida no secuestra Coca ni Pepsi 1,5lts, conserva carrito y GPS',async()=>{
   const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});await h.text('1 Oreo\n1 Playadito');

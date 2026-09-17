@@ -10,7 +10,8 @@ import {
 import { resolveMessageRadius } from "./search-preferences.js";
 import { offerQualityConfig } from "../services/offer-quality.js";
 import { formatOffers } from "./format-offers.js";
-import { followupSort, isGreeting, requestedSort, wantsDetails, type PreviousSearch } from "./conversation.js";
+import { followupSort, isGreeting, requestedSort, wantsDetails, type PreviousSearch, type ProductChoice } from "./conversation.js";
+import {deduplicateOffers, type SearchResult} from '../services/product-search.service.js';
 import { formatCompactOffers } from "./format-compact.js";
 import { matchesRequestedPresentation,withoutPresentation,queryFitsCatalogProduct } from "../catalog/matching.js";
 
@@ -43,10 +44,19 @@ export type AgentResult = {
   message: string;
   toolUsed: boolean;
   toolArguments?: FindProductOffersArguments;
+  alternatives?: ProductChoice[];
+  selectedProduct?: ProductChoice;
   usage?: AgentUsage;
 };
 
 type SearchToolResult = Awaited<ReturnType<typeof executeFindProductOffers>>;
+
+function productChoice(row:SearchResult,fallback:NonNullable<SearchToolResult>['product']):ProductChoice {
+  const p=row.product?.name?row.product:fallback;
+  const label=[p.name,p.size].filter(Boolean).join(' ').replace(/[\r\n*_`~]/g,' ').trim();
+  const ean=row.product?.ean;
+  return {label,query:ean&&/^\d{8,14}$/.test(ean)?ean:[p.name,p.variant,p.size].filter(Boolean).join(' ')};
+}
 
 type AgentDependencies = {
   createResponse: (
@@ -196,7 +206,7 @@ export const runProductAgent = async (
   let toolArguments: FindProductOffersArguments;
   try {
     toolArguments = reorder && input.previousSearch
-      ? { ...input.previousSearch, sort: reorder, latitude: input.latitude, longitude: input.longitude }
+      ? { query:input.previousSearch.selectedQuery??input.previousSearch.query, ...(input.previousSearch.radiusKm!==undefined?{radiusKm:input.previousSearch.radiusKm}:{}), sort: reorder, latitude: input.latitude, longitude: input.longitude }
       : JSON.parse(toolCall!.arguments) as FindProductOffersArguments;
     if (!toolArguments || typeof toolArguments.query !== "string" || !toolArguments.query.trim() || toolArguments.query.length > 200 || !["price", "distance", "recommended"].includes(toolArguments.sort)) throw new Error("Invalid tool arguments");
     if (!reorder && !matchesRequestedPresentation(input.message, toolArguments.query)) throw new Error("Tool arguments changed the requested presentation");
@@ -222,7 +232,9 @@ export const runProductAgent = async (
   });
   input.onEvent?.({ type: "tool_started", tool: "findProductOffers" });
   stage='findProductOffers';query=toolArguments.query;
-  const toolResult = await agent.executeTool(toolArguments);
+  const rawResult = await agent.executeTool(toolArguments);
+  const toolResult = rawResult?{...rawResult,results:deduplicateOffers(rawResult.results)}:null;
+  if(toolResult)toolResult.totalResults=toolResult.results.length;
   input.onSearchResult?.(toolResult);
   input.onEvent?.({
     type: "tool_completed",
@@ -235,9 +247,9 @@ export const runProductAgent = async (
     if(broader&&broader!==toolArguments.query.trim()){
       stage='findProductOffers.alternatives';
       const alternatives=await agent.executeTool({...toolArguments,query:broader});
-      const labels=[...new Set((alternatives?.results??[]).filter(r=>r.source?.startsWith('REAL:')&&r.stock!==false&&Number.isFinite(r.price)&&r.price>0)
-        .map(r=>{const p=r.product?.name?r.product:alternatives!.product;return [p.name,p.size].filter(Boolean).join(' ').replace(/[\r\n*_`~]/g,' ');}))].slice(0,3);
-      if(labels.length)return {message:`No encontré ${toolArguments.query}. Sí encontré: ${labels.join('; ')}. ¿Querés buscar alguna de esas presentaciones?`,toolUsed:true,toolArguments,...(addUsage(toolDecisionResponse)?{usage:addUsage(toolDecisionResponse)!}:{})};
+      const choices=[...new Map((alternatives?.results??[]).filter(r=>r.source?.startsWith('REAL:')&&r.stock!==false&&Number.isFinite(r.price)&&r.price>0)
+        .map(r=>{const choice=productChoice(r,alternatives!.product);return [choice.query,choice] as const;})).values()].slice(0,3);
+      if(choices.length)return {message:`No encontré ${toolArguments.query}. Sí encontré: ${choices.map(c=>c.label).join('; ')}. ¿Querés buscar alguna de esas presentaciones?`,alternatives:choices,toolUsed:true,toolArguments,...(addUsage(toolDecisionResponse)?{usage:addUsage(toolDecisionResponse)!}:{})};
     }
   }
   if (!toolResult) {
@@ -263,6 +275,9 @@ export const runProductAgent = async (
   input.onEvent?.({ type: "response_generation_started" });
   // El criterio explícito manda incluso si el modelo o un adaptador devolvió otro orden.
   if (toolArguments.sort === "price") toolResult.results.sort((a,b)=>a.price-b.price || a.distanceKm-b.distanceKm);
+  if (toolArguments.sort === "distance") toolResult.results.sort((a,b)=>a.distanceKm-b.distanceKm || a.price-b.price);
+  const best=toolResult.results[0]?.product;
+  if(best?.name)toolResult.product={...toolResult.product,...best,name:best.name};
   const message = input.compact && !wantsDetails(input.message) ? formatCompactOffers(toolResult, toolArguments.sort) : formatOffers(toolResult, toolArguments.sort);
   const usage = addUsage(toolDecisionResponse);
   input.onEvent?.({
@@ -273,6 +288,7 @@ export const runProductAgent = async (
     message,
     toolUsed: true,
     toolArguments,
+    selectedProduct:productChoice(toolResult.results[0]!,toolResult.product),
     ...(usage ? { usage } : {}),
   };
   } catch(error) {

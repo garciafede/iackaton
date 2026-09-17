@@ -2,7 +2,8 @@ import { normalizeSearchText } from "../utils/normalize-text.js";
 import type { SearchSort } from "../services/product-search.service.js";
 import type { SearchResult } from "../services/product-search.service.js";
 
-export type PreviousSearch = { query: string; sort: SearchSort; radiusKm?: number | null };
+export type ProductChoice = { query: string; label: string };
+export type PreviousSearch = { query: string; sort: SearchSort; radiusKm?: number | null; selectedQuery?: string };
 const clean = (message: string) => normalizeSearchText(message).replace(/[¿?¡!.,]/g, "").trim();
 export const isGreeting = (message: string) => /^(hola|buenas|buen dia|buenos dias|buenas tardes|buenas noches)$/.test(clean(message));
 export const isFarewell = (message:string) => /^(?:pesima demo\s+)?(?:(?:nada mas|eso es todo|listo)\s+)?(?:(?:muchas |mil )?gracias(?: por (?:todo|la ayuda))?|adios|chau|chao|hasta luego|hasta pronto|nos vemos)(?:\s+(?:(?:muchas |mil )?gracias|adios|chau|chao|hasta luego|hasta pronto|nos vemos))*$/.test(clean(message));

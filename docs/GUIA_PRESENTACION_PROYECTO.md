@@ -1,6 +1,6 @@
 # Guía para presentar técnicamente el proyecto IACKATÓN
 
-Revisión del repositorio: **16 de septiembre de 2026**. Esta guía describe el código presente, no una arquitectura ideal ni el estado de servicios externos. Se revisaron los módulos de `src/`, scripts, esquema y migraciones, pruebas, configuraciones y documentación de apoyo. No se leyeron credenciales ni se consultó la base de producción para escribirla.
+Revisión del repositorio: **17 de septiembre de 2026**. Esta guía describe el código presente, no una arquitectura ideal ni el estado de servicios externos. Se revisaron los módulos de `src/`, scripts, esquema y migraciones, pruebas, configuraciones y documentación de apoyo; esta actualización incorpora los últimos ajustes de producto, carrito y contexto. No se leyeron credenciales ni se consultó la base de producción para escribirla.
 
 **Cómo leer los estados:**
 
@@ -9,7 +9,7 @@ Revisión del repositorio: **16 de septiembre de 2026**. Esta guía describe el 
 - **FUTURO:** propuesta; no debe presentarse como funcionalidad actual.
 - **No confirmado en el repositorio:** no puede deducirse del código, por ejemplo saldo, token vigente, número real habilitado o despliegue actualmente activo.
 
-La prueba automatizada ejecutada durante esta revisión dio **207 tests aprobados, 0 fallidos, 0 omitidos**. No se hicieron compras, importaciones, inferencias pagas ni envíos de WhatsApp. Los precios, cantidades de ofertas en Neon y resultados de documentos históricos no se presentan como datos actuales.
+La última validación del código, ejecutada antes de esta actualización documental, dio **262 tests aprobados, 0 fallidos, 0 omitidos; typecheck y build aprobados**. Esta edición solo modifica la guía y no repite esa ejecución. No se hicieron compras, importaciones, inferencias pagas ni envíos de WhatsApp. Los precios, cantidades de ofertas en Neon y resultados de documentos históricos no se presentan como datos actuales.
 
 ## Índice para estudiar
 
@@ -50,11 +50,14 @@ El usuario puede buscar un producto, pedir el menor precio o la opción más cer
 | Bot: «Compartime tu ubicación para buscar los comercios más cercanos.» | Si no existe ubicación, la solicita sin inferencia de OpenAI. |
 | Usuario comparte GPS | Se valida y guarda; se reanuda la búsqueda pendiente. |
 | Bot devuelve hasta tres ofertas | Los importes y sucursales salen de los resultados consultados. La respuesta compacta muestra precio, distancia y una nota de disponibilidad. Si no hay coincidencia/ofertas, lo informa. |
-| Usuario: «¿Y la más cercana?» | Usa el último producto y cambia el criterio. No vuelve a pedir GPS. |
+| Usuario: «¿Y la más cercana?» | Conserva la variante del resultado principal mediante `lastProduct.selectedQuery` y cambia el criterio. No vuelve a pedir GPS. |
 | Usuario envía una lista de Oreo, Coca Zero y Playadito | Guarda un carrito y compara las tres cadenas configuradas. |
-| Usuario: «Cambia las oreo de 1 a 2 unidades» | Modifica solo ese ítem, invalida resultados del carrito y recalcula. |
+| Usuario: «Cambia las oreo de 1 a 2 unidades» | Modifica solo ese ítem, invalida resultados y responde «🛒 Tu carrito actual:». No busca precios todavía. |
+| Usuario: «Más barata?» | Compara el carrito actualizado; al haberse invalidado `cartResults`, consulta sus productos. |
 | Usuario: «De esos supermercados cuál me queda más cerca?» | Reutiliza `cartResults`; no vuelve a relevar precios solo para reordenarlos. |
 | Usuario: «Quiero cambiar mi ubicación» y luego una dirección | Mantiene carrito, producto y ubicación anterior hasta confirmar la nueva. |
+
+Otro caso implementado: si pide «Coca Zero 2L» y solo se encuentra una alternativa real de 1,5 L, el bot distingue ambas presentaciones y ofrece la alternativa. Un «sí» acepta la única alternativa guardada sin pedir de nuevo el producto. Si ofreció varias, pide elegir; no decide una arbitrariamente.
 
 Si querés mostrar un ejemplo con precios durante la exposición, usá una respuesta obtenida y fechada en la demo. Este documento no fija un precio que podría haber cambiado.
 
@@ -170,17 +173,17 @@ Todas las rutas de las tablas son relativas a la raíz del repositorio. Se inven
 
 | Archivo | Responsabilidad | Quién lo llama | Qué recibe | Qué devuelve/hace |
 |---|---|---|---|---|
-| `src/ai/agent.ts` | Interpretación y ejecución controlada | `/chat`, WhatsApp, búsqueda de ítems | Mensaje, ubicación, criterio, búsqueda anterior | `runProductAgent`, `searchCartProduct`, resultados/uso de tokens |
+| `src/ai/agent.ts` | Interpretación y ejecución controlada | `/chat`, WhatsApp, búsqueda de ítems | Mensaje, ubicación, criterio, búsqueda anterior | `runProductAgent`, `searchCartProduct`, `productChoice`, alternativa/variante seleccionada y uso de tokens |
 | `src/ai/tools.ts` | Contrato de herramienta | Agente | Argumentos `findProductOffers` | Schema estricto y `executeFindProductOffers` hacia live/estable |
-| `src/ai/conversation.ts` | Reglas conversacionales auxiliares | Router, agente y carrito | Texto/resultados | Saludo, despedida, orden, detalles y pregunta sobre sucursal |
+| `src/ai/conversation.ts` | Reglas conversacionales y tipos de contexto | Router, agente y carrito | Texto/resultados | Saludo, despedida, orden, detalles; `PreviousSearch` con `selectedQuery` y `ProductChoice` |
 | `src/ai/search-preferences.ts` | Radio solicitado | Agente y handler | Texto y radio del modelo | `resolveMessageRadius`, radio válido o sin límite explícito |
 | `src/ai/cart.ts` | Parser y comparación de listas | Handler | Lista, cantidades, ubicación, búsqueda inyectable | `parseCart`, `compareCart`, `reorderCart`, `formatCart` |
 | `src/ai/format-compact.ts` | Respuesta individual breve | Agente en WhatsApp | Resultados y orden | Hasta tres opciones y nota de disponibilidad |
 | `src/ai/format-offers.ts` | Respuesta comercial detallada | Agente y smoke | Resultados, orden, radio, avisos | Texto con fuente, fecha, identidad y alcance |
-| `src/services/product-search.service.ts` | Catálogo/SQL/matching/orden estable | Orquestador | Consulta, coordenadas, orden, radio | `findBestProduct`, `searchProductOffers`, `sortSearchResults` |
+| `src/services/product-search.service.ts` | Catálogo/SQL/matching/orden estable | Orquestador; agente/formateadores para deduplicar | Consulta, coordenadas, orden, radio o resultados | `findCompatibleProducts`, `findBestProduct`, `searchProductOffers`, `sortSearchResults`, `deduplicateOffers` |
 | `src/services/offer-quality.ts` | Radio, frescura, confianza y ranking | Servicio y live | Ofertas, fechas y distancias | Calidad y recomendación determinísticas |
 | `src/catalog/products.ts` | Catálogo editorial central | Matching, importadores, reportes | Datos estáticos mantenidos en código | Grupos, EAN, aliases, tamaños, categoría y habilitación |
-| `src/catalog/matching.ts` | Normalizar identidad/presentación | Servicio, live y carrito | Consulta y descripciones | Unidades equivalentes, palabras y compatibilidad |
+| `src/catalog/matching.ts` | Normalizar identidad/presentación | Servicio, live, agente y carrito | Consulta y descripciones | `normalizeCatalogText`, `queryFitsCatalogProduct`, `matchesRequestedPresentation`, `withoutPresentation` |
 | `src/catalog/report.ts` | Reportes de cobertura | `generate-catalog.ts` | Catálogo y ofertas leídas | Resumen y Markdown para catálogo/README |
 
 ### 4.4 Búsqueda live por HTTP
@@ -325,8 +328,8 @@ Caso: **«Buscame Coca Zero y quiero la más barata»**.
 10. El modelo puede proponer **`findProductOffers`** con una consulta como «Coca Zero». El código parsea y valida los argumentos. Las coordenadas se sobrescriben con las de la aplicación y el criterio explícito de precio tiene prioridad sobre el propuesto por el modelo.
 11. **`executeFindProductOffers` → `searchWithLiveOffers` → `ProductSearchOrchestrator.search`.** Si live está desactivado, se usa directamente `searchProductOffers`. Si está activado, también se consultan caché, sucursales y las tres cadenas.
 12. **Matching y filtros:** se priorizan EAN/aliases y presentación; se descartan importes inválidos, ofertas no elegibles y resultados fuera del radio. El radio por defecto es 25 km; «más barata» no implica buscar en todo el país.
-13. **Orden real:** `sortSearchResults` ordena ascendentemente por precio y desempata por distancia. El agente vuelve a imponer el orden por precio antes de formatear si ese es el criterio elegido.
-14. **Respuesta determinística:** `formatCompactOffers` arma hasta tres opciones para WhatsApp. `formatOffers` se usa cuando corresponde detalle. La respuesta no proviene de `output_text` comercial generado por el modelo.
+13. **Orden real y duplicados:** `sortSearchResults` deduplica ofertas idénticas y ordena ascendentemente por precio, con distancia como desempate. El agente también deduplica y aplica el criterio de precio o distancia antes de formatear.
+14. **Respuesta determinística y contexto:** `formatCompactOffers` arma hasta tres opciones para WhatsApp y evita repetir el nombre del encabezado en cada línea. `formatOffers` se usa cuando corresponde detalle. `productChoice` devuelve la identidad del resultado principal y el handler guarda `selectedQuery` para seguimientos. La respuesta no proviene de `output_text` comercial generado por el modelo.
 15. **`sendTextMessage`** hace POST a `https://graph.facebook.com/{version}/{phoneNumberId}/messages`, con `messaging_product`, `recipient_type`, `to`, `type` y `text`. Luego se intenta registrar OUT.
 
 Un POST saliente aceptado por Meta no demuestra por sí solo que el teléfono lo leyó. El código no implementa un panel de confirmaciones de entrega; ignora los eventos de estado como consultas.
@@ -378,8 +381,10 @@ La barrera principal está en el código, no en la frase «no inventes» del pro
 | Falta ubicación | Respuesta fija + acción pendiente | No |
 | Dirección escrita | Parser + Georef | No |
 | Nueva búsqueda individual | Agente + tool | Sí, normalmente |
-| Seguimiento inequívoco de producto | Búsqueda previa + ejecución de herramienta | No nueva generación; puede volver a consultar datos |
-| Nuevo carrito o modificación | Parser y búsqueda de cada ítem | Cada ítem usa el agente, no una respuesta inventada para toda la lista |
+| Seguimiento inequívoco de producto | `selectedQuery` de la variante encontrada, o query previa si no existe selección, más herramienta | No nueva generación; puede volver a consultar datos |
+| «Sí» a una única alternativa | CONFIRM_ALTERNATIVE + búsqueda de la identidad ofrecida | No nueva generación |
+| Nuevo carrito por lista | Parser y búsqueda de cada ítem | Cada ítem usa el agente, no una respuesta inventada para toda la lista |
+| Agregar, sacar o cambiar cantidad | Modifica estado, invalida resultados y muestra el carrito | No; se consulta al pedir comparación |
 | Cambiar solo orden de carrito con resultados guardados | `reorderCart` | No, tampoco nuevas consultas de productos |
 
 ## 7. Búsqueda y fuentes comerciales
@@ -394,9 +399,15 @@ Con live habilitado, la consulta puede buscar un producto no precargado en los s
 
 ### 7.2 Matching, EAN y presentación
 
-`findBestProduct` combina prioridad de aliases, nombres y marca con coincidencia textual. Las coincidencias exactas reciben prioridad y un empate entre identidades diferentes puede devolver `null`. No es búsqueda vectorial.
+`findCompatibleProducts` permite conservar varias variantes compatibles cuando no se pidió una presentación específica. `findBestProduct` combina prioridad de aliases, nombres y marca con coincidencia textual cuando se necesita elegir una identidad; un empate entre identidades diferentes puede devolver `null`. No es búsqueda vectorial. Una consulta genérica como «Pepsi» no necesita litros para buscar: se ordenan las variantes compatibles por el criterio actual y se muestra la presentación real de cada resultado.
 
 `normalizeCatalogText` hace comparables expresiones como `1,5 L` y `1500 ml`, normaliza tildes y formas como N°7. `queryFitsCatalogProduct` y `presentationMatches` impiden que una presentación incompatible pase solo porque coincide la marca.
+
+En el agente, `matchesRequestedPresentation` comprueba que el modelo no haya eliminado o cambiado una presentación explícita. Si la búsqueda exacta no encuentra ofertas, `withoutPresentation` permite una segunda consulta para **ofrecer alternativas reales**, sin presentarlas como el tamaño pedido. `searchCartProduct` desactiva esas alternativas automáticas (`allowAlternatives: false`): no reemplaza un ítem de 2 L por 1,5 L para completar un carrito.
+
+Para WhatsApp, la alternativa queda en `pendingAction` de tipo ALTERNATIVE como pares `query`/`label`. «Si» o «sí» acepta una única opción y ejecuta la herramienta sin otra inferencia. Si hay varias, el bot pide especificar cuál. Una nueva búsqueda descarta la alternativa pendiente.
+
+Después de una búsqueda exitosa, `productChoice` toma el resultado principal: usa su EAN si tiene formato numérico de 8–14 dígitos; si no, usa nombre, variante y tamaño. El handler lo guarda como `lastProduct.selectedQuery`. «Más cerca?», «Más barata?» y «Volvamos a la barata» reutilizan esa identidad; una nueva consulta genérica permite volver a buscar variantes. Esta selección automática corresponde al resultado principal, no a una interfaz para seleccionar cualquier fila por número.
 
 EAN/GTIN identifica un artículo comercial; SKU identifica un artículo dentro del sistema de una tienda. No se inventa un EAN a partir de SKU o `mpn`. El live valida longitud y dígito de control con `validEan`. La carga manual tiene sus propias validaciones de formato; no debe afirmarse que todos los importadores aplican exactamente el mismo checksum.
 
@@ -445,9 +456,11 @@ Hay valores como `PHYSICAL_CONFIRMED` o `DELIVERY` en los tipos. **Un valor disp
 
 En modo live, las tres cadenas corren con `Promise.allSettled`, mientras se inicia también la búsqueda estable en PostgreSQL. Si falla una cadena se registra advertencia y se conservan otras respuestas y fallback elegible. Fallback no significa «usar cualquier precio viejo»: siguen aplicándose los filtros.
 
-Con live apagado, el orquestador no consulta providers, caché ni sucursales adicionales. La búsqueda estable prioriza REAL; solo en el entorno de desarrollo y sin ofertas reales elegibles puede intentar DEMO. Cuando hay resultados live válidos se excluye DEMO de la combinación.
+Con live apagado, el orquestador no consulta providers, caché ni sucursales adicionales. `searchProductOffers` consulta exclusivamente ofertas con `source` que empieza por `REAL:`: no reemplaza una búsqueda sin ofertas reales por DEMO, tampoco en desarrollo. El carrito y las alternativas filtran también REAL. Los formateadores conservan la etiqueta DEMO si reciben explícitamente datos ficticios, pero eso no habilita un fallback comercial DEMO.
 
 Un pickup más reciente puede reemplazar la oferta SEPA equivalente de la misma sucursal/EAN. Un precio online de cadena puede convivir con uno de sucursal porque tienen alcances diferentes. Si un mismo EAN llega con identidad contradictoria entre fuentes live, se omiten esos resultados.
+
+`deduplicateOffers` elimina repeticiones del mismo producto, sucursal y precio. Identifica producto por EAN, ID positivo o descripción normalizada cuando falta EAN; la sucursal requiere misma cadena e ID, identificador externo o nombre/dirección coincidentes. Conserva una observación completa: prioriza retiro confirmado, después SEPA y después precio online; a igual alcance, la más reciente. No combina campos para inventar una oferta ni elimina alternativas con distinto precio o identidad. La deduplicación ocurre al ordenar y también antes de mostrar resultados individuales.
 
 `price` ordena por precio; `distance`, por distancia. `recommended` usa una fórmula transparente con componentes de distancia, precio, frescura y disponibilidad, más un ajuste live por alcance. Los pesos base son 45/35/15/5, y el live suma 20 para retiro confirmado y 10 para SEPA localizado. No es un ranking aprendido ni una optimización del costo de viaje.
 
@@ -495,6 +508,8 @@ No siempre son tres turnos: si la dirección se resuelve antes, confirma inmedia
 
 `parseGeoref` no selecciona una dirección entre varias. Comprueba unicidad, altura, coordenadas y, si viene nombre de calle, compatibilidad normalizada. Estos son checks de aplicación, no un porcentaje de confianza geográfica. Si no resuelve con el contexto completo, ofrece GPS; si el servicio está caído, informa el problema.
 
+Una nomenclatura encontrada con coordenadas `null` no alcanza para aceptar la dirección: se registra `NO_COORDS` y se mantiene el fallback GPS. `completeAddress` conserva calle y altura mientras incorpora localidad/provincia, incluso cuando llegan juntas. Si se agota el contexto sin resolver o el servicio falla, el handler elimina la acción LOCATION que esperaba respuestas, conserva el domicilio pendiente y no bloquea las siguientes consultas de producto. También admite cancelar el pendiente, ingresar otra dirección o enviar GPS, sin borrar el carrito.
+
 ### Cambio sin perder contexto
 
 Iniciar el cambio crea una acción LOCATION y mantiene la ubicación anterior. Solo al resolver la dirección o recibir GPS válido se reemplaza `session.location`, se limpian pendientes y se invalidan `cartResults`/`lastProductResults`. La próxima consulta usa las nuevas coordenadas.
@@ -505,7 +520,7 @@ Iniciar el cambio crea una acción LOCATION y mantiene la ubicación anterior. S
 
 `parseCart` reconoce listas por saltos de línea, punto y coma o coma que no sea decimal. El encabezado «Ahora quiero comprar:» no debe convertirse en un producto. `1,5 L` se conserva como presentación.
 
-La creación de carrito espera al menos dos productos reconocidos. El límite explícito es `MAX_CART_ITEMS = 10`; no procesa parcialmente once entradas. Las cantidades son enteros entre 1 y 99 y consultas duplicadas se suman dentro de esos límites.
+La creación por lista (`parseCart`) espera al menos dos productos reconocidos. **Agregar explícitamente un producto permite empezar un carrito de un solo ítem:** «Agregar al carrito 2 arroz colpado» crea la lista y la muestra, aunque todavía no haya ubicación. El límite explícito es `MAX_CART_ITEMS = 10`; no procesa parcialmente once entradas. Las cantidades son enteros entre 1 y 99 y consultas duplicadas se suman dentro de esos límites.
 
 `compareCart` procesa **dos ítems a la vez**. Cada uno usa `searchCartProduct`, que pasa por el mismo agente y herramienta que una búsqueda individual. No hay un buscador alternativo más débil para el carrito.
 
@@ -515,15 +530,18 @@ La comparación conserva solo ofertas REAL válidas y agrupa por **cadena, sucur
 |---|---|
 | Hay precio válido para todos los ítems en una comparación | `complete: true`; puede ser ganador |
 | Falta alguno | Marca «no encontrado», calcula total parcial y no compite como carrito completo |
+| Una cadena no tiene ningún ítem encontrado | No se muestra como una opción con total cero; si ninguna tiene precios, se informa y se conserva la lista |
 | Ninguna comparación es completa | No declara supermercado ganador para comprar todo |
 | Pregunta por cercanía | Puede mostrar la sucursal más cercana con precios encontrados aunque el carrito sea parcial, explicándolo |
 | Cambia solo price/distance con resultados guardados | `reorderCart` conserva precios, faltantes y comparaciones; cambia criterio/ganador entre completas |
-| Cambia una cantidad | `modifyCart` conserva los demás ítems, elimina `cartResults` y busca nuevamente |
-| Pide modificar un artículo ausente | Acción ADD_ITEM y confirmación antes de agregarlo |
+| Agrega, elimina o cambia una cantidad | `modifyCart` conserva los demás ítems, elimina `cartResults` y muestra «🛒 Tu carrito actual:»; espera el pedido de comparación para buscar |
+| Pide cambiar cantidad de un artículo ausente | Acción ADD_ITEM y confirmación antes de agregarlo; una orden explícita de agregar no necesita esa confirmación |
 | «Poné 2» con varios artículos posibles | Pide identificar el producto; no elige uno arbitrariamente |
-| Quiere ver qué había pedido | SHOW_CART muestra nombres/cantidades sin búsqueda comercial |
+| «Muéstrame el carrito», «mostrame mi carrito», «cuál es mi carrito» | SHOW_CART muestra nombres/cantidades sin búsqueda comercial ni comparación |
 
 `formatCart` arma el texto; no usa OpenAI para sumar. El resultado compara Carrefour, Vea y ChangoMás. No distribuye automáticamente la compra entre varias cadenas, no aplica promociones bancarias, no suma envío y no asegura inventario físico.
+
+Reglas concretas de `cartChange`: «Sacá el aceite y los dos arroz colpado» identifica ambos productos sin usar «dos» como parte del nombre; elimina los dos ítems completos, no resta dos unidades. «Cambia el arroz lucchetti por 3 arroz lucchetti en el carrito» asigna cantidad 3, como «de 1 a 3». Esa forma con «por» exige que el producto de origen y destino sea el mismo; no implementa un reemplazo general entre productos distintos. «Agrega al carrito 3 x Oreo» guarda cantidad y producto sin el texto «al carrito».
 
 **Límite relevante:** la comparación conserva una opción representativa por cadena. Un seguimiento por distancia reordena ese relevamiento ya obtenido; no explora todas las sucursales de nuevo. El ranking `recommended` de productos individuales tampoco implica un ranking equivalente implementado para optimizar carritos: en el carrito la lógica distingue principalmente distance y precio.
 
@@ -535,13 +553,13 @@ La memoria funcional está en un `Map` dentro de `WhatsAppSessionStore`, separad
 |---|---|
 | `sessionId` | UUID usado en el historial, distinto del teléfono |
 | `location` | Coordenadas confirmadas para búsquedas |
-| `lastProduct` | Query, sort y radio de la última búsqueda individual |
+| `lastProduct` | Query, sort, radio y `selectedQuery` de la variante encontrada; conserva la consulta original al reordenar |
 | `lastProductResults` | Resultados individuales que permiten responder preguntas sobre sucursales |
 | `currentCart` | Lista y cantidades; independiente de `lastProduct` |
 | `cartResults` | Comparaciones guardadas del carrito |
 | `sortCriterion` | Preferencia actual de precio/distancia/recomendación |
 | `activeSubject` | Si un seguimiento implícito se refiere al producto o al carrito |
-| `pendingAction` | Solicitud de ubicación/reanudación o confirmación ADD_ITEM |
+| `pendingAction` | LOCATION para ubicación/reanudación, ADD_ITEM para confirmar un alta, o ALTERNATIVE con opciones ofrecidas |
 | `pendingLocation` | Domicilio en construcción, independiente del GPS anterior |
 | `lastLocationSimilar` | Permite explicar que se recibió prácticamente el mismo punto |
 | `updatedAt` | Control de expiración del estado |
@@ -550,11 +568,11 @@ La memoria funcional está en un `Map` dentro de `WhatsAppSessionStore`, separad
 
 ### Orden efectivo del router
 
-`resolveIntent` aplica reglas en secuencia: dirección explícita/cambio de ubicación, disputa de punto similar, despedida/saludo, confirmación pendiente de artículo, modificación de carrito, referencias a carrito/resultados y seguimientos. Luego atiende el flujo pendiente de ubicación, intenta parsear un carrito nuevo y finalmente deriva una búsqueda de producto o UNKNOWN.
+`resolveIntent` aplica reglas en secuencia: dirección explícita/cancelación/cambio de ubicación, disputa de punto similar, despedida/saludo, confirmación de alternativa o artículo pendiente, cantidades y comandos explícitos de mostrar/modificar carrito, referencias a carrito/resultados y seguimientos. Luego atiende el flujo pendiente de ubicación, intenta parsear un carrito nuevo y finalmente deriva una búsqueda de producto o UNKNOWN. Antes de inferir una dirección desde texto con números, comprueba si es una modificación de carrito reconocida, para no confundir cantidad con altura de calle.
 
-No conviene explicar el router como una prioridad abstracta perfecta ni como clasificación por IA. Existen excepciones explícitas: mostrar el carrito o hacer un seguimiento reconocido puede resolverse mientras hay una dirección pendiente; el contexto del domicilio se conserva. Las intenciones son:
+No conviene explicar el router como una prioridad abstracta perfecta ni como clasificación por IA. Existen excepciones explícitas: mostrar el carrito o hacer un seguimiento reconocido puede resolverse mientras hay una dirección pendiente. Consultas explícitas de producto o texto con presentación, como «Pepsi 1,5lts», pueden salir del flujo de dirección y cancelar ese pendiente en el handler. Las intenciones son:
 
-`SET_LOCATION`, `CHANGE_LOCATION`, `SEARCH_PRODUCT`, `PRODUCT_FOLLOWUP`, `CREATE_CART`, `CART_FOLLOWUP`, `MODIFY_CART`, `SHOW_CART`, `SMALLTALK`, `FAREWELL`, `UNKNOWN`.
+`SET_LOCATION`, `CHANGE_LOCATION`, `CANCEL_LOCATION`, `SEARCH_PRODUCT`, `PRODUCT_FOLLOWUP`, `CONFIRM_ALTERNATIVE`, `CREATE_CART`, `CART_FOLLOWUP`, `MODIFY_CART`, `SHOW_CART`, `SMALLTALK`, `FAREWELL`, `UNKNOWN`.
 
 Una búsqueda individual posterior no borra el carrito. `activeSubject` orienta un «¿y la más barata?» ambiguo; «volviendo a la compra anterior» nombra explícitamente el carrito. El estado guardado permite esta continuidad; no se le pide al modelo que recuerde solo.
 
@@ -628,7 +646,9 @@ Hay dos mecanismos complementarios:
 
 `safeErrorLog` conserva `type`, `name`, `message`, `stack`, `cause` hasta profundidad limitada y algunos códigos/status. No serializa propiedades arbitrarias de SDK como headers o body. `redactLogText` elimina secretos conocidos, credenciales en URLs, tokens, teléfonos y ciertos payloads/coordenadas.
 
-El evento `operation.error` incorpora `intent`, `stage`, `query` cuando corresponde y `provider` cuando aplica. Etapas útiles: `openai.responses`, `tool.arguments`, `findProductOffers`, `response.format`, `cart.item.search`, `provider.search`, `cache.read`, `cache.write`, `fallback.search`, `pickup.simulation`, `georef.request`, `meta.response`, `conversation.persist`.
+El evento `operation.error` incorpora `intent`, `stage`, `query` cuando corresponde y `provider` cuando aplica. Etapas útiles: `openai.responses`, `tool.arguments`, `findProductOffers`, `findProductOffers.alternatives`, `response.format`, `cart.item.search`, `provider.search`, `cache.read`, `cache.write`, `fallback.search`, `pickup.simulation`, `georef.resolve`, `meta.response`, `conversation.persist`.
+
+Georef emite además una línea JSON `georef.attempt` por intento, con `attemptId`, hora, dirección depurada, localidad/provincia, URL base sin querystring, `requestSent`, `httpStatus`, `cantidad`, `total`, cantidad de candidatos y hasta cinco nomenclaturas depuradas. `reason` distingue `OK`, `AMBIGUOUS`, `NOT_FOUND`, `NO_COORDS` y `HTTP_ERROR`; `detail` precisa, por ejemplo, `STREET_MISMATCH`, `HEIGHT_MISMATCH` o `MISSING_OR_INVALID_COORDINATES`. `durationMs` registra duración. Se ocultan los números de dirección/CP y no se vuelcan coordenadas, headers ni respuesta completa. El motivo diagnóstico `NO_COORDS` se traduce a `NOT_FOUND` en el contrato que recibe el handler; no son dos resultados funcionales distintos.
 
 Un provider se identifica como CARREFOUR, VEA o CHANGOMAS. El catch superior del turno puede registrar SET_LOCATION porque un GPS reanudó la búsqueda; el error interno del agente puede indicar SEARCH_PRODUCT. Esos campos describen distintos niveles de la operación, no una contradicción obligatoria.
 
@@ -678,7 +698,7 @@ No se necesita navegador para las consultas live de WhatsApp. Los comandos Playw
 | `WHATSAPP_GRAPH_API_VERSION` | Versión Graph | Construcción de URL |
 | `WHATSAPP_VERIFY_TOKEN` | Verificación inicial del webhook | Challenge GET |
 | `WHATSAPP_APP_SECRET` | Validación de firma | HMAC del POST |
-| `NODE_ENV` | Comportamiento por entorno | Normalización de destinatario de prueba, fallback DEMO, instancia Prisma |
+| `NODE_ENV` | Comportamiento por entorno | Normalización de destinatario de prueba e instancia Prisma; no habilita fallback DEMO en la búsqueda |
 | `PORT` | Puerto HTTP | Arranque; Railway lo proporciona según su configuración |
 | `LIVE_RETAILER_SEARCH` | Activación del live | Si no se activa expresamente, el código usa el modo estable |
 | `LIVE_PRICE_TTL_MINUTES` | TTL de observaciones | Opcional, tiene default en código |
@@ -699,7 +719,7 @@ Para migrar de emisor de prueba a real, revisar `WHATSAPP_PHONE_NUMBER_ID` y `WH
 
 ## 14. Tests y significado de la validación
 
-**Resultado observado en esta revisión:** `npm test` ejecutó 207 pruebas; todas aprobaron. Es un dato de esta ejecución local, no un SLA ni una afirmación de disponibilidad de servicios remotos.
+**Última validación observada del código (17/09/2026):** `npm test` ejecutó 262 pruebas; todas aprobaron, sin fallos ni omitidos. `npm run typecheck` y `npm run build` también terminaron correctamente. Es evidencia local de la validación previa a esta edición documental, no un SLA ni una afirmación de disponibilidad de servicios remotos.
 
 | Nivel | Ejemplos reales | Qué se sustituye |
 |---|---|---|
@@ -714,6 +734,8 @@ Para migrar de emisor de prueba a real, revisar `WHATSAPP_PHONE_NUMBER_ID` y `WH
 
 Una regresión conserva un caso que ya falló para impedir que vuelva a fallar silenciosamente. Ejemplos: «Cambia las oreo de 1 a 2 unidades», «De esos supermercados cuál me queda más cerca?», `1,5 L`, once productos, «Bolivia 4536» seguida de localidad/provincia, y no perder Coca encontrada en Vea al ordenar por distancia.
 
+Las regresiones recientes cubren también «Si»/«sí» ante una alternativa de Coca Zero, SHOW_CART con «Muéstrame el carrito», agregar sin carrito previo, eliminar «los dos arroz colpado», cambiar cantidad con «por 3», mantener EAN/presentación en seguimientos y deduplicar Pepsi en la misma sucursal. Hay pruebas de búsquedas genéricas, alternativas que excluyen DEMO, cadenas sin ítems y diagnóstico de Georef con coordenadas ausentes. Los mensajes proceden de casos reales, pero los servicios y datos de prueba están controlados; no son nuevos envíos al celular.
+
 Comandos distintos comprueban cosas distintas:
 
 ```sh
@@ -722,7 +744,7 @@ npm run typecheck
 npm run build
 ```
 
-El primero comprueba comportamiento esperado; el segundo tipos; el tercero compilación productiva. En esta tarea documental se volvió a ejecutar la suite; no se necesitó regenerar código ni desplegar. Una suite verde no prueba que el token siga vigente, que Georef resuelva un domicilio concreto hoy o que un retailer no haya cambiado su contrato. Para eso existen precheck, smoke y prueba manual WhatsApp, con alcances diferentes.
+El primero comprueba comportamiento esperado; el segundo tipos; el tercero compilación productiva. Esta actualización documental no modifica código ni vuelve a ejecutar la suite; referencia la validación anterior. Una suite verde no prueba que el token siga vigente, que Georef resuelva un domicilio concreto hoy o que un retailer no haya cambiado su contrato. Para eso existen precheck, smoke y prueba manual WhatsApp, con alcances diferentes.
 
 ## 15. Seguridad y decisiones de diseño
 
@@ -755,7 +777,8 @@ No se puede probar mirando solo este código si una credencial estuvo expuesta h
 | PARCIAL | ACK antes de completar trabajo, sin cola durable | `webhook.ts`, `setImmediate` |
 | PARCIAL | Un message ID se marca antes de procesar; un fallo no garantiza un reintento correcto ni exactly-once | `MessageDeduplicator.hasSeen`, `processConversation` |
 | PARCIAL | No hay TTL propio de `cartResults`; un seguimiento puede conservar el snapshot mientras el estado siga vigente | `searchCart`, `reorderCart` |
-| PARCIAL | El seguimiento de producto vuelve a ejecutar búsqueda; no tiene la misma reutilización integral que un carrito guardado | `searchProduct`, `runProductAgent` |
+| PARCIAL | El seguimiento de producto conserva la variante mediante `selectedQuery`, pero vuelve a ejecutar búsqueda; no tiene la misma reutilización integral que un carrito guardado | `searchProduct`, `runProductAgent` |
+| PARCIAL | La alternativa pendiente vive en la sesión; un «sí» solo selecciona automáticamente si hay una opción. Varias opciones requieren especificar el producto | CONFIRM_ALTERNATIVE en handler/intents |
 | PARCIAL | Distancia en línea recta; no rutas, tráfico, tiempo ni costo de transporte | `distance.ts` |
 | PARCIAL | Geocodificación por reglas y unicidad; sin selección conversacional detallada entre múltiples candidatos; CP/municipio no filtran el endpoint | `geocoding.ts` |
 | PARCIAL | Live considera como máximo tres candidatos por cadena; no recorre todo el catálogo | `live/config.ts`, parsers/providers |
@@ -833,7 +856,7 @@ La respuesta relaciona SKU, seller, logística y punto de retiro con precio cont
 
 ### 10. ¿Cómo evitás comparar Coca 1,5 L con 2,25 L?
 
-Identidad por EAN cuando existe, normalización de unidades y comprobaciones de presentación/variante. Los resultados de variantes conservan su identidad.
+Identidad por EAN cuando existe, normalización de unidades y comprobaciones de presentación/variante. Si el tamaño pedido no aparece, el agente puede ofrecer otro como alternativa explícita, nunca como match exacto ni usando DEMO. En un seguimiento, `selectedQuery` mantiene la variante encontrada.
 
 ### 11. ¿Qué significa stock null?
 
@@ -849,7 +872,7 @@ No se suman como una única compra: los grupos incluyen sucursal y canal. No hay
 
 ### 14. ¿Por qué no cambian los faltantes cuando pregunto por cercanía?
 
-Si existe `cartResults`, `reorderCart` reutiliza el relevamiento. Cambiar el orden no dispara nuevas consultas de productos. Una modificación o recálculo explícito sí lo hace.
+Si existe `cartResults`, `reorderCart` reutiliza el relevamiento. Cambiar el orden no dispara nuevas consultas de productos. Modificar un ítem invalida ese snapshot y muestra la lista: la próxima comparación vuelve a consultar. Un recálculo explícito también consulta nuevamente.
 
 ### 15. ¿Qué pasa al cambiar la dirección?
 
@@ -891,7 +914,7 @@ La ubicación puede cambiar pickup/sucursal/radio. El orden solo cambia la prese
 
 Estado temporal por `from`; historial con UUID de sesión, texto depurado y GPS estructurado. No se guarda el teléfono como columna de ConversationLog, pero eso no vuelve anónimos los textos/direcciones.
 
-### 25. ¿Qué significa que los 207 tests pasen?
+### 25. ¿Qué significa que los 262 tests pasen?
 
 Que esos contratos y regresiones pasan con fixtures/mocks actuales. No comprueba por sí mismo tokens, saldo, disponibilidad externa ni cobertura real de Georef.
 
@@ -923,6 +946,18 @@ No hay un teléfono completo ni una whitelist de destinatarios en el flujo revis
 
 Persistencia de estado/idempotencia, control de acceso/cuotas, retención de datos y actualización operativa de precios. Son propuestas futuras; hoy la PoC tiene límites explícitos.
 
+### 33. ¿Cómo entiende «sí» después de ofrecer otro tamaño?
+
+El agente devuelve opciones estructuradas; el handler guarda ALTERNATIVE en `pendingAction`. CONFIRM_ALTERNATIVE acepta la única opción y usa su identidad en la herramienta sin otra llamada al modelo. Si hay varias, pide elegir.
+
+### 34. ¿Agregar un producto vuelve a consultar tres supermercados?
+
+No. `modifyCart` guarda el cambio, invalida `cartResults` y responde con la lista actual. La búsqueda ocurre al pedir precio, cercanía o total. Un alta explícita también puede crear un carrito de un solo producto.
+
+### 35. ¿Cómo evitás mostrar dos veces la misma oferta?
+
+`deduplicateOffers` compara producto, sucursal y precio y conserva una observación completa según alcance y fecha. No elimina precios o presentaciones diferentes ni modifica la base. El formato compacto evita repetir el nombre que ya está en el encabezado.
+
 ## 19. Guiones orales
 
 Los tiempos son aproximados y dependen del ritmo. Ensayalos; no hace falta memorizar nombres de todos los archivos.
@@ -941,7 +976,7 @@ Los tiempos son aproximados y dependen del ritmo. Ensayalos; no hace falta memor
 >
 > La comparación valida identidad y presentación. Diferenciamos precio de sucursal, precio online de cadena y retiro confirmado. Si no podemos confirmar stock local, lo decimos. Las respuestas comerciales se arman con formateadores de código, no con texto libre inventado por el modelo.
 >
-> También comparamos carritos de hasta diez productos. Multiplicamos cantidades y solo declaramos ganador si una comparación tiene precio para todos los ítems. Un supermercado incompleto muestra total parcial. Al preguntar por cercanía reutilizamos los resultados y, al cambiar ubicación, recalculamos conservando la lista.
+> También comparamos carritos de hasta diez productos. Solo declaramos ganador si tiene precio para todos los ítems; un carrito incompleto muestra total parcial y una cadena sin ningún ítem se omite. Modificar cantidades primero muestra la lista, sin relevar precios. Al pedir cercanía reutilizamos los resultados si siguen vigentes; un cambio de ubicación los invalida para consultar con el nuevo punto.
 >
 > Tenemos regresiones automatizadas para estos casos. Los límites actuales son explícitos: distancia en línea recta, sesiones en memoria y cobertura externa variable. Es una PoC que compara información disponible; no compra, reserva ni garantiza stock físico.
 
@@ -959,9 +994,9 @@ Los tiempos son aproximados y dependen del ritmo. Ensayalos; no hace falta memor
 >
 > **2:50–3:35 — Ubicación y carrito.** Las coordenadas vienen de GPS o de Georef. Conservamos calle y número si debemos pedir ciudad o provincia. No reemplazamos la ubicación anterior hasta resolver la nueva. Las distancias se calculan con Haversine, en línea recta. El carrito usa la misma búsqueda por ítem que una consulta individual, con dos ítems concurrentes. Agrupamos por sucursal y canal; no completamos una compra mezclando locales. Sumamos cantidades y distinguimos total completo y parcial.
 >
-> **3:35–4:15 — Caché y consistencia.** LiveObservation guarda snapshots con timestamp original y una clave que depende de producto, cadena, radio y ubicación. El orden no integra esa clave. Además, el carrito guarda sus resultados en sesión: si el usuario pregunta por cercanía, reordenamos esos mismos precios y faltantes. Cambiar una cantidad o la ubicación invalida ese resultado. Offer, observaciones live y sesión tienen responsabilidades diferentes.
+> **3:35–4:15 — Caché y consistencia.** LiveObservation guarda snapshots con fecha original y clave por producto, cadena, radio y ubicación; el orden no integra esa clave. El carrito guarda resultados en sesión: preguntar por cercanía reutiliza precios y faltantes. Modificar la lista invalida el snapshot y muestra el carrito; se consulta cuando el usuario pide comparar. En búsquedas individuales, los seguimientos conservan la variante encontrada. Si ofrecimos una única alternativa de tamaño, «sí» la acepta desde el estado. Las ofertas idénticas se deduplican antes de mostrarlas.
 >
-> **4:15–5:00 — Validación y límites.** La suite revisada tiene 207 pruebas aprobadas, incluyendo casos de conversaciones reales convertidos en regresiones, providers simulados, errores y cambios de ubicación. Los logs técnicos identifican etapa, consulta y provider, y ConversationLog conserva trazabilidad funcional. Railway tiene build, migraciones, start y healthcheck configurados. Pero una suite verde no valida un token ni un retailer hoy: hace falta prueba manual. Para escalar, el primer paso sería hacer persistentes sesión y procesamiento, controlar acceso y retención, y fortalecer fuentes locales; no afirmar que esas garantías ya existen.
+> **4:15–5:00 — Validación y límites.** La última validación dio 262 pruebas aprobadas, typecheck y build correctos, con conversaciones reales convertidas en regresiones y servicios simulados. Los logs identifican etapa, consulta y provider; Georef distingue ambigüedad de coordenadas ausentes. ConversationLog aporta trazabilidad. Railway tiene build, migraciones, start y healthcheck configurados. Una suite verde no valida un token ni un retailer hoy: hace falta prueba manual. Para escalar, primero habría que persistir sesión y procesamiento, controlar acceso y retención, y fortalecer fuentes locales; esas garantías todavía no existen.
 
 ## 20. Glosario
 
@@ -1006,6 +1041,9 @@ Los tiempos son aproximados y dependen del ritmo. Ensayalos; no hace falta memor
 | Session / sesión | Estado temporal de la conversación de un usuario |
 | Intent / intención | Acción interpretada: buscar, cambiar ubicación, modificar carrito, etc. |
 | Contexto | Datos previos que permiten entender «la más barata» sin repetir producto/ubicación |
+| `selectedQuery` | Identidad de la variante encontrada que se reutiliza al cambiar el orden; EAN o descripción con variante/tamaño |
+| Alternativa pendiente | Opción real distinta del tamaño pedido, guardada para que el usuario pueda aceptarla; no es una sustitución silenciosa |
+| Deduplicación de ofertas | Quitar repeticiones del mismo producto, sucursal y precio; distinta de deduplicar mensajes Meta |
 | Webhook idempotency | Evitar repetir efectos ante el mismo evento; aquí la protección es temporal y local, no durable |
 | HMAC / firma | Comprobación criptográfica de que el mensaje coincide con el secreto y los bytes esperados |
 | Sanitización / redacción de logs | Eliminar o enmascarar información sensible antes de registrar |

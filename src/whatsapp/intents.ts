@@ -5,7 +5,7 @@ import {writtenAddress} from './geocoding.js';
 import type {ConversationState} from './session.js';
 import type {SearchSort} from '../services/product-search.service.js';
 
-export type IntentName='SET_LOCATION'|'CHANGE_LOCATION'|'CANCEL_LOCATION'|'SEARCH_PRODUCT'|'PRODUCT_FOLLOWUP'|'CREATE_CART'|'CART_FOLLOWUP'|'MODIFY_CART'|'SHOW_CART'|'SMALLTALK'|'FAREWELL'|'UNKNOWN';
+export type IntentName='SET_LOCATION'|'CHANGE_LOCATION'|'CANCEL_LOCATION'|'SEARCH_PRODUCT'|'PRODUCT_FOLLOWUP'|'CONFIRM_ALTERNATIVE'|'CREATE_CART'|'CART_FOLLOWUP'|'MODIFY_CART'|'SHOW_CART'|'SMALLTALK'|'FAREWELL'|'UNKNOWN';
 export type CartChange={operation:'add'|'remove'|'set';query:string;quantity:number;queries?:string[]};
 export type Intent={name:IntentName;sort?:SearchSort;query?:string;items?:CartItem[];change?:CartChange;answer?:string;sameLocationDispute?:boolean;confirm?:boolean};
 const words=(text:string)=>normalizeSearchText(text).replace(/[.]/g,' ').replace(/\s+/g,' ').trim();
@@ -21,14 +21,16 @@ export function cartChange(message:string):CartChange|undefined{
   if(replacement)return {operation:'set',query:replacement[1]!,quantity:Number(replacement[2])};
   const transition=text.match(/^(?:(?:cambia|cambiame)\s+)?(?:las? |los? )?(.+?)\s+de\s+\d+\s+a\s+(\d+)(?:\s+unidades?)?$/);
   if(transition)return {operation:'set',query:transition[1]!,quantity:Number(transition[2])};
+  const sameProduct=text.match(/^(?:cambia|cambiame)\s+(?:el |la |los |las )?(.+?)\s+por\s+(\d+)\s+(.+?)(?:\s+en el carrito)?$/);
+  if(sameProduct&&sameProduct[1]===sameProduct[3])return {operation:'set',query:sameProduct[1]!,quantity:Number(sameProduct[2])};
   const quantity=/[\r\n;,]/.test(message)?null:words(message).match(/^(?:pone|poneme|pon|quiero)\s+(\d+)\s+(?:unidades? de\s+)?(.+?)(?:\s+unidades?|\s+en el carrito|\s+del carrito)?$/);
   if(quantity)return {operation:'set',query:quantity[2]!,quantity:Number(quantity[1])};
   const removal=message.match(/^\s*(?:sac[aá](?:me)?|quit[aá](?:me)?|elimin[aá](?:me)?|borr[aá](?:me)?)\s+(.+?)(?: del carrito| de la compra)?[.!?]*$/i);
   if(removal){
-    const queries=removal[1]!.split(/(?<!\d),|,(?!\d)|;|\s+y\s+/i).map(q=>q.trim().replace(/^(?:el|la|las|los)\s+/i,'')).filter(Boolean);
+    const queries=removal[1]!.split(/(?<!\d),|,(?!\d)|;|\s+y\s+/i).map(q=>q.trim().replace(/^(?:el|la|las|los)\s+/i,'').replace(/^(?:\d+|un|una|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez)\s+(?:unidades?\s+de\s+)?/i,'')).filter(Boolean);
     return {operation:'remove',query:queries[0]??'',quantity:1,...(queries.length>1?{queries}:{})};
   }
-  const addition=text.match(/\b(?:agrega|anadi|suma|sumale)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
+  const addition=text.match(/\b(?:agregar|agrega|anadi|suma|sumale)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
   if(addition)return {operation:'add',query:addition[2]!,quantity:Number(addition[1]??1)};
   return undefined;
 }
@@ -37,16 +39,19 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
   const locationTopic=/\b(ubicacion|direccion|zona|lugar|punto)\b/.test(text);
   const locationChange=/\b(cambiar|cambio|actualizar|actualizaste|nueva|nuevo|otra|otro|voy|probar|mude)\b/.test(text);
   const quantityOnly=text.match(/^(?:(?:pone|poneme|quiero)\s+|de\s+\d+\s+a\s+)(\d+)(?:\s+unidades?)?$/);
-  const explicitAddress=writtenAddress(message);
+  const change=cartChange(message);
+  const explicitAddress=change?undefined:writtenAddress(message);
   if(explicitAddress&&!(state.currentCart.length&&quantityOnly))return {name:'SET_LOCATION',query:explicitAddress};
   if((state.pendingAction?.type==='LOCATION'||state.pendingLocation)&&/^(?:cancelar|cancela|cancelalo|dejalo)(?: (?:el cambio de ubicacion|la ubicacion|la direccion|el pendiente))?$/.test(text))return {name:'CANCEL_LOCATION'};
   if(locationTopic&&locationChange)return {name:'CHANGE_LOCATION'};
   if(state.lastLocationSimilar&&/\bno\b/.test(text)&&/\b(misma|mismo|igual)\b/.test(text))return {name:'CHANGE_LOCATION',sameLocationDispute:true};
   if(isFarewell(message)||(/\b(gracias|chau|adios|hasta luego)\b/.test(text)&&! /\b(busco|buscame|comprar|agrega)\b/.test(text)))return {name:'FAREWELL'};
   if(isGreeting(message))return {name:'SMALLTALK'};
+  if(state.pendingAction?.type==='ALTERNATIVE'&&/^(si|si por favor|dale|bueno|no)$/.test(text))return {name:'CONFIRM_ALTERNATIVE',confirm:text!=='no'};
   if(state.pendingAction?.type==='ADD_ITEM'&&/^(si|dale|agregalo|agregala|no|no gracias)$/.test(text))return {name:'MODIFY_CART',confirm:!text.startsWith('no')};
   if(state.currentCart.length&&quantityOnly)return {name:'MODIFY_CART',change:{operation:'set',query:state.currentCart.length===1?state.currentCart[0]!.query:'',quantity:Number(quantityOnly[1])}};
-  const ref=cartReference(text)||(state.currentCart.length>0&&/\b(gastaria|total)\b/.test(text)&&/\b(supermercado|super|cadena)\b/.test(text)),change=cartChange(message);
+  const ref=cartReference(text)||(state.currentCart.length>0&&/\b(gastaria|total)\b/.test(text)&&/\b(supermercado|super|cadena)\b/.test(text));
+  if(/\b(?:muestrame|muestra|mostrame|mostrar|mostra|cual es)\s+(?:el |mi )?(?:carrito|carro)\b/.test(text))return {name:'SHOW_CART'};
   if(change&&(!/^(?:pone|poneme|pon|quiero)\s+\d+\b/.test(text)||state.currentCart.length>0))return {name:'MODIFY_CART',change,...order};
   if(state.currentCart.length&&/\b(?:esos|estos) supermercados\b/.test(text)&&sort)return {name:'CART_FOLLOWUP',...order};
   if(ref&&/\b(como|cual|que tengo|mostra\w*|recorda\w*)\b/.test(text)&&!sort&&!/\b(precio|cuesta|gast\w*)\b/.test(text))return {name:'SHOW_CART'};

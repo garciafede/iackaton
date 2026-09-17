@@ -1,4 +1,4 @@
-import type { SearchResult, SearchSort } from "../services/product-search.service.js";
+import { deduplicateOffers, type SearchResult, type SearchSort } from "../services/product-search.service.js";
 
 type Offers = {
   product: { name: string; size: string | null };
@@ -18,7 +18,7 @@ export function formatOffers(data: Offers, sort: SearchSort): string {
   const order = { price: "precio", distance: "distancia", recommended: "recomendación" }[sort];
   const radius = data.radiusKm === null ? "Sin límite de distancia" : `Dentro de ${number(data.radiusKm)} km`;
   const heading = `*${data.product.name} ${data.product.size ?? ""}*\n${radius}. Ordenadas por ${order}.`;
-  const offers = data.results.slice(0, 3).map((offer, index) => {
+  const offers = deduplicateOffers(data.results).slice(0, 3).map((offer, index) => {
     if (offer.live && offer.live.priceScope !== "SEPA_BRANCH") {
       const context=offer.live;
       // Las etiquetas se derivan del método, nunca de un bool stock ni texto libre.

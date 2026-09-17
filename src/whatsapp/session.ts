@@ -1,4 +1,4 @@
-import type { PreviousSearch } from "../ai/conversation.js";
+import type { PreviousSearch, ProductChoice } from "../ai/conversation.js";
 import type {CartItem,CartResult} from "../ai/cart.js";
 import type {SearchSort} from "../services/product-search.service.js";
 import type {SearchResult} from "../services/product-search.service.js";
@@ -7,6 +7,7 @@ import type {Coordinates} from "../utils/distance.js";
 import type {PendingLocation} from './geocoding.js';
 
 export type PendingAction =
+  | {type:"ALTERNATIVE";choices:ProductChoice[]}
   | {type:"LOCATION";street?:string;locality?:string;province?:string;question?:"city"|"province";resume?:"product"|"cart"}
   | {type:"ADD_ITEM";query:string;quantity:number};
 export type ConversationState={

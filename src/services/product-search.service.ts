@@ -103,12 +103,35 @@ export const findBestProduct = (
   return ambiguous ? null : bestMatch?.product ?? null;
 };
 
+// No combinar presentaciones ni precios distintos. Conservar una observación completa,
+// priorizando el alcance confirmado sobre el precio online asociado a una sucursal candidata.
+export function deduplicateOffers(results:SearchResult[]):SearchResult[] {
+  const kept:SearchResult[]=[];
+  const identity=(r:SearchResult)=>r.product?.name&&r.product.size
+    ?normalizeCatalogText([r.product.brand,r.product.name,r.product.variant,r.product.size].filter(Boolean).join(' ')):undefined;
+  const scope=(r:SearchResult)=>r.live?.priceScope==='BRANCH_CONFIRMED'?3:r.source==='REAL:SEPA'||r.live?.priceScope==='SEPA_BRANCH'?2:1;
+  for(const row of results){
+    const index=kept.findIndex(other=>{
+      const sameProduct=row.product?.ean&&other.product?.ean?row.product.ean===other.product.ean
+        :row.product?.id&&row.product.id>0&&row.product.id===other.product?.id||!!identity(row)&&identity(row)===identity(other);
+      const sameStore=row.store.chain===other.store.chain&&(
+        row.store.id>0&&row.store.id===other.store.id||
+        !!row.store.externalId&&row.store.externalId===other.store.externalId||
+        !!row.store.address&&normalizeSearchText(row.store.address)===normalizeSearchText(other.store.address)&&normalizeSearchText(row.store.name)===normalizeSearchText(other.store.name));
+      return sameProduct&&sameStore&&row.price===other.price;
+    });
+    if(index<0)kept.push(row);
+    else if(scope(row)>scope(kept[index]!)||scope(row)===scope(kept[index]!)&&row.lastCheckedAt>kept[index]!.lastCheckedAt)kept[index]=row;
+  }
+  return kept;
+}
+
 export const sortSearchResults = (
   results: SearchResult[],
   sort: SearchSort,
 ): SearchResult[] => {
   if (sort === "recommended" && results.some((result) => !result.recommendation)) throw new Error("Falta calcular el ranking recomendado.");
-  return [...results].sort((left, right) => {
+  return deduplicateOffers(results).sort((left, right) => {
     const primary = sort === "recommended" ? right.recommendation!.score - left.recommendation!.score || left.price - right.price || left.distanceKm - right.distanceKm
       : sort === "price" ? left.price - right.price || left.distanceKm - right.distanceKm
       : left.distanceKm - right.distanceKm || left.price - right.price;
