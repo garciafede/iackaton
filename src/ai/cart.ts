@@ -99,7 +99,7 @@ export function formatCart(result:CartResult,details=false):string {
   const order=winner?[winner,...found.filter(c=>c!==winner)]:found;
   for(const cart of order){
     lines.push(`\n${cart.chain}${cart.store?` · ${clean(cart.store)}`:""}`);
-    if(cart===winner||!cart.complete)for(const line of cart.lines)lines.push(`${line.item.quantity} ${clean(line.item.query)}${line.offer?.product?.size?` (${[line.offer.product.name,line.offer.product.size].filter(Boolean).map(v=>clean(v!)).join(' · ')})`:''} — ${line.subtotal===null?"no encontrado":money(line.subtotal/100)}${line.item.quantity>1&&line.offer?` (${money(line.offer.price)} c/u)`:""}`);
+    for(const line of cart.lines)lines.push(`${line.item.quantity} ${clean(line.item.query)}${line.offer?.product?.size?` (${[line.offer.product.name,line.offer.product.size].filter(Boolean).map(v=>clean(v!)).join(' · ')})`:''} — ${line.subtotal===null?"no encontrado":money(line.subtotal/100)}${line.item.quantity>1&&line.offer?` (${money(line.offer.price)} c/u)`:""}`);
     lines.push(`${cart.complete?"Total":"Total parcial"}: ${money(cart.total)}`);
     if(details)for(const line of cart.lines)if(line.offer)lines.push(`${clean(line.item.query)}: ${line.offer.source}; EAN ${line.offer.product?.ean??"no disponible"}; ${line.offer.lastCheckedAt.toISOString()}; ${line.offer.live?.availabilityConfidence??"disponibilidad no confirmada"}`);
   }

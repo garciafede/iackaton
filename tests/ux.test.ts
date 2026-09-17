@@ -48,6 +48,16 @@ test('chat 23:45: Pepsi Black 1.5 L no duplica Vea ni repite el producto en cada
   const distinct=[first,{...first,price:4000},{...first,product:{...first.product,ean:'7790000000021',size:'2 L'}},otherBranch];
   assert.equal(deduplicateOffers(distinct).length,4,'Conservar otro precio, presentación o sucursal');
 });
+
+test('UX: búsqueda genérica de Pepsi no encabeza con una variante y sí muestra las presentaciones',()=>{
+  const black={...offer('Vea',3650),product:{id:20,ean:'7790000000020',brand:'Pepsi',name:'Pepsi Black',variant:'Black',size:'1.5 L'}};
+  const original={...offer('Carrefour',3900),product:{id:21,ean:'7790000000021',brand:'Pepsi',name:'Pepsi Original',variant:'Original',size:'2 L'}};
+  const compact=formatCompactOffers({product:{name:'Pepsi',size:null},results:[black,original],radiusKm:25} as any,'price');
+  assert.match(compact,/^\*Pepsi\*/m);
+  assert.doesNotMatch(compact,/^\*Pepsi Black 1\.5 L\*/m);
+  assert.match(compact,/Pepsi Black 1\.5 L/);
+  assert.match(compact,/Pepsi Original 2 L/);
+});
 for(const phrase of ["más barato","más barata","dónde conviene","menor precio"]){
   test(`UX: ${phrase} impone precio ascendente aunque el modelo seleccione distancia`,async()=>{
     let actual:any;
@@ -69,6 +79,20 @@ test("UX: carrito completo suma cantidades y elige el supermercado más barato",
   assert.equal(calls.length,5);assert.equal(cart.winner?.chain,"Carrefour");assert.equal(cart.winner.total,600);assert.equal(cart.comparisons[1]?.total,660);
   const text=formatCart(cart);assert.match(text,/Más barato/);assert.match(text,/100,00 c\/u/);assert.doesNotMatch(text,/EAN|REAL:|2026|lastChecked/);assert.match(text,/disponibilidad local no confirmados/);
 });
+
+test("UX: comparación de carrito detalla todas las cadenas y no oculta el ganador",async()=>{
+  const cart=await compareCart([{query:"Pepsi",quantity:1}],-26,-65,"price",25,async()=>result([
+    offer("Carrefour",100),
+    offer("Vea",200),
+    offer("ChangoMás",300),
+  ]));
+  const text=formatCart(cart);
+  assert.match(text,/Carrefour · Carrefour test[\s\S]*\$100,00/);
+  assert.match(text,/Vea · Vea test[\s\S]*\$200,00/);
+  assert.match(text,/ChangoMás · ChangoMás test[\s\S]*\$300,00/);
+  assert.match(text,/Total: \$300,00/);
+});
+
 test("UX: producto faltante no gana contra carrito completo y muestra total parcial",async()=>{
   const cart=await compareCart(parseCart(input)!,-26,-65,"price",25,async a=>result(names.filter(c=>!(c==="Carrefour"&&a.query==="arroz 53")).map((chain,i)=>offer(chain,chain==="Carrefour"?1:100+i))));
   assert.notEqual(cart.winner?.chain,"Carrefour");const partial=cart.comparisons.find(c=>c.chain==="Carrefour")!;assert.equal(partial.complete,false);assert.equal(partial.total,4);assert.match(formatCart(cart),/arroz 53 — no encontrado/);assert.match(formatCart(cart),/Total parcial/);
