@@ -6,7 +6,7 @@ import {parseAddress,completeAddress,formatAddress,geocodeAddress,writtenAddress
 import {calculateDistanceKm} from '../utils/distance.js';
 import {normalizeSearchText} from '../utils/normalize-text.js';
 import {newConversationState,type ConversationState} from './session.js';
-import {resolveIntent,type Intent,type CartChange} from './intents.js';
+import {resolveIntent,cartProductWords,type Intent,type CartChange} from './intents.js';
 import type {WhatsAppMessage,WhatsAppWebhookDependencies} from './webhook.js';
 
 const userQueues=new WeakMap<WhatsAppWebhookDependencies,Map<string,Promise<void>>>();
@@ -105,8 +105,8 @@ async function processConversation(message:WhatsAppMessage,d:WhatsAppWebhookDepe
       state.currentCart=state.currentCart.filter((_item,index)=>!remove.has(index));state.activeSubject='cart';
       delete state.pendingAction;delete state.cartResults;save();await send(cartUpdated());return;
     }
-    const tokens=normalizeSearchText(change.query).split(' ').filter(w=>!['el','la','las','los','un','una'].includes(w));
-    const matches=state.currentCart.map((item,index)=>({item,index})).filter(({item})=>tokens.every(w=>normalizeSearchText(item.query).split(' ').includes(w)));
+    const tokens=cartProductWords(change.query);
+    const matches=state.currentCart.map((item,index)=>({item,index})).filter(({item})=>tokens.length&&tokens.every(w=>cartProductWords(item.query).includes(w)));
     if(matches.length>1){await send('Hay más de una presentación en tu carrito. Indicá cuál querés modificar.');return;}
     if(!matches.length&&change.operation!=='add'){state.pendingAction={type:'ADD_ITEM',query:change.query,quantity:change.quantity};save();await send(`${change.query} no está en tu carrito. ¿Querés agregar ${change.quantity}?`);return;}
     const cart=state.currentCart.map(item=>({...item}));const match=matches[0];

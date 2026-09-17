@@ -28,6 +28,37 @@ function harness(){
   return {deps,sessions,sent,intents,logs,text,post,searches:()=>searches,state:()=>sessions.get('test')!};
 }
 
+test('chat 08:45: Sumame 1 chocolinas al carrito es ADD incluso con una dirección pendiente',async()=>{
+  const h=harness();h.sessions.update('test',{...newConversationState(),currentCart:[{query:'galletitas chocolinas',quantity:1},{query:'arroz lucchetti',quantity:3}],pendingAction:{type:'LOCATION',street:'Fixture 100',question:'province'}});
+  h.deps.geocode=async()=>{assert.fail('El alta explícita no debe consultar Georef');};
+  await h.text('Sumame 1 chocolinas al carrito');
+  assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),0);
+  assert.deepEqual(h.state().currentCart,[{query:'galletitas chocolinas',quantity:2},{query:'arroz lucchetti',quantity:3}]);
+  assert.equal(h.state().pendingAction,undefined);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);assert.doesNotMatch(h.sent.at(-1)!,/provincia|localidad/);
+  const empty=harness();await empty.text('Sumame 1 chocolinas al carrito');assert.deepEqual(empty.state().currentCart,[{query:'chocolinas',quantity:1}]);
+});
+
+for(const phrase of ['Cambia las 2 leches por 4 leches','Cambia las 2 leches por 4 leche']){
+  test(`chat 08:47: ${phrase} encuentra la referencia corta y conserva el carrito`,async()=>{
+    const h=harness();h.sessions.update('test',{...newConversationState(),currentCart:[{query:'leche entera la serenísima',quantity:2},{query:'arroz lucchetti',quantity:3}]});
+    h.deps.geocode=async()=>{assert.fail('Una modificación de cantidad nunca es dirección');};
+    await h.text(phrase);assert.equal(h.intents.at(-1),'MODIFY_CART');assert.equal(h.searches(),0);
+    assert.deepEqual(h.state().currentCart,[{query:'leche entera la serenísima',quantity:4},{query:'arroz lucchetti',quantity:3}]);assert.match(h.sent.at(-1)!,/^🛒 Tu carrito actual:/);
+    assert.equal(h.state().cartResults,undefined);
+  });
+}
+
+test('referencia leches ambigua pide aclarar, sin cambiar ni agregar productos',async()=>{
+  const h=harness(),cart=[{query:'leche entera la serenísima',quantity:2},{query:'leche descremada',quantity:2}];h.sessions.update('test',{...newConversationState(),currentCart:cart});
+  await h.text('Cambia las 2 leches por 4 leches');assert.deepEqual(h.state().currentCart,cart);assert.equal(h.searches(),0);assert.match(h.sent.at(-1)!,/más de una presentación/);
+});
+
+test('intención de producto explícita gana sobre dirección inferida aun con ubicación pendiente',()=>{
+  const state={...newConversationState(),pendingAction:{type:'LOCATION' as const,street:'Fixture 100',question:'province' as const}};
+  for(const phrase of ['Busco fideos 53','Buscar galletitas 53','Cuánto cuesta fideos 53'])assert.equal(resolveIntent(phrase,state).name,'SEARCH_PRODUCT',phrase);
+  assert.equal(resolveIntent('Italia 1110',state).name,'SET_LOCATION');
+});
+
 test('E2E 16/09: Volvamos a la barata conserva Coca Zero y aplica price',async()=>{
   const h=harness();await h.post({type:'location',location:{latitude:-27,longitude:-66}});
   await h.text('Quiero coca zero');await h.text('Cuál es la más barata?');await h.text('Y la más cercana?');
@@ -119,14 +150,27 @@ function installVariantAgent(h:ReturnType<typeof harness>){
   const zero={id:501,ean:'7790895067556',name:'Coca-Cola Sin Azúcar',brand:'Coca-Cola',variant:'Zero',size:'1.5 L'};
   const original={id:502,ean:'7790000000002',name:'Coca-Cola Original',brand:'Coca-Cola',variant:'Original',size:'354 ml'};
   h.deps.agent=input=>runProductAgent({...input,compact:true},{model:'mock',createResponse:async()=>{
-    modelCalls++;return {output:[{type:'function_call',name:'findProductOffers',arguments:JSON.stringify({query:/2 litros/.test(input.message)?'Coca Zero 2 litros':'Coca',sort:'price'})}]} as any;
+    modelCalls++;return {output:[{type:'function_call',name:'findProductOffers',arguments:JSON.stringify({query:/2 litros/.test(input.message)?'Coca Zero 2 litros':/coca.*1[.,]5/i.test(input.message)?'Coca Zero 1.5 L':'Coca',sort:'price'})}]} as any;
   },executeTool:async a=>{
     calls.push({query:a.query,sort:a.sort});if(/2 litros/.test(a.query))return null;
-    const products=a.query===zero.ean||a.query==='Coca Zero'?[zero]:a.query===original.ean?[original]:[original,zero];
+    const products=a.query===zero.ean||a.query.startsWith('Coca Zero')?[zero]:a.query===original.ean?[original]:[original,zero];
     const results=products.map((p,index)=>({product:p,store:{id:index+1,chain:'Vea',name:`Sucursal ${p.id}`,address:'Fixture'},price:p===original?100:200,distanceKm:p===original?3:1,source:'REAL:SEPA',stock:null,lastCheckedAt:new Date()}));
     return {product:products[0],results,totalResults:results.length,radiusKm:25} as any;
   }});
   return {calls,modelCalls:()=>modelCalls,zero,original};
+}
+
+for(const phrase of ['Y la coca dónde está más barata?','Y la coca donde está más barata?']){
+  test(`chat 08:54: ${phrase} vuelve al producto después de SHOW_CART`,async()=>{
+    const h=harness(),a=installVariantAgent(h);await h.post({type:'location',location:{latitude:-27,longitude:-66}});
+    await h.text('1 Oreo\n2 leche entera la serenísima');const cart=structuredClone(h.state().currentCart),results=h.state().cartResults,calls=h.searches();
+    await h.text('Cuánto cuesta coca zero 1.5L?');await h.text('Cómo era mi carrito?');assert.equal(h.state().activeSubject,'cart');
+    await h.text(phrase);assert.equal(h.intents.at(-1),'PRODUCT_FOLLOWUP');assert.equal(a.calls.at(-1)?.query,a.zero.ean);assert.equal(a.calls.at(-1)?.sort,'price');
+    assert.equal(a.modelCalls(),1);assert.equal(h.searches(),calls);assert.equal(h.state().cartResults,results);assert.deepEqual(h.state().currentCart,cart);
+    assert.match(h.sent.at(-1)!,/Sin Azúcar 1.5 L/);assert.doesNotMatch(h.sent.at(-1)!,/carrito|Oreo/);
+    await h.text('Mostrame mi carrito');await h.text('Más barata?');assert.equal(h.intents.at(-1),'CART_FOLLOWUP');
+    assert.equal(resolveIntent('Y la coca zero 2L dónde está más barata?',h.state()).name,'SEARCH_PRODUCT','Un tamaño nuevo no se confunde con el anterior');
+  });
 }
 
 for(const yes of ['Si','sí']){

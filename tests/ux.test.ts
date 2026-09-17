@@ -20,6 +20,20 @@ const offer=(chain:string,price:number,storeId=names.indexOf(chain)+1):any=>({st
 const result=(rows:any[]):any=>({product:{id:1,name:"Producto test",brand:"Test",variant:null,size:"500 ml"},results:rows,totalResults:rows.length,radiusKm:25});
 const args={query:"Coca Zero",latitude:-26,longitude:-65,sort:"distance",radiusKm:25};
 
+test('chat 08:38: Dónde venderán más barata la Pepsi? no repite Vea America y Belgrano con dos EAN del mismo grupo',async()=>{
+  const product={id:20,ean:'7791813828419',brand:'Pepsi',name:'Pepsi Black',variant:'Black / Sin Azúcar',size:'1.5 L'};
+  const first={...offer('Vea',3650),product,store:{id:20,chain:'Vea',name:'Vea America y Belgrano Tucuman',address:'Fixture de sucursal'},source:'REAL:SEPA',live:undefined};
+  const duplicate={...first,product:{...product,id:21,ean:'7791813421054',size:'1500 ml'}};
+  const other={...first,store:{...first.store,id:22,name:'Vea Av Sarmiento',address:'Otro fixture'}};
+  const data={...result([first,duplicate,other]),product};
+  for(const format of [formatCompactOffers,formatOffers])assert.equal(format(data,'price').match(/Vea America y Belgrano/g)?.length,1);
+  const response=await runProductAgent({message:'Dónde venderán más barata la Pepsi?',latitude:-27,longitude:-66,compact:true},{model:'mock',createResponse:async()=>({output:[{type:'function_call',name:'findProductOffers',arguments:JSON.stringify({...args,query:'Pepsi',sort:'price'})}]} as any),executeTool:async()=>data});
+  assert.equal(response.message.match(/Vea America y Belgrano/g)?.length,1);assert.match(response.message,/Vea Av Sarmiento/);
+  const distinct=[first,{...first,price:3900},{...first,product:{...product,size:'2 L'}},{...first,product:{...product,variant:'Original'}},other];
+  assert.equal(deduplicateOffers(distinct).length,5,'No fusionar distinta presentación, variante, precio o sucursal, incluso si comparten EAN erróneamente');
+  assert.equal(data.results.length,3,'No alterar los datos recibidos de la búsqueda');
+});
+
 test('chat 23:45: Pepsi Black 1.5 L no duplica Vea ni repite el producto en cada línea',()=>{
   const first={...offer('Vea',3650),product:{id:20,ean:'7790000000020',brand:'Pepsi',name:'Pepsi Black',variant:'Black',size:'1.5 L'}};
   const duplicate={...first,source:'REAL:SEPA',live:undefined};

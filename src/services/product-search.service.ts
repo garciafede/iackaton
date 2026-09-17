@@ -112,13 +112,17 @@ export function deduplicateOffers(results:SearchResult[]):SearchResult[] {
   const scope=(r:SearchResult)=>r.live?.priceScope==='BRANCH_CONFIRMED'?3:r.source==='REAL:SEPA'||r.live?.priceScope==='SEPA_BRANCH'?2:1;
   for(const row of results){
     const index=kept.findIndex(other=>{
-      const sameProduct=row.product?.ean&&other.product?.ean?row.product.ean===other.product.ean
-        :row.product?.id&&row.product.id>0&&row.product.id===other.product?.id||!!identity(row)&&identity(row)===identity(other);
+      // Un grupo puede tener dos EAN (Pepsi Black 1.5 L): si la descripción,
+      // variante y presentación coinciden, no duplicar la misma oferta visible.
+      const sameProduct=!!row.product?.ean&&row.product.ean===other.product?.ean||
+        !!row.product?.id&&row.product.id>0&&row.product.id===other.product?.id||!!identity(row)&&identity(row)===identity(other);
+      const samePresentation=!(row.product?.size&&other.product?.size)||normalizeCatalogText(row.product.size)===normalizeCatalogText(other.product.size);
+      const sameVariant=!(row.product?.variant&&other.product?.variant)||normalizeCatalogText(row.product.variant)===normalizeCatalogText(other.product.variant);
       const sameStore=row.store.chain===other.store.chain&&(
         row.store.id>0&&row.store.id===other.store.id||
         !!row.store.externalId&&row.store.externalId===other.store.externalId||
         !!row.store.address&&normalizeSearchText(row.store.address)===normalizeSearchText(other.store.address)&&normalizeSearchText(row.store.name)===normalizeSearchText(other.store.name));
-      return sameProduct&&sameStore&&row.price===other.price;
+      return sameProduct&&samePresentation&&sameVariant&&sameStore&&row.price===other.price;
     });
     if(index<0)kept.push(row);
     else if(scope(row)>scope(kept[index]!)||scope(row)===scope(kept[index]!)&&row.lastCheckedAt>kept[index]!.lastCheckedAt)kept[index]=row;

@@ -1,6 +1,7 @@
 import {isFarewell,isGreeting,requestedSort,answerStoreQuestion,followupSort} from '../ai/conversation.js';
 import {parseCart,type CartItem} from '../ai/cart.js';
 import {normalizeSearchText} from '../utils/normalize-text.js';
+import {normalizeCatalogText,queryFitsCatalogProduct,matchesRequestedPresentation} from '../catalog/matching.js';
 import {writtenAddress} from './geocoding.js';
 import type {ConversationState} from './session.js';
 import type {SearchSort} from '../services/product-search.service.js';
@@ -10,6 +11,11 @@ export type CartChange={operation:'add'|'remove'|'set';query:string;quantity:num
 export type Intent={name:IntentName;sort?:SearchSort;query?:string;items?:CartItem[];change?:CartChange;answer?:string;sameLocationDispute?:boolean;confirm?:boolean};
 const words=(text:string)=>normalizeSearchText(text).replace(/[.]/g,' ').replace(/\s+/g,' ').trim();
 const cartReference=(text:string)=>/\b(carrito|carro|compra|lo anterior|lo mismo)\b/.test(text);
+export function cartProductWords(text:string):string[]{
+  return words(text).replace(/^(?:el |la |los |las )?(?:\d+\s+)?/,'').split(' ')
+    .filter(w=>w&&!['el','la','los','las','un','una','de'].includes(w))
+    .map(w=>w.length>4?w.replace(/ces$/,'z').replace(/([rnldz])es$/,'$1').replace(/([aeiou])s$/,'$1'):w);
+}
 function criterion(text:string):SearchSort|undefined{
   const matches=[...text.matchAll(/(?:mejor|menor|bajo|por|priorizo el) precio|barat\w*|gast\w*|conviene|cerca\w*|distancia/g)];
   const last=matches.at(-1)?.[0];
@@ -22,7 +28,7 @@ export function cartChange(message:string):CartChange|undefined{
   const transition=text.match(/^(?:(?:cambia|cambiame)\s+)?(?:las? |los? )?(.+?)\s+de\s+\d+\s+a\s+(\d+)(?:\s+unidades?)?$/);
   if(transition)return {operation:'set',query:transition[1]!,quantity:Number(transition[2])};
   const sameProduct=text.match(/^(?:cambia|cambiame)\s+(?:el |la |los |las )?(.+?)\s+por\s+(\d+)\s+(.+?)(?:\s+en el carrito)?$/);
-  if(sameProduct&&sameProduct[1]===sameProduct[3])return {operation:'set',query:sameProduct[1]!,quantity:Number(sameProduct[2])};
+  if(sameProduct&&cartProductWords(sameProduct[1]!).join(' ')===cartProductWords(sameProduct[3]!).join(' '))return {operation:'set',query:cartProductWords(sameProduct[1]!).join(' '),quantity:Number(sameProduct[2])};
   const quantity=/[\r\n;,]/.test(message)?null:words(message).match(/^(?:pone|poneme|pon|quiero)\s+(\d+)\s+(?:unidades? de\s+)?(.+?)(?:\s+unidades?|\s+en el carrito|\s+del carrito)?$/);
   if(quantity)return {operation:'set',query:quantity[2]!,quantity:Number(quantity[1])};
   const removal=message.match(/^\s*(?:sac[aá](?:me)?|quit[aá](?:me)?|elimin[aá](?:me)?|borr[aá](?:me)?)\s+(.+?)(?: del carrito| de la compra)?[.!?]*$/i);
@@ -30,7 +36,7 @@ export function cartChange(message:string):CartChange|undefined{
     const queries=removal[1]!.split(/(?<!\d),|,(?!\d)|;|\s+y\s+/i).map(q=>q.trim().replace(/^(?:el|la|las|los)\s+/i,'').replace(/^(?:\d+|un|una|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez)\s+(?:unidades?\s+de\s+)?/i,'')).filter(Boolean);
     return {operation:'remove',query:queries[0]??'',quantity:1,...(queries.length>1?{queries}:{})};
   }
-  const addition=text.match(/\b(?:agregar|agrega|anadi|suma|sumale)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
+  const addition=text.match(/\b(?:agregar|agrega|anadi|suma|sumale|sumame)\s+(?:(?:al carrito|a la compra)\s+)?(?:(\d+)\s+(?:x\s+)?)?(.+?)(?: al carrito| a la compra|$)/);
   if(addition)return {operation:'add',query:addition[2]!,quantity:Number(addition[1]??1)};
   return undefined;
 }
@@ -40,7 +46,8 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
   const locationChange=/\b(cambiar|cambio|actualizar|actualizaste|nueva|nuevo|otra|otro|voy|probar|mude)\b/.test(text);
   const quantityOnly=text.match(/^(?:(?:pone|poneme|quiero)\s+|de\s+\d+\s+a\s+)(\d+)(?:\s+unidades?)?$/);
   const change=cartChange(message);
-  const explicitAddress=change?undefined:writtenAddress(message);
+  const explicitProduct=/^(?:busca(?:me|r)?|busco|consegui(?:me)?|cuanto cuesta|precio de)\b/.test(text);
+  const explicitAddress=change||explicitProduct||/\b(?:al|mi|el) carrito\b/.test(text)?undefined:writtenAddress(message);
   if(explicitAddress&&!(state.currentCart.length&&quantityOnly))return {name:'SET_LOCATION',query:explicitAddress};
   if((state.pendingAction?.type==='LOCATION'||state.pendingLocation)&&/^(?:cancelar|cancela|cancelalo|dejalo)(?: (?:el cambio de ubicacion|la ubicacion|la direccion|el pendiente))?$/.test(text))return {name:'CANCEL_LOCATION'};
   if(locationTopic&&locationChange)return {name:'CHANGE_LOCATION'};
@@ -56,6 +63,15 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
   if(state.currentCart.length&&/\b(?:esos|estos) supermercados\b/.test(text)&&sort)return {name:'CART_FOLLOWUP',...order};
   if(ref&&/\b(como|cual|que tengo|mostra\w*|recorda\w*)\b/.test(text)&&!sort&&!/\b(precio|cuesta|gast\w*)\b/.test(text))return {name:'SHOW_CART'};
   if(ref&&!/\b(?:comprar|necesito)\s*:\s*\d/i.test(message)&&!/(?:^|[,;\n])\s*\d+\s/.test(message))return {name:'CART_FOLLOWUP',...order};
+  // Una referencia nominal al producto gana sobre el último SHOW_CART. Una nueva
+  // presentación/variante explícita sigue siendo una búsqueda nueva.
+  if(sort&&!ref&&state.lastProduct&&!/[\r\n;]|(?<!\d),|,(?!\d)|\s+y\s+\d+\s/.test(message)){
+    const named=normalizeCatalogText(message).split(' ').filter(w=>!['y','el','la','los','las','donde','esta','estan','es','mas','barata','barato','baratas','baratos','cerca','cercana','cercano','queda','me','por','precio','de','del','que','cuanto','cuesta'].includes(w)).join(' ');
+    const selected=state.lastProduct.selectedQuery;
+    const previous=[state.lastProduct.query,...(selected&&!/^\d+$/.test(selected)?[selected]:[]),...(state.lastProductResults??[]).filter(r=>!selected||r.product?.ean===selected).flatMap(r=>[r.product?.name??'',r.product?.brand??'',r.product?.variant??'',r.product?.size??''])];
+    if(named&&queryFitsCatalogProduct(named,previous)&&previous.some(p=>matchesRequestedPresentation(named,p)))return {name:'PRODUCT_FOLLOWUP',...order};
+    if(named&&named.split(' ').some(w=>w.length>2&&!/^(\d+|ml|unidades)$/.test(w)&&normalizeCatalogText(state.lastProduct!.query).split(' ').includes(w)))return {name:'SEARCH_PRODUCT',query:message,...order};
+  }
   const stored=state.activeSubject==='cart'?state.cartResults?.comparisons.flatMap(c=>c.lines.flatMap(l=>l.offer?[l.offer]:[])):state.lastProductResults;
   const storeAnswer=answerStoreQuestion(message,stored??[]);
   if(storeAnswer)return {name:state.activeSubject==='cart'?'CART_FOLLOWUP':'PRODUCT_FOLLOWUP',answer:storeAnswer,...order};
@@ -67,7 +83,7 @@ export function resolveIntent(message:string,state:ConversationState):Intent{
     if(state.pendingAction.resume&&/(?:^|[,;\n])\s*\d+\s/.test(message)){
       const items=parseCart(message);if(items)return {name:'CREATE_CART',items,sort:sort??'price'};
     }
-    if(/\b(busca\w*|quiero (?:un|una)|necesito (?:un|una)|precio)\b/.test(text)||/\d+(?:[.,]\d+)?\s*(?:lts?|litros?|l|ml|cc|kg|g|gramos?)\b/i.test(message))return {name:'SEARCH_PRODUCT',query:message,...order};
+    if(explicitProduct||/\b(busca\w*|quiero (?:un|una)|necesito (?:un|una)|precio)\b/.test(text)||/\d+(?:[.,]\d+)?\s*(?:lts?|litros?|l|ml|cc|kg|g|gramos?)\b/i.test(message))return {name:'SEARCH_PRODUCT',query:message,...order};
     // Las aclaraciones de dirección consumen respuestas de contexto, no intents claros como mostrar carrito.
     return {name:'SET_LOCATION',query:message};
   }
